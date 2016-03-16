@@ -1,6 +1,6 @@
 
 
-packages <- c("googleVis","dplyr","ggvis","openintro","plotly","maps","RColorBrewer","mapproj","stargazer","swirl")
+packages <- c("googleVis","dplyr","ggvis","openintro","plotly","maps","RColorBrewer","mapproj","stargazer","swirl","grid")
 
 for (i in 1:length(packages)) {
     install.packages(packages[i])
