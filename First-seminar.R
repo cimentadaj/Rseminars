@@ -35,8 +35,9 @@ url5 <- "https://gist.githubusercontent.com/vasishth/3b767e39dba9fc2df65b/raw/d5
 destfile5 <- paste0(getwd(),"/","ExampleExamCode.R")
 download.file(url5, destfile5)
 
-## Ignore everything above from this line
-----------------------------------------------------------------------------------------------------------------------------
+## Ignore EVERYTHING above this line
+
+----------------------------------------------------------------------------------------------------------------------------------
 
 
 ========================================================
@@ -464,6 +465,7 @@ Interactive graphs
 ========================================================
 Let's play around!  
 ```{r echo=T, eval=F}
+library(ggvis)
 span <- waggle(0.2,1)
 span <- left_right(0.2,1,step = 0.1)
 
@@ -615,3 +617,4 @@ Try it out yourself:
 library("swirl")
 swirl()
 ```
+
