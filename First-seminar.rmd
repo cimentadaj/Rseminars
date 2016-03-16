@@ -294,7 +294,7 @@ R graphics - Exploratory analysis
 ========================================================
 
 **__Problem = Visualizing a bivariate relationship filtered by two variables__**
-```{r, echo=T, fig.width=10, fig.height=7, fig.width=15}
+```{r, echo=T, fig.width=10, fig.height=5, fig.width=15}
 ## Run this in your console
 library(ggplot2)
 qplot(wt, mpg, data=mtcars, size=qsec, color=factor(carb))
@@ -303,7 +303,7 @@ qplot(wt, mpg, data=mtcars, size=qsec, color=factor(carb))
 R graphics - Exploratory analysis
 ========================================================
 **__Problem = Visualizing a bivariate relationship by a categorical variable__**
-```{r, echo=T, fig.height=7, fig.width=15, tidy=T}
+```{r, echo=T, fig.height=5, fig.width=15, tidy=T}
 ## Run this in your console
 library(ggplot2)
 qplot(mpg, wt, data=mtcars, facets=cyl~., geom=c("point", "smooth")) + coord_flip()
@@ -376,7 +376,7 @@ p4 <- ggplot(subset(ChickWeight, Time==21), aes(x=weight, fill=Diet)) +
     theme(legend.position="none")        # No legend (redundant in this graph) 
 ```
 
-```{r echo=T ,fig.width=15, tidy=T}
+```{r echo=T ,fig.width=15, fig.height=7, tidy=T}
 ## Do not run this. It's incomplete code.
 multiplot(p1, p2, p3, p4, cols=2)
 ```
@@ -388,19 +388,25 @@ R graphics - Exploratory analysis
 
 R graphics - Advanced
 ========================================================
-**__Problem = Visualizing statistical models__**
-![] (http://jason.bryer.org/images/multilevelPSA/pisaAssessmentPlot.png)
-http://jason.bryer.org/multilevelPSA/
+**__Problem = Visualizing statistical techniques__**
+<div align="center">
+<img src="http://jason.bryer.org/images/multilevelPSA/pisaAssessmentPlot.png" width=800 height=600>
+</div>
+
 
 R graphics - Advanced
 ========================================================
 **__Problem = Plotting distributions next to scatterplots__**
-![] (https://whyevolutionistrue.files.wordpress.com/2015/09/f1-large.jpg?w=698&h=554)
+<div align="center">
+<img src="https://whyevolutionistrue.files.wordpress.com/2015/09/f1-large.jpg?w=698&h=554" width=800 height=600>
+</div>
 
 R graphics - Advanced
 ========================================================
 **__Problem = Making graphical summaries__**
-![] (http://user2014.stat.ucla.edu/images/DianneCookLukeFostvedtIanLyttleAlexShum.png)
+<div align="center">
+<img src="http://user2014.stat.ucla.edu/images/DianneCookLukeFostvedtIanLyttleAlexShum.png" width=800 height=600>
+</div>
 
 R graphics - Interactive graphs
 ========================================================
@@ -545,7 +551,9 @@ R graphics - Maps
 R graphics - Maps
 ========================================================
 **Crime density in Baltimore**
-![] (http://i2.wp.com/www.obscureanalytics.com/wp-content/uploads/2012/12/AGG._ASSAULT.png)
+<div align="center">
+<img src="http://i2.wp.com/www.obscureanalytics.com/wp-content/uploads/2012/12/AGG._ASSAULT.png" width=800 height=600>
+</div>
 
 R graphics - Maps
 ========================================================
@@ -553,7 +561,9 @@ R graphics - Maps
 
 R graphics - Maps
 ========================================================
-![] (http://i1.wp.com/f.hypotheses.org/wp-content/blogs.dir/253/files/2015/02/Rplot-19.png?w=456)
+<div align="center">
+<img src="http://i1.wp.com/f.hypotheses.org/wp-content/blogs.dir/253/files/2015/02/Rplot-19.png?w=456" width=800 height=600>
+</div>
 
 R graphics - Maps
 ========================================================
@@ -596,13 +606,11 @@ Checkout the fantastic Rmarkdown [here](https://rpubs.com/bcavness1/crrp2) and [
 
 But of course, it's not built to write research papers, it's more for:
 - Blog posts;
-- Posts to StackExchange sites;
 - Materials for training workshops;
 - Short consulting reports;
 - Exploratory analyses as part of a larger project;
 
 There's also Powerpoint presentations with [slidify](http://blmoore.bitbucket.org/edbio/#1)  
-- You can also save it as pdf
 
 Exercises for you students
 ========================================================
@@ -619,3 +627,4 @@ swirl()
 
 ========================================================
 # Thank you!
+
