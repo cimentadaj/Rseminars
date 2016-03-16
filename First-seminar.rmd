@@ -612,7 +612,7 @@ But of course, it's not built to write research papers, it's more for:
 
 There's also Powerpoint presentations with [slidify](http://blmoore.bitbucket.org/edbio/#1)  
 
-Exercises for you students
+Exercises for your students
 ========================================================
 With the [swirl](http://swirlstats.com/) package you can program exercises and homeworks that students can do anywhere.
 
