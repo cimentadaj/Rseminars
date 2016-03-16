@@ -1,3 +1,5 @@
+
+
 packages <- c("googleVis","dplyr","ggvis","openintro","plotly","maps","RColorBrewer","mapproj","stargazer","swirl")
 
 for (i in 1:length(packages)) {
@@ -7,3 +9,5 @@ print(paste(packages[i],"done"))
 }
 
 install_from_swirl("Getting and Cleaning Data")
+
+message("Everything was installed correctly!")
