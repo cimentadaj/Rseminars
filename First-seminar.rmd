@@ -45,6 +45,22 @@ Jorge Cimentada
 
 ![] (http://brunalab.org/wp-content/uploads/2015/04/R_logo.svg_.png)
 
+Outline
+========================================================
+
+- Defining R and how it works  
+- Exploring R and Rstudio  
+- R graphics 
+  + for teaching  
+  + for exploratory analysis  
+  + advanced  
+  + interactive graphs  
+  + maps  
+- R reports and presentations  
+- R for exercises and homework  
+- Extra: R summary statistics  
+
+
 What is R?
 ========================================================
 
@@ -114,6 +130,31 @@ Downloading Rstudio
 * **R also offers the very flexible and powerful Grammar of Graphics approach. Developers have even gone so far as replacing R’s core graphical system.**
 * R is free. This helps to attract developers and is a major reason that there are so many add-on
 packages for it.
+
+ What are R's strengths?
+========================================================
+> Adapted from 'R for SPSS and SAS users' by Robert Muenchen
+
+* It takes most statistics packages at least 5 years to add a major new analytic method;
+* You can do all your data management with any software you prefer, and learn just enough R to import
+a file and run the procedure you need.
+* SAS or SPSS requires using a different language such as C or Python to program functions; R uses its own language
+* R’s graphics are extremely flexible and are of publication quality.
+* R is free.
+
+R's weaknesses
+========================================================
+
+According to Roger Peng, Associate Professor at John Hopkins University:
+
+* Memory management;
+* Speed;
+* Efficiency;
+
+* **__Is R imprecise?__**  
+R packages go through “Alpha,” “Beta,” and “Release Candidate” testing phases, which
+are open to the public. Each phase has tighter restrictions on modifications
+of R.
 
 R graphics - Teaching
 ========================================================
@@ -480,8 +521,6 @@ M <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(width=800, height=410
 print(M, tag='chart')
 ```
 
-
-
 R graphics - Maps
 ========================================================
 
@@ -568,33 +607,16 @@ R graphics - Maps
 R graphics - Maps
 ========================================================
 
-**__Problem = Showing relationships between data points__**
 ![R facebook map] (http://paulbutler.org/archives/visualizing-facebook-friends/facebook_map.png)
 
 
 R statistics - Summary statistics ouput
 ========================================================
-You can get summary statistics in text or in html format
-```{r eval=F}
-## Run this in your console
-library(stargazer)
-stargazer(mtcars[c("mpg","hp","drat")], type = "text",
- title="Descriptive statistics/selected variables", digits=1, out="table2.txt", flip=TRUE,
- covariate.labels=c("Miles/(US)gallon","Gross horsepower","Rear axle ratio"))
-```
+You can get summary or regression statistics using the [stargazer package](http://www.r-statistics.com/2013/01/stargazer-package-for-beautiful-latex-tables-from-r-statistical-models-output/)
 
-R statistics - Regression output
-========================================================
-```{r echo=T, eval=F}
-## Run this in your console
-library(stargazer)
-mtcars$fast <- as.numeric((mtcars$mpg > 20.1))
-
-m1 <- lm(mpg ~ hp + drat + factor(gear), data=mtcars)
-m2 <- glm(fast ~ hp + drat + am, family=binomial(link="logit"), data=mtcars)
-
-stargazer(m1, m2,type="text", dep.var.labels=c("Miles/(US) gallon","Fast car (=1)"), covariate.labels=c("Gross horsepower","Rear axle ratio","Four foward gears","Five forward gears","Type of transmission (manual=1)"))
-```
+<div align="center">
+<img src="http://www.r-statistics.com/wp-content/uploads/2013/07/table_example_1.bmp" width=600 height=500>
+</div>
 
 ========================================================
   
@@ -614,8 +636,7 @@ There's also Powerpoint presentations with [slidify](http://blmoore.bitbucket.or
 
 Exercises for your students
 ========================================================
-With the [swirl](http://swirlstats.com/) package you can program exercises and homeworks that students can do anywhere.
-
+With the [swirl](http://swirlstats.com/) package you can program exercises and homeworks that students can do anywhere.  
 Try it out yourself:
 ```{r echo=T}
 ## Run this in your console
@@ -623,8 +644,18 @@ library("swirl")
 swirl()
 ```
 
-
-
 ========================================================
 # Thank you!
 
+Extra: R statistics - Regression output
+========================================================
+Try it out yourself:
+```{r eval=F}
+## Run this in your console
+library(stargazer)
+m1 <- lm(mpg ~ hp, data=mtcars)
+m2 <- lm(mpg ~ hp + drat + am, data=mtcars)
+stargazer(m1, m2, type="text",
+ dep.var.labels=c("Miles/(US) gallon","Fast car (=1)"),
+ covariate.labels=c("Gross horsepower","Rear axle ratio","Four foward gears"))
+```
