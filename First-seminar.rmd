@@ -468,7 +468,7 @@ edaPlot(mtcars)
 R graphics - Interactive graphs
 ========================================================
 **__Problem = Getting QUALITY visualizations with almost no work.__**
-- Let's go to the console to get to know ggvis
+- Let's go to the [console](https://github.com/cimentadaj/Rseminars/blob/master/ggvis.R) to get to know ggvis
 
   Advantages of ggvis over other graph packages:  
 - HTML and Javascript graphics are the ones actually doing the work behind ggvis.
