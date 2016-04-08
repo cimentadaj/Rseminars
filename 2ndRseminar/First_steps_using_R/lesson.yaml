@@ -1,3 +1,8 @@
+## things to keep in mind: all questions need to have the same spacing in the beginning -. all questions
+## need to have only one space in case you cut the paragraph. All ' need to be surrounded by " ".
+## THIS WAS THE MOST COMPLICATED PART. See examples of the ' case in this example.
+
+
 - Class: meta
   Course: RonR! Second seminar
   Lesson: First steps using R
