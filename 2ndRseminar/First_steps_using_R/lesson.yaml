@@ -7,9 +7,7 @@
   Version: 2.4.0
 
 - Class: text
-  Output: "Hello and Welcome to the first session of the seminar RonR! 
-    Please note that in order for you to run this session successfully you'll need to
-    be connected to the internet and be using Rstudio (https://www.rstudio.com/)"
+  Output: "Hello and Welcome to the first session of the seminar RonR! Please note that in order for you to run this session successfully you'll need to be connected to the internet and be using Rstudio (https://www.rstudio.com/)"
 
 - Class: text
   Output: "Throughout this lesson you will learn a little about R,
