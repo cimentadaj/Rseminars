@@ -1,5 +1,5 @@
 - Class: meta
-  Course: RonR! second
+  Course: RonR! Second seminar
   Lesson: First steps using R
   Author: Jorge Cimentada
   Type: Standard
@@ -16,7 +16,8 @@
     what are packages and how to install them and  how Rstudio works. Let's begin!
 
 - Class: text
-    Output: R is a programming language and environment that allows you to conduct simple and complex statistical analysis and make beautiful graphs.
+    Output: R is a programming language and environment that allows you to conduct
+    simple and complex statistical analysis and make beautiful graphs.
 
 - Class: text
   Output: R is completely free and it is maintained by a non-profit organization and the public community.
@@ -29,39 +30,39 @@
 
 - Class: text
   Output: Now, moving on, R works primarily with a thing called packages. To put it simply, packages are a
-           collection of functions that community users have created. As we've seen, R already has built in
-           functions like mean() and median() but many users have developed additional functions.
-           These functions can be either for more complicated analysis or to make things simpler.
+   collection of functions that community users have created. As we've seen, R already has built in
+    functions like mean() and median() but many users have developed additional functions.
+    These functions can be either for more complicated analysis or to make things simpler.
 
 - Class: cmd_question
   Output: Let's install and load a package. You install packages with the built-in function
-        install.packages(). Write down install.packages("car")
+    install.packages(). Write down install.packages("car")
   CorrectAnswer: install.packages("car")
   AnswerTests: omnitest(correctExpr='install.packages("car")')
   Hint: Type install.packages("car")
 
 - Class: cmd_question
   Output: Did you see all those red characters? 
-            You just installed a package named car!
-                       How do you load it? Type library(car)
+    You just installed a package named car!
+    How do you load it? Type library(car)
   CorrectAnswer: library(car)
   AnswerTests: omnitest(correctExpr='library(car)')
   Hint: Type library(car)
 
 - Class: text
   Output: You already have a loaded package at your disposal! When you install a package,
-           it is usually because you need a specific function. However, a good practice is 
-           for you to search for the package in the R archives and read the description of
-           the package (a simple Google search on "car package" will also suffice). Here you'll
-           find all the functions that the package contains and a description of each function.
+    it is usually because you need a specific function. However, a good practice is 
+    for you to search for the package in the R archives and read the description of
+    the package (a simple Google search on "car package" will also suffice). Here you'll
+    find all the functions that the package contains and a description of each function.
 
 - Class: text
   Output: Aside from functions, a package can contain datasets as well. These datasets are often
-          included in the package because many of the package examples are done using these datasets.
-          We can access the data and play with it. The package you just installed contains a dataset
-          named Freedman which has data on U. S. metropolitan areas with 1968 populations of 250,000
-          or more.
-          
+    included in the package because many of the package examples are done using these datasets.
+    We can access the data and play with it. The package you just installed contains a dataset
+    named Freedman which has data on U. S. metropolitan areas with 1968 populations of 250,000
+    or more.
+
 - Class: cmd_question
   Output: Type Freedman in the console
   CorrectAnswer: Freedman
@@ -70,7 +71,7 @@
   
 - Class: cmd_question
   Output: You can see the data physically in the console. If you want the specific description of a
-          function or dataset, simply type ?function_name or ?dataset. Type ?Freedman
+    function or dataset, simply type ?function_name or ?dataset. Type ?Freedman
   CorrectAnswer: ?Freedman
   AnswerTests: omnitest(correctExpr='?Freedman')
   Hint: Type ?Freedman
@@ -80,12 +81,12 @@
 
 - Class: text
   Output: Let's move to another topic now. You're probably a bit familiar with
-          Rstudio now but let's explain in more detail its environment.
+    Rstudio now but let's explain in more detail its environment.
 
 - Class: cmd_question
   Output: The window where you have been typing commands is called the console.
-          This is an interactive window, which means that every time you enter a
-          command, you will get a result. Type 5 + 5.
+    This is an interactive window, which means that every time you enter a
+    command, you will get a result. Type 5 + 5.
   CorrectAnswer: 10
   AnswerTests: omnitest(correctExpr='5 + 5')
   Hint: Type 5 + 5
@@ -98,62 +99,62 @@
 
 - Class: text
   Output: You normally use the console for exploring data
-          and doing experimental analysis. The window above the console
-          is the code editor. Here you can write as much code as you want
-          and save it as you go along. The data process is normally like this;
-          you experiment with commands in your console and when you find
-          interesting results you write down the code in the code editor.
-          Then you can save that code into a file and reproduce what you did.
-          
+    and doing experimental analysis. The window above the console
+    is the code editor. Here you can write as much code as you want
+    and save it as you go along. The data process is normally like this;
+    you experiment with commands in your console and when you find
+    interesting results you write down the code in the code editor.
+    Then you can save that code into a file and reproduce what you did.
+ 
 - Class: cmd_question
   Output: You can also run code from the code editor. Type Freedman in the code
-            editor(the window above the console), highlight the code line and click on Run
-            (in the upper right corner of the code editor window).
+    editor(the window above the console), highlight the code line and click on Run
+    (in the upper right corner of the code editor window).
   CorrectAnswer: Freedman
   AnswerTests: omnitest(correctExpr='Freedman')
   Hint: Type Freedman in the code editor, highligh it and click Run or CTRL + ENTER
-            
+
 - Class: text
   Output: You see? It's the same as running it in the console. The only difference is that
-          with the code editor you keep a visual track of what you've done.
+    with the code editor you keep a visual track of what you've done.
 
 - Class: text
   Output: The window in the upper right corner shows the datasets and vectors you have
-          currently "opened". (I know you probably don't know what vectors are, but think of
-          them as variables for now). Let's see two examples.
-          
+    currently "opened". (I know you probably don't know what vectors are, but think of
+    them as variables for now). Let's see two examples.
+
 - Class: cmd_question
   Output: Note that the window is empty. Assign the dataset Freedman to a new name "Freedman2".
-          Type Freedman2 <- Freedman  
+    Type Freedman2 <- Freedman  
   CorrectAnswer: Freedman2 <- Freedman
   AnswerTests: omnitest(correctExpr='Freedman2 <- Freedman')
   Hint: Type Freedman2 <- Freedman
   
 - Class: text
   Output:  What do you see? You have a dataset named Freedman2 which has 180 rows and 4 variables.
-              Don't worry if you don't understand the "assignment" part, this example is just to show you how
-              Rstudio works.
-              
+    Don't worry if you don't understand the "assignment" part, this example is just to show you how
+    Rstudio works.
+ 
 - Class: cmd_question
   Output: Now, let's imagine you want to create a vector (think of variable) that specifies the number one for
-          the first two subjects and the number zero for the next 2 subjects(supposed it's 1 for male and 0 for female).
-          Type variable <- c(1,1,0,0). 
+    the first two subjects and the number zero for the next 2 subjects(supposed it's 1 for male and 0 for female).
+    Type variable <- c(1,1,0,0). 
   CorrectAnswer: Type variable <- c(1,1,0,0)
   AnswerTests: omnitest(correctExpr='variable <- c(1,1,0,0)')
   Hint: Type variable <- c(1,1,0,0)
   
 - Class: text
   Output:  What do you see? You now have a NUMERIC variable named "variable" which has 4 observations.
-           As you'd expect, you can see it in the upper-left window.
-           
+    As you'd expect, you can see it in the upper-left window.
+
 - Class: text
   Output:  Lastly, the bottom-right window, where you saw the description of the dataset Freedman,
-              is where you can see your graphs, help files, installed packages and the existing files in your
-              working directory (don't worry if you don't know what it is, you'll know soon enough) Feel free
-              to explore these windows!
-              
+    is where you can see your graphs, help files, installed packages and the existing files in your
+    working directory (don't worry if you don't know what it is, you'll know soon enough) Feel free
+    to explore these windows!
+
 - Class: text
   Output:  This is the end of the first lesson.
-           Thanks for participating and continue
-           on to the next one!
+    Thanks for participating and continue
+    on to the next one!
   
