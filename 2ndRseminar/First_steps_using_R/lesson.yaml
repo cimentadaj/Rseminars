@@ -8,16 +8,15 @@
 
 - Class: text
   Output: Hello and Welcome to the first session of the seminar RonR! 
-            Please note that in order for you to run this session successfully you'll need to
-            be connected to the internet and be using Rstudio (https://www.rstudio.com/)
+Please note that in order for you to run this session successfully you'll need to
+be connected to the internet and be using Rstudio (https://www.rstudio.com/)
 
 - Class: text
   Output: Throughout this lesson you will learn a little about R,
-            what are packages and how to install them and  how Rstudio works. Let's begin!
+what are packages and how to install them and  how Rstudio works. Let's begin!
 
 - Class: text
-  Output: R is a programming language and environment that allows you to conduct simple and
-           complex statistical analysis and make beautiful graphs.
+  Output: R is a programming language and environment that allows you to conduct simple and complex statistical analysis and make beautiful graphs.
 
 - Class: text
   Output: R is completely free and it is maintained by a non-profit organization and the public community.
@@ -157,3 +156,4 @@
   Output:  This is the end of the first lesson.
            Thanks for participating and continue
            on to the next one!
+  
