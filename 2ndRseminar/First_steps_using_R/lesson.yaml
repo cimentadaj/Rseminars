@@ -12,16 +12,16 @@
     be connected to the internet and be using Rstudio (https://www.rstudio.com/)
 
 - Class: text
-  Output: Throughout this lesson you will learn a little about R,
-    what are packages and how to install them and  how Rstudio works. Let's begin!
+  Output: "Throughout this lesson you will learn a little about R,
+    what are packages and how to install them and  how Rstudio works. Let's begin!"
 
 - Class: text
     Output: R is a programming language and environment that allows you to conduct
     simple and complex statistical analysis and make beautiful graphs.
 
 - Class: text
-  Output: R is completely free and it is maintained by a non-profit organization and the public community.
-    If you want to learn more about how R works, visit their website https://www.r-project.org/
+  Output: "R is completely free and it is maintained by a non-profit organization and the public community.
+    If you want to learn more about how R works, visit their website https://www.r-project.org/"
 
 - Class: text
   Output: First things first, you should know what a function is. A function is just a command. For example mean()
