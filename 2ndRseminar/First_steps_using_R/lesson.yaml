@@ -1,6 +1,6 @@
 ## things to keep in mind: all questions need to have the same spacing in the beginning -. all questions
-## need to have only one space in case you cut the paragraph. All ' need to be surrounded by " ".
-## THIS WAS THE MOST COMPLICATED PART. See examples of the ' case in this example.
+## need to have only one space in case you cut the paragraph. All : need to be surrounded by " ".
+
 
 
 - Class: meta
@@ -12,11 +12,13 @@
   Version: 2.4.0
 
 - Class: text
-  Output: "Hello and Welcome to the first session of the seminar RonR! Please note that in order for you to run this session successfully you'll need to be connected to the internet and be using Rstudio (https://www.rstudio.com/)"
+  Output: Hello and Welcome to the first session of the seminar RonR! Please note that in order
+    for you to run this session successfully you'll need to be connected to the internet and be
+    using Rstudio (https://www.rstudio.com/)
 
 - Class: text
-  Output: "Throughout this lesson you will learn a little about R,
-    what are packages and how to install them and  how Rstudio works. Let's begin!"
+  Output: Throughout this lesson you will learn a little about R,
+    what are packages and how to install them and  how Rstudio works. Let's begin!
 
 - Class: text
   Output: R is a programming language and environment that allows you to conduct
@@ -27,9 +29,9 @@
     If you want to learn more about how R works, visit their website https://www.r-project.org/"
 
 - Class: text
-  Output: "First things first, you should know what a function is. A function is just a command. For example mean()
+  Output: First things first, you should know what a function is. A function is just a command. For example mean()
     and median() are functions. As both function's names reveal, they simply calculate the mean and
-    median of variable. Got that?"
+    median of variable. Got that?
 
 - Class: text
   Output: Now, moving on, R works primarily with a thing called packages. To put it simply, packages are a
@@ -45,8 +47,7 @@
   Hint: Type install.packages("car")
 
 - Class: cmd_question
-  Output: "Did you see all those red characters? 
-    You just installed a package named car!
+  Output: "Did you see all those red characters? You just installed a package named car!
     How do you load it? Type library(car)"
   CorrectAnswer: library(car)
   AnswerTests: omnitest(correctExpr='library(car)')
@@ -63,7 +64,7 @@
   Output: Aside from functions, a package can contain datasets as well. These datasets are often
     included in the package because many of the package examples are done using these datasets.
     We can access the data and play with it. The package you just installed contains a dataset
-    named Freedman which has data on U. S. metropolitan areas with 1968 populations of 250,000
+    named Freedman which has data on U.S metropolitan areas with 1968 populations of 250,000
     or more.
 
 - Class: cmd_question
@@ -83,8 +84,8 @@
   Output: Now you have a description of the dataset in the bottom right window.
 
 - Class: text
-  Output: "Let's move to another topic now. You're probably a bit familiar with
-    Rstudio now but let's explain in more detail its environment."
+  Output: Let's move to another topic now. You're probably a bit familiar with
+    Rstudio now but let's explain in more detail its environment.
 
 - Class: cmd_question
   Output: The window where you have been typing commands is called the console.
@@ -118,12 +119,12 @@
   Hint: Type Freedman in the code editor, highligh it and click Run or CTRL + ENTER
 
 - Class: text
-  Output: "You see? It's the same as running it in the console. The only difference is that
-    with the code editor you keep a visual track of what you've done."
+  Output: You see? It's the same as running it in the console. The only difference is that
+    with the code editor you keep a visual track of what you've done.
 
 - Class: text
   Output: The window in the upper right corner shows the datasets and vectors you have
-    currently "opened". (I know you probably "don't"" know what vectors are, but think of
+    currently "opened". (I know you probably don't know what vectors are, but think of
     them as variables for now). Let's see two examples.
 
 - Class: cmd_question
@@ -135,13 +136,13 @@
   
 - Class: text
   Output:  What do you see? You have a dataset named Freedman2 which has 180 rows and 4 variables.
-    "Don't worry if you don't" understand the "assignment" part, this example is just to show you how
+    Don't worry if you don't understand the "assignment" part, this example is just to show you how
     Rstudio works.
  
 - Class: cmd_question
-  Output: "Now, let's imagine you want to create a vector (think of variable) that specifies the number one for
+  Output: Now, let's imagine you want to create a vector (think of variable) that specifies the number one for
     the first two subjects and the number zero for the next 2 subjects(supposed it's 1 for male and 0 for female).
-    Type variable <- c(1,1,0,0). "
+    Type variable <- c(1,1,0,0).
   CorrectAnswer: Type variable <- c(1,1,0,0)
   AnswerTests: omnitest(correctExpr='variable <- c(1,1,0,0)')
   Hint: Type variable <- c(1,1,0,0)
@@ -151,10 +152,10 @@
     As you'd expect, you can see it in the upper-left window.
 
 - Class: text
-  Output:  "Lastly, the bottom-right window, where you saw the description of the dataset Freedman,
+  Output:  Lastly, the bottom-right window, where you saw the description of the dataset Freedman,
     is where you can see your graphs, help files, installed packages and the existing files in your
     working directory (don't worry if you don't know what it is, you'll know soon enough) Feel free
-    to explore these windows!"
+    to explore these windows!
 
 - Class: text
   Output:  This is the end of the first lesson.
