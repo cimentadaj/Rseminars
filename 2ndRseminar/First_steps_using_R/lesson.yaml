@@ -30,13 +30,13 @@
 
 - Class: text
   Output: Now, moving on, R works primarily with a thing called packages. To put it simply, packages are a
-   collection of functions that community users have created. As we've seen, R already has built in
+    collection of functions that community users have created. As we've seen, R already has built in
     functions like mean() and median() but many users have developed additional functions.
     These functions can be either for more complicated analysis or to make things simpler.
 
 - Class: cmd_question
-  Output: "Let's install and load a package. You install packages with the built-in function
-    install.packages(). Write down install.packages("car")"
+  Output: Let's install and load a package. You install packages with the built-in function
+    install.packages(). Write down install.packages("car")
   CorrectAnswer: install.packages("car")
   AnswerTests: omnitest(correctExpr='install.packages("car")')
   Hint: Type install.packages("car")
@@ -119,9 +119,9 @@
     with the code editor you keep a visual track of what you've done."
 
 - Class: text
-  Output: "The window in the upper right corner shows the datasets and vectors you have
-    currently "opened". (I know you probably don't know what vectors are, but think of
-    them as variables for now). Let's see two examples."
+  Output: The window in the upper right corner shows the datasets and vectors you have
+    currently "opened". (I know you probably "don't"" know what vectors are, but think of
+    them as variables for now). Let's see two examples.
 
 - Class: cmd_question
   Output: Note that the window is empty. Assign the dataset Freedman to a new name "Freedman2".
@@ -131,9 +131,9 @@
   Hint: Type Freedman2 <- Freedman
   
 - Class: text
-  Output:  "What do you see? You have a dataset named Freedman2 which has 180 rows and 4 variables.
-    Don't worry if you don't understand the "assignment" part, this example is just to show you how
-    Rstudio works."
+  Output:  What do you see? You have a dataset named Freedman2 which has 180 rows and 4 variables.
+    "Don't worry if you don't" understand the "assignment" part, this example is just to show you how
+    Rstudio works.
  
 - Class: cmd_question
   Output: "Now, let's imagine you want to create a vector (think of variable) that specifies the number one for
@@ -144,8 +144,8 @@
   Hint: Type variable <- c(1,1,0,0)
   
 - Class: text
-  Output:  "What do you see? You now have a NUMERIC variable named "variable" which has 4 observations.
-    As you'd expect, you can see it in the upper-left window."
+  Output:  What do you see? You now have a NUMERIC variable named "variable" which has 4 observations.
+    As you'd expect, you can see it in the upper-left window.
 
 - Class: text
   Output:  "Lastly, the bottom-right window, where you saw the description of the dataset Freedman,
@@ -157,4 +157,3 @@
   Output:  This is the end of the first lesson.
     Thanks for participating and continue
     on to the next one!
-  
