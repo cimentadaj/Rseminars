@@ -24,9 +24,9 @@
     If you want to learn more about how R works, visit their website https://www.r-project.org/"
 
 - Class: text
-  Output: First things first, you should know what a function is. A function is just a command. For example mean()
+  Output: "First things first, you should know what a function is. A function is just a command. For example mean()
     and median() are functions. As both function's names reveal, they simply calculate the mean and
-    median of variable. Got that?
+    median of variable. Got that?"
 
 - Class: text
   Output: Now, moving on, R works primarily with a thing called packages. To put it simply, packages are a
@@ -42,9 +42,9 @@
   Hint: Type install.packages("car")
 
 - Class: cmd_question
-  Output: Did you see all those red characters? 
+  Output: "Did you see all those red characters? 
     You just installed a package named car!
-    How do you load it? Type library(car)
+    How do you load it? Type library(car)"
   CorrectAnswer: library(car)
   AnswerTests: omnitest(correctExpr='library(car)')
   Hint: Type library(car)
