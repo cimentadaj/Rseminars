@@ -54,10 +54,10 @@
   Hint: Type library(car)
 
 - Class: text
-  Output: You already have a loaded package at your disposal! When you install a package,
-    it is usually because you need a specific function. However, a good practice is 
-    for you to search for the package in the R archives and read the description of
-    the package (a simple Google search on "car package" will also suffice). Here you'll
+  Output: You already have a loaded package at your disposal. This means that you can now use
+    any function that comes with the package. If you hadn't loaded the package you wouldn't be able to.
+    that comes witWhen you install a package. If you want to see the description of a package or any of its
+    functions you can search on Google and you'll find it easily(for example; car package) Here you'll
     find all the functions that the package contains and a description of each function.
 
 - Class: text
