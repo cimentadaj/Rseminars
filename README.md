@@ -1,13 +1,9 @@
 
-
-
-
 ## RonR! First Seminar Series
 
 The RonR! Seminar Series are a series of seminars that will be taught at Pompeu Fabra University in April-May 2016. This repository contains all the R scripts, presentations and exercises used for each separate session. Anyone interested in using these exercises go into each respective seminar and download the swirl exercises for themselves.
 
-Seminar 1. An overview of the strengths of R – Note: does not contain exercises, only an RMarkdown presentation
-Instructor: Jorge Cimentada
+Seminar 1. An overview of the strengths of R – Note: does not contain exercises, only an RMarkdown presentation Instructor: Jorge Cimentada
 
 Welcome to the group and seminar series
 Brief intro to R
@@ -24,8 +20,7 @@ Regression output(stargazer package)
 Making reports, PDF’s and powerpoints through R (RMarkdown package)
 Programming exercises and exams in R (swirl and exam package)
 
-Seminar 2. Getting familiar with R objects – This seminar contains exercises for each category.
-Instructors: Basilio Moreno and Jorge Cimentada 
+Seminar 2. Getting familiar with R objects – This seminar contains exercises for each category. Instructors: Basilio Moreno and Jorge Cimentada 
 
 - Basic objects: Vectors
 Numerical, logical and character vectors
@@ -49,8 +44,7 @@ Merging data frames
 Labelling variables
 
 
-Seminar 3. Manipulating and processing data
-Instructor: Daniel Ciganda
+Seminar 3. Manipulating and processing data Instructor: Daniel Ciganda
 
 - Importing data from SPSS, EXCEL and STATA
 - Basic data manipulation:
@@ -71,8 +65,7 @@ Stargazer package for outputs
 - Simple and multiple regression models output
 - Other regression outputs: Logistic regression model.
 
-Seminar 4 An introduction to R programming
-Instructor: Bruno Arpino
+Seminar 4 An introduction to R programming Instructor: Bruno Arpino
 
 - Basic programming:
 Conditional execution.
@@ -81,8 +74,7 @@ Apply(), sapply() and lapply() functions.
 Writing your own functions.
 Monte Carlo simulations.
 
-Seminar 5. An introduction to sequence analysis
-Instructor: Albert Julià
+Seminar 5. An introduction to sequence analysis Instructor: Albert Julià
 	PROGRAM TO BE DEFINED
 
 
