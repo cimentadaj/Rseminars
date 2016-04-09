@@ -37,11 +37,11 @@ download.file(url5, destfile5)
 
 source(paste0(getwd(),"/","ExampleExamCode.R")) -->
 
-In order for this presentation to work, you need to run this code first:
+<!--In order for this presentation to work, you need to run this code first:
 
 install.packages("devtools")  
 library(devtools)  
-source_url("https://raw.githubusercontent.com/cimentadaj/Rseminars/master/packages.R")
+source_url("https://raw.githubusercontent.com/cimentadaj/Rseminars/master/packages.R") -->
 
 ========================================================
 # RonR! First seminar  
