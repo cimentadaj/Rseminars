@@ -54,11 +54,11 @@
   Hint: Type library(car)
 
 - Class: text
-  Output: You already have a loaded package at your disposal. This means that you can now use
+  Output: You now have a loaded package at your disposal. This means that you can now use
     any function that comes with the package. If you hadn't loaded the package you wouldn't be able to.
-    that comes witWhen you install a package. If you want to see the description of a package or any of its
-    functions you can search on Google and you'll find it easily(for example; car package) Here you'll
-    find all the functions that the package contains and a description of each function.
+    If you want to see the description of a package or any of its functions you can search on Google
+    and you'll find it easily(for example; car package) Here you'll find all the functions that
+    the package contains and a description of each function.
 
 - Class: text
   Output: Aside from functions, a package can contain datasets as well. These datasets are often
@@ -124,7 +124,7 @@
 
 - Class: text
   Output: The window in the upper right corner shows the datasets and vectors you have
-    currently "opened". (I know you probably don't know what vectors are, but think of
+    currently "opened". (I know you probably are not used to the word, but think of
     them as variables for now). Let's see two examples.
 
 - Class: cmd_question
@@ -137,24 +137,24 @@
 - Class: text
   Output:  What do you see? You have a dataset named Freedman2 which has 180 rows and 4 variables.
     Don't worry if you don't understand the "assignment" part, this example is just to show you how
-    Rstudio works.
+    R works.
  
 - Class: cmd_question
   Output: Now, let's imagine you want to create a vector (think of variable) that specifies the number one for
     the first two subjects and the number zero for the next 2 subjects(supposed it's 1 for male and 0 for female).
-    Type variable <- c(1,1,0,0).
-  CorrectAnswer: Type variable <- c(1,1,0,0)
-  AnswerTests: omnitest(correctExpr='variable <- c(1,1,0,0)')
-  Hint: Type variable <- c(1,1,0,0)
+    Type gender <- c(1,1,0,0).
+  CorrectAnswer: Type gender <- c(1,1,0,0)
+  AnswerTests: omnitest(correctExpr='gender <- c(1,1,0,0)')
+  Hint: Type gender <- c(1,1,0,0)
   
 - Class: text
-  Output:  What do you see? You now have a NUMERIC variable named "variable" which has 4 observations.
+  Output:  What do you see? You now have a NUMERIC variable named "gender" which has 4 observations.
     As you'd expect, you can see it in the upper-left window.
 
 - Class: text
-  Output:  Lastly, the bottom-right window, where you saw the description of the dataset Freedman,
+  Output:  Lastly, the bottom-right window, where you already saw the description of the dataset Freedman,
     is where you can see your graphs, help files, installed packages and the existing files in your
-    working directory (don't worry if you don't know what it is, you'll know soon enough) Feel free
+    working directory (don't worry if you don't know what that that is, you'll know soon enough) Feel free
     to explore these windows!
 
 - Class: text
