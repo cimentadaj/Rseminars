@@ -1,4 +1,4 @@
-install.packages(c("ggvis","dplyr"))
+# install.packages(c("ggvis","dplyr"))
 library(dplyr)
 library(ggvis)
 
