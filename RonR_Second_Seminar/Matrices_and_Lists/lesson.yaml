@@ -1,0 +1,214 @@
+- Class: meta
+  Course: RonR! Second seminar
+  Lesson: Matrices and Lists
+  Author: Jorge Cimentada
+  Type: Standard
+  Organization: RECSM UPF
+  Version: 2.2.21
+
+- Class: text
+  Output: Hello! Welcome to our lesson on matrices and lists. Matrices are widely used in mathematics and algebra and are really useful
+    in computer science. For our purposes, matrices will simply teach us how to better manage datasets in R.
+    Let’s get going!
+  
+  
+- Class: text
+  Output: First off, what is a matrix? A matrix is simply an array of numbers. So, if you’ve used Excel or
+    any other spreadsheet program you are in fact dealing with matrices although you don’t name them like that. 
+  
+- Class: cmd_question
+  Output: A matrix is a “dataset” with “n” number of rows and “z” number of columns. I’ve taken the liberty
+    of creating a matrix so you can check it our for yourself. Type ourmatrix
+  CorrectAnswer: ourmatrix
+  AnswerTests: omnitest(correctExpr='ourmatrix')
+  Hint: Type ourmatrix
+  
+- Class: cmd_question
+  Output: You see? There’s no need to feel intimidated by matrices. They’re simply a “dataset”. Here, this
+    matrix has 3 rows and 3 columns. But how do we create matrices? Well there’s the function “matrix()”.
+    Type ?matrix() and have a look at the description to your right to see if you understand how it works.
+  CorrectAnswer: ?matrix()
+  AnswerTests: omnitest(correctExpr='?matrix()')
+  Hint: Type ?matrix()
+  
+- Class: text
+  Output: C'mon, have a look! :)
+  
+- Class: text
+  Output: Here is how it works; matrix(data,nrow,ncol). The matrix you saw earlier was created with
+    this expression; matrix(1:9,nrow=3,ncol = 3). In this case, the first argument means from the number
+    1 to the number 9, distributed in 3 rows  and 3 columns(since you’ve already seen generating sequences
+    you should have an idea about this).
+  
+- Class: cmd_question
+  Output: Now it’s your turn. Create a matrix that contains from the numbers 1 to 12, distributed in 4
+    rows and 3 columns.
+  CorrectAnswer: any_of_exprs("matrix(1:12, nrow=4,ncol=3)", "matrix(1:12,4,3)")
+  AnswerTests: any_of_exprs("matrix(1:12, nrow=4,ncol=3)", "matrix(1:12,4,3)")
+  Hint: Remember that matrix syntax; matrix(vector, number of rows, number of columns)
+  
+- Class: cmd_question
+  Output: However, matrices not only accept numeric vectors but also logical or character vectors.
+    As we saw in the past lessons, you can create a vector with the c() argument. Try to create a matrix
+    which contains a logical vector of length 4 where the first two  observations are TRUE and the remaining
+    two are FALSE. In addition, the matrix should have two rows and two columns.
+  CorrectAnswer: any_of_exprs("matrix(c(TRUE,TRUE,FALSE,FALSE),2,2)", "matrix(c(T,T,F,F),2,2)")
+  AnswerTests: any_of_exprs("matrix(c(TRUE,TRUE,FALSE,FALSE),2,2)", "matrix(c(T,T,F,F),2,2)")
+  Hint: If the matrix needs to have a logical vector of length 4 that contains two TRUEs and two FALSEs,
+    then the vector would look like this; c(TRUE,TRUE,FALSE,FALSE). Add that to your matrix and specify
+    the number of rows and columns.
+  
+- Class: text
+  Output: Now that you've understood how to create matrices, it’s important to know how to subset matrices.
+    I can’t stress this enough but it’s really important that you understand this process clearly since it is the backbone
+    of subsetting and filtering objects in R.
+  
+- Class: cmd_question
+  Output: Let’s take as an example the existing matrix called “ourmatrix”. Type ourmatrix again.
+  CorrectAnswer: ourmatrix
+  AnswerTests: omnitest(correctExpr= "ourmatrix")
+  Hint: Type ourmatrix
+  
+- Class: text
+  Output: As you can see, each row and column has a number assigned. So the 1st column has a number 1,
+    the 2nd a number 2, and so on. The same pattern is visible for rows. But if you have closer look,
+    the name of the 1st column is [,1], the name of the 2nd column is [,2] and the name of the 3rd column is [,3].
+    For rows it is exactly the same but with the number BEFORE the comma(so [1,], [2,] and [3,]).
+    
+- Class: cmd_question
+  Output: That is how subsetting works. The number before the commas represent the row number and
+    after the comma the column number. If you want to subset ALL rows for column one you would write
+    matrixname[,1]. Try it on ourmatrix.
+  CorrectAnswer: ourmatrix[,1]
+  AnswerTests: omnitest(correctExpr= "ourmatrix[,1]")
+  Hint: Type ourmatrix[,1]
+  
+- Class: cmd_question
+  Output: Now, try subsetting all columns only for the 3rd row.
+  CorrectAnswer: ourmatrix[3,]
+  AnswerTests: omnitest(correctExpr= "ourmatrix[3,]")
+  Hint: If ourmatrix[,1] isolates the 1st column, then isolating the 3rd row would be the same but with 3 before the comma.
+  
+- Class: cmd_question
+  Output: What about subsetting the 3rd row, only for the 2nd column?
+  CorrectAnswer: ourmatrix[3,2]
+  AnswerTests: omnitest(correctExpr= "ourmatrix[3,2]")
+  Hint: Well, that's easy! If outmatrix[3,] gives the 3rd row and ourmatrix[,2] the 2nd column, then combining
+    both things will give the 3rd row for the 2nd column.
+    
+- Class: cmd_question
+  Output: Let's suppose for a minute that each row is a person you interviewed and each column is a question you asked them.
+    Subset the the 1st and 3rd person only on their 2nd column.
+  CorrectAnswer: ourmatrix[c(1,3),2]
+  AnswerTests: omnitest(correctExpr="ourmatrix[c(1,3),2]")
+  Hint: Remember that c() wil concatenate any two numbers. To select the 1st and 3rd observation you need to
+    type c(1,3).
+
+- Class: text
+  Output: As you can see, matrices(and almost anything in R) can receive a concatenation as an object.
+    In fact, it's good for you to think of concatenations simply as vectors. the concatenation c(1,3)
+    is a numeric vector of length 2.
+  
+- Class: text
+  Output: As a final thought, what if we wanted to change the number of the 2nd respondent in his first
+    column. How would we go about? Well picture it this way; ourmatrix[2,1] will give the number we want
+    to change. If we know that, then we just have to reassign a new number. So ourmatrix[2,1] <- 4 will 
+    change the number of the second respondent in his 1st column to 4.
+  
+- Class: text
+  Output: Now that you have a good idea about matrices, let’s talk about lists. Lists are a common
+    concept in many programming languages. Let’s try and understand lists with practical examples. Let’s
+    think of Santa Claus. If you’ve been raised in a Western society you should have a good idea of who
+    Santa Claus is. If you weren’t, then the example is pretty straight forward and you will also understand. 
+
+- Class: text
+  Output: Santa Claus had a big bag full of presents, right? Let’s assume the bag had three wrapped presents.  
+
+- Class: text
+  Output: Each present might contain a similar gift, like three books, or it might contain completely different
+    presents. Taking the analogy to R, it is exactly the same. A list(in the Santa case, the bag) will contain
+    similar or different R objects(presents, which might be all books or might be all different objects).
+
+- Class: text
+  Output: The list function works this way; list(object1, object2, object(n)). The n means that you can
+    input as many objects as you want. Let’s have a look at this list and try to understand it;
+    list(myfirst = 1:10, mysecond = c(TRUE,FALSE), mythird = c("books","toy car")).
+    
+- Class: text
+  Output: This list contains THREE objects separeted by three commas. What is the name of the first
+    object? myfirst. What is the name of the third object? mythird. After the equal sign you can
+    see the contents of each object and interpret what is the class of each vector.
+
+- Class: cmd_question
+  Output: Let's dig in on how to access objects within a list. Let’s run the same
+    list function as before but let’s assign it to the the name ourlist. Assign list(myfirst = 1:10,
+    mysecond = c(TRUE,FALSE), mythird = c('books','toy car')) to the name ourlist.
+  CorrectAnswer: ourlist <- list(list(myfirst = 1:10, mysecond = c(TRUE,FALSE), mythird = c('books','toy car')))
+  AnswerTests: omnitest(correctExpr="ourlist <- list(myfirst = 1:10, mysecond = c(TRUE,FALSE), mythird = c('books','toy car'))")
+  Hint: Assigning something simply means putting a name followed by the <- sign, so ourlist <-
+  
+- Class: cmd_question
+  Output: Check the class of the ourlist object by typing class(ourlist)
+  CorrectAnswer: class(ourlist)
+  AnswerTests: omnitest(correctExpr="class(ourlist)")
+  Hint: Type class(ourlist)
+  
+- Class: cmd_question
+  Output: Now type ourlist to see it's contents.
+  CorrectAnswer: ourlist
+  AnswerTests: omnitest(correctExpr="ourlist")
+  Hint: Type ourlist
+  
+- Class: cmd_question
+  Output: The 1st object is called $myfirst, the 2nd $mysecond and the 3rd $mythird. Note that the
+    $ sign is NOT part of the name, but it is actually a way of SUBSETTING the object. Type ourlist$myfirst
+  CorrectAnswer: ourlist$myfirst
+  AnswerTests: omnitest(correctExpr="ourlist$myfirst")
+  Hint: Type ourlist$myfirst
+  
+- Class: cmd_question
+  Output: And now type class(ourlist$myfirst)
+  CorrectAnswer: class(ourlist$myfirst)
+  AnswerTests: omnitest(correctExpr="class(ourlist$myfirst)")
+  Hint: Type class(ourlist$myfirst)
+  
+- Class: text
+  Output: Note that ourlist$myfirst is NOT a list object but a NUMERIC vector. When you use the
+    $ sign you are already accessing the object inside the list. So you can actually treat ourlist$myfirst
+    as a simple numeric vector. For example, if you wanted to subset the 3rd position of a numeric vector you
+    would do it like this; vector[3]. In this case, it would be the same; ourlist$myfirst[3].
+  
+- Class: text
+  Output: Another way of subsetting a list is to use brackets. If we wanted to access the second object
+    in the list you could also do it like this; ourlist[2].
+
+- Class: cmd_question
+  Output: What is the class of ourlist[2]? Type class(ourlist[2])
+  CorrectAnswer: class(ourlist[2])
+  AnswerTests: omnitest(correctExpr="class(ourlist[2])")
+  Hint: Type class(ourlist[2])
+  
+- Class: text
+  Output: If you thought it was a logical vector, that's a common mistake. When a list object is
+    followed by a set of brackets, your subsetting the object but it is still a LIST. If you go back to the
+    command ourlist[2] you’ll see that the output had $logical on top. Remember, everytime you see the $ sign,
+    it means that it's still inside a list.
+    
+- Class: cmd_question
+  Output: If you wanted to access the specific vector then you need to wrap the number in FOUR brackets.
+    ourlist[[2]] should give you what you’re looking for. Check it yourself with the class() function.
+  CorrectAnswer: class(ourlist[[2]])
+  AnswerTests: omnitest(correctExpr="class(ourlist[[2]])")
+  Hint: Type class(class(ourlist[[2]]))
+  
+- Class: cmd_question
+  Output: As a last task, if ourlist[[2]] is a VECTOR, then how would you subset its 2nd element? Hint;
+    it’s the same way we got the the 3rd element of ourlist$numeric.
+  CorrectAnswer: ourlist[[2]][3]
+  AnswerTests: omnitest(correctExpr="ourlist[[2]][3]")
+  Hint: If ourlist[[2]] is a vector, then to subset a vector we use an ADDITIONAL [] with the number we're
+  interested inside the brackets.
+  
+- Class: text
+  Output: That should give you a pretty good idea about what lists are all about. You learned some pretty neat
+    stuff today! Now go over  to the next lesson.
