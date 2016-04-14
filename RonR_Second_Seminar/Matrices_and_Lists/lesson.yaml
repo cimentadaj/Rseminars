@@ -207,7 +207,7 @@
   CorrectAnswer: ourlist[[2]][3]
   AnswerTests: omnitest(correctExpr="ourlist[[2]][3]")
   Hint: If ourlist[[2]] is a vector, then to subset a vector we use an ADDITIONAL [] with the number we're
-  interested inside the brackets.
+    interested inside the brackets.
   
 - Class: text
   Output: That should give you a pretty good idea about what lists are all about. You learned some pretty neat
