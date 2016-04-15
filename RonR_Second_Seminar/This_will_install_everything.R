@@ -3,5 +3,5 @@
 
 library(downloader)
 
-source_url("https://github.com/cimentadaj/Rseminars/blob/master/RonR_Second_Seminar/Course_download.R",
-        "50955a21c480d5d5062e2ba8bf9ae6b83b8fd4fe")
+source_url("https://raw.githubusercontent.com/cimentadaj/Rseminars/master/RonR_Second_Seminar/Course_download.R",
+           "52e964df780ebd3f333d47724fcbddc3d4d218b4")
