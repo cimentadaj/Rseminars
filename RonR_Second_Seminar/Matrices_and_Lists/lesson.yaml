@@ -35,17 +35,17 @@
   Output: C'mon, have a look! :)
   
 - Class: text
-  Output: Here is how it works; matrix(data,nrow,ncol). The matrix you saw earlier was created with
-    this expression; matrix(1:9,nrow=3,ncol = 3). In this case, the first argument means from the number
+  Output: 'Here is how it works: matrix(data,nrow,ncol). The matrix you saw earlier was created with
+    this expression: matrix(1:9,nrow=3,ncol = 3). In this case, the first argument means from the number
     1 to the number 9, distributed in 3 rows  and 3 columns(since you’ve already seen generating sequences
-    you should have an idea about this).
+    you should have an idea about this).'
   
 - Class: cmd_question
   Output: Now it’s your turn. Create a matrix that contains from the numbers 1 to 12, distributed in 4
     rows and 3 columns.
   CorrectAnswer: any_of_exprs("matrix(1:12, nrow=4,ncol=3)", "matrix(1:12,4,3)")
   AnswerTests: any_of_exprs("matrix(1:12, nrow=4,ncol=3)", "matrix(1:12,4,3)")
-  Hint: Remember that matrix syntax; matrix(vector, number of rows, number of columns)
+  Hint: 'Remember that matrix syntax: matrix(vector, number of rows, number of columns)'
   
 - Class: cmd_question
   Output: However, matrices not only accept numeric vectors but also logical or character vectors.
@@ -54,9 +54,9 @@
     two are FALSE. In addition, the matrix should have two rows and two columns.
   CorrectAnswer: any_of_exprs("matrix(c(TRUE,TRUE,FALSE,FALSE),2,2)", "matrix(c(T,T,F,F),2,2)")
   AnswerTests: any_of_exprs("matrix(c(TRUE,TRUE,FALSE,FALSE),2,2)", "matrix(c(T,T,F,F),2,2)")
-  Hint: If the matrix needs to have a logical vector of length 4 that contains two TRUEs and two FALSEs,
-    then the vector would look like this; c(TRUE,TRUE,FALSE,FALSE). Add that to your matrix and specify
-    the number of rows and columns.
+  Hint: 'If the matrix needs to have a logical vector of length 4 that contains two TRUEs and two FALSEs,
+    then the vector would look like this: c(TRUE,TRUE,FALSE,FALSE). Add that to your matrix and specify
+    the number of rows and columns.'
   
 - Class: text
   Output: Now that you've understood how to create matrices, it’s important to know how to subset matrices.
