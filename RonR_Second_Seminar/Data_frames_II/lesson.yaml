@@ -1,0 +1,210 @@
+- Class: meta
+  Course: RonR! Second seminar
+  Lesson: Data frames II
+  Author: Jorge Cimentada
+  Type: Standard
+  Organization: RECSM, UPF
+  Version: 2.4.0
+
+- Class: text
+  Output: Hello! Welcome to the second lesson on data frames. 
+    Before getting started, let's do a recap on what a data
+    frame is and how it differs from matrices.
+
+- Class: text
+  Output: In a nutshell, a data frame is the typical data set
+    you deal with in programs like SAS, SPSS, Excel and Stata.
+    It has rows and columns and each column might be of a different
+    nature(numeric, categorical, character). Matrices are different
+    because all columns NECESSARILY have to be of the same
+    category(numeric, categorical or character).
+    
+- Class: mult_question
+  Output: Apart from that, everything you've learned about matrices
+    can be applied to data frames. Each column in a data.frame can
+    be subsetted with the $ sign just as in matrices. If we had a data frame
+    named ESS and within that data frame we had a column named gender,
+    how would we select that variable?
+  AnswerChoices: ESS[, gender]; ESS$gender; Gender
+  CorrectAnswer: ESS$gender
+  AnswerTests: omnitest(correctVal= 'ESS$gender')
+  Hint: Remember that to subset a column using it's name you have to use the $ sign.
+  
+- Class: text
+  Output: Writing ESS$gender is easy, but sometimes we want to use a lot
+    of variable and writing ESS$ for each variable is nonsense. For that,
+    we have the attach(), detach() and with() functions.
+
+- Class: text
+  Output: Let's see an example with the mtcars data frame. Suppose
+    we're interested in calculating the mean of several columns.
+    mtcars has several variables, but let's concentrate
+    on the variables mpg, disp and ht.
+  
+- Class: mult_question
+  Output: What would be the correct expression that will calculate the
+    mean of the mpg variable?
+  AnswerChoices: mean mpg; mean(mpg); mean(mtcars$mpg); mean mtcars(mpg); mean mtcars$mpg
+  CorrectAnswer: mean(mtcars$mpg)
+  AnswerTests: omnitest(correctVal= 'mean(mtcars$mpg)')
+  Hint: To calculate the mean of a variable you need to use the mean() function.
+    Inside that function you specify the desired variable.
+    
+- Class: cmd_question
+  Output: Now calculate the mean of the mpg variable in the data frame
+    mtcars
+  CorrectAnswer: mean(mtcars$mpg)
+  AnswerTests: omnitest(correctExpr='mean(mtcars$mpg)')
+  Hint: To calculate the mean of a variable you need to use the mean() function.
+    Inside that function you specify the desired variable.
+  
+- Class: text
+  Output: To calculate the mean of two variables then we would just repeat
+    the function with another variable. For example, mean(mtcars$mpg) and
+    mean(mtcars$hp). This is quite easy, but if we want to calculate several
+    means then it would be tiring.
+    
+- Class: text
+  Output: With the attach() and detach() functions you add the data frame
+    to the R search path. This means that When a variable name is
+    encountered, data frames in the search path are checked for the variable in order.
+
+- Class: cmd_question
+  Output: First let's attach the data frame by typing attach(mtcars)
+  CorrectAnswer: attach(mtcars)
+  AnswerTests: omnitest(correctExpr='attach(mtcars)')
+  Hint: Type attach(mtcars)
+
+- Class: cmd_question
+  Output: 'Now calculate the mean by typing: mean(mpg)'
+  CorrectAnswer: mean(mpg)
+  AnswerTests: expr_identical_to('mean(mpg)')
+  Hint: Type mean(mpg)
+  
+- Class: cmd_question
+  Output: 'Try it for the hp variable'
+  CorrectAnswer: mean(hp)
+  AnswerTests: expr_identical_to('mean(hp)')
+  Hint: Type mean(hp)
+
+- Class: text
+  Output: You get the mean for mpg and hp without having to write
+    mtcars$ in front of the expression.
+  
+- Class: cmd_question
+  Output: 'Now detach the data frame by typing detach(mtcars)'
+  CorrectAnswer: detach(mtcars)
+  AnswerTests: omnitest(correctExpr='detach(mtcars)')
+  Hint: Type detach(mtcars)
+  
+- Class: text
+  Output: The attach()
+    and detach() functions are not entirely efficient when you're handling
+    several datasets in R. If you're interested in the explanation there's
+    'a debate going on here: http://stackoverflow.com/questions/10067680/'
+    why-is-it-not-advisable-to-use-attach-in-r-and-what-should-i-use-instead
+    
+- Class: text
+  Output: 'What many R users recommend is using the with() function instead.
+    The with function does exactly the same as the attach and detach
+    functions, however it has a different syntax. To reproduce what we did with
+    the attach function, this is the equivalent with the with() function:
+    with(mtcars, c( mean(mpg), mean(disp))  )'
+    
+- Class: text
+  Output: How would you read the expression? Take the mtcars and calculate
+    the mean of mpg and disp. You might ask yourself why did you have to wrap
+    the two means with a c(). Basically, the with function accepts an expression
+    after the data, however, here we're actually calculating TWO
+    expressions(two means) so we simply concatenate the two expressions together.
+  
+- Class: text
+  Output: If you didn't understand it, the syntax is this':' with(yourdata, expression).
+    We used it for calculating means but you can use it for literally everything.'
+
+- Class: cmd_question
+  Output: 'Calculate the median of mpg using the with function. Hint:
+    the median function is simply median().'
+  CorrectAnswer: with(mtcars, median(mpg))
+  AnswerTests: omnitest(correctExpr='with(mtcars, median(mpg))')
+  Hint: 'The with functions takes the data frame as its first argument,
+    and your expression as your second argument. So try with(mtcars,
+    calculate the median of mpg)'
+  
+- Class: cmd_question
+  Output: Now also calculate the MEAN of hp IN THE SAME expression.
+  CorrectAnswer: with(mtcars, c(median(mpg), mean(hp)))
+  AnswerTests: omnitest(correctExpr='with(mtcars, c(median(mpg), mean(hp)))')
+  Hint: Type with(mtcars, c(median(mpg), mean(hp)))
+  
+- Class: text
+  Output: I think you might have a good idea how
+    attach(), detach() and with() work. Let's move on to merging data frames.
+  
+- Class: text
+  Output: Let's start with the merge command. If you have two different
+    'datasets with a common identification variable(unique ID, countries,
+    school ID, etc..), then you merge them like this: merge(dataframe,' 
+    dataframe2, by="ID variable")
+  
+- Class: cmd_question
+  Output: For this exercise I've created two data frames named dataset1 and dataset2.
+    See the contents of dataset1 by typing dataset1.
+  CorrectAnswer: dataset1
+  AnswerTests: omnitest(correctExpr='dataset1')
+  Hint: Type dataset1
+  
+- Class: cmd_question
+  Output: Now do the same for dataset2.
+  CorrectAnswer: dataset2
+  AnswerTests: omnitest(correctExpr='dataset2')
+  Hint: Type dataset2
+  
+- Class: cmd_question
+  Output: If you noticed, both data frames have a similar unique variable named 'first'.
+    'We could match them easily with the merge command. Using this example, adapt it to
+    merge dataset1 and dataset2: merge(dataframe, dataframe2,' by="ID variable")
+  CorrectAnswer: merge(dataset1, dataset2, by="first")
+  AnswerTests: omnitest(correctExpr='merge(dataset1, dataset2, by="first")')
+  Hint: Substitute our two datasets instead of the two "dataframe" arguments and specify the
+    common ID variable in the by option.
+  
+- Class: text
+  Output: 'That was easy! What if you wanted to merge according to TWO common ID variables?
+    A good example would be merging students within a school. Each school has a unique identifier
+    and each student as well.'
+    
+- Class: mult_question
+  Output: It's just as simple. You only have to CONCATENATE both variables.
+    What would be the correct answer?
+  AnswerChoices: merge(dataframe, dataframe2, by="schools" & "students");
+    merge(dataframe, dataframe2, by="schools & students");
+    merge(dataframe, dataframe2, by=c("schools") & c("students"));
+    merge(dataframe, dataframe2, by=c("schools, students"))
+  CorrectAnswer: merge(dataframe, dataframe2, by=c("schools, students"))
+  AnswerTests: omnitest(correctVal= 'merge(dataframe, dataframe2, by=c("schools, students"))')
+  Hint: In order to have two variables together we need to use the c() function.
+  
+- Class: text
+  Output: A similar scenario would be if you wanted to append rows
+    instead of columns. If you had two datasets with the same columns,
+    then you can write rbind(dataframe1, dataframe2). rbind stands for
+    row bind.
+    
+- Class: cmd_question
+  Output: Let’s try a brief example. I’ve created two data frames which have the same two variables.
+    Try and append the rows of dataset3 to dataset4 using the previous example.
+  CorrectAnswer: rbind(dataset3, dataset4)
+  AnswerTests: omnitest(correctExpr='rbind(dataset3, dataset4)')
+  Hint: Type rbind(dataset3, dataset4)
+  
+- Class: text
+  Output: Note that the two data frames must have the same amount of variables,
+    but they don’t have to be in the same order; rbind takes care of
+    matching each column. If one of the data frames has an additional
+    variable, it won’t work.
+    
+- Class: text
+  Output: Alright, so now you know how to manage your data frames.
+    Go show of your new skills with a dataset of your own! This is the end of
+    the second RonR! seminar.
