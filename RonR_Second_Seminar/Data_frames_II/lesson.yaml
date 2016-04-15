@@ -98,11 +98,11 @@
   Hint: Type detach(mtcars)
   
 - Class: text
-  Output: The attach()
-    and detach() functions are not entirely efficient when you're handling
-    several datasets in R. If you're interested in the explanation there's
-    'a debate going on here: http://stackoverflow.com/questions/10067680/'
-    why-is-it-not-advisable-to-use-attach-in-r-and-what-should-i-use-instead
+  Output: The attach() and detach() functions are not entirely efficient
+    when you're handling several datasets in R. If you're interested 'in
+    the explanation there's a debate going on here 
+    http://stackoverflow.com/questions/10067680/why-is-it-not-advisable
+    -to-use-attach-in-r-and-what-should-i-use-instead
     
 - Class: text
   Output: 'What many R users recommend is using the with() function instead.
@@ -143,8 +143,8 @@
   
 - Class: text
   Output: Let's start with the merge command. If you have two different
-    'datasets with a common identification variable(unique ID, countries,
-    school ID, etc..), then you merge them like this: merge(dataframe,' 
+    datasets with a common identification variable(unique ID, countries,
+    school ID, etc..), then you merge them like this merge(dataframe, 
     dataframe2, by="ID variable")
   
 - Class: cmd_question
@@ -162,8 +162,8 @@
   
 - Class: cmd_question
   Output: If you noticed, both data frames have a similar unique variable named 'first'.
-    'We could match them easily with the merge command. Using this example, adapt it to
-    merge dataset1 and dataset2: merge(dataframe, dataframe2,' by="ID variable")
+    We could match them easily with the merge command. Using this example, adapt it to
+    merge dataset1 and dataset2':' merge(dataframe, dataframe2, by="ID variable")
   CorrectAnswer: merge(dataset1, dataset2, by="first")
   AnswerTests: omnitest(correctExpr='merge(dataset1, dataset2, by="first")')
   Hint: Substitute our two datasets instead of the two "dataframe" arguments and specify the
@@ -192,7 +192,7 @@
     row bind.
     
 - Class: cmd_question
-  Output: Let’s try a brief example. I’ve created two data frames which have the same two variables.
+  Output: Let's try a brief example. I've created two data frames which have the same two variables.
     Try and append the rows of dataset3 to dataset4 using the previous example.
   CorrectAnswer: rbind(dataset3, dataset4)
   AnswerTests: omnitest(correctExpr='rbind(dataset3, dataset4)')
@@ -200,9 +200,9 @@
   
 - Class: text
   Output: Note that the two data frames must have the same amount of variables,
-    but they don’t have to be in the same order; rbind takes care of
+    but they don't have to be in the same order; rbind takes care of
     matching each column. If one of the data frames has an additional
-    variable, it won’t work.
+    variable, it won't work.
     
 - Class: text
   Output: Alright, so now you know how to manage your data frames.
