@@ -1,14 +1,8 @@
 ## This code installs the second seminar course in your working directory.
 
-packages <- c("downloader", "swirl")
 
-if (length(setdiff(packages, installed.packages())) > 0) {
-    install.packages(setdiff(packages, installed.packages()))
-}
-
-library(swirl)
 library(downloader)
-
+library(swirl)
 ## Download the file
 download("https://github.com/cimentadaj/Rseminars/archive/master.zip",
               "Rseminars-master.zip", mode="wb")
