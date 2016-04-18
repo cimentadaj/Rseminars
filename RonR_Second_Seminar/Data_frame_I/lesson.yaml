@@ -1,0 +1,160 @@
+- Class: meta
+  Course: RonR! Second seminar
+  Lesson: Data frames I
+  Author: Jorge Cimentada and Basilio Moreno
+  Type: Standard
+  Organization: RECSM, UPF
+  Version: 2.2.21
+
+- Class: text
+  Output: Hi! On this lesson will talk about data frames. Probably themost important
+    object in R, and the one you will use the most. 
+
+- Class: text
+  Output: To put it bluntly, a data frame is the typical dataset you deal with in programs
+    like Excel, SAS, STATA and SPSS. It has a rectangular shape with rows and columns, where each
+    column might be of a different class, i.e. numeric, categorical, character or logical.
+    
+- Class: text
+  Output: Let’s go over some properties of data frames.
+  
+- Class: text
+  Output: Each column MUST be a vector of any of the known classes (numeric, character, logical or factor)
+  
+- Class: text
+  Output: Each data frame has an unlimited number of columns. Let's imagine you're reading a dataset from
+    excel. R includes numeric vectors, logicals and factors as they are. That is, data frames accept them
+    without discrimination. On the other hand, character vectors are automatically transformed into factors
+    
+- Class: text
+  Output: As we saw in the past lesson, to have an ordinal factor properly ordered you need to specify
+    the order of the levels. If characters are transformed to factors automatically by data frames, how
+    come they know the order? They don’t. They simply convert it to a factor and take every unique character
+    and specify it as a level. So if we had "Males","Females" and "Hello!" as the unique values in the vector,
+    it will code them as levels. Whenever you're reading data, remember to check your factors!
+  
+- Class: text
+  Output: Vectors that will be binded to a data frame must have the SAME number of rows.
+    Otherwise the vector will repeat itself until it has the same number of rows as the
+    data frame. Remember to check your lenghts!
+    
+- Class: text
+  Output: A data frame may for many purposes be regarded as a matrix with columns of differing classes.
+    It may be displayed in matrix form, and its rows and columns may be extracted using matrix indexing conventions.
+  
+- Class: text
+  Output: Now let’s get our hands dirty and create a data frame!
+  
+- Class: text
+  Output: 'The data frame function works like this: data.frame(column1=contents, column2=contents,...,columN=contents)'
+  
+- Class: text
+  Output: 'Without getting too scared, I want you to try and understand this data frame based on the past example:
+    states <- data.frame(code= c("CA", "NY", "NE", "AZ"), 
+                     population = c(38.8, 19.7, 2.1, 6.8), 
+                     region     = c("West", "Northeast", "Midwest", "West"), 
+                     landlock   = c(FALSE, FALSE, TRUE, TRUE))'
+
+- Class: mult_question
+  Output: Let’s try to interpret it together now. We’re creating a data frame called states, right?
+    It contains 4 columns(code, population, region, landlock). If I asked you, what is the class of the
+    FOURTH column, what would you say?
+  AnswerChoices: Numeric; Character; Logical; Factor
+  CorrectAnswer: Logical
+  AnswerTests: omnitest(correctVal= 'Logical')
+  Hint: Remember, if it’s TRUE and FALSE, it must be a logical vector
+  
+- Class: exact_question
+  Output: How many rows will this data frame have? Write down the number
+  CorrectAnswer: 4
+  AnswerTests: omnitest(correctVal=4)
+  Hint: What is the length of any of the columns? That would be the number of rows
+  
+- Class: text
+  Output: 'In fact, all the 1st numbers of each vector compose what will be the first row,
+  the 2nd numbers are the 2nd row and so on..'
+    
+- Class: cmd_question
+  Output: Now that I've quizzed you, let's have a look at the data set. Type states
+  CorrectAnswer: states
+  AnswerTests: omnitest(correctExpr= 'states')
+  Hint: 'Type states'
+    
+- Class: text
+  Output: 'We can access elements via indexing the same way as we would do in a matrix.
+    For example, states[, 3] would subset the third column by its position'
+  
+- Class: text
+  Output: 'The expression states[, "region"] would subset the region column, the
+    3rd column. However here you are subsetting by its name rather than by its position'
+  
+- Class: text
+  Output: 'Finally, you can also call it by its name by typing states$region. You can read this
+  as: take the states data frame and subset region column'
+  
+- Class: text
+  Output: 'We can also add new variables by doing something like this: states$spanish <- c(28.5, 15.7, NA, 19.5).
+     We create a variable called spanish contaning 4 values and bind it to the data frame in the same expression'
+  
+- Class: cmd_question
+  Output: Create a vector named zipcode which has the numeric values 1,0,1 and 0
+  CorrectAnswer: zipcode <- c(1,0,1,0)
+  AnswerTests: omnitest(correctExpr= 'zipcode <- c(1,0,1,0)')
+  Hint: 'Type zipcode <- c(1,0,1,0)'
+  
+- Class: cmd_question
+  Output: Now try to add the zipcode variable to the states data frame.
+  CorrectAnswer: states$zipcode <- zipcode
+  AnswerTests: omnitest(correctExpr= 'states$zipcode <- zipcode')
+  Hint: 'If you want to create the variable then you type states$zipcode and assign the zipcode variable to that.
+    So the correct expression would be something like states$newvariable <- newvariable'
+
+- Class: text
+  Output: 'Alright! I must confess that was a hard one'
+  
+- Class: text
+  Output: 'We can edit values putting together a few things that we have seen so far: states$population[states$code == "NE"] <- 1.8'
+  
+- Class: text
+  Output: 'Don’t panic! Let’s read it through. First, we have the states$population part.
+  That is simply a vector which contains the population'
+  
+- Class: text
+  Output: 'The next part is [states$code == "NE"]. Remember that if we have vector with the
+    [ ] after it, we’re subsetting something from that vector. So in this case we can read the
+    entire expression as: take the population column, and where the CODE column equals “NE”
+    replace the population column with 1.8'
+    
+- Class: cmd_question
+  Output: Type states
+  CorrectAnswer: states
+  AnswerTests: omnitest(correctExpr= 'states')
+  Hint: 'Type states'
+
+- Class: text
+  Output: 'Let’s go over it manually. First column is code and the second is population'
+  
+- Class: text
+  Output: 'Have a look at the 1st row of the population column, does it have the NE on the
+  code column? No. Does the second row of population have the NE on the code column? No.
+  Does the 3rd row of population have the NE on the code column? Yes. So the expression
+  replaces the population value 2.1 with 1.8 when that condition is met'
+
+- Class: text
+  Output: 'I hope that was clearer'
+  
+- Class: text
+  Output: 'The same approach can be used for subsetting a dataset: states[states$population > 10,]
+    Note: Notice the comma!'
+  
+- Class: mult_question
+  Output: What is this function doing?
+  AnswerChoices: Subsetting all columns and all rows; Subsetting all rows for only the population column;
+    Subsetting all rows where population is higher or equal to 10; Subsetting all rows where population is higher than 10
+  CorrectAnswer: Subsetting all rows where population is higher than 10
+  AnswerTests: omnitest(correctVal= 'Subsetting all rows where population is higher than 10')
+  Hint: Before the commas we're talking rows, after the comma we're dealing with columns. This expression means
+    take all the rows on which population is above 10 and INCLUDE all columns.
+    
+- Class: text
+  Output: Now that you know your data chops, go ahead an delve into your own analysis!
