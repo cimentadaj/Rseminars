@@ -99,7 +99,7 @@
     I'll explain briefly each one"
 
 - Class: text
-  Output: "Everything you've learned about numeric vectors can be applied to character vectors."
+  Output: Everything you've learned about numeric vectors can be applied to character vectors.
     With the exception that instead of numbers, character vectors can only contain "characters"
     
 - Class: text
