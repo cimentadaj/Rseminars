@@ -120,10 +120,10 @@
     That is simply a vector which contains the population
   
 - Class: text
-  Output: 'The next part is [states$code == "NE"]. Remember that if we have vector with the
+  Output: The next part is [states$code == "NE"]. Remember that if we have vector with the
     [ ] after it, we're subsetting something from that vector. So in this case we can read the
-    entire expression as: take the population column, and where the CODE column equals “NE”
-    replace the population column with 1.8'
+    entire expression as = take the population column, and where the CODE column equals "NE"
+    replace the population column with 1.8
     
 - Class: cmd_question
   Output: Type states
@@ -144,7 +144,7 @@
   Output: 'I hope that was clearer'
   
 - Class: text
-  Output: 'The same approach can be used for subsetting a dataset: states[states$population > 10,]
+  Output: 'The same approach can be used for subsetting a dataset = states[states$population > 10,]
     Note: Notice the comma!'
   
 - Class: mult_question
