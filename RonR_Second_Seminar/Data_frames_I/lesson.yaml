@@ -16,7 +16,7 @@
     column might be of a different class, i.e. numeric, categorical, character or logical.
     
 - Class: text
-  Output: Let’s go over some properties of data frames.
+  Output: Let's go over some properties of data frames.
   
 - Class: text
   Output: Each column MUST be a vector of any of the known classes (numeric, character, logical or factor)
@@ -29,7 +29,7 @@
 - Class: text
   Output: As we saw in the past lesson, to have an ordinal factor properly ordered you need to specify
     the order of the levels. If characters are transformed to factors automatically by data frames, how
-    come they know the order? They don’t. They simply convert it to a factor and take every unique character
+    come they know the order? They don't. They simply convert it to a factor and take every unique character
     and specify it as a level. So if we had "Males","Females" and "Hello!" as the unique values in the vector,
     it will code them as levels. Whenever you're reading data, remember to check your factors!
   
@@ -43,7 +43,7 @@
     It may be displayed in matrix form, and its rows and columns may be extracted using matrix indexing conventions.
   
 - Class: text
-  Output: Now let’s get our hands dirty and create a data frame!
+  Output: Now let's get our hands dirty and create a data frame!
   
 - Class: text
   Output: 'The data frame function works like this: data.frame(column1=contents, column2=contents,...,columN=contents)'
@@ -56,13 +56,13 @@
                      landlock   = c(FALSE, FALSE, TRUE, TRUE))'
 
 - Class: mult_question
-  Output: Let’s try to interpret it together now. We’re creating a data frame called states, right?
+  Output: Let's try to interpret it together now. We're creating a data frame called states, right?
     It contains 4 columns(code, population, region, landlock). If I asked you, what is the class of the
     FOURTH column, what would you say?
   AnswerChoices: Numeric; Character; Logical; Factor
   CorrectAnswer: Logical
   AnswerTests: omnitest(correctVal= 'Logical')
-  Hint: Remember, if it’s TRUE and FALSE, it must be a logical vector
+  Hint: Remember, if it's TRUE and FALSE, it must be a logical vector
   
 - Class: exact_question
   Output: How many rows will this data frame have? Write down the number
@@ -116,12 +116,12 @@
   Output: 'We can edit values putting together a few things that we have seen so far: states$population[states$code == "NE"] <- 1.8'
   
 - Class: text
-  Output: 'Don’t panic! Let’s read it through. First, we have the states$population part.
+  Output: 'Don't panic! Let's read it through. First, we have the states$population part.
   That is simply a vector which contains the population'
   
 - Class: text
   Output: 'The next part is [states$code == "NE"]. Remember that if we have vector with the
-    [ ] after it, we’re subsetting something from that vector. So in this case we can read the
+    [ ] after it, we're subsetting something from that vector. So in this case we can read the
     entire expression as: take the population column, and where the CODE column equals “NE”
     replace the population column with 1.8'
     
@@ -132,7 +132,7 @@
   Hint: 'Type states'
 
 - Class: text
-  Output: 'Let’s go over it manually. First column is code and the second is population'
+  Output: 'Let's go over it manually. First column is code and the second is population'
   
 - Class: text
   Output: 'Have a look at the 1st row of the population column, does it have the NE on the
