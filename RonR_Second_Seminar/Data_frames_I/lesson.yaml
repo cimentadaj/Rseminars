@@ -116,8 +116,8 @@
   Output: 'We can edit values putting together a few things that we have seen so far: states$population[states$code == "NE"] <- 1.8'
   
 - Class: text
-  Output: 'Don't panic! Let's read it through. First, we have the states$population part.
-  That is simply a vector which contains the population'
+  Output: Don't panic! Let's read it through. First, we have the states$population part.
+    That is simply a vector which contains the population
   
 - Class: text
   Output: 'The next part is [states$code == "NE"]. Remember that if we have vector with the
@@ -132,13 +132,13 @@
   Hint: 'Type states'
 
 - Class: text
-  Output: 'Let's go over it manually. First column is code and the second is population'
+  Output: Let's go over it manually. First column is code and the second is population
   
 - Class: text
   Output: 'Have a look at the 1st row of the population column, does it have the NE on the
-  code column? No. Does the second row of population have the NE on the code column? No.
-  Does the 3rd row of population have the NE on the code column? Yes. So the expression
-  replaces the population value 2.1 with 1.8 when that condition is met'
+    code column? No. Does the second row of population have the NE on the code column? No.
+    Does the 3rd row of population have the NE on the code column? Yes. So the expression
+    replaces the population value 2.1 with 1.8 when that condition is met'
 
 - Class: text
   Output: 'I hope that was clearer'
