@@ -186,8 +186,8 @@
   Hint: 'Type status2'
   
 - Class: text
-  Output: 'The only difference is that now the levels option actually specifies that poor is less than improved,
-    and so on. Note that our initial vector had “Poor”, “Improved” and “Excelent” in our desired order.
+  Output: The only difference is that now the levels option actually specifies that poor is less than improved,
+    and so on. Note that our initial vector had "Poor", "Improved" and "Excelent" in our desired order.
     If the order would've been "Poor","Excellent" and "Improved", how would have we specified the correct order?
 
 - Class: text
