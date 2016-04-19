@@ -262,9 +262,9 @@
 
 - Class: text
   Output: Before concluding, let's go over arithmetic operations with vectors. When perform any arithmetic
-  operation with vectors, the default for R is to carry the operation for the same position in the two different
-  vectors. For example, c(1,2) + c(3,4) would equal c(4,6). So R compares the 1st object in the 1st vector
-  to the 1st object in the 2nd vector, and so on..
+    operation with vectors, the default for R is to carry the operation for the same position in the two different
+    vectors. For example, c(1,2) + c(3,4) would equal c(4,6). So R compares the 1st object in the 1st vector
+    to the 1st object in the 2nd vector, and so on..
   
 - Class: text
   Output: The same principle applies to subtraction, multiplication and division. It's pretty simple
@@ -297,6 +297,6 @@
   Output: 'This is the end of lesson 2. This was some great work, keep going!'
   
 - Class: text
-  Output: Resources: R in Action by Robert I. Kabacoff Nick Cacherdi's lesson on
-  Basic Building Blocks from the swirl built-in lessons. These can be accessed here:
-  https://github.com/swirldev/swirl_courses/tree/master/R_Programming'
+    Output: Resources: R in Action by Robert I. Kabacoff Nick Cacherdi's lesson on
+    Basic Building Blocks from the swirl built-in lessons. These can be accessed here:
+    https://github.com/swirldev/swirl_courses/tree/master/R_Programming'
