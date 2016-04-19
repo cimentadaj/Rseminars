@@ -108,7 +108,7 @@
     you're using words or letters which is why you need wrap your text with " "
 
 - Class: cmd_question
-  Output: 'Let's give it a try. Create a vector named myname and include your FIRST name inside it'
+  Output: Let's give it a try. Create a vector named myname and include your FIRST name inside it
   CorrectAnswer: var_is_a('character', 'myname')
   AnswerTests: var_is_a('character', 'myname')
   Hint: 'Start off by the vector name: myname <- and now type your first name wrapped in ""'
@@ -123,9 +123,9 @@
     you wouldn't want to rewrite them all. What would you do in that case?'
     
 - Class: cmd_question
-  Output: 'A simpler and more elegant way would be to create a vector named myname which
+  Output: A simpler and more elegant way would be to create a vector named myname which
     CONCATENATES the vector myname and your last name together. Remember, myname is not a character
-    object but a character VECTOR, so you don't have to wrap it around with the " ". Try it out yourself'
+    object but a character VECTOR, so you don't have to wrap it around with the " ". Try it out yourself
   CorrectAnswer: val_has_length(2)
   AnswerTests: val_has_length(2)
   Hint: 'Start off by the vector name: myname <- and now open the c() and include, first the
@@ -133,7 +133,7 @@
   
   
 - Class: mult_question
-  Output: 'Now let's talk about logical vectors. I think logical vectors are quite intuitive.
+  Output: Now let's talk about logical vectors. I think logical vectors are quite intuitive.
     Remember that our income variable has the numbers 10,5,3,6 and 21 in its contents. If I would type income > 7,
     what do you think will be the correct equivalence?'
   AnswerChoices: TRUE, TRUE, TRUE ,TRUE, TRUE; FALSE, TRUE, TRUE, TRUE, FALSE; TRUE, FALSE, FALSE, FALSE, TRUE; FALSE, TRUE, TRUE, FALSE, TRUE
@@ -147,10 +147,10 @@
     TRUE represents a 1 and FALSE represents a 0. Just keep that in mind'
 
 - Class: text
-  Output: "To give you a brief example on how to use logical vectors, imagine that we assigned income > 7
+  Output: To give you a brief example on how to use logical vectors, imagine that we assigned income > 7
     to a vector named logical. Every time we entered the name logical we would get TRUE, FALSE, FALSE, FALSE,
     TRUE. But what is that useful for? Those which have TRUE have income higher than 7 and those which have FALSE have
-    income lower than 7. For those familiar with some statistical jargon, it's simply a dummy variable"
+    income lower than 7. For those familiar with some statistical jargon, it's simply a dummy variable
     
 - Class: text
   Output: 'The last R object we need to talk about are factors. Factors are the variables on which you can
@@ -159,9 +159,9 @@
     a hierarchical order(like poor, improved, excelent)'
   
 - Class: cmd_question
-  Output: 'Let's make an example. I already typed: diabetes <- c("Type1","Type2","Type1","Type1"), which creates
+  Output: Let's make an example. I already typed: diabetes <- c("Type1","Type2","Type1","Type1"), which creates
     a character vector of length 4. Now you type diabetes <- factor(diabetes)  Don't panic! We could read
-    the expression as: take the vector diabetes, convert it into factor and save it with the name diabetes again'
+    the expression as: take the vector diabetes, convert it into factor and save it with the name diabetes again
   CorrectAnswer: omnitest(correctExpr="diabetes <- factor(diabetes)")
   AnswerTests: omnitest(correctExpr="diabetes <- factor(diabetes)")
   Hint: 'Type diabetes <- factor(diabetes)'
@@ -188,11 +188,11 @@
 - Class: text
   Output: 'The only difference is that now the levels option actually specifies that poor is less than improved,
     and so on. Note that our initial vector had “Poor”, “Improved” and “Excelent” in our desired order.
-    If the order would've been “Poor”,”Excellent” and “Improved”, how would have we specified the correct order?'
+    If the order would've been "Poor","Excellent" and "Improved", how would have we specified the correct order?
 
 - Class: text
-  Output: 'That's easy: with the levels option. Check out the expression: factor(status, order = TRUE, levels=c(“Poor”, “Improved”,
-    “Excellent”)).  The levels option we use it to specify the ordinal order of our character vector'
+  Output: That's easy: with the levels option. Check out the expression: factor(status, order = TRUE, levels=c("Poor","Excellent",
+    "Improved")).  The levels option we use it to specify the ordinal order of our character vector
 
 - Class: cmd_question
   Output: 'We can check what type of vector we are working with by calling the function class(x) which takes
@@ -202,7 +202,7 @@
   Hint: 'Type class(status2)'
   
 - Class: text
-  Output: 'Let's talk about sequences now'
+  Output: Let's talk about sequences now
   
 - Class: text
   Output: 'R has a number of facilities for generating commonly used sequences of numbers.
@@ -233,8 +233,8 @@
   Hint: 'Type seq(1, 10, by= 2)'
   
 - Class: text
-  Output: 'The only difference from the previous sequence is that this sequence jumps every two numbers.
-    If you don't specify the by argument, it has 1 by default'
+  Output: The only difference from the previous sequence is that this sequence jumps every two numbers.
+    If you don't specify the by argument, it has 1 by default
     
 - Class: text
   Output: 'A related function is rep() which can be used for repeting an object in various ways.
@@ -261,13 +261,13 @@
   can be used with any vector(numeric,character, logical) and all of these expressions can be saved to a name'
 
 - Class: text
-  Output: 'Before concluding, let's go over arithmetic operations with vectors. When perform any arithmetic
+  Output: Before concluding, let's go over arithmetic operations with vectors. When perform any arithmetic
   operation with vectors, the default for R is to carry the operation for the same position in the two different
   vectors. For example, c(1,2) + c(3,4) would equal c(4,6). So R compares the 1st object in the 1st vector
   to the 1st object in the 2nd vector, and so on..'
   
 - Class: text
-  Output: 'The same principle applies to subtraction, multiplication and division. It's pretty simple'
+  Output: The same principle applies to subtraction, multiplication and division. It's pretty simple
   
 - Class: cmd_question
   Output: But what would happen if both vectors had different lengths? Try it yourself by adding
@@ -297,6 +297,6 @@
   Output: 'This is the end of lesson 2. This was some great work, keep going!'
   
 - Class: text
-  Output: 'Resources: R in Action by Robert I. Kabacoff Nick Cacherdi's lesson on
+  Output: Resources: R in Action by Robert I. Kabacoff Nick Cacherdi's lesson on
   Basic Building Blocks from the swirl built-in lessons. These can be accessed here:
   https://github.com/swirldev/swirl_courses/tree/master/R_Programming'
