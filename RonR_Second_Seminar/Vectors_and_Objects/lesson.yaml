@@ -191,7 +191,7 @@
     If the order would've been "Poor","Excellent" and "Improved", how would have we specified the correct order?
 
 - Class: text
-  Output: That's easy: with the levels option. Check out the expression: factor(status, order = TRUE, levels=c("Poor","Excellent",
+  Output: "That's easy: with the levels option. Check out the expression:" factor(status, order = TRUE, levels=c("Poor","Excellent",
     "Improved")).  The levels option we use it to specify the ordinal order of our character vector
 
 - Class: cmd_question
