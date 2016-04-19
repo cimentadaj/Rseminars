@@ -67,7 +67,7 @@
   Hint: 'Type c(10,5,3,6,21)'
 
 - Class: text
-  Output: 'You can actually see the numbers concatenated, but they weren't saved to a vector/variable.
+  Output: 'You can actually see the numbers concatenated, but they werent saved to a vector/variable.
     In the case you wanted to see these numbers again you would have to type c(10,5,3,6,21) again and again'
   
 - Class: cmd_question
