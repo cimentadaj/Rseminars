@@ -9,3 +9,5 @@ library(downloader)
 
 source_url("https://raw.githubusercontent.com/cimentadaj/Rseminars/master/RonR_Second_Seminar/Course_download.R",
            "348a68a56b9eb4def1c5c2f6f51d58b1f85b65e0")
+
+install_everything("libcurl")
