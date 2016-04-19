@@ -8,6 +8,6 @@
 library(downloader)
 
 source_url("https://raw.githubusercontent.com/cimentadaj/Rseminars/master/RonR_Second_Seminar/Course_download.R",
-           "348a68a56b9eb4def1c5c2f6f51d58b1f85b65e0")
+           "1a1a7113d2012811c1fb56bcc71a507ad529cc30")
 
 install_everything("libcurl")
