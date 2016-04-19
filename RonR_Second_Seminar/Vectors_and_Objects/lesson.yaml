@@ -159,7 +159,7 @@
     a hierarchical order(like poor, improved, excelent)'
   
 - Class: cmd_question
-  Output: Let's make an example. I already typed: diabetes <- c("Type1","Type2","Type1","Type1"), which creates
+  Output: Let's make an example. I already typed diabetes <- c("Type1","Type2","Type1","Type1"), which creates
     a character vector of length 4. Now you type diabetes <- factor(diabetes)  Don't panic! We could read
     the expression as take the vector diabetes, convert it into factor and save it with the name diabetes again
   CorrectAnswer: omnitest(correctExpr="diabetes <- factor(diabetes)")
