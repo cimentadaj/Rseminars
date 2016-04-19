@@ -10,4 +10,6 @@ library(downloader)
 source_url("https://raw.githubusercontent.com/cimentadaj/Rseminars/master/RonR_Second_Seminar/Course_download.R",
            "1a1a7113d2012811c1fb56bcc71a507ad529cc30")
 
-install_everything("libcurl")
+# If you're using windows replace the curl with "libcurl". If you're using Mac OS leave the curl as it is.
+
+install_everything("curl")
