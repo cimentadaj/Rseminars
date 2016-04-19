@@ -119,8 +119,8 @@
     your first and last name. That was easy'
     
 - Class: text
-  Output: 'But what if your initial vector had hundreds of names,
-    you wouldn't want to rewrite them all. What would you do in that case?'
+  Output: But what if your initial vector had hundreds of names,
+    you wouldn't want to rewrite them all. What would you do in that case?
     
 - Class: cmd_question
   Output: A simpler and more elegant way would be to create a vector named myname which
