@@ -17,15 +17,15 @@
     any other spreadsheet program you are in fact dealing with matrices although you don't name them like that. 
   
 - Class: cmd_question
-  Output: A matrix is a “dataset” with “n” number of rows and “z” number of columns. I've taken the liberty
+  Output: A matrix is a "dataset" with "n" number of rows and "z" number of columns. I've taken the liberty
     of creating a matrix so you can check it our for yourself. Type ourmatrix
   CorrectAnswer: ourmatrix
   AnswerTests: omnitest(correctExpr='ourmatrix')
   Hint: Type ourmatrix
   
 - Class: cmd_question
-  Output: You see? There's no need to feel intimidated by matrices. They’re simply a “dataset”. Here, this
-    matrix has 3 rows and 3 columns. But how do we create matrices? Well there's the function “matrix()”.
+  Output: You see? There's no need to feel intimidated by matrices. They’re simply a "dataset". Here, this
+    matrix has 3 rows and 3 columns. But how do we create matrices? Well there's the function "matrix()".
     Type ?matrix() and have a look at the description to your right to see if you understand how it works.
   CorrectAnswer: ?matrix()
   AnswerTests: omnitest(correctExpr='?matrix()')
