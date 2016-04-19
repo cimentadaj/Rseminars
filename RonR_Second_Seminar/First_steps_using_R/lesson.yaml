@@ -82,8 +82,8 @@
   Output: Now you have a description of the dataset in the bottom right window.
 
 - Class: text
-  Output: Let's move to another topic now. You're probably a bit familiar with
-    Rstudio now but let's explain in more detail its environment.
+  Output: Let's move to another topic. You're probably a bit familiar with
+    Rstudio now but let's explain its environment in more detail.
 
 - Class: cmd_question
   Output: The window where you have been typing commands is called the console.
