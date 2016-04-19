@@ -95,8 +95,8 @@
   Hint: "Was is the length if income? If we had income twice then it's twice the length plus the number zero"
   
 - Class: text
-  Output: 'Besides numeric vectors, R handles character vectors, logical vectors and factors.
-    I'll explain briefly each one'
+  Output: "Besides numeric vectors, R handles character vectors, logical vectors and factors.
+    I'll explain briefly each one"
 
 - Class: text
   Output: 'Everything you've learned about numeric vectors can be applied to character vectors.
