@@ -94,7 +94,7 @@
   Hint: Type 5 + 5
   
 - Class: cmd_question
-  Output: Now add 10 to that and subtract 15.
+  Output: Now add 10 to the 5 + 5 and subtract 15.
   CorrectAnswer: 5
   AnswerTests: omnitest(correctExpr='5 + 5 + 10 - 15')
   Hint: Take the initial 5 + 5, add 10 and subtract 15.
