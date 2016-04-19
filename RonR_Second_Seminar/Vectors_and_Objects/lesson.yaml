@@ -297,6 +297,6 @@
   Output: 'This is the end of lesson 2. This was some great work, keep going!'
   
 - Class: text
-    Output: Resources used in this course = R in Action by Robert I. Kabacoff and Nick Cacherdi's lesson on
+  Output: Resources used in this course = R in Action by Robert I. Kabacoff and Nick Cacherdi's lesson on
     Basic Building Blocks from the swirl built-in lessons. These can be accessed at
     https://github.com/swirldev/swirl_courses/tree/master/R_Programming
