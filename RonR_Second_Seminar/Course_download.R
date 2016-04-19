@@ -12,7 +12,7 @@ library(downloader)
 library(swirl)
 ## Download the file
 download("https://github.com/cimentadaj/Rseminars/archive/master.zip",
-              "Rseminars-master.zip", mode="wb")
+              "Rseminars-master.zip", mode="libcurl")
 
 ## unzip and install
 install_course_zip(paste0(getwd(),"/Rseminars-master.zip"),
