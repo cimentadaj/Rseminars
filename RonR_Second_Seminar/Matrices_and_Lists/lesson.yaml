@@ -9,23 +9,23 @@
 - Class: text
   Output: Hello! Welcome to our lesson on matrices and lists. Matrices are widely used in mathematics and algebra and are really useful
     in computer science. For our purposes, matrices will simply teach us how to better manage datasets in R.
-    Let’s get going!
+    Let's get going!
   
   
 - Class: text
-  Output: First off, what is a matrix? A matrix is simply an array of numbers. So, if you’ve used Excel or
-    any other spreadsheet program you are in fact dealing with matrices although you don’t name them like that. 
+  Output: First off, what is a matrix? A matrix is simply an array of numbers. So, if you've used Excel or
+    any other spreadsheet program you are in fact dealing with matrices although you don't name them like that. 
   
 - Class: cmd_question
-  Output: A matrix is a “dataset” with “n” number of rows and “z” number of columns. I’ve taken the liberty
+  Output: A matrix is a “dataset” with “n” number of rows and “z” number of columns. I've taken the liberty
     of creating a matrix so you can check it our for yourself. Type ourmatrix
   CorrectAnswer: ourmatrix
   AnswerTests: omnitest(correctExpr='ourmatrix')
   Hint: Type ourmatrix
   
 - Class: cmd_question
-  Output: You see? There’s no need to feel intimidated by matrices. They’re simply a “dataset”. Here, this
-    matrix has 3 rows and 3 columns. But how do we create matrices? Well there’s the function “matrix()”.
+  Output: You see? There's no need to feel intimidated by matrices. They’re simply a “dataset”. Here, this
+    matrix has 3 rows and 3 columns. But how do we create matrices? Well there's the function “matrix()”.
     Type ?matrix() and have a look at the description to your right to see if you understand how it works.
   CorrectAnswer: ?matrix()
   AnswerTests: omnitest(correctExpr='?matrix()')
@@ -64,7 +64,7 @@
     of subsetting and filtering objects in R.
   
 - Class: cmd_question
-  Output: Let’s take as an example the existing matrix called “ourmatrix”. Type ourmatrix again.
+  Output: Let’s take as an example the existing matrix called "ourmatrix". Type ourmatrix again.
   CorrectAnswer: ourmatrix
   AnswerTests: omnitest(correctExpr= "ourmatrix")
   Hint: Type ourmatrix
@@ -116,13 +116,13 @@
     change the number of the second respondent in his 1st column to 4.
   
 - Class: text
-  Output: Now that you have a good idea about matrices, let’s talk about lists. Lists are a common
-    concept in many programming languages. Let’s try and understand lists with practical examples. Let’s
-    think of Santa Claus. If you’ve been raised in a Western society you should have a good idea of who
-    Santa Claus is. If you weren’t, then the example is pretty straight forward and you will also understand. 
+  Output: Now that you have a good idea about matrices, let's talk about lists. Lists are a common
+    concept in many programming languages. Let's try and understand lists with practical examples. Let's
+    think of Santa Claus. If you've been raised in a Western society you should have a good idea of who
+    Santa Claus is. If you weren't, then the example is pretty straight forward and you will also understand. 
 
 - Class: text
-  Output: Santa Claus had a big bag full of presents, right? Let’s assume the bag had three wrapped presents.  
+  Output: Santa Claus had a big bag full of presents, right? Let's assume the bag had three wrapped presents.  
 
 - Class: text
   Output: Each present might contain a similar gift, like three books, or it might contain completely different
@@ -131,7 +131,7 @@
 
 - Class: text
   Output: The list function works this way; list(object1, object2, object(n)). The n means that you can
-    input as many objects as you want. Let’s have a look at this list and try to understand it;
+    input as many objects as you want. Let's have a look at this list and try to understand it;
     list(myfirst = 1:10, mysecond = c(TRUE,FALSE), mythird = c("books","toy car")).
     
 - Class: text
@@ -140,8 +140,8 @@
     see the contents of each object and interpret what is the class of each vector.
 
 - Class: cmd_question
-  Output: Let's dig in on how to access objects within a list. Let’s run the same
-    list function as before but let’s assign it to the the name ourlist. Assign list(myfirst = 1:10,
+  Output: Let's dig in on how to access objects within a list. Let's run the same
+    list function as before but let's assign it to the the name ourlist. Assign list(myfirst = 1:10,
     mysecond = c(TRUE,FALSE), mythird = c('books','toy car')) to the name ourlist.
   CorrectAnswer: ourlist <- list(list(myfirst = 1:10, mysecond = c(TRUE,FALSE), mythird = c('books','toy car')))
   AnswerTests: omnitest(correctExpr="ourlist <- list(myfirst = 1:10, mysecond = c(TRUE,FALSE), mythird = c('books','toy car'))")
@@ -191,7 +191,7 @@
 - Class: text
   Output: If you thought it was a logical vector, that's a common mistake. When a list object is
     followed by a set of brackets, your subsetting the object but it is still a LIST. If you go back to the
-    command ourlist[2] you’ll see that the output had $logical on top. Remember, everytime you see the $ sign,
+    command ourlist[2] you'll see that the output had $logical on top. Remember, everytime you see the $ sign,
     it means that it's still inside a list.
     
 - Class: cmd_question
