@@ -103,9 +103,9 @@
     With the exception that instead of numbers, character vectors can only contain "characters"
     
 - Class: text
-  Output: 'Did you notice that I included the characters word in " "? Any character in R needs
+  Output: Did you notice that I included the characters word in " "? Any character in R needs
     to be surrounded in " ". R can handle words, sentences, or simply letters but R doesn't know when
-    you're using words or letters which is why you need wrap your text with " "'
+    you're using words or letters which is why you need wrap your text with " "
 
 - Class: cmd_question
   Output: 'Let's give it a try. Create a vector named myname and include your FIRST name inside it'
