@@ -173,10 +173,10 @@
   Hint: 'Type diabetes'
   
 - Class: text
-  Output: 'Notice the levels option. This option is telling you that this factor variable has two categories,
+  Output: Notice the levels option. This option is telling you that this factor variable has two categories,
     namely Type1 and Type2. So far it doesn't say anything about the factors being ordered.
     Remember that we didn't assign any specific hierarchical order(as in an ordered variable) so the factor
-    function ASSUMES that this is a categorical variable'
+    function ASSUMES that this is a categorical variable
   
 - Class: cmd_question
   Output: 'We could do it in a similar way, but adding more options: status2 <- factor(status, order = TRUE,
