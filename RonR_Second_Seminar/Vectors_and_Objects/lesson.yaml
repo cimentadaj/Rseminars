@@ -213,7 +213,7 @@
   Output: 'Try creating a numeric vector named oursequence containing a sequence from 1 to 9 using the semicolon(:)'
   CorrectAnswer: omnitest(correctExpr="oursequence <- 1:9")
   AnswerTests: omnitest(correctExpr="oursequence <- 1:9")
-  Hint: 'Create a vector named oursequence which contains a sequence 1:9'
+  Hint: 'Create a vector named oursequence which assigns the sequence 1:9'
   
 - Class: text
   Output: 'The function seq() is a more general facility for generating sequences. The first two
