@@ -24,3 +24,5 @@ my.file.rename(paste0(getwd(),"/Rseminars-master/RonR_Third_Seminar/Dataset.zip"
 unzip(paste0(getwd(),"/Dataset.zip"), exdir=getwd())
 
 install_course_zip(paste0(getwd(),"/Rseminars-master.zip"), multi=T, which_course = "RonR_Third_Seminar")
+
+message("Everything was installed correctly! Type swirl() to access the lessons.")
