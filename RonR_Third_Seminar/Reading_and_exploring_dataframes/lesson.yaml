@@ -193,7 +193,7 @@
   Output: You get the bottom part of the dataset. Let's finish by using the summary() and str() functions
   
 - Class: cmd_question
-  Output: Summary gives you a summary of each column in the data frame which includes descriptive statistics
+  Output: summary() gives you a summary of each column in the data frame; the output includes descriptive statistics
         like minimum, maximum, quantiles and mean. Inspect the results by typing summary(asfr7512)
   CorrectAnswer: summary(asfr7512)
   AnswerTests: omnitest(correctExpr='summary(asfr7512)')
