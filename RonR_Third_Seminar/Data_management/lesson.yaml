@@ -92,8 +92,8 @@
         we want to divide all columns except the first one by 1000 and ASSIGN our changes to our
         dataset. What would be the correct expression?
   AnswerChoices: asfr[,2:ncol(asfr)] <- asfr[,2:ncol(asfr)]/1000;asfr[2:ncol(asfr)] <- asfr[2:ncol(asfr)]/1000;asfr[,2:ncol(asfr)]/1000
-  CorrectAnswer: any_of_exprs("asfr[,2:ncol(asfr)] <- asfr[,2:ncol(asfr)]/1000", "asfr[2:ncol(asfr)] <- asfr[2:ncol(asfr)]/1000")
-  AnswerTests: any_of_exprs("asfr[,2:ncol(asfr)] <- asfr[,2:ncol(asfr)]/1000", "asfr[2:ncol(asfr)] <- asfr[2:ncol(asfr)]/1000")
+  CorrectAnswer: asfr[,2:ncol(asfr)] <- asfr[,2:ncol(asfr)]/1000
+  AnswerTests: omnitest(correctVal='asfr[,2:ncol(asfr)] <- asfr[,2:ncol(asfr)]/1000')
   
 - Class: text
   Output: You might not have noticed but the there were TWO correct answers. I'll let you discover
