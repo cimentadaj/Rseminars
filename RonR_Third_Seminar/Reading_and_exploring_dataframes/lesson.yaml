@@ -65,7 +65,7 @@
   
 - Class: text
   Output: Although we could read that xls file from R, the best way to read an Excel file is to export
-    it to a comma delimited file and import it using the method above. Alternatively you can use
+    it to a comma delimited file and import it using the function we already used. Alternatively you can use
     one of the many packages available (XLConnect, xlsx, gdata, ...)
 
 - Class: text
