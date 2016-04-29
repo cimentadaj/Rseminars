@@ -173,7 +173,7 @@ Answers: asfr[, -c(1,ncol(asfr)][,even];
 
 Correct answer: asfr[, -c(1,ncol(asfr)][,even]
 
-Before we finish let's introduce a command that can be handy: subset()
+Briefly let's introduce a command that can be handy: subset()
 
 subset() takes a data frame as its first argument and subsets any condition for the rows and columns.
 I think two examples will suffice to make you understand. 
