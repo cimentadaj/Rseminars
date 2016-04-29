@@ -25,7 +25,7 @@
 - Class: text
   Output: Although we won't go into it, you can change this directory with the setwd() function.
     An example line would be setwd("your new path"). Although this is easy, be sure to read
-    more about setwd() because Windows often uses the '\' character while Mac uses the '/'.
+    more about setwd() because Windows often uses the '\' character while Mac uses the '/' character.
     Frustrating problems can arise from simple things like this.
     
 - Class: text
@@ -41,8 +41,8 @@
   Hint: Type read.table("asfr752012ine1.csv")
   
 - Class: cmd_question
-  Output: That's not a nice looking table. Namely because the first two lines are the column names and
-    because we didn't specify that the table is separated by commas. We can fix that by
+  Output: That's not a nice looking table. We forgot to specify that the first two lines are the column names and
+    that the table is separated by commas. We can fix that by
     typing asfr7512 <- read.table("asfr752012ine1.csv", sep = ",", header=TRUE). Go ahead.
   CorrectAnswer: asfr7512 <- read.table("asfr752012ine1.csv", sep = ",", header=TRUE)
   AnswerTests: omnitest(correctExpr='asfr7512 <- read.table("asfr752012ine1.csv", sep = ",", header=TRUE)')
@@ -60,7 +60,7 @@
         everything will still work fine.
 
 - Class: text
-  Output: If you were able to open the spreadsheet, there  some annoying text in the first few rows
+  Output: If you were able to open the spreadsheet, there is some annoying text in the first few rows
     and in the bottom rows.
   
 - Class: text
@@ -69,12 +69,13 @@
     one of the many packages available (XLConnect, xlsx, gdata, ...)
 
 - Class: text
-  Output: Go to this website http://www.convertfiles.com/convert/document/XLSX-to-CSV.html,
-    drag the xls file from the folder, convert it to CSV and download it.
+  Output: Go to this website https://convertio.co/es/xlsx-csv/,
+    drag the INE_fempopJul1975.xls file from your working directory, convert it to CSV and download it to your working directory.
+    This is really important! Make sure you download your file to your working directory.
     
 - Class: cmd_question
-  Output: We wanna open that file into R but it has some lines at the top and bottom that we have to ignore
-    in order to have a clearn dataset. The whole command is femPop75 <- read.table("INE_fempopJul1975.csv",
+  Output: We wanna open that file into R but it has some lines at the top and bottom that we have to ignore.
+    The whole command is femPop75 <- read.table("INE_fempopJul1975.csv",
     sep = ",", skip=9, nrows=51, header=TRUE). Type it as it is.
   CorrectAnswer: femPop75 <- read.table("INE_fempopJul1975.csv", sep = ",", skip=9, nrows=51, header=TRUE)
   AnswerTests: omnitest(correctExpr='femPop75 <- read.table("INE_fempopJul1975.csv", sep = ",", skip=9, nrows=51, header=TRUE)')
