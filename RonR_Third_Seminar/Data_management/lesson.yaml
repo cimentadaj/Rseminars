@@ -232,10 +232,10 @@
     rate lower than 0.005 in 2014.
     
 - Class: cmd_question
-  Output: 'We could do that the same way we recoded variables for the age groups: asfr$low14[asfr[,2014] < 0.05] <- 1. Type it!'
-  CorrectAnswer: asfr$low14[asfr[,2014] < 0.05] <- 1
-  AnswerTests: omnitest(correctExpr='asfr$low14[asfr[,2014] < 0.05] <- 1')
-  Hint: Type asfr$low14[asfr[,2014] < 0.05] <- 1
+  Output: 'We could do that the same way we recoded variables for the age groups: asfr$low14[asfr[,"2014"] < 0.05] <- 1. Type it!'
+  CorrectAnswer: asfr$low14[asfr[,"2014"] < 0.05] <- 1
+  AnswerTests: omnitest(correctExpr='asfr$low14[asfr[,"2014"] < 0.05] <- 1')
+  Hint: Type asfr$low14[asfr[,"2014"] < 0.05] <- 1
   
 - Class: text
   Output: Read it again and understand what we did before continuing.
