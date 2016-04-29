@@ -145,7 +145,7 @@
     and 40 columns'
     
 - Class: cmd_question
-  Output: Additionally, we have some specific functions for that like nrow() and ncol(). As their names
+  Output: Additionally, we have some specific functions like nrow() and ncol(). As their names
         suggest, they show the number of rows and columns. Try the ncol() with our asfr7512 dataset.
   CorrectAnswer: ncol(asfr7512)
   AnswerTests: omnitest(correctExpr='ncol(asfr7512)')
