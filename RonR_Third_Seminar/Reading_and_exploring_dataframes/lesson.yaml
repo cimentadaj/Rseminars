@@ -69,9 +69,7 @@
     one of the many packages available (XLConnect, xlsx, gdata, ...)
 
 - Class: text
-  Output: Go to this website https://convertio.co/es/xlsx-csv/,
-    drag the INE_fempopJul1975.xls file from your working directory, convert it to CSV and download it to your working directory.
-    This is really important! Make sure you download your file to your working directory.
+  Output: I already converted that xls file to CSV using this website https://convertio.co/es/xls-csv/
     
 - Class: cmd_question
   Output: We wanna open that file into R but it has some lines at the top and bottom that we have to ignore.
