@@ -8,7 +8,7 @@
  
 - Class: text
   Output: Hello and welcome to the second lesson of the 3rd RonR! Seminar. In this lesson we're gonna cover
-        some basic data manipulation tricks like creating, renaming and recoding variables. In addition,
+        some basic data manipulation like creating, renaming and recoding variables. In addition,
         we will cover how to subset and filter a data set.
         
 - Class: text
