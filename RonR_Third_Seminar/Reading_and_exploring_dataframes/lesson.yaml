@@ -161,7 +161,7 @@
   
 - Class: cmd_question
   Output: Let's take a look at how to visualize a dataset. So far we've only used the View() function to
-    visulize our data physically. If we typed asfr7512 in the console, R would print the entire dataset
+    visulize our data physically. If we typed asfr7512 in the console R would print the entire dataset
     in the console, which can be quite ugly. For that we have the head() function. Type head()
     with the name of our dataset inside(the name is asfr7512)
   CorrectAnswer: head(asfr7512)
