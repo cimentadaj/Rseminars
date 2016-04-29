@@ -110,9 +110,9 @@
     We want to create a new variable named ageG that contains NA (missing values). 
     
 - Class: cmd_question
-  Output: Let's see the result! Type asfr
+  Output: We could do that by typing asfr$ageG <- NA. Do it yourself.
   CorrectAnswer: asfr$ageG <- NA
-  AnswerTests: omnitest(correctExpr='Type asfr$ageG <- NA')
+  AnswerTests: omnitest(correctExpr='asfr$ageG <- NA')
   Hint: Type asfr$ageG <- NA
   
 - Class: mult_question
