@@ -172,7 +172,7 @@
   Output: This is a nice way of getting a feel of the dataset without printing ALL observations
   
 - Class: text
-  Output: Alternatively you can add or decrease the number of rows that head() prints by specifing the 
+  Output: Alternatively you can increase or decrease the number of rows that head() prints by specifing the 
          desired rows in the n = argument
     
 - Class: mult_question
