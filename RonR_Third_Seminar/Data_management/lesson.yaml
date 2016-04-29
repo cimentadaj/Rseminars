@@ -55,7 +55,7 @@
   AnswerTests: omnitest(correctVal= 'Year 2013 is repeated twice and the order of 2014 and 2013 needs to be reversed')
   
 - Class: text
-  Output: Let's divide the problem into two. First, the last column of the asfr7512 is empty,
+  Output: Let's divide the problem into two parts. First, the last column of the asfr7512 is empty,
         we need to delete it. Second, the order of the column in asfr1314 is incorrect and
         we need to reverse it. These two problems can be easily solved separetly and THEN
         column bind the datasets.
