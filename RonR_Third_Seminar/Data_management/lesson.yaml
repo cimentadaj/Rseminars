@@ -241,10 +241,10 @@
   Output: Read it again and understand what we did before continuing.
         
 - Class: cmd_question
-  Output: Let's see if everything was correct type head(asfr) and confirm at least for some cases when asfr$low14 has a 1, column 2014 is below 0.05
-  CorrectAnswer: head(asfr)
-  AnswerTests: omnitest(correctExpr='head(asfr)')
-  Hint: Type head(asfr)
+  Output: Let's see if everything was correct type head(asfr,50) and confirm at least for some cases when asfr$low14 has a 1, column 2014 is below 0.05
+  CorrectAnswer: head(asfr,50)
+  AnswerTests: omnitest(correctExpr='head(asfr,50)')
+  Hint: Type head(asfr,50)
   
 - Class: text
   Output: You're all set. We covered a lot of material today, congrats!
