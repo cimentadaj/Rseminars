@@ -146,7 +146,7 @@
     
 - Class: cmd_question
   Output: Additionally, we have some specific functions like nrow() and ncol(). As their names
-        suggest, they show the number of rows and columns. Try the ncol() with our asfr7512 dataset.
+        suggest, they show the number of rows and columns. Try ncol() with our asfr7512 dataset.
   CorrectAnswer: ncol(asfr7512)
   AnswerTests: omnitest(correctExpr='ncol(asfr7512)')
   Hint: Type ncol(asfr7512)
