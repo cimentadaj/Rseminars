@@ -179,8 +179,8 @@
   Output: 'Surprise quiz! How would you read this? head(asfr7512[,2:10],n = 20) Advice: read the expression
          by chunks instead of reading everything together.'
   AnswerChoices: Print the column 20 for the 2nd and 10th row;Print the columns 2 AND 10 and only show the first 20 rows;Print from columns 2 TO 10 and only show the first 20 rows;Print from columns 2 TO 10 and include the column 20
-  CorrectAnswer: Print from columns 2 to 10 and only show the first 20 rows
-  AnswerTests: omnitest(correctVal= 'Print from columns 2 to 10 and only show the first 20 rows')
+  CorrectAnswer: Print from columns 2 TO 10 and only show the first 20 rows
+  AnswerTests: omnitest(correctVal= 'Print from columns 2 TO 10 and only show the first 20 rows')
   
 - Class: cmd_question
   Output: Similarly to head(), we have tail(). I think it's pretty intuitive but confirm your hunch
