@@ -3,7 +3,6 @@
 ## Open your R console, preferably Rstudio, and run the code below.
 ## You shall get instructions on how to start the session as soon as everything is installed.
 
-
 if ("downloader" %in% installed.packages()) == F {
            install.packages("downloader")
 }
