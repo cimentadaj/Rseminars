@@ -168,5 +168,12 @@
   AnswerTests: omnitest(correctExpr='cor(dati$height, dati$weight)')
   Hint: Type cor(dati$height, dati$weight)
   
+- Class: cmd_question
+  Output: Ah! Of course! If the correlation has missing values, then you can't calculate the correlation. Take the same expression
+      and add the argument use = "complete.obs" to your function. It is simply saying = use only complete observations
+  CorrectAnswer: cor(dati$height, dati$weight, use = "complete.obs")
+  AnswerTests: omnitest(correctExpr='cor(dati$height, dati$weight, use = "complete.obs")')
+  Hint: Type cor(dati$height, dati$weight, use = "complete.obs")
+  
 - Class: text
   Output: I hope all of this was useful! It certainly is to me.
