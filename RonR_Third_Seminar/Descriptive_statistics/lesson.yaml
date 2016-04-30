@@ -43,7 +43,8 @@
         mean(), the standard deviation is sd(), the variance is var() and the median is median().
 
 - Class: mult_question
-  Output: ask the multiple choice question here
+  Output: Let's calculate the mean of the variable maxgrip. If I typed mean(dati), what 
+        would I get?
   AnswerChoices: The mean of dati; The mean of maxgrip; An error;
   CorrectAnswer: An error
   AnswerTests: omnitest(correctVal= 'An error')
