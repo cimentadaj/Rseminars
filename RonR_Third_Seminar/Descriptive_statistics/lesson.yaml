@@ -1,0 +1,171 @@
+- Class: meta
+  Course: RonR! third
+  Lesson: Descriptive statistics
+  Author: Jorge Cimentada from Daniel Cigandas material
+  Type: Standard
+  Organization: RECSM, UPF
+  Version: 2.2.21
+
+- Class: text
+  Output: Hello and welcome to the third lessons of the 3rd RonR! seminar. On this lesson
+        we will cover the basics of descriptive statistics, frequency tables and correlation.
+        
+- Class: text
+  Output: This lesson is not about statistics nor it will explain what each command does. The purpose
+        is to show you that R has these standard functions available and that you can use them whenever
+        you want. In case you already know what they mean, then they will prove handy.
+
+- Class: cmd_question
+  Output: I took the liberty of downloading a text file to your working directory. Let's read it
+        with this command dati <- read.table("gripstrength.txt",header=TRUE, sep=",")
+  CorrectAnswer: dati <- read.table("gripstrength.txt",header=TRUE, sep=",")
+  AnswerTests: omnitest(correctExpr='dati <- read.table("gripstrength.txt",header=TRUE, sep=",")')
+  Hint: Type dati <- read.table("gripstrength.txt",header=TRUE, sep=",")
+  
+- Class: cmd_question
+  Output: Do you remember how we can have a look at the 'head' of the dataset? Try it
+  CorrectAnswer: head(dati)
+  AnswerTests: omnitest(correctExpr='head(dati)')
+  Hint: Type head(dati)
+  
+- Class: cmd_question
+  Output: Now let's have a look at the 'tail' of the dataset. Try it
+  CorrectAnswer: tail(dati)
+  AnswerTests: omnitest(correctExpr='tail(dati)')
+  Hint: Type tail(dati)
+  
+- Class: text
+  Output: It's always a good habit to inspect your dataset, specially when you're reading a csv, text
+        or other format file. Just to make sure that it was read without any problems.
+        
+- Class: text
+  Output: R has some standard functions to calculate descriptive statistics. To name a few, mean is
+        mean(), the standard deviation is sd(), the variance is var() and the median is median().
+
+- Class: mult_question
+  Output: ask the multiple choice question here
+  AnswerChoices: The mean of dati; The mean of maxgrip; An error;
+  CorrectAnswer: An error
+  AnswerTests: omnitest(correctVal= 'An error')
+  
+- Class: cmd_question
+  Output: Alright, that was a trick question. Remember that dati is a data frame! It contains several columns
+        and many rows. How would you calculate the mean of a data frame? The correct expression
+        would be to calculate the mean of maxgrip using the $ operator from the dataframe dati. Try it
+        yourself.
+  CorrectAnswer: mean(dati$maxgrip)
+  AnswerTests: omnitest(correctExpr='mean(dati$maxgrip)')
+  Hint: dati$maxgrip is the variable maxgrip, so simply type mean(dati$maxgrip)
+  
+- Class: cmd_question
+  Output: Using the sd() function calculate the standard deviation of maxgrip
+  CorrectAnswer: sd(dati$maxgrip)
+  AnswerTests: omnitest(correctExpr='sd(dati$maxgrip)')
+  Hint: Type sd(dati$maxgrip)
+  
+- Class: cmd_question
+  Output: Do exactly the same with var() function to calculate the variance of maxgrip.
+  CorrectAnswer: var(dati$maxgrip)
+  AnswerTests: omnitest(correctExpr='var(dati$maxgrip)')
+  Hint: Type var(dati$maxgrip)
+  
+- Class: cmd_question
+  Output: Suppose we want to compare the result of the mean() function with the median() function. Calculate
+        the median() of maxgrip.
+  CorrectAnswer: median(dati$maxgrip)
+  AnswerTests: omnitest(correctExpr='median(dati$maxgrip)')
+  Hint: Type median(dati$maxgrip)
+  
+- Class: cmd_question
+  Output: What about quantiles? They're pretty easy to get with the quantile function. Without me explaining it,
+        try to use the quantile() function on our maxgrip variable.
+  CorrectAnswer: quantile(dati$maxgrip)
+  AnswerTests: omnitest(correctExpr='quantile(dati$maxgrip)')
+  Hint: Type quantile(dati$maxgrip)
+  
+- Class: text
+  Output: That's nice! But what if we wanted a specific quantile? Then we specify it as a second argument
+        like here quantile(dati$maxgrip, 0.65). That would give us the value of the 65th quantile.
+        
+- Class: cmd_question
+  Output: As for frequency tables, R has the table() function. It has as many arguments as you want to
+        specify. Let's imagine we want to see the number of people within a country. Type table(dati$country)
+  CorrectAnswer: table(dati$country)
+  AnswerTests: omnitest(correctExpr='table(dati$country)')
+  Hint: Type table(dati$country)
+  
+- Class: cmd_question
+  Output: Let's look at the number of males and females within each country. Take the last table
+        add a comma and add the sex variable from the dati dataframe. This time
+        save the table to an object named ourtable using the <- operator.
+  CorrectAnswer: ourtable <- table(dati$country, dati$sex)
+  AnswerTests: omnitest(correctExpr='ourtable <- table(dati$country, dati$sex)')
+  Hint: Type ourtable <- table(dati$country, dati$sex). This will give you a two way table.
+
+- Class: text
+  Output: We can add as many other variables as you want by simply putting a comma and adding another
+        variable. You could create 3, 4, 5 way tables if you want.
+        
+- Class: cmd_question
+  Output: However what many people are after when computing frequencies is not the number of people in
+    these tables but the proportion or percentage. We can use the prop.table() function, with our
+    table object and specify the margin argumen to 1 to get the percentages by row. Try it with this
+    expression prop.table(x=ourtable,margin=1)
+  CorrectAnswer: prop.table(x=ourtable,margin=1)
+  AnswerTests: omnitest(correctExpr='prop.table(x=ourtable,margin=1)')
+  Hint: Type prop.table(x=ourtable,margin=1)
+  
+- Class: text
+  Output: You could get the column percentages by changing the 1 for a 2 in the margin argument.
+  
+- Class: text
+  Output: You can also get the relative frequencies dividing the table by the total amount of observations.
+    A smart way of doing this would be to write ourtable / sum(ourtable). You can read it as
+    each number in our table divided by the sum of all the numbers of our table -- the total number
+    of observations.
+    
+- Class: text
+  Output: A cool thing you can do with R is divide a continuous variable into groups
+    for exploratory purposes. The cut() function cuts a continuous variable into a desired number
+    groups.
+    
+- Class: cmd_question
+  Output: Let's see an example. We have our maxgrip variable which is a continuous variable. Type
+        table(dati$maxgrip) to see the outcome.
+  CorrectAnswer: table(dati$maxgrip)
+  AnswerTests: omnitest(correctExpr='table(dati$maxgrip)')
+  Hint: Type table(dati$maxgrip)
+  
+- Class: text
+  Output: That's neither a nice output nor an informative table. Let's make it better with
+    the cut function. maxgrip goes from 0 to 42, so let's cut it in groups of 5. So the amount of
+    people between 0-5, 5-10, and so on...
+
+- Class: text
+  Output: Let's read the expression before seeing it. I want R to cut dati$maxgrip from 0
+    to 45 into chunks of 5. As an additional argument, we want R to include 0, which is the LOWEST
+    number in our numeric variable.
+    
+- Class: cmd_question
+  Output: The corresponding expression would be this cut.maxgrip <- cut(dati$maxgrip, breaks=seq(0, 45, by= 5),
+        include.lowest=TRUE) . Before typing it down, read it carefully and try to understand it.
+  CorrectAnswer: cut.maxgrip <- cut(dati$maxgrip, breaks=seq(0, 45, by= 5),include.lowest=TRUE)
+  AnswerTests: omnitest(correctExpr='cut.maxgrip <- cut(dati$maxgrip, breaks=seq(0, 45, by= 5),include.lowest=TRUE)')
+  Hint: Type cut.maxgrip <- cut(dati$maxgrip, breaks=seq(0, 45, by= 5),include.lowest=TRUE)
+  
+- Class: cmd_question
+  Output: The remaining part is easy, write down table() with the cut.maxgrip object inside.
+  CorrectAnswer: table(cut.maxgrip)
+  AnswerTests: omnitest(correctExpr='table(cut.maxgrip)')
+  Hint: Type table(cut.maxgrip)
+        
+- Class: cmd_question
+  Output: Cool, eh? Finally, for those of you which use correlation, the function is cor(). Want to
+    calculate the correlation between dati$height and dati$weight? cor(dati$height,dati$weight)
+    will do the job. Write it down.
+  CorrectAnswer: cor(dati$height, dati$weight)
+  AnswerTests: omnitest(correctExpr='cor(dati$height, dati$weight)')
+  Hint: Type cor(dati$height, dati$weight)
+  
+- Class: text
+  Output: I hope all of this was useful! It certainly is to me.
