@@ -1,3 +1,12 @@
+
+install_everything <- function(method) {
+
+packages <- c("downloader", "swirl", "swirlify")
+
+if (length(setdiff(packages, installed.packages())) > 0) {
+    install.packages(setdiff(packages, installed.packages()))
+}
+
 library(downloader)
 library(swirlify)
 
@@ -6,7 +15,7 @@ setwd(paste0(getwd(), "/Third_R_Seminar"))
 
 ## Download the file
 download.file("https://github.com/cimentadaj/Rseminars/archive/master.zip",
-              paste0(getwd(),"/Rseminars-master.zip"), method="curl")
+              paste0(getwd(),"/Rseminars-master.zip"), method=method)
 
 ## unzip and install
 
@@ -26,3 +35,5 @@ unzip(paste0(getwd(),"/Dataset.zip"), exdir=getwd())
 install_course_zip(paste0(getwd(),"/Rseminars-master.zip"), multi=T, which_course = "RonR_Third_Seminar")
 
 message("Everything was installed correctly! Type swirl() to access the lessons.")
+
+}
