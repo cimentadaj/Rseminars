@@ -4,7 +4,7 @@
 ## You shall get instructions on how to start the session as soon as everything is installed.
 
 
-if ("downloader" %in% installed.packages() == F {
+if ("downloader" %in% installed.packages()) == F {
            install.packages("downloader")
 }
 
