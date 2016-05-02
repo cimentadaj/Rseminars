@@ -81,7 +81,7 @@
 
 - Class: text
   Output: Let's make sense of the command = read the csv file "INE_fempopJul1975.csv", specify that it is comma
-    separated, skip the first 9 lines(because there's useless text there), read UP until row 51
+    separated, skip the first 9 lines(because there's useless text there), read UP until row 51(because there's useless text after that)
     and treat the first row as the column names
     
 - Class: cmd_question
