@@ -198,7 +198,7 @@
         I think two examples will suffice to make you understand.
         
 - Class: text
-  Output: We want to subset only women below 20 years. subset(asfr, Age<20) will do the trick.
+  Output: We want to subset only people below 20 years. subset(asfr, Age<20) will do the trick.
   
 - Class: cmd_question
   Output: If we add a comma to that expression then we can specify which columns we want. By default
