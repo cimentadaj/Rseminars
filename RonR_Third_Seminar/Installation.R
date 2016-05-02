@@ -10,7 +10,9 @@ if (length(setdiff(packages, installed.packages())) > 0) {
 library(downloader)
 library(swirlify)
 
+if (file.exists(paste0(getwd(),"/Third_R_Seminar")) == F) {
 dir.create(paste0(getwd(), "/Third_R_Seminar"))
+}
 setwd(paste0(getwd(), "/Third_R_Seminar"))
 
 ## Download the file
