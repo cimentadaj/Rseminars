@@ -64,7 +64,7 @@
   Output: Since you are already an R expert, we're gonna write it all in one expression
   
 - Class: cmd_question
-  Output: The expression would read like this":" bind asfr7512 without its last column with
+  Output: The expression would read like this = bind asfr7512 without its last column with
         asfr1314 but reversing its order. The correct expression would be like this
         asfr <- cbind(asfr7512[, -ncol(asfr7512)], rev(asfr1314)). Type it yourself.
   CorrectAnswer: asfr <- cbind(asfr7512[, -ncol(asfr7512)], rev(asfr1314))
