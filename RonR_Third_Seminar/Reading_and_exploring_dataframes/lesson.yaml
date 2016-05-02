@@ -80,7 +80,7 @@
   Hint: Type femPop75 <- read.table("INE_fempopJul1975.csv", sep = ",", skip=9, nrows=51, header=TRUE)
 
 - Class: text
-  Output: Let's make sense of the "command:" read the csv file "INE_fempopJul1975.csv", specify that it is comma
+  Output: Let's make sense of the command = read the csv file "INE_fempopJul1975.csv", specify that it is comma
     separated, skip the first 10 lines(because there's useless text there), read UP until row 51
     and treat the first row as the column names
     
