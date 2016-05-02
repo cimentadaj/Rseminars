@@ -227,7 +227,7 @@
   Hint: Type asfr$low14 <- 0
 
 - Class: text
-  Output: Since R recycles numbers, it automatically repeates the 0 as many times as rows of the data frame.
+  Output: Since R recycles numbers, it automatically repeates the 0 as many times as the data frame has rows.
     With that done, we only have to replace the 0 with a 1 where observations had a fertility
     rate lower than 0.005 in 2014.
     
