@@ -116,7 +116,7 @@
   Hint: Type asfr$ageG <- NA
   
 - Class: mult_question
-  Output: Our desired expression will read like this":" take asfr$ageG(which is full of missing values) and where
+  Output: Our desired expression will read like this = take asfr$ageG(which is full of missing values) and where
         asfr$Age is bigger or equal to 15 and asfr$Age is less than 20, assign ageG to group 1.
         Following this exact sentence, what is the correct expression?
   AnswerChoices: asfr$ageG[asfr$Age >= 15 & asfr$Age < 20] <- 1;asfr$ageG[ ,asfr$Age >= 15 & asfr$Age < 20] <- 1;asfr$ageG  <- asfr$Age >= 15 & asfr$Age < 20 <- 1;asfr$ageG[asfr$Age >= 15 & < 20] <- 1
