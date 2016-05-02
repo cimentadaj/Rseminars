@@ -124,8 +124,8 @@
   AnswerTests: omnitest(correctVal= 'asfr$ageG[asfr$Age >= 15 & asfr$Age < 20] <- 1')
   
 - Class: cmd_question
-  Output: Between or equal to 15 and smaller than 20 is the first age group. The second age group
-        would be between or equal to 20 and smaller than 25. Type asfr$ageG[asfr$Age>=20 & asfr$Age<25] <- 2
+  Output: Higher or equal to 15 and smaller than 20 is the first age group. The second age group
+        would be higher or equal to 20 and smaller than 25. Type asfr$ageG[asfr$Age>=20 & asfr$Age<25] <- 2
         to get the correct result.
   CorrectAnswer: asfr$ageG[asfr$Age>=20 & asfr$Age<25] <- 2
   AnswerTests: omnitest(correctExpr='asfr$ageG[asfr$Age>=20 & asfr$Age<25] <- 2')
@@ -136,8 +136,8 @@
         which would be between 45 and 50 years.
         
 - Class: text
-  Output: There are much more efficient ways of doing this using loops and packages like
-        car but those are more advanced topics that you will learn in future lessons.
+  Output: There are much more efficient ways of doing this using loops and packages(such as
+        car) but those are more advanced topics that you will learn in future lessons.
 
 - Class: cmd_question
   Output: I don't know if you noticed but our variable names are incorrect. Type names(asfr) or colnames(asfr)
