@@ -9,7 +9,7 @@
 - Class: text
   Output: Hello! Welcome to the 1st lesson of the third RonR! seminar. On this lesson we will talk about how
           to open text files, different Excel files, SPSS, Stata and SAS files. Finally, we will
-          talk about some data exploratoration commands normally used in R.
+          talk about some data exploration commands normally used in R.
      
 - Class: text
   Output: 'Note: You will need to have access to an internet connection to complete this session.'
