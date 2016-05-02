@@ -141,7 +141,7 @@
 - Class: text
   Output: 'dim stands for dimensions, as you might have thought. Remember when we used the [rows, columns]
     option to subset columns and rows from matrices and data frames? In R, everything that deals with rows
-    and columns has that specific order: rows and column. In this case, this data frame has 35 rows
+    and columns has that specific order: rows and columns. In this case, this data frame has 35 rows
     and 40 columns'
     
 - Class: cmd_question
