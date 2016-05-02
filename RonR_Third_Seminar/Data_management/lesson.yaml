@@ -102,7 +102,7 @@
 - Class: text
   Output: Let's move on to recoding variables. Remember that our first variable in the dataset is
     Age from 15 to 50. Suppose we want to create a new variable that will give the value
-    1 for women between age 15 and 20, a value of 2 for women between 20 and 25, and so on.. until age 50.
+    1 people between age 15 and 20, a value of 2 for women between 20 and 25, and so on.. until age 50.
     
 - Class: text
   Output: Let's start by creating our new variable. To call any variable form a data frame we use the $ sing.
