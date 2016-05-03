@@ -204,8 +204,8 @@
 - Class: cmd_question
   Output: As a last task, if ourlist[[2]] is a VECTOR, then how would you subset its 2nd element? Hint;
     it’s the same way we got the the 3rd element of ourlist$numeric.
-  CorrectAnswer: ourlist[[2]][3]
-  AnswerTests: omnitest(correctExpr="ourlist[[2]][3]")
+  CorrectAnswer: ourlist[[2]][2]
+  AnswerTests: omnitest(correctExpr="ourlist[[2]][2]")
   Hint: If ourlist[[2]] is a vector, then to subset a vector we use an ADDITIONAL [] with the number we're
     interested inside the brackets.
   
