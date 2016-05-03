@@ -125,7 +125,6 @@
     entire expression as = take the population column, and where the CODE column equals "NE"
     replace the population column with 1.8
     
-
 - Class: cmd_question
   Output: Type states$population[states$code == "NE"] <- 1.8
   CorrectAnswer: states$population[states$code == "NE"] <- 1.8
