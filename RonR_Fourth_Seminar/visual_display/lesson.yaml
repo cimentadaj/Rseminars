@@ -1,0 +1,28 @@
+- Class: meta
+  Course: RonR Fourth Seminar
+  Lesson: Visual Display of Quantitative Information
+  Author: John Palmer
+  Type: Standard
+  Organization: UPF
+  Version: 2.4.1
+
+- Class: text
+  Output: "Welcome to Lesson 1, The Visual Display of Quantitative Information. Most of this lesson consists of slides and discussion, but the following prompts will give you a brief review of some basic R principles and hands-on practice with one of the examples we will be using: Anscombe's quartet."
+
+- Class: cmd_question
+  Output: "Take a look at the object called AQ, which has been loaded into memory automatically by this lesson. What type of object is AQ?. To figure this out, type class(AQ)"
+  CorrectAnswer: class(AQ)
+  AnswerTests:  expr_identical_to('class(AQ)')
+  Hint: Type class(AQ)
+
+- Class: mult_question
+  Output: "Did you figure it out? What type of object is AQ?"
+  AnswerChoices: data frame; matrix; list
+  CorrectAnswer: list
+  AnswerTests: omnitest(correctVal='list')
+
+- Class: text
+  Output: "In fact, AQ is a list of data frames. If you needed to figure this out, you could use the class function on each element manually, or you could run something like lapply(AQ, function(x) class(x))."
+
+- Class: text
+  Output: "So now let's explore these data frames. Press enter to leave this lesson and try the following: (1) look at the numbers in each data frame and think about the relationship between x and y in each of them. (2) calculate basic summary statistics for the variables in each -- e.g. mean(AQ[[1]]$x. (3) use a linear model to explore this relationship in each data frame -- e.g. lm(y~x, AQ[[1]]). (4) plot the relationship in each data frame using a scatter plot -- e.g. plot(y~x, AQ[[1]]). When you are done, start the next lesson."

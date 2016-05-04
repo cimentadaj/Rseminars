@@ -1,0 +1,1 @@
+plot(y~x, AQ[[1]], main='Anscombe 1', xlab=expression(alpha), ylab=expression(beta))

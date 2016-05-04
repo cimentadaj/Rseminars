@@ -1,0 +1,1 @@
+plot(y~x, AQ[[1]], ann=F, axes=F)
