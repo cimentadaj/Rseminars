@@ -140,6 +140,6 @@ Instructor: [Albert Julià](https://www.upf.edu/survey/members/albertjulix.html)
   + Regressions models with trajectory clusters
 
 
-## The organizers of the RonR! working group Jorge Cimentada (jorge.cimentada@upf.edu) and Bruno Arpino (bruno.arpino@upf.edu) 
+### The organizers of the RonR! working group Jorge Cimentada (jorge.cimentada@upf.edu) and Bruno Arpino (bruno.arpino@upf.edu) 
 
 Research and Expertise Centre on Survey Methodology (RECSM) Universitat Pompeu Fabra
