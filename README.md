@@ -1,7 +1,7 @@
 
 ## RonR! First Seminar Series
 
-The RonR! Seminar Series are a series of seminars that will be taught at Pompeu Fabra University in April-May 2016. This repository contains all the R scripts, presentations and exercises used for each separate session. Anyone interested in using these exercises go into each respective seminar and download the swirl exercises for themselves.
+The RonR! Seminar Series are a series of seminars that were taught at Pompeu Fabra University in April-May 2016. This repository contains all the R scripts, presentations and exercises used for each separate session. Anyone interested in using these exercises go into each respective seminar and download the swirl exercises for themselves.
 
 Seminar 1. An overview of the strengths of R –
 Note: does not contain exercises, only an RMarkdown presentation
