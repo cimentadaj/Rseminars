@@ -30,7 +30,7 @@ Brief intro to R
   + Making reports, PDF’s and powerpoints through R (RMarkdown package)
   + Programming exercises and exams in R (swirl and exam package)
 
-**Seminar 2. Getting familiar with R objects**
+## **Seminar 2. Getting familiar with R objects**
 
 This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Second_Seminar).
 
@@ -58,7 +58,7 @@ Instructors: Basilio Moreno and [Jorge Cimentada](www.jorgecimentada.com)
   + Labelling variables
 
 
-**Seminar 3. Manipulating and processing data**
+## **Seminar 3. Manipulating and processing data**
 
 This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Third_Seminar)
 
@@ -80,7 +80,7 @@ Instructor: Daniel Ciganda(dciganda@gmail.com)
   + Correlations of two numerical variables
   + Contingency tables for two categorical variables
 
-**Seminar 4. Beautiful, clear, and informative graphs: Using R to visualize quantitative information**
+## **Seminar 4. Beautiful, clear, and informative graphs: Using R to visualize quantitative information**
 
 This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Fourth_Seminar)
 
@@ -107,7 +107,7 @@ Instructor: [John Palmer] (http://johnrbpalmer.com/)
   + Slides
   + Websites
 
-**Seminar 5. An introduction to R programming**
+## **Seminar 5. An introduction to R programming**
 
 **This seminar does not have exercises yet**
 
@@ -119,7 +119,7 @@ Instructor: Instructor: [Bruno Arpino] (https://sites.google.com/site/brunoarpin
 * Writing your own functions.
 * Monte Carlo simulations.
 
-**Seminar 6. An introduction to sequence analysis**
+## **Seminar 6. An introduction to sequence analysis**
 
 **This seminar does not have exercises yet**
 
