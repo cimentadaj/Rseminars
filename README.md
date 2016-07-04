@@ -5,28 +5,28 @@
 
 The RonR! Seminar Series are a series of seminars that were taught at Pompeu Fabra University in April-May 2016. This repository contains all the R scripts, presentations and exercises used for each separate session. Anyone interested in using these exercises go into each respective seminar and download the swirl exercises for themselves.
 
-Seminar 1. An overview of the strengths of R –
-Note: does not contain exercises, only an RMarkdown presentation
-Instructor: Jorge Cimentada
+** Seminar 1. An overview of the strengths of R – **
+* Note: does not contain exercises, only an [RMarkdown presentation](https://github.com/cimentadaj/Rseminars/blob/master/RonR_First_Seminar/First-seminar-presentation.rmd) *
+Instructor: [Jorge Cimentada](www.jorgecimentada.com)
 
 Welcome to the group and seminar series 
 Brief intro to R
-First steps using R
-- The webpage of the R project
-- Installation of R
-- Contributed packages and their installation
-- How to work with R: Workspaces and scripts
-- Graphs (ggvis, ggplot2)
-- Interactive graphs(ggvis, plotly, shiny, Rcharts)
-- Maps
-- Summary statistics output(stargazer package)
+* First steps using R
++ The webpage of the R project
+* Installation of R
+* Contributed packages and their installation
+* How to work with R: Workspaces and scripts
+* Graphs (ggvis, ggplot2)
+* Interactive graphs(ggvis, plotly, shiny, Rcharts)
+* Maps
+* Summary statistics output(stargazer package)
 - Regression output(stargazer package)
 - Making reports, PDF’s and powerpoints through R (RMarkdown package)
 - Programming exercises and exams in R (swirl and exam package)
 
-Seminar 2. Getting familiar with R objects –
-This seminar contains exercises for each category.
-Instructors: Basilio Moreno and Jorge Cimentada 
+** Seminar 2. Getting familiar with R objects – **
+This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Second_Seminar).
+Instructors: Basilio Moreno and [Jorge Cimentada](www.jorgecimentada.com) 
 
 - Basic objects: Vectors
 Numerical, logical and character vectors
@@ -50,8 +50,9 @@ Merging data frames
 Labelling variables
 
 
-Seminar 3. Manipulating and processing data 
-Instructor: Daniel Ciganda
+** Seminar 3. Manipulating and processing data ** 
+This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Third_Seminar)
+Instructor: Daniel Ciganda(dciganda@gmail.com)
 
 - Importing data from SPSS, EXCEL and STATA
 - Basic data manipulation:
@@ -72,7 +73,8 @@ Stargazer package for outputs
 - Simple and multiple regression models output
 - Other regression outputs: Logistic regression model.
 
-Seminar 4. Beautiful, clear, and informative graphs: Using R to visualize quantitative information
+**Seminar 4. Beautiful, clear, and informative graphs: Using R to visualize quantitative information**
+This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Fourth_Seminar)
 Instructor: [John Palmer] (http://johnrbpalmer.com/)
 
 - Thinking through the visual display of quantitative information:
@@ -96,8 +98,9 @@ Articles
 Slides
 Websites
 
-Seminar 5 An introduction to R programming – May 11, 2016 from 15.00 to 16.30; room: 24.120
-Instructor: Bruno Arpino
+**Seminar 5. An introduction to R programming**
+This seminar does not have exercises yet
+Instructor: Instructor: [Bruno Arpino] (https://sites.google.com/site/brunoarpino/)
 - Basic programming:
 Conditional execution.
 Repetitive execution.
@@ -105,8 +108,9 @@ Apply(), sapply() and lapply() functions.
 Writing your own functions.
 Monte Carlo simulations.
 
-Seminar 6. An introduction to sequence analysis – May 17 2016 from 15.00 to 16.30; room: 24.120.
-Instructor: Albert Julià
+**Seminar 6. An introduction to sequence analysis**
+This seminar does not have exercises yet
+Instructor: [Albert Julià](https://www.upf.edu/survey/members/albertjulix.html)
 - Presentation of sequence analysis and TraMineR software
 Basic concepts
 Methodology
@@ -124,4 +128,5 @@ Regressions models with trajectory clusters
 
 
 The organizers of the RonR! working group Jorge Cimentada (jorge.cimentada@upf.edu) and Bruno Arpino (bruno.arpino@upf.edu) 
+
 Research and Expertise Centre on Survey Methodology (RECSM) Universitat Pompeu Fabra
