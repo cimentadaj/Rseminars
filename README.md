@@ -1,3 +1,5 @@
+<center> <h1> ![](https://lh3.googleusercontent.com/-UkfJ6Cj7fNc/AAAAAAAAAAI/AAAAAAAAAIE/RJmK4VaMytw/s100-c-k-no/photo.jpg)</h1> </center>
+<center> <h1> RonR! seminars</h1> </center>
 
 ## RonR! First Seminar Series
 
