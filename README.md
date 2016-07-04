@@ -5,7 +5,7 @@
 
 The RonR! Seminar Series are a series of seminars that were taught at Pompeu Fabra University in April-May 2016. This repository contains all the R scripts, presentations and exercises used for each separate session. Anyone interested in using these exercises go into each respective seminar and download the swirl exercises for themselves.
 
-**Seminar 1. An overview of the strengths of R**
+**Seminar 1. An overview of the strengths of R.**
 *Note: does not contain exercises, only an [RMarkdown presentation](https://github.com/cimentadaj/Rseminars/blob/master/RonR_First_Seminar/First-seminar-presentation.rmd)*
 Instructor: [Jorge Cimentada](www.jorgecimentada.com)
 
@@ -13,16 +13,20 @@ Welcome to the group and seminar series
 Brief intro to R
 * First steps using R
   + The webpage of the R project
-* Installation of R
-* Contributed packages and their installation
-* How to work with R: Workspaces and scripts
-* Graphs (ggvis, ggplot2)
-* Interactive graphs(ggvis, plotly, shiny, Rcharts)
-* Maps
-* Summary statistics output(stargazer package)
-- Regression output(stargazer package)
-- Making reports, PDF’s and powerpoints through R (RMarkdown package)
-- Programming exercises and exams in R (swirl and exam package)
+  + Installation of R
+* R environment
+  + Contributed packages and their installation
+  + How to work with R: Workspaces and scripts
+* R graphics
+  + Graphs (ggvis, ggplot2)
+  + Interactive graphs(ggvis, plotly, shiny, Rcharts)
+  + Maps
+* R and statistics
+  + Summary statistics output(stargazer package)
+  + Regression output(stargazer package)
+* R for reports and teaching
+  + Making reports, PDF’s and powerpoints through R (RMarkdown package)
+  + Programming exercises and exams in R (swirl and exam package)
 
 **Seminar 2. Getting familiar with R objects**
 This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Second_Seminar).
