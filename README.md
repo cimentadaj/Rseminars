@@ -83,4 +83,5 @@ Monte Carlo simulations.
 Seminar 5. An introduction to sequence analysis Instructor: Albert Julià
 	PROGRAM TO BE DEFINED
 
-The organizers of the RonR! working group Jorge Cimentada (jorge.cimentada@upf.edu) and Bruno Arpino (bruno.arpino@upf.edu) Research and Expertise Centre on Survey Methodology (RECSM) Universitat Pompeu Fabra
+The organizers of the RonR! working group Jorge Cimentada (jorge.cimentada@upf.edu) and Bruno Arpino (bruno.arpino@upf.edu) 
+Research and Expertise Centre on Survey Methodology (RECSM) Universitat Pompeu Fabra
