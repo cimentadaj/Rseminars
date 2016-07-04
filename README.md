@@ -7,7 +7,7 @@ The RonR! Seminar Series are a series of seminars that were taught at Pompeu Fab
 
 **Seminar 1. An overview of the strengths of R**
 
-*Note: does not contain exercises, only an [RMarkdown presentation](https://github.com/cimentadaj/Rseminars/blob/master/RonR_First_Seminar/First-seminar-presentation.rmd)*
+*Note: This introduction does not contain exercises, only an [RMarkdown presentation](https://github.com/cimentadaj/Rseminars/blob/master/RonR_First_Seminar/First-seminar-presentation.rmd)*
 
 Instructor: [Jorge Cimentada](www.jorgecimentada.com)
 
