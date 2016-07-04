@@ -14,7 +14,7 @@ source_url("https://raw.githubusercontent.com/cimentadaj/Rseminars/master/RonR_F
 sha = paste0(sha_url("https://raw.githubusercontent.com/cimentadaj/Rseminars/master/RonR_Fourth_Seminar/Download_course.R")))
 ```
 
-If you're using Windows replace the ```curl``` with ```libcurl```. If you're using Mac OS leave it as it is.
+If you're using Mac replace the ```libcurl``` with ```curl```. If you're using Mac OS leave it as it is.
 ```{r eval=F}
-install_everything("curl")
+install_everything("libcurl")
 ```
