@@ -39,9 +39,11 @@ source(paste0(getwd(),"/","ExampleExamCode.R")) -->
 
 In order for this presentation to work, you need to run this code first:
 
+```
 install.packages("devtools")  
 library(devtools)  
 source_url("https://raw.githubusercontent.com/cimentadaj/Rseminars/master/packages.R")
+```
 
 After running the code, remember to make the three lines as a comment so they don't appear in the presentation.
 
