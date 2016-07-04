@@ -34,7 +34,7 @@ Brief intro to R
 
 This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Second_Seminar).
 
-Instructors: Basilio Moreno and [Jorge Cimentada](www.jorgecimentada.com) 
+Instructors: [Basilio Moreno](https://www.linkedin.com/in/basiliomp) and [Jorge Cimentada](www.jorgecimentada.com) 
 
 * Basic objects: Vectors
   + Numerical, logical and character vectors
