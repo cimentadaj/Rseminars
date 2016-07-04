@@ -72,9 +72,32 @@ Stargazer package for outputs
 - Simple and multiple regression models output
 - Other regression outputs: Logistic regression model.
 
-Seminar 4 An introduction to R programming 
-Instructor: Bruno Arpino
+Seminar 4. Beautiful, clear, and informative graphs: Using R to visualize quantitative information
+Instructor: [John Palmer] (http://johnrbpalmer.com/)
 
+- Thinking through the visual display of quantitative information:
+Numbers for the mind’s eye
+Clarity and honesty
+Aesthetics
+- Taking control of R’s base graphics:
+Titles and annotations
+Axes
+Margins
+Borders and backgrounds
+Plot types and styles
+- Special cases:
+Big data
+Raster data
+Maps
+3D plots
+Animation
+- Production quality output:
+Articles
+Slides
+Websites
+
+Seminar 5 An introduction to R programming – May 11, 2016 from 15.00 to 16.30; room: 24.120
+Instructor: Bruno Arpino
 - Basic programming:
 Conditional execution.
 Repetitive execution.
@@ -82,8 +105,23 @@ Apply(), sapply() and lapply() functions.
 Writing your own functions.
 Monte Carlo simulations.
 
-Seminar 5. An introduction to sequence analysis Instructor: Albert Julià
-	PROGRAM TO BE DEFINED
+Seminar 6. An introduction to sequence analysis – May 17 2016 from 15.00 to 16.30; room: 24.120.
+Instructor: Albert Julià
+- Presentation of sequence analysis and TraMineR software
+Basic concepts
+Methodology
+- Illustrate the main features using an example
+Selecting data
+Main functions
+Main outputs and graphs
+
+- Creating a typology of trajectories
+Computing dissimilarity between sequences. Optimal Matching Analysis
+Regrouping similar sequences. Cluster Analysis
+Visualizing results
+Saving data (cluster variable)
+Regressions models with trajectory clusters
+
 
 The organizers of the RonR! working group Jorge Cimentada (jorge.cimentada@upf.edu) and Bruno Arpino (bruno.arpino@upf.edu) 
 Research and Expertise Centre on Survey Methodology (RECSM) Universitat Pompeu Fabra
