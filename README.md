@@ -8,6 +8,7 @@ The RonR! Seminar Series are a series of seminars that were taught at Pompeu Fab
 **Seminar 1. An overview of the strengths of R**
 
 *Note: does not contain exercises, only an [RMarkdown presentation](https://github.com/cimentadaj/Rseminars/blob/master/RonR_First_Seminar/First-seminar-presentation.rmd)*
+
 Instructor: [Jorge Cimentada](www.jorgecimentada.com)
 
 Brief intro to R
@@ -32,6 +33,7 @@ Brief intro to R
 **Seminar 2. Getting familiar with R objects**
 
 This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Second_Seminar).
+
 Instructors: Basilio Moreno and [Jorge Cimentada](www.jorgecimentada.com) 
 
 * Basic objects: Vectors
@@ -59,6 +61,7 @@ Instructors: Basilio Moreno and [Jorge Cimentada](www.jorgecimentada.com)
 **Seminar 3. Manipulating and processing data**
 
 This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Third_Seminar)
+
 Instructor: Daniel Ciganda(dciganda@gmail.com)
 
 * Importing data from SPSS, EXCEL and STATA
@@ -80,6 +83,7 @@ Instructor: Daniel Ciganda(dciganda@gmail.com)
 **Seminar 4. Beautiful, clear, and informative graphs: Using R to visualize quantitative information**
 
 This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Fourth_Seminar)
+
 Instructor: [John Palmer] (http://johnrbpalmer.com/)
 
 * Thinking through the visual display of quantitative information:
@@ -106,6 +110,7 @@ Instructor: [John Palmer] (http://johnrbpalmer.com/)
 **Seminar 5. An introduction to R programming**
 
 **This seminar does not have exercises yet**
+
 Instructor: Instructor: [Bruno Arpino] (https://sites.google.com/site/brunoarpino/)
 * Basic programming:
 * Conditional execution.
@@ -117,6 +122,7 @@ Instructor: Instructor: [Bruno Arpino] (https://sites.google.com/site/brunoarpin
 **Seminar 6. An introduction to sequence analysis**
 
 **This seminar does not have exercises yet**
+
 Instructor: [Albert Julià](https://www.upf.edu/survey/members/albertjulix.html)
 * Presentation of sequence analysis and TraMineR software
   + Basic concepts
@@ -134,6 +140,6 @@ Instructor: [Albert Julià](https://www.upf.edu/survey/members/albertjulix.html)
   + Regressions models with trajectory clusters
 
 
-# The organizers of the RonR! working group Jorge Cimentada (jorge.cimentada@upf.edu) and Bruno Arpino (bruno.arpino@upf.edu) 
+## The organizers of the RonR! working group Jorge Cimentada (jorge.cimentada@upf.edu) and Bruno Arpino (bruno.arpino@upf.edu) 
 
 Research and Expertise Centre on Survey Methodology (RECSM) Universitat Pompeu Fabra
