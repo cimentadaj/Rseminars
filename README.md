@@ -8,7 +8,7 @@ The RonR! Seminar Series are a series of seminars that were taught at Pompeu Fab
 
 *Note: This introduction does not contain exercises, only an [RMarkdown presentation](https://github.com/cimentadaj/Rseminars/blob/master/RonR_First_Seminar/First-seminar-presentation.rmd)*
 
-Instructor: [Jorge Cimentada](www.jorgecimentada.com)
+Instructor: [Jorge Cimentada](https://www.jorgecimentada.com)
 
 Brief intro to R
 
@@ -33,7 +33,7 @@ Brief intro to R
 
 This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Second_Seminar).
 
-Instructors: [Basilio Moreno](https://www.linkedin.com/in/basiliomp) and [Jorge Cimentada](www.jorgecimentada.com) 
+Instructors: [Basilio Moreno](https://www.linkedin.com/in/basiliomp) and [Jorge Cimentada](https://www.jorgecimentada.com)
 
 * Basic objects: Vectors
   + Numerical, logical and character vectors
