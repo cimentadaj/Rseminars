@@ -42,7 +42,7 @@
 
 - Class: text
   Output: At this point (22/January/2017), R has over 6000 contributed packages. But don't
-  get overwhelmed, we will only use a handful.
+      get overwhelmed, we will only use a handful.
 
 - Class: cmd_question
   Output: Let's install and load a package. You install packages with the built-in function
