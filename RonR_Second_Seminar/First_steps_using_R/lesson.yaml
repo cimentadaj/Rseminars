@@ -15,12 +15,12 @@
     using Rstudio (https://www.rstudio.com/)
 
 - Class: text
-  Output: Throughout this lesson you'll learn about R structures,
-    what are packages and how to install them and how Rstudio works. If you're ready, let's begin!
+  Output: Throughout this lesson you'll learn what are packages and how to install them and
+  how Rstudio works. If you're ready, let's begin!
 
 - Class: text
   Output: R is a programming language and environment that allows you to process data and apply
-    statistical methods. But that is just the tip of the iceberg! As we'll try to show in these
+    statistical methods. But that is just the tip of the iceberg! As we'll try to show in future
     exercises, R has potential to do many other things. 
 
 - Class: text
@@ -34,7 +34,7 @@
     calculate the mean and median of a set of numbers. Got that?
 
 - Class: text
-  Output: Some of these functions come pre-installed in R but most others don't. These other
+  Output: Some of these functions come pre-installed in R but most don't. These other
     functions are in things called packages. To put it simply, packages are a collection of
     functions that community users have created. Remember the mean() and median() functions?
     R already has these functions built into the program.  But many users have developed
@@ -80,14 +80,14 @@
   Hint: Type Freedman
   
 - Class: cmd_question
-  Output: You can see the data physically in the console. If you want the specific description of a
+  Output: You can see the data physically in the console. If you to read the description of a
     function or dataset, simply type ?function_name or ?dataset. Type ?Freedman
   CorrectAnswer: ?Freedman
   AnswerTests: omnitest(correctExpr='?Freedman')
   Hint: Type ?Freedman
   
 - Class: text
-  Output: See the description of the data on your bottom-left panel?
+  Output: See the description of the data on your bottom-right panel?
 
 - Class: text
   Output: Let's move to another topic. You're probably a bit familiar with
@@ -111,7 +111,7 @@
   Output: You normally use the console for data exploration
     and experimental analysis. The window above the console
     is the code editor. Here you can write as much code as you want
-    and save it as you go along. The data process is normally like this;
+    and save it as you go along. The data analysis workflow is usually like this;
     you experiment with functions in your console and when you find
     interesting results you write down the code in the code editor.
     This is very handy because you can save that code into a file and
@@ -126,11 +126,11 @@
   Hint: Type Freedman in the code editor, highligh it and click Run or CTRL + ENTER
 
 - Class: text
-  Output: You see? It's the same as running it in the console. The only difference is that
+  Output: Interesting, eh? It's the same as running it in the console. The only difference is that
     with the code editor you keep a physical record of what you've done.
 
 - Class: text
-  Output: The window in the upper right corner shows the datasets and vectors you have
+  Output: The panel in the upper right corner shows the datasets and vectors you have
     currently "opened". (I know you probably don't know what vectors are, but think of
     them as variables for now). Let's see two examples.
 
@@ -148,7 +148,7 @@
  
 - Class: cmd_question
   Output: Now, let's imagine you want to create a vector (think of variable) that specifies the
-    number one for the first two subjects and the number zero for the next two subjects(let's suppose
+    number one for the first two subjects and the number zero for the next two subjects (let's suppose
     1 means male and 0 female). Type gender <- c(1, 1, 0, 0)
   CorrectAnswer: Type gender <- c(1, 1, 0, 0)
   AnswerTests: omnitest(correctExpr='gender <- c(1, 1, 0, 0)')
@@ -156,7 +156,7 @@
   
 - Class: text
   Output:  What do you see? You now have a NUMERIC variable named "gender" which has 4 observations.
-    As you'd expect, you can see it in the upper-left window.
+    As you'd expect, you can see it in the upper-right window.
 
 - Class: text
   Output:  Lastly, the bottom-right window, where you already saw the description of the dataset Freedman,
