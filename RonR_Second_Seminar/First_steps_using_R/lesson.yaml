@@ -10,36 +10,44 @@
   Version: 2.4.0
 
 - Class: text
-  Output: Hello and Welcome to the first session of the seminar RonR! Please note that in order
+  Output: Welcome to the first session of learning R! Please note that in order
     for you to run this session successfully you'll need to be connected to the internet and be
     using Rstudio (https://www.rstudio.com/)
 
 - Class: text
-  Output: Throughout this lesson you will learn a little about R,
-    what are packages and how to install them and  how Rstudio works. Let's begin!
+  Output: Throughout this lesson you'll learn about R structures,
+    what are packages and how to install them and how Rstudio works. If you're ready, let's begin!
 
 - Class: text
-  Output: R is a programming language and environment that allows you to conduct
-    simple and complex statistical analysis and make beautiful graphs.
+  Output: R is a programming language and environment that allows you to process data and apply
+    statistical methods. But that is just the tip of the iceberg! As we'll try to show in these
+    exercises, R has potential to do many other things. 
 
 - Class: text
-  Output: "R is completely free and it is maintained by a non-profit organization and the public community.
-    If you want to learn more about how R works, visit their website https://www.r-project.org/"
+  Output: "R is also completely free and is maintained by a non-profit organization and the public
+    community. If you want to learn more about how R works, visit their website
+    https://www.r-project.org/"
 
 - Class: text
-  Output: First things first, you should know what a function is. A function is just a command. For example mean()
-    and median() are functions. As both function's names reveal, they simply calculate the mean and
-    median of variable. Got that?
+  Output: First things first, you should know what a function is. A function is just a command.
+    For example mean() and median() are functions. As both function's names reveal, they simply
+    calculate the mean and median of a set of numbers. Got that?
 
 - Class: text
-  Output: Now, moving on, R works primarily with a thing called packages. To put it simply, packages are a
-    collection of functions that community users have created. As we've seen, R already has built in
-    functions like mean() and median() but many users have developed additional functions.
-    These functions can be either for more complicated analysis or to make things simpler.
+  Output: Some of these functions come pre-installed in R but most others don't. These other
+    functions are in things called packages. To put it simply, packages are a collection of
+    functions that community users have created. Remember the mean() and median() functions?
+    R already has these functions built into the program.  But many users have developed
+    additional functions that are at your disposal.
+
+- Class: text
+  Output: At this point (22/January/2017), R has over 6000 contributed packages. But don't
+  get overwhelmed, we will only use a handful.
 
 - Class: cmd_question
   Output: Let's install and load a package. You install packages with the built-in function
-    install.packages(). Write down install.packages("car")
+    install.packages(). As you might've imaginged, the function installs the package
+    specified within the parenthesis. Write down install.packages("car")
   CorrectAnswer: install.packages("car")
   AnswerTests: omnitest(correctExpr='install.packages("car")')
   Hint: Type install.packages("car")
@@ -52,11 +60,11 @@
   Hint: Type library(car)
 
 - Class: text
-  Output: You now have a loaded package at your disposal. This means that you can now use
-    any function that comes with the package. If you hadn't loaded the package you wouldn't be able to.
-    If you want to see the description of a package or any of its functions you can search on Google
-    and you'll find it easily(for example; car package) Here you'll find all the functions that
-    the package contains and a description of each function.
+  Output: You now have a loaded package at your disposal. This means that you can use
+    any function that comes with the package. If you downloaded the package but didn't load it
+    you wouldn't be able to access it's functions. If you want to see the description of a package
+    or any of its functions you can search on Google and you'll find it easily(for example; car
+    package) 
 
 - Class: text
   Output: Aside from functions, a package can contain datasets as well. These datasets are often
@@ -79,7 +87,7 @@
   Hint: Type ?Freedman
   
 - Class: text
-  Output: Now you have a description of the dataset in the bottom right window.
+  Output: See the description of the data on your bottom-left panel?
 
 - Class: text
   Output: Let's move to another topic. You're probably a bit familiar with
@@ -100,17 +108,18 @@
   Hint: Take the initial 5 + 5, add 10 and subtract 15.
 
 - Class: text
-  Output: You normally use the console for exploring data
-    and doing experimental analysis. The window above the console
+  Output: You normally use the console for data exploration
+    and experimental analysis. The window above the console
     is the code editor. Here you can write as much code as you want
     and save it as you go along. The data process is normally like this;
-    you experiment with commands in your console and when you find
+    you experiment with functions in your console and when you find
     interesting results you write down the code in the code editor.
-    Then you can save that code into a file and reproduce what you did.
+    This is very handy because you can save that code into a file and
+    reproduce what you did.
  
 - Class: cmd_question
   Output: You can also run code from the code editor. Type Freedman in the code
-    editor(the window above the console), highlight the code line and click on Run
+    editor (the window above the console), highlight the code line and click 'Run'
     (in the upper right corner of the code editor window).
   CorrectAnswer: Freedman
   AnswerTests: omnitest(correctExpr='Freedman')
@@ -118,16 +127,16 @@
 
 - Class: text
   Output: You see? It's the same as running it in the console. The only difference is that
-    with the code editor you keep a visual track of what you've done.
+    with the code editor you keep a physical record of what you've done.
 
 - Class: text
   Output: The window in the upper right corner shows the datasets and vectors you have
-    currently "opened". (I know you probably are not used to the word, but think of
+    currently "opened". (I know you probably don't know what vectors are, but think of
     them as variables for now). Let's see two examples.
 
 - Class: cmd_question
   Output: Note that the window is empty. Assign the dataset Freedman to a new name "Freedman2".
-    Type Freedman2 <- Freedman  
+    Type Freedman2 <- Freedman
   CorrectAnswer: Freedman2 <- Freedman
   AnswerTests: omnitest(correctExpr='Freedman2 <- Freedman')
   Hint: Type Freedman2 <- Freedman
@@ -138,12 +147,12 @@
     R works.
  
 - Class: cmd_question
-  Output: Now, let's imagine you want to create a vector (think of variable) that specifies the number one for
-    the first two subjects and the number zero for the next 2 subjects(supposed it's 1 for male and 0 for female).
-    Type gender <- c(1,1,0,0).
-  CorrectAnswer: Type gender <- c(1,1,0,0)
-  AnswerTests: omnitest(correctExpr='gender <- c(1,1,0,0)')
-  Hint: Type gender <- c(1,1,0,0)
+  Output: Now, let's imagine you want to create a vector (think of variable) that specifies the
+    number one for the first two subjects and the number zero for the next two subjects(let's suppose
+    1 means male and 0 female). Type gender <- c(1, 1, 0, 0)
+  CorrectAnswer: Type gender <- c(1, 1, 0, 0)
+  AnswerTests: omnitest(correctExpr='gender <- c(1, 1, 0, 0)')
+  Hint: Type gender <- c(1, 1, 0, 0). Be careful with the spaces!
   
 - Class: text
   Output:  What do you see? You now have a NUMERIC variable named "gender" which has 4 observations.
@@ -152,8 +161,8 @@
 - Class: text
   Output:  Lastly, the bottom-right window, where you already saw the description of the dataset Freedman,
     is where you can see your graphs, help files, installed packages and the existing files in your
-    working directory (don't worry if you don't know what that that is, you'll know soon enough) Feel free
-    to explore these windows!
+    working directory (don't worry if you don't know what that that is, you'll know soon enough)
+    Feel free to explore these windows!
 
 - Class: text
   Output:  This is the end of the first lesson.
