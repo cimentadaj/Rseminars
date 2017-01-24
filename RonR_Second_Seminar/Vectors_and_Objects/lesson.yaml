@@ -7,7 +7,7 @@
   Version: 2.2.21
   
 - Class: text
-  Output: 'Hello and welcome to the second lesson of the course!
+  Output: 'Welcome to the second lesson of the course!
     On this session we will introduce the basic building block
     of the R language: vectors'
 
@@ -18,23 +18,25 @@
     
 - Class: text
   Output: 'You can often think of vectors as variables. Yes, exactly like
-    those you have a normal datasets. However, you often treat vectors separately
-    from their datasets. Let’s see an example.'
+    those you have in Excel, SPSS, Stata and SAS datasets. However, in R you the possibility
+    of creating these variables outside a dataset. Let’s see an example.'
     
 - Class: text
-  Output: 'To set up a vector named income consisting of five numbers, 10, 5, 3, 6 and 21,
-  you would use the R command income <- c(10, 5, 3, 6, 21)'
+  Output: 'To set up a vector named income consisting of five numbers, 100, 500, 35, 60 and 2100,
+  you would use the R command income <- c(100, 500, 35, 60, 2100)'. This income variable has
+  the monthly salary of 5 people.
   
 - Class: text
-  Output: "If you would’ve wanted only to include one number then you would’ve written
+  Output: "If you would’ve wanted only to include one person then you would’ve written
     income <- 10. Whenever you want to put together more than one number you use the c()
-    command which stands for concatenation. In this example you're concatenating several numbers together"
+    function which stands for concatenation. In the previous example we concatenated
+    5 numbers together"
   
 - Class: text
   Output: 'Notice that the assignment operator (<-), which consists of the two characters
     < (less than) and - (minus) occurring strictly side-by-side and it points to the
     object receiving the value of the expression. In most contexts the = operator can be used
-    as an alternative'
+    as an alternative (but it is advisible not to be used.)'
   
 - Class: text
   Output: 'Assignment can also be made using the function assign(). An equivalent way of making
@@ -47,10 +49,10 @@
   Output: Create a numeric vector named gender which contains the number 1, 0, 1.
   CorrectAnswer: omnitest(correctExpr="gender <- c(1,0,1)")
   AnswerTests: omnitest(correctExpr="gender <- c(1,0,1)")
-  Hint: 'Assign the numbers 1,0,1 to the a vector named gender; you could do that like this: gender <- c(1,0,1)'
+  Hint: 'Assign the numbers 1,0,1 to the a vector named gender. You could do that like this: gender <- c(1,0,1)'
 
 - Class: text
-  Output: 'For the curious ones, assignment can also be made in the opposite direction.
+  Output: 'If you were curious, assignment can also be made in the opposite direction.
     So the same assignment could be made using c(10, 5, 3, 6, 21) -> income'
     
 - Class: cmd_question
@@ -61,14 +63,15 @@
   Hint: 'Type income'
   
 - Class: cmd_question
-  Output: Now, type c(10,5,3,6,21)
-  CorrectAnswer: omnitest(correctExpr="c(10,5,3,6,21)")
-  AnswerTests: omnitest(correctExpr="c(10,5,3,6,21)")
-  Hint: 'Type c(10,5,3,6,21)'
+  Output: Now, type c(100, 500, 35, 60, 2100)
+  CorrectAnswer: omnitest(correctExpr="c(100, 500, 35, 60, 2100)")
+  AnswerTests: omnitest(correctExpr="c(100, 500, 35, 60, 2100)")
+  Hint: 'Type c(100, 500, 35, 60, 2100)'
 
 - Class: text
   Output: 'You can actually see the numbers concatenated, but they werent saved to a vector/variable.
-    In the case you wanted to see these numbers again you would have to type c(10,5,3,6,21) again and again'
+    In case you wanted to see these numbers again you would have to type c(100, 500, 35, 60, 2100) again
+    and again'
   
 - Class: cmd_question
   Output: 'Now, a really important function is length(). I think the name is pretty explanatory.
@@ -85,14 +88,26 @@
   AnswerTests: omnitest(correctVal= 'income has 5 numbers')
   Hint: 'It is exactly what the function name means!'
   
-  
 - Class: mult_question
-  Output: 'So, to make it a bit more complicated, what do you think would be the length of this expression
-    c(income, 0, income)? Try and think it logically before answering!'
+  Output: 'Let's make you think. What do you think would be the length of this expression
+      c(income, 0, income)? Try thinking the length of each separate object.'
   AnswerChoices: 10; 15; 11
   CorrectAnswer: 11
   AnswerTests: omnitest(correctVal= '11')
-  Hint: "Was is the length if income? If we had income twice then it's twice the length plus the number zero"
+  Hint: "Was is the length if income? If we had income twice then it's twice the length plus the length of the number zero"
+
+
+- Class: mult_question
+  Output: Let's make you think even more. What would the contents of a vector c(income, 0, income)?
+      Think about the contents of income.
+  AnswerChoices: 
+  c(100, 5210, 322, 620);
+  c(100, 500, 35, 60, 2100, 0, 2100, 60, 35, 500, 100);
+  c(2100, 60, 35, 500, 100, 0, 2100, 60, 35, 500, 100);
+  c(100, 500, 35, 60, 2100, 0, 100, 500, 35, 60, 2100)
+  CorrectAnswer: c(100, 500, 35, 60, 2100, 0, 100, 500, 35, 60, 2100)
+  AnswerTests: omnitest(correctVal= 'c(100, 500, 35, 60, 2100, 0, 100, 500, 35, 60, 2100)')
+  Hint: 'The numbers inside income are c(100, 500, 35, 60, 2100), concatenated with 0 and concatenated with c(100, 500, 35, 60, 2100)'
   
 - Class: text
   Output: "Besides numeric vectors, R handles character vectors, logical vectors and factors.
@@ -100,68 +115,96 @@
 
 - Class: text
   Output: Everything you've learned about numeric vectors can be applied to character vectors.
-    With the exception that instead of numbers, character vectors can only contain "characters"
+    With the exception that instead of numbers, character vectors can only contain "characters".
     
 - Class: text
-  Output: Did you notice that I included the characters word in " "? Any character in R needs
+  Output: Did you notice that I included the characters word in quotes(" ")? Any character in R needs
     to be surrounded by " ". R can handle words, sentences, or simply letters but R doesn't know when
-    you're using words or letters which is why you need wrap your text with " "
+    you're using words or letters which is why you need wrap your text with " ".
 
 - Class: cmd_question
-  Output: Let's give it a try. Create a vector named myname and include your FIRST name inside it
+  Output: Let's give it a try. Create a vector named myname and include your FIRST name inside it.
   CorrectAnswer: var_is_a('character', 'myname')
   AnswerTests: var_is_a('character', 'myname')
-  Hint: 'Start off by the vector name: myname <- and now type your first name wrapped in ""'
+  Hint: 'Start off by the vector name: myname <- and now type your first name wrapped in " "'
   
 - Class: text
   Output: 'Now, if you wanted to include your last name into that character vector, how would you
     do it? I can think of two ways. You create the myname vector again and using the c() you concatenate
-    your first and last name. That was easy'
+    your first and last name. Like this: c(yourfirstname, yourlastname). That was easy.'
     
 - Class: text
-  Output: But what if your initial vector had hundreds of names,
+  Output: But what if your initial myname vector had hundreds of names,
     you wouldn't want to rewrite them all. What would you do in that case?
-    
+
 - Class: cmd_question
-  Output: A simpler and more elegant way would be to create a vector named myname which
-    CONCATENATES the vector myname and your last name together. Remember, myname is not a character
-    object but a character VECTOR, so you don't have to wrap it around with the " ". Try it out yourself
+  Output: A simpler and more elegant way would be to
+    concatenate the vector myname and your last name together. Remember, myname is not a character
+    object but a character VECTOR, so you don't have to wrap it around with the " ".
+    Try it out yourself.
   CorrectAnswer: val_has_length(2)
   AnswerTests: val_has_length(2)
   Hint: 'Start off by the vector name: myname <- and now open the c() and include, first the
-    myname vector and then your last name wrapped in " "'
-  
-  
+    myname vector, and then your last name wrapped in " ".'
+    
+- Class: cmd_question
+  Output: Type myname to see the contents of myname.
+  CorrectAnswer: omnitest(correctExpr="myname")
+  AnswerTests: omnitest(correctExpr="myname")
+  Hint: 'Type myname'
+
+- Class: text
+  Output: There you have it! concatenating is an easy concept. As a reminder, some functions
+      only work with certain types of vectors, for example, numeric vectors. It's very important
+      for you to distinguish between types of vectors. You can do that visually by noting the quotes or
+      by using the class() function, which we'll touch upon in a few minutes.
+
+- Class: mult_question
+  Output: What type of vector is c("1", "@", "3", "Z")?
+  AnswerChoices: numeric; factor; character; none of these
+  CorrectAnswer: character
+  AnswerTests: omnitest(correctVal= 'character')
+  Hint: Pay attention to the quotes!
+
+- Class: text
+  Output: A character vector con contain everything as long as it's wrapped in quotes. Don't get
+    confused even if it has numbers inside!
+
 - Class: mult_question
   Output: Now let's talk about logical vectors. I think logical vectors are quite intuitive.
-    Remember that our income variable has the numbers 10,5,3,6 and 21 in its contents. If I would type income > 7,
-    what do you think will be the correct equivalence?'
-  AnswerChoices: TRUE, TRUE, TRUE ,TRUE, TRUE; FALSE, TRUE, TRUE, TRUE, FALSE; TRUE, FALSE, FALSE, FALSE, TRUE; FALSE, TRUE, TRUE, FALSE, TRUE
-  CorrectAnswer: TRUE, FALSE, FALSE, FALSE, TRUE
-  AnswerTests: omnitest(correctVal= 'TRUE, FALSE, FALSE, FALSE, TRUE')
+    Remember that our income variable has the numbers 100, 500, 35, 60 and 2100 in its contents.
+    If I would type income > 300, what do you think will be the correct equivalence?'
+  AnswerChoices:
+  TRUE, TRUE, TRUE ,TRUE, TRUE;
+  FALSE, TRUE, TRUE, TRUE, FALSE;
+  TRUE, FALSE, FALSE, FALSE, TRUE;
+  FALSE,  TRUE, FALSE, FALSE,  TRUE
+  CorrectAnswer: FALSE,  TRUE, FALSE, FALSE,  TRUE
+  AnswerTests: omnitest(correctVal= 'FALSE,  TRUE, FALSE, FALSE,  TRUE')
   Hint: 'Think of it this way: the condition is tested on each number separately. If the first
-    number is higher than 7 then it will have a TRUE, and so on..'
+    number is higher than 300 then it will have a TRUE, and so on..'
   
 - Class: text
   Output: 'Logical vectors can only contain either TRUE or FALSE. Moreover, ALWAYS, I repeat ALWAYS,
-    TRUE represents a 1 and FALSE represents a 0. Just keep that in mind'
+    TRUE represents a 1 and FALSE represents a 0. Unless it's written as "TRUE" or "FALSE", which means
+    it's a character vector. Just keep that in mind'
 
 - Class: text
-  Output: To give you a brief example on how to use logical vectors, imagine that we assigned income > 7
-    to a vector named logical. Every time we entered the name logical we would get TRUE, FALSE, FALSE, FALSE,
-    TRUE. But what is that useful for? Those which have TRUE have income higher than 7 and those which have FALSE have
-    income lower than 7. For those familiar with some statistical jargon, it's simply a dummy variable
+  Output: To give you a brief example on how to use logical vectors, imagine that we assigned income > 300
+    to a vector named logical. Every time we entered the name logical we would get FALSE,  TRUE, FALSE, FALSE,
+    TRUE. But what is that useful for? Those which have TRUE have income higher than 300 and those which have FALSE have
+    income below 300. For those familiar with some statistical jargon, it's simply a dummy variable
     
 - Class: text
   Output: 'The last R object we need to talk about are factors. Factors are the variables on which you can
     store categorical and ordinal values. A categorical variable is when you have categories which have no
-    particular order(like Married, Divorced, Single, etc). An ordinal variable are categories which do have
-    a hierarchical order(like poor, improved, excelent)'
+    particular order (like Married, Divorced, Single, etc). An ordinal variable are categories which do have
+    a hierarchical order (like bad, middle, good)'
   
 - Class: cmd_question
-  Output: Let's make an example. I already typed diabetes <- c("Type1","Type2","Type1","Type1"), which creates
-    a character vector of length 4. Now you type diabetes <- factor(diabetes)  Don't panic! We could read
-    the expression as take the vector diabetes, convert it into factor and save it with the name diabetes again
+  Output: Let's make an example. I already typed diabetes <- c("Type1", "Type2", "Type1", "Type1"), which creates
+    a character vector of length 4. Now you type diabetes <- factor(diabetes). 
+    The expression can be read as; take the vector diabetes, convert it into factor and save it with the same name.
   CorrectAnswer: omnitest(correctExpr="diabetes <- factor(diabetes)")
   AnswerTests: omnitest(correctExpr="diabetes <- factor(diabetes)")
   Hint: 'Type diabetes <- factor(diabetes)'
@@ -173,41 +216,47 @@
   Hint: 'Type diabetes'
   
 - Class: text
-  Output: Notice the levels option. This option is telling you that this factor variable has two categories,
+  Output: Notice the levels attribute. This option is telling you that this factor variable has two categories,
     namely Type1 and Type2. So far it doesn't say anything about the factors being ordered.
-    Remember that we didn't assign any specific hierarchical order(as in an ordered variable) so the factor
-    function ASSUMES that this is a categorical variable
+    Remember that we didn't assign any specific hierarchical order so the factor
+    function ASSUMES that this is a categorical variable.
   
 - Class: cmd_question
   Output: 'We could do it in a similar way, but adding more options: status2 <- factor(status, order = TRUE,
-    levels=c(“Poor”, “Improved”, “Excellent”)). I went ahead and ran it myself. Type status2 to see the results'
+    levels=c(“Bad”, “Middle”, “Good”)). I went ahead and ran it myself. Type status2 to see the results'
   CorrectAnswer: omnitest(correctExpr="status2")
   AnswerTests: omnitest(correctExpr="status2")
   Hint: 'Type status2'
   
 - Class: text
-  Output: The only difference is that now the levels option actually specifies that poor is less than improved,
-    and so on. Note that our initial vector had "Poor", "Improved" and "Excelent" in our desired order.
-    If the order would've been "Poor","Excellent" and "Improved", how would have we specified the correct order?
+  Output: The only difference is that now the levels attribute actually specifies that bad is less than middle,
+    and so on. Note that our initial vector had "Bad", "Middle" and "Good" in our desired order.
+    If the order would've been "Bad","Good" and "Middle", how would have we specified the correct order?
 
 - Class: text
-  Output: That's easy, with the levels option. Check out the expression factor(status, order = TRUE, levels=c("Poor","Excellent",
-    "Improved")).  The levels option we use it to specify the ordinal order of our character vector
+  Output: That's easy, with the levels option. Check out the expression factor(status, order = TRUE,
+      levels=c("Poor","Excellent", "Improved")).  The levels option we use it to specify the correct order
+      of our character vector. This is just a brief introduction the factors, but in fact there's a lot more to talk
+      about. We'll dedicate a separate chapter for those in the future.
 
 - Class: cmd_question
-  Output: 'We can check what type of vector we are working with by calling the function class(x) which takes
-    as an argument the name of the vector we want to analyse. Try class(status2)'
+  Output: 'The next thing to talk about is how do we know, FOR SURE, what type a vector is?
+      We can check what type of vector we are working with by calling the function class(x) which takes
+      as an argument the name of the vector we want to analyse. Try class(status2)'
   CorrectAnswer: omnitest(correctExpr="class(status2)")
   AnswerTests: omnitest(correctExpr="class(status2)")
   Hint: 'Type class(status2)'
   
 - Class: text
-  Output: Let's talk about sequences now
+  Output: Pretty straight forward.
   
 - Class: text
-  Output: 'R has a number of facilities for generating commonly used sequences of numbers.
+  Output: Let's talk about sequences now.
+  
+- Class: text
+  Output: 'R has a number of functions for generating commonly used sequences of numbers.
     For example 1:30 is the vector c(1, 2, …, 29, 30). The construction 30:1 may be used
-    to generate a sequence backwards'
+    to generate a sequence backwards.'
   
 - Class: cmd_question
   Output: 'Try creating a numeric vector named oursequence containing a sequence from 1 to 9 using the semicolon(:)'
