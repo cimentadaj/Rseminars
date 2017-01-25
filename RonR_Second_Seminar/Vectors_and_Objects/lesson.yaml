@@ -23,8 +23,8 @@
     
 - Class: text
   Output: 'To set up a vector named income consisting of five numbers, 100, 500, 35, 60 and 2100,
-      you would use the R command income <- c(100, 500, 35, 60, 2100)'. This income variable has
-      the monthly salary of 5 people.
+    you would use the R command income <- c(100, 500, 35, 60, 2100). This income variable has
+    the monthly salary of 5 people.'
   
 - Class: text
   Output: "If you would’ve wanted only to include one person then you would’ve written
@@ -47,9 +47,9 @@
 
 - Class: cmd_question
   Output: Create a numeric vector named gender which contains the number 1, 0, 1.
-  CorrectAnswer: omnitest(correctExpr="gender <- c(1,0,1)")
-  AnswerTests: omnitest(correctExpr="gender <- c(1,0,1)")
-  Hint: 'Assign the numbers 1,0,1 to the a vector named gender. You could do that like this: gender <- c(1,0,1)'
+  CorrectAnswer: omnitest(correctExpr="gender <- c(1, 0, 1)")
+  AnswerTests: omnitest(correctExpr="gender <- c(1, 0, 1)")
+  Hint: 'Assign the numbers 1, 0, 1 to the a vector named gender. You could do that like this: gender <- c(1, 0, 1)'
 
 - Class: text
   Output: 'If you were curious, assignment can also be made in the opposite direction.
@@ -89,8 +89,8 @@
   Hint: 'It is exactly what the function name means!'
   
 - Class: mult_question
-  Output: 'Let's make you think. What do you think would be the length of this expression
-      c(income, 0, income)? Try thinking the length of each separate object.'
+  Output: Let's make you think. What do you think would be the length of this expression
+      c(income, 0, income)? Try thinking the length of each separate object.
   AnswerChoices: 10; 15; 11
   CorrectAnswer: 11
   AnswerTests: omnitest(correctVal= '11')
@@ -98,16 +98,12 @@
 
 
 - Class: mult_question
-  Output: Let's make you think even more. What would the contents of a vector c(income, 0, income)?
+  Output: Let's make you think even more. What would the contents of a vector c(income, 0, income)? 
       Think about the contents of income.
-  AnswerChoices: 
-  c(100, 5210, 322, 620);
-  c(100, 500, 35, 60, 2100, 0, 2100, 60, 35, 500, 100);
-  c(2100, 60, 35, 500, 100, 0, 2100, 60, 35, 500, 100);
-  c(100, 500, 35, 60, 2100, 0, 100, 500, 35, 60, 2100)
+  AnswerChoices: c(100, 5210, 322, 620); c(100, 500, 35, 60, 2100, 0, 2100, 60, 35, 500, 100); c(2100, 60, 35, 500, 100, 0, 2100, 60, 35, 500, 100); c(100, 500, 35, 60, 2100, 0, 100, 500, 35, 60, 2100)
   CorrectAnswer: c(100, 500, 35, 60, 2100, 0, 100, 500, 35, 60, 2100)
   AnswerTests: omnitest(correctVal= 'c(100, 500, 35, 60, 2100, 0, 100, 500, 35, 60, 2100)')
-  Hint: 'The numbers inside income are c(100, 500, 35, 60, 2100), concatenated with 0 and concatenated with c(100, 500, 35, 60, 2100)'
+  Hint: The elements inside income are c(100, 500, 35, 60, 2100), concatenated with 0 and concatenated with c(100, 500, 35, 60, 2100)
   
 - Class: text
   Output: "Besides numeric vectors, R handles character vectors, logical vectors and factors.
@@ -174,20 +170,15 @@
   Output: Now let's talk about logical vectors. I think logical vectors are quite intuitive.
     Remember that our income variable has the numbers 100, 500, 35, 60 and 2100 in its contents.
     If I would type income > 300, what do you think will be the correct equivalence?'
-  AnswerChoices:
-  TRUE, TRUE, TRUE ,TRUE, TRUE;
-  FALSE, TRUE, TRUE, TRUE, FALSE;
-  TRUE, FALSE, FALSE, FALSE, TRUE;
-  FALSE,  TRUE, FALSE, FALSE,  TRUE
+  AnswerChoices: TRUE, TRUE, TRUE ,TRUE, TRUE; FALSE, TRUE, TRUE, TRUE, FALSE; TRUE, FALSE, FALSE, FALSE, TRUE; FALSE,  TRUE, FALSE, FALSE,  TRUE
   CorrectAnswer: FALSE,  TRUE, FALSE, FALSE,  TRUE
   AnswerTests: omnitest(correctVal= 'FALSE,  TRUE, FALSE, FALSE,  TRUE')
-  Hint: 'Think of it this way: the condition is tested on each number separately. If the first
-          number is higher than 300 then it will have a TRUE, and so on..'
+  Hint: 'Think of it this way: the condition is tested on each number separately. If the first number is higher than 300 then it will have a TRUE, and so on..'
   
 - Class: text
-  Output: 'Logical vectors can only contain either TRUE or FALSE. Moreover, ALWAYS, I repeat ALWAYS,
+  Output: Logical vectors can only contain either TRUE or FALSE. Moreover, ALWAYS, I repeat ALWAYS,
     TRUE represents a 1 and FALSE represents a 0. Unless it's written as "TRUE" or "FALSE", which means
-    it's a character vector. Just keep that in mind'
+    it's a character vector. Just keep that in mind
 
 - Class: text
   Output: To give you a brief example on how to use logical vectors, imagine that we assigned income > 300
@@ -269,9 +260,9 @@
   Hint: 'Assign the sequence 1:9 the oursequence name.'
   
 - Class: text
-  Output: 'The function seq() is even more flexible at generating sequences. The first two
+  Output: The function seq() is even more flexible at generating sequences. The first two
     arguments are called from and to and they specify the beginning and end of the sequence.
-    If it makes sense, then you should know that the sequence seq(2, 10) is the same as 2:10'.
+    If it makes sense, then you should know that the sequence seq(2, 10) is the same as 2:10.
   
 - Class: text
   Output: 'Arguments to seq() can also be given in named form, in which case the order in which they
@@ -279,7 +270,7 @@
     seq(from = 1, to = 30) and seq(to = 30, from = 1) are all the same as 1:30'
   
 - Class: cmd_question
-  Output: 'The next argument to seq() is named 'by = value' and it specifies the jumps in the sequence.
+  Output: The next argument to seq() is named 'by = value' and it specifies the jumps in the sequence.
       For example, type seq(1, 10, by = 2)'
   CorrectAnswer: omnitest(correctExpr="seq(1, 10, by = 2)")
   AnswerTests: omnitest(correctExpr="seq(1, 10, by = 2)")
@@ -297,10 +288,7 @@
 - Class: mult_question
   Output: 'Remember that our income vector has the numbers c(10, 5, 3, 6, 21) inside.
     If we typed rep(income, 2) what do you think would be the result?'
-  AnswerChoices: 
-  10, 5, 3, 6, 21,10, 5, 3, 6, 21;
-  21, 6, 3, 5, 10, 10, 5, 3, 6, 21;
-  10, 5, 3, 6, 21, 21, 6, 3, 5, 10
+  AnswerChoices: 10, 5, 3, 6, 21,10, 5, 3, 6, 21; 21, 6, 3, 5, 10, 10, 5, 3, 6, 21; 10, 5, 3, 6, 21, 21, 6, 3, 5, 10
   CorrectAnswer: 10, 5, 3, 6, 21,10, 5, 3, 6, 21
   AnswerTests: omnitest(correctVal= '10, 5, 3, 6, 21,10, 5, 3, 6, 21')
   Hint: 'The result would be the contents of the vector repeated twice'
@@ -313,10 +301,10 @@
   Hint: 'Type rep(c(10, 5, 3, 6, 21), each = 2)'
   
 - Class: text
-  Output: 'Pretty neat, eh? Instead of repeating the whole vector, it repeats 'each' object within the vector.
+  Output: Pretty neat, eh? Instead of repeating the whole vector, it repeats 'each' object within the vector.
       Remember that all these functions can be used with any vector (numeric,character, logical) and all of these
       expressions can be saved to a name. We could've saved any of the rep() or seq() expressions to a vector and,
-      for example, they could be used as columns in a datataset'
+      for example, they could be used as columns in a datataset.
 
 - Class: text
   Output: Before concluding, let's go over arithmetic operations with vectors. When perform any arithmetic
@@ -325,22 +313,21 @@
     to the 1st object in the 2nd vector, and so on..
     
 - Class: cmd_question
-  Output: 'Try it yourself. Add the sequences 1:5 + 6:10 together.
+  Output: Try it yourself. Add the sequences 1:5 + 6:10 together.
   CorrectAnswer: omnitest(correctExpr="1:5 + 6:10")
   AnswerTests: omnitest(correctExpr="1:5 + 6:10)")
   Hint: 'Type 1:5 + 6:10'
   
 - Class: text
   Output: The same principle applies to subtraction ( - sign in R), multiplication (* sign in R) and
-  division( / sign in R). It's pretty simple.
+      division( / sign in R). It's pretty simple.
   
 - Class: cmd_question
   Output: But what would happen if both vectors had different lengths? Try it yourself by adding
     1:4 and c(0, 10). Don't worry about saving the result in a new variable.
   CorrectAnswer: 1:4 + c(0, 10)
   AnswerTests: omnitest(correctExpr='1:4 + c(0, 10)')
-  Hint: Enter 1:4 + c(0, 10) in the console to see how R adds two vectors
-    of different length. Don't assign the result to a variable.
+  Hint: Enter 1:4 + c(0, 10) in the console to see how R adds two vectors of different length. Don't assign the result to a variable.
 
 - Class: text
   Output: If the length of the shorter vector does not divide evenly into the length
@@ -348,15 +335,13 @@
     a warning to let you know something fishy might be going on.
 
 - Class: text
-  Output: 'The recycling method simply repeats the shorter vector until it evens up with the longer vector'
+  Output: The recycling method simply repeats the shorter vector until it evens up with the longer vector.
 
 - Class: cmd_question
   Output: Try c(1, 2, 3, 4) + c(0, 10, 100) for another example.
   CorrectAnswer: c(1, 2, 3, 4) + c(0, 10, 100)
   AnswerTests: omnitest(correctExpr='c(1, 2, 3, 4) + c(0, 10, 100)')
-  Hint: Type c(1, 2, 3, 4) + c(0, 10, 100) to see how R handles adding two vectors,
-    when the shorter vector's length does not divide evenly into the longer vector's
-    length. Don't worry about assigning the result to a variable.
+  Hint: Type c(1, 2, 3, 4) + c(0, 10, 100) to see how R handles adding two vectors, when the shorter vector's length does not divide evenly into the longer vector's length. Don't worry about assigning the result to a variable.
     
 - Class: text
   Output: 'This is the end of lesson 2. This was some great work, keep going!'
