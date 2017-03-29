@@ -7,25 +7,25 @@
   Version: 2.2.21
 
 - Class: text
-  Output: Hello! Welcome to our lesson on matrices and lists. Matrices are widely used in mathematics and algebra and are really useful
-    in computer science. For our purposes, matrices will simply teach us how to better manage datasets in R.
-    Let's get going!
-  
-  
+  Output: Hello! Welcome to our lesson on matrices and lists. Matrices are widely used in mathematics and
+    algebra and are really useful in computer science. In this lesson we'll learn how to use matrices
+    in R and how characteristics they have.
+    
 - Class: text
-  Output: First off, what is a matrix? A matrix is simply an array of numbers. So, if you've used Excel or
-    any other spreadsheet program you are in fact dealing with matrices although you don't name them like that. 
+  Output: First off, what is a matrix? A matrix is simply a rectangular shaped data set usually
+    filled with numbers. So, if you've used Excel or any other spreadsheet program you are in fact
+    dealing with matrix-like objects, although you don't name them like that.
   
 - Class: cmd_question
-  Output: A matrix is a "dataset" with "n" number of rows and "z" number of columns. I've taken the liberty
-    of creating a matrix so you can check it our for yourself. Type ourmatrix
+  Output: A matrix is a "dataset" with "n" number of rows and "n" number of columns. I've taken the
+    liberty of creating a matrix so you can check it our for yourself. Type ourmatrix.
   CorrectAnswer: ourmatrix
   AnswerTests: omnitest(correctExpr='ourmatrix')
   Hint: Type ourmatrix
   
 - Class: cmd_question
-  Output: You see? There's no need to feel intimidated by matrices. They’re simply a "dataset". Here, this
-    matrix has 3 rows and 3 columns. But how do we create matrices? Well there's the function "matrix()".
+  Output: See? There's no need to feel intimidated by matrices. They’re simply a "dataset". Here, this
+    matrix has 3 rows and 3 columns. How do we create matrices? Well there's the function "matrix()".
     Type ?matrix() and have a look at the description to your right to see if you understand how it works.
   CorrectAnswer: ?matrix()
   AnswerTests: omnitest(correctExpr='?matrix()')
@@ -36,8 +36,8 @@
   
 - Class: text
   Output: 'Here is how it works: matrix(data,nrow,ncol). The matrix you saw earlier was created with
-    this expression: matrix(1:9,nrow=3,ncol = 3). In this case, the first argument means from the number
-    1 to the number 9, distributed in 3 rows  and 3 columns(since you’ve already seen generating sequences
+    this expression: matrix(1:9, nrow = 3, ncol = 3). In this case, the first argument means from the number
+    1 to the number 9, distributed in 3 rows and 3 columns (since you’ve already seen generating sequences
     you should have an idea about this).'
   
 - Class: cmd_question
@@ -48,10 +48,10 @@
   Hint: 'Remember that matrix syntax: matrix(vector, number of rows, number of columns)'
   
 - Class: cmd_question
-  Output: However, matrices not only accept numeric vectors but also logical or character vectors.
-    As we saw in the past lessons, you can create a vector with the c() argument. Try to create a matrix
-    which contains a logical vector of length 4 where the first two  observations are TRUE and the remaining
-    two are FALSE. In addition, the matrix should have two rows and two columns.
+  Output: Matrices not only accept numeric vectors but also logical or character vectors.
+    As we saw in the past lessons, you can create a vector with the c() function. Try to create a matrix
+    which contains a logical vector of length 4 where the first two observations are TRUE and the
+    remaining two are FALSE. In addition, the matrix should have two rows and two columns.
   CorrectAnswer: any_of_exprs("matrix(c(TRUE,TRUE,FALSE,FALSE),2,2)", "matrix(c(T,T,F,F),2,2)")
   AnswerTests: any_of_exprs("matrix(c(TRUE,TRUE,FALSE,FALSE),2,2)", "matrix(c(T,T,F,F),2,2)")
   Hint: 'If the matrix needs to have a logical vector of length 4 that contains two TRUEs and two FALSEs,
@@ -60,8 +60,8 @@
   
 - Class: text
   Output: Now that you've understood how to create matrices, it’s important to know how to subset matrices.
-    I can’t stress this enough but it’s really important that you understand this process clearly since it is the backbone
-    of subsetting and filtering objects in R.
+    I can’t stress this enough but it’s really important that you understand this process clearly
+    since it is the backbone of subsetting and filtering objects in R.
   
 - Class: cmd_question
   Output: Let’s take as an example the existing matrix called "ourmatrix". Type ourmatrix again.
@@ -72,13 +72,20 @@
 - Class: text
   Output: As you can see, each row and column has a number assigned. So the 1st column has a number 1,
     the 2nd a number 2, and so on. The same pattern is visible for rows. But if you have closer look,
-    the name of the 1st column is [,1], the name of the 2nd column is [,2] and the name of the 3rd column is [,3].
-    For rows it is exactly the same but with the number BEFORE the comma(so [1,], [2,] and [3,]).
+    the name of the 1st column is [, 1], the name of the 2nd column is [, 2] and the name of the 3rd
+    column is [, 3]. For rows it is exactly the same but with the number BEFORE the comma(so [1,],
+    [2,] and [3,]).
+    
+- Class: text
+  Output: By default, whenever you don't specify any row/column numbers, R subsets all rows/columns.
+    For example, ourmatrix[, 3] will return all rows (because none were specified) for the third
+    column. Conversely, ourmatrix[1, ] will return the first row for all columns (because no columns
+    were specified). Lastly, ourmatrix[2, 2:3] will return the second row for the second and third
+    column.
     
 - Class: cmd_question
-  Output: That is how subsetting works. The number before the commas represent the row number and
-    after the comma the column number. If you want to subset ALL rows for column one you would write
-    matrixname[,1]. Try it on ourmatrix.
+  Output: That is how subsetting works. The number before the comma represent the row number and
+    after the comma the column number. Using ourmatrix, subset the first column for all rows.
   CorrectAnswer: ourmatrix[,1]
   AnswerTests: omnitest(correctExpr= "ourmatrix[,1]")
   Hint: Type ourmatrix[,1]
@@ -97,23 +104,77 @@
     both things will give the 3rd row for the 2nd column.
     
 - Class: cmd_question
-  Output: Let's suppose for a minute that each row is a person you interviewed and each column is a question you asked them.
-    Subset the the 1st and 3rd person only on their 2nd column.
-  CorrectAnswer: ourmatrix[c(1,3),2]
-  AnswerTests: omnitest(correctExpr="ourmatrix[c(1,3),2]")
+  Output: Let's suppose for a minute that ourmatrix is a dataset you collected where
+    each row is a person you interviewed and each column is a question you asked them.
+    Subset the the 1st and 3rd person only on their 2nd question and save it with the name my_matrix.
+  CorrectAnswer: my_matrix <- ourmatrix[c(1,3),2]
+  AnswerTests: omnitest(correctExpr="my_matrix <- ourmatrix[c(1,3),2]")
   Hint: Remember that c() wil concatenate any two numbers. To select the 1st and 3rd observation you need to
     type c(1,3).
+    
+- Class: cmd_question
+  Output: Check the contents of my_matrix.
+  CorrectAnswer: my_matrix
+  AnswerTests: omnitest(correctExpr="my_matrix")
+  Hint: Type the name of my_matrix to see the inner contents.
 
-- Class: text
-  Output: As you can see, matrices(and almost anything in R) can receive a concatenation as an object.
-    In fact, it's good for you to think of concatenations simply as vectors. the concatenation c(1,3)
-    is a numeric vector of length 2.
+- Class: cmd_question
+  Output: Have you noticed something different from all of your results above? If you hadn't, then
+    subsetting a matrix returns a vector, not a matrix! Let's confirm this. Using your previous
+    my_matrix, take the class() to see what it is.
+  CorrectAnswer: class(my_matrix)
+  AnswerTests: omnitest(correctExpr="class(my_matrix)")
+  Hint: class() returns the R class of the object in the first argument. Check the class of my_matrix
+    by placing my_matrix as the first argument of class().
+
+- Class: cmd_question
+  Output: 'When subsetting R automatically turns the result into a vector (the type of vector will
+    depend on the which elements are in the matrix: numbers, characters, etc..). This might
+    be what you wanted..or not. Sometimes you simply want to subset something and get a matrix back.
+    We can do that by specifying drop = F like this: ourmatrix[1, , drop = F]. Try it
+    yourself.'
+  CorrectAnswer: ourmatrix[1, , drop = F]
+  AnswerTests: omnitest(correctExpr="ourmatrix[1, , drop = F]")
+  Hint: Type ourmatrix[1, , drop = F] to get a matrix back.
   
 - Class: text
-  Output: As a final thought, what if we wanted to change the number of the 2nd respondent in his first
-    column. How would we go about? Well picture it this way; ourmatrix[2,1] will give the number we want
-    to change. If we know that, then we just have to reassign a new number. So ourmatrix[2,1] <- 4 will 
-    change the number of the second respondent in his 1st column to 4.
+  Output: Great! It's a matrix.
+
+- Class: cmd_question
+  Output: One very important thing of matrices is that they can only accept one type of vector.
+    A matrix can only be all numeric, all characters, all logicals or all factors. Think about
+    what this code will return and then run it matrix(c('character', 1), 2, 2).
+  CorrectAnswer: matrix(c('character', 1), 2, 2)
+  AnswerTests: omnitest(correctExpr="matrix(c('character', 1), 2, 2)")
+  Hint: Type matrix(c('character', 1), 2, 2).
+
+- Class: text
+  Output: Think about what R returned..is it what you expected? Why did this happen?
+  
+- Class: text
+  Output: 'Behind the scenes, R accepts only one class within a matrix. It returned a character
+    matrix (notice how the 1 is wrapped in ""). By default, R will transform numerics to characters
+    where only one class is permitted. Keep this in mind, as you will have to deal with these nuances
+    on a daily basis!'
+
+- Class: text
+  Output: 'As a final thought, what if we wanted to change the number of the 2nd respondent in his first
+    column. How would we go about? Well picture it this way: ourmatrix[2, 1] will return the number we
+    want to change. If we know that, then we just have to reassign a new number.
+    So ourmatrix[2, 1] <- 4 will change the number of the second respondent in his first column to 4.'
+    
+- Class: cmd_question
+  Output: That was easy, but I'll take you to the limit. ourmatrix has 3 rows and 3 columns.
+    Replace the second row with a sequence from 100 to 102.
+  CorrectAnswer: ourmatrix[2, ] <- 100:102
+  AnswerTests: omnitest(correctExpr="ourmatrix[2, ] <- 100:102")
+  Hint: Type ourmatrix[2, ] <- 100:102.
+
+- Class: cmd_question
+  Output: Type ourmatrix to see your result
+  CorrectAnswer: ourmatrix
+  AnswerTests: omnitest(correctExpr="ourmatrix")
+  Hint: Type ourmatrix.
   
 - Class: text
   Output: Now that you have a good idea about matrices, let's talk about lists. Lists are a common
