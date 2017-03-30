@@ -177,27 +177,35 @@
   Hint: Type ourmatrix.
   
 - Class: text
-  Output: Now that you have a good idea about matrices, let's talk about lists. Lists are a common
-    concept in many programming languages. Let's try and understand lists with practical examples. Let's
+  Output: Now that you have a good idea about matrices, let's talk about lists. A List is a common
+    concept in many programming languages. I'll explain with a practical example. Let's
     think of Santa Claus. If you've been raised in a Western society you should have a good idea of who
-    Santa Claus is. If you weren't, then the example is pretty straight forward and you will also understand. 
+    Santa Claus is. If you weren't, then the example is still pretty straight forward.
 
 - Class: text
-  Output: Santa Claus had a big bag full of presents, right? Let's assume the bag had three wrapped presents.  
+  Output: Santa Claus had a big bag full of presents, right? Let's assume the bag had 
+    three wrapped presents.
 
 - Class: text
-  Output: Each present might contain a similar gift, like three books, or it might contain completely different
-    presents. Taking the analogy to R, it is exactly the same. A list(in the Santa case, the bag) will contain
-    similar or different R objects(presents, which might be all books or might be all different objects).
-
-- Class: text
-  Output: The list function works this way; list(object1, object2, object(n)). The n means that you can
-    input as many objects as you want. Let's have a look at this list and try to understand it;
-    list(myfirst = 1:10, mysecond = c(TRUE,FALSE), mythird = c("books","toy car")).
+  Output: Each present might contain a similar gift, like three books, or it might contain
+    completely different presents. Taking the analogy to R, it is exactly the same.
+    A list (in the Santa case, the bag) will contain similar or different R objects
+    (presents, which might be all books or might be all different objects).
     
 - Class: text
-  Output: This list contains THREE objects separeted by three commas. What is the name of the first
-    object? myfirst. What is the name of the third object? mythird. After the equal sign you can
+  Output: Santa Claus also doesn't have any limits on which type of presents he wants to
+    store in his bag. It could be a TV, a phone, carrots or a shampoo. Similarly, in R,
+    any object can be stored in a list. A list can contain everything from vectors to matrices
+    and data frames (a new data structure we will discuss in the next lesson).
+
+- Class: text
+  Output: The list function works this way; list(object1, object2, object N). The N means that you can
+    input as many elements as you want. Let's have a look at this list and try to understand it;
+    list(myfirst = 1:10, mysecond = c(TRUE, FALSE), mythird = c("books", "toy car")).
+    
+- Class: text
+  Output: This list contains THREE elements separeted by three commas. What is the name of the first
+    element? myfirst. What is the name of the third element? mythird. After the equal sign you can
     see the contents of each object and interpret what is the class of each vector.
 
 - Class: cmd_question
@@ -221,8 +229,20 @@
   Hint: Type ourlist
   
 - Class: cmd_question
-  Output: The 1st object is called $myfirst, the 2nd $mysecond and the 3rd $mythird. Note that the
-    $ sign is NOT part of the name, but it is actually a way of SUBSETTING the object. Type ourlist$myfirst
+  Output: More usefully, you can use the str() function to look at the structure of any object.
+    In our case, check the structure of ourlist.
+  CorrectAnswer: ourlist
+  AnswerTests: omnitest(correctExpr="str(ourlist)")
+  Hint: Type str(ourlist)
+  
+- Class: text
+  Output: This way you can have a look at the contents in a nice format. We have a list of length
+    three, the length of each element differs, as well as the class.
+  
+- Class: cmd_question
+  Output: The first object is called $myfirst, the second $mysecond and the third $mythird.
+    Note that the $ sign is NOT part of the name, but it is actually a way of SUBSETTING
+    the object. Type ourlist$myfirst.
   CorrectAnswer: ourlist$myfirst
   AnswerTests: omnitest(correctExpr="ourlist$myfirst")
   Hint: Type ourlist$myfirst
@@ -232,44 +252,102 @@
   CorrectAnswer: class(ourlist$myfirst)
   AnswerTests: omnitest(correctExpr="class(ourlist$myfirst)")
   Hint: Type class(ourlist$myfirst)
-  
+
 - Class: text
-  Output: Note that ourlist$myfirst is NOT a list object but a NUMERIC vector. When you use the
-    $ sign you are already accessing the object inside the list. So you can actually treat ourlist$myfirst
-    as a simple numeric vector. For example, if you wanted to subset the 3rd position of a numeric vector you
-    would do it like this; vector[3]. In this case, it would be the same; ourlist$myfirst[3].
-  
+  Output: Why was ourlist$myfirst a numeric vector rather than a list?
+
+- Class: text
+  Output: ourlist$myfirst is NOT a list object but a NUMERIC vector. When you use the
+    $ sign you are already accessing the object inside the list. So you can actually treat
+    ourlist$myfirst as a simple numeric vector. For example, if you wanted to subset the
+    third position of a numeric vector you would do it like this; fakevector[3].
+    
+- Class: cmd_question
+  Output: How would you subset the third element of ourlist$myfirst? Think hard.
+  CorrectAnswer: ourlist$myfirst[3]
+  AnswerTests: omnitest(correctExpr="ourlist$myfirst[3]")
+  Hint: Once we've written ourlist$myfirst we're not dealing with a list but with a numeric vector!
+    The answer is the same; ourlist$myfirst[3]
+
 - Class: text
   Output: Another way of subsetting a list is to use brackets. If we wanted to access the second object
     in the list you could also do it like this; ourlist[2].
 
 - Class: cmd_question
-  Output: What is the class of ourlist[2]? Type class(ourlist[2])
+  Output: What is the class of ourlist[2]?
   CorrectAnswer: class(ourlist[2])
   AnswerTests: omnitest(correctExpr="class(ourlist[2])")
   Hint: Type class(ourlist[2])
   
 - Class: text
   Output: If you thought it was a logical vector, that's a common mistake. When a list object is
-    followed by a set of brackets, your subsetting the object but it is still a LIST. If you go back to the
-    command ourlist[2] you'll see that the output had $logical on top. Remember, everytime you see the $ sign,
-    it means that it's still inside a list.
+    followed by one set of brackets, you're subsetting the object but it is still a LIST. If you go
+    back to the expression ourlist[2] you'll see that the output had $mysecond on top. Remember,
+    everytime you see the $ sign, it means that it's still inside a list.
     
 - Class: cmd_question
-  Output: If you wanted to access the specific vector then you need to wrap the number in FOUR brackets.
-    ourlist[[2]] should give you what you’re looking for. Check it yourself with the class() function.
+  Output: If you wanted to access the specific vector then you need to wrap the number in two sets
+    of brackets. ourlist[[2]] should give you what you’re looking for. Check it yourself with the
+    class() function.
   CorrectAnswer: class(ourlist[[2]])
   AnswerTests: omnitest(correctExpr="class(ourlist[[2]])")
-  Hint: Type class(class(ourlist[[2]]))
-  
-- Class: cmd_question
-  Output: As a last task, if ourlist[[2]] is a VECTOR, then how would you subset its 2nd element? Hint;
-    it’s the same way we got the the 3rd element of ourlist$numeric.
-  CorrectAnswer: ourlist[[2]][2]
-  AnswerTests: omnitest(correctExpr="ourlist[[2]][2]")
-  Hint: If ourlist[[2]] is a vector, then to subset a vector we use an ADDITIONAL [] with the number we're
-    interested inside the brackets.
+  Hint: Type class(ourlist[[2]])
   
 - Class: text
-  Output: That should give you a pretty good idea about what lists are all about. You learned some pretty neat
-    stuff today! Now go over  to the next lesson.
+  Output: Let's do a quick recap. ourlist is a list that has three elements. If we typed
+    ourlist[1], we would still get a list with one element. In the case of ourlist, ourlist[1]
+    would give us a list with one element which is a numeric vector.
+    If we wanted to access the content of the numeric vector, we use double
+    brackets like this; ourlist[[1]]. In this example we're subsetting by position, so we
+    double bracket the first element of ourlist, but we could also subset by name using
+    the dollar sign.
+    
+- Class: text
+  Output: In short, ourlist$myfirst and ourlist[[1]] are equivalent. Whereas ourlist[1]
+    returns a list rather than the contents of the first element.
+    
+- Class: cmd_question
+  Output: Surpise quiz! First, type the str()ucture of ourlist.
+  CorrectAnswer: str(ourlist)
+  AnswerTests: omnitest(correctExpr="str(ourlist)")
+  Hint: Type str(ourlist)
+    
+- Class: mult_question
+  Output: Which of these expressions subsets the FALSE? 
+  AnswerChoices: ourlist[2][[2]]; ourlist[2][2]; ourlist$2[[2]]; ourlist$mysecond[2]
+  CorrectAnswer: ourlist$mysecond[2]
+  AnswerTests: omnitest(correctVal= 'ourlist$mysecond[2]')
+  Hint: The $ operator can only subset by names and not by position (i.e. numbers)
+  
+- Class: mult_question
+  Output: Can you give me the third element as a list?
+  AnswerChoices: ourlist[3]; ourlist$mythird; ourlist[[3]]
+  CorrectAnswer: ourlist[3]
+  AnswerTests: omnitest(correctVal= 'ourlist[3]')
+  Hint: Remember, one set of brackets is the only operator that returns a list while the $ sign
+    or the double brackets will return the inner object of the list.
+    
+- Class: mult_question
+  Output: Please subset from numbers 5 to 10 from the first element.
+  AnswerChoices: ourlist[[1]][5:10]; ourlist[1][[5:10]]; ourlist[[1]][[5:10]]
+  CorrectAnswer: ourlist[[1]][5:10]
+  AnswerTests: omnitest(correctVal= 'ourlist[[1]][5:10]')
+  Hint: Remember, one set of brackets is the only operator that returns a list while the $ sign
+    or the double brackets will return the inner object of the list.
+  
+- Class: text
+  Output: You might think, what are lists useful for? Usually you use lists when you have similar things
+    and you want to keep them organized. For example, data for a single country for
+    several years. We can keep each year as an element of a list. Lists are very common to use
+    with for loops and the apply family. You loop through the elements of a list and apply an
+    operation.
+    
+- Class: text
+  Output: But more importantly, a list is the foundation of a data frame, which is, I'd say, the primary
+    unit of analysis in R. Data frames are just like matrices, but can have different objects as columns
+    or rows, just like in your typical Excel data base. We'll be talking about data frames in the next
+    lessons!
+  
+- Class: text
+  Output: That should give you a pretty good idea about what lists are all about. You learned some
+    pretty neat stuff today! Now go over  to the next lesson.

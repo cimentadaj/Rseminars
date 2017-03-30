@@ -3,4 +3,4 @@
 # the user's working directory and thus be accessible to them
 # throughout the lesson.
 
-ourmatrix <- matrix(1:9,ncol = 3)
+ourmatrix <- matrix(1:9, ncol = 3)
