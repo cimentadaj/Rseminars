@@ -7,7 +7,7 @@
   Version: 2.2.21
 
 - Class: text
-  Output: Hi! On this lesson will talk about data frames. Probably themost important
+  Output: Welcome! On this lesson will talk about data frames, probably the most pivotal
     object in R, and the one you will use the most. 
 
 - Class: text
@@ -15,48 +15,41 @@
     like Excel, SAS, STATA and SPSS. It has a rectangular shape with rows and columns, where each
     column might be of a different class, i.e. numeric, categorical, character or logical.
     
+- Class: cmd_question
+  Output: Type head(iris) to see an example of a data frame. mtcars is the data frame and we're
+    only looking at the top rows by using head()
+  CorrectAnswer: head(iris)
+  AnswerTests: omnitest(correctExpr= 'head(iris)')
+  Hint: 'Type head(iris)'
+
 - Class: text
-  Output: Let's go over some properties of data frames.
-  
+  Output: The most important difference between matrices and data frames is that for data frames
+    any column can have a different class (numeric, character, logical or factor). The iris data
+    above has some numeric and character columns.
+
 - Class: text
-  Output: Each column MUST be a vector of any of the known classes (numeric, character, logical or factor)
-  
-- Class: text
-  Output: Each data frame has an unlimited number of columns. Let's imagine you're reading a dataset from
-    excel. R includes numeric vectors, logicals and factors as they are. That is, data frames accept them
-    without discrimination. On the other hand, character vectors are automatically transformed into factors
-    
-- Class: text
-  Output: As we saw in the past lesson, to have an ordinal factor properly ordered you need to specify
-    the order of the levels. If characters are transformed to factors automatically by data frames, how
-    come they know the order? They don't. They simply convert it to a factor and take every unique character
-    and specify it as a level. So if we had "Males","Females" and "Hello!" as the unique values in the vector,
-    it will code them as levels. Whenever you're reading data, remember to check your factors!
-  
-- Class: text
-  Output: Vectors that will be binded to a data frame must have the SAME number of rows.
-    Otherwise the vector will repeat itself until it has the same number of rows as the
-    data frame. Remember to check your lenghts!
-    
-- Class: text
-  Output: A data frame may for many purposes be regarded as a matrix with columns of differing classes.
-    It may be displayed in matrix form, and its rows and columns may be extracted using matrix indexing conventions.
+  Output: A data frame may, for many purposes, be thought of as a matrix with columns of
+    differing classes. It will be printed like a matrix, and its rows and columns may
+    be extracted using matrix indexing conventions. You remember those, right?
   
 - Class: text
   Output: Now let's get our hands dirty and create a data frame!
   
 - Class: text
-  Output: 'The data frame function works like this: data.frame(column1=contents, column2=contents,...,columN=contents)'
+  Output: 'The data frame function works like this:
+    data.frame(column1 = contents, column2 = contents,columN = contents). Before the
+    = sign we write the name of the column and after it the contents.'
   
 - Class: text
-  Output: 'Without getting too scared, I want you to try and understand this data frame based on the past example:
-    states <- data.frame(code= c("CA", "NY", "NE", "AZ"), 
+  Output: 'Without getting too scared,
+    I want you to try and understand this data frame based on the past example:
+    states <- data.frame(code = c("CA", "NY", "NE", "AZ"), 
                      population = c(38.8, 19.7, 2.1, 6.8), 
                      region     = c("West", "Northeast", "Midwest", "West"), 
                      landlock   = c(FALSE, FALSE, TRUE, TRUE))'
 
 - Class: mult_question
-  Output: Let's try to interpret it together now. We're creating a data frame called states, right?
+  Output: We're creating a data frame called states, right?
     It contains 4 columns(code, population, region, landlock). If I asked you, what is the class of the
     FOURTH column, what would you say?
   AnswerChoices: Numeric; Character; Logical; Factor
@@ -71,11 +64,25 @@
   Hint: What is the length of any of the columns? That would be the number of rows
   
 - Class: text
-  Output: 'In fact, all the 1st numbers of each vector compose what will be the first row,
-  the 2nd numbers are the 2nd row and so on..'
+  Output: 'In fact, the first element of each vector composes what will be the first row,
+  the second elements are the second row and so on..'
+  
+- Class: cmd_question
+  Output: Data frames and matrices are two dimensional objects. That is, they have rows and columns.
+    Using the dim()ension function look at the number of rows and columns of the iris data frame.
+  CorrectAnswer: dim(iris)
+  AnswerTests: omnitest(correctExpr= 'dim(iris)')
+  Hint: 'Type dim(iris)'
+  
+- Class: exact_question
+  Output: How many rows does the iris data have?
+  CorrectAnswer: 150
+  AnswerTests: omnitest(correctVal = 150)
+  Hint: Just like indexing rows or columns in matrices, the first number refers to rows while the
+    second refers to columns.
     
 - Class: cmd_question
-  Output: Now that I've quizzed you, let's have a look at the data set. Type states
+  Output: Now that I've quizzed you, let's have a look at our dataset. Type states.
   CorrectAnswer: states
   AnswerTests: omnitest(correctExpr= 'states')
   Hint: 'Type states'
@@ -86,15 +93,35 @@
   
 - Class: text
   Output: 'The expression states[, "region"] would subset the region column, the
-    3rd column. However here you are subsetting by its name rather than by its position'
+    third column. However here you are subsetting by its name rather than by its position.'
   
 - Class: text
   Output: 'Finally, you can also call it by its name by typing states$region. You can read this
   as: take the states data frame and subset region column'
+
+- Class: mult_question
+  Output: If you think this is too much information, it's not! It's the same conventions as with
+    matrices. For example, which type of these subsets would NOT work for a matrix?
+  AnswerChoices: states$region; states[, 3]; states[3]
+  CorrectAnswer: states$region
+  AnswerTests: omnitest(correctVal= 'states$region')
+  Hint: Matrices are not lists, so they can't be subsetted using the dollar sign with a name.
   
 - Class: text
-  Output: 'We can also add new variables by doing something like this: states$spanish <- c(28.5, 15.7, NA, 19.5).
-     We create a variable called spanish contaning 4 values and bind it to the data frame in the same expression'
+  Output: The previous question is very telling on the difference between data frames and matrices.
+    Remember that lists had $ signs infront of their names? And that they can contain any type of
+    class? Well, newsflash, a data frame is a collection of lists (columns) that have the same length.
+    
+- Class: text
+  Output: For example, column region is actually a list that has a character vector called region
+    as its contents. That is the reason why typing states$region will work in a data frame and not
+    in a matrix. If matrices were lists, you could not only use the $ sign but have different classes
+    for different columns.
+  
+- Class: text
+  Output: 'We can also add new variables by doing something like this: states$spanish <-
+    c(28.5, 15.7, NA, 19.5). We created a variable called spanish contaning 4 values and
+    bind it to the data frame in the same expression'
   
 - Class: cmd_question
   Output: Create a vector named zipcode which has the numeric values 1,0,1 and 0
@@ -103,33 +130,31 @@
   Hint: 'Type zipcode <- c(1,0,1,0)'
   
 - Class: cmd_question
-  Output: Now try to add the zipcode variable to the states data frame.
+  Output: Now try to add the zipcode variable to the states data frame. Give it the same name inside
+    the states data frame.
   CorrectAnswer: states$zipcode <- zipcode
   AnswerTests: omnitest(correctExpr= 'states$zipcode <- zipcode')
-  Hint: 'If you want to create the variable then you type states$zipcode and assign the zipcode variable to that.
-    So the correct expression would be something like states$newvariable <- newvariable'
+  Hint: 'If you want to create the variable then you type states$zipcode and assign the
+    zipcode variable to that. So the correct expression would be something like
+    states$newvariable <- newvariable'
 
 - Class: text
-  Output: 'Alright! I must confess that was a hard one'
-  
-- Class: text
-  Output: 'We can edit values putting together a few things that we have seen so far: states$population[states$code == "NE"] <- 1.8'
-  
-- Class: text
+  Output: 'We can edit values putting together a few things that we have seen so far:
+    states$population[states$code == "NE"] <- 1.8'
+
+- Class: cmd_question
   Output: Don't panic! Let's read it through. First, we have the states$population part.
-    That is simply a vector which contains the population
+    That is simply a vector which contains the population. Show me the contents of population
+    using the $ sign.
+  CorrectAnswer: states$population
+  AnswerTests: omnitest(correctExpr= 'states$population')
+  Hint: Using the $ sign, take the states variable and subset ($) the population column.
   
 - Class: text
   Output: The next part is [states$code == "NE"]. Remember that if we have vector with the
     [ ] after it, we're subsetting something from that vector. So in this case we can read the
-    entire expression as = take the population column, and where the CODE column equals "NE"
-    replace the population column with 1.8
-    
-- Class: cmd_question
-  Output: Type states$population[states$code == "NE"] <- 1.8
-  CorrectAnswer: states$population[states$code == "NE"] <- 1.8
-  AnswerTests: omnitest(correctExpr= 'states$population[states$code == "NE"] <- 1.8')
-  Hint: 'Type states$population[states$code == "NE"] <- 1.8'
+    entire expression as; take the population column, and where the CODE column equals "NE"
+    replace the population column with 1.8.
 
 - Class: cmd_question
   Output: Type states
@@ -148,9 +173,19 @@
 
 - Class: text
   Output: 'I hope that was clearer'
-  
+
+- Class: cmd_question
+  Output: Now you do it for me. Where the population column is higher (>) than 20, replace 
+    the landlock column with a TRUE. The code should read something like; landlock, where population
+     > 20, will be TRUE.
+  CorrectAnswer: states$landlock[states$population > 20] <- TRUE
+  AnswerTests: omnitest(correctExpr= 'states$landlock[states$population > 20] <- TRUE')
+  Hint: states$landlock gives the landlock vector. Placing the [] after it and including
+    states$population > 20 inside will search for the correction condition, after this, simply
+    assign a TRUE.
+
 - Class: text
-  Output: 'The same approach can be used for subsetting a dataset = states[states$population > 10,]
+  Output: 'The same approach can be used for subsetting a dataset = states[states$population > 10, ]
     Note: Notice the comma!'
   
 - Class: mult_question
@@ -164,3 +199,22 @@
     
 - Class: text
   Output: Now that you know your data chops, go ahead an delve into your own analysis!
+  
+- Class: text
+  Output: Each data frame has an unlimited number of columns. Lets imagine youre reading a
+      dataset from Excel. R includes numeric vectors, logicals and factors as they are. That is,
+      data frames accept them without discrimination. On the other hand, character vectors are
+      automatically transformed into factors
+
+- Class: text
+  Output: As we saw in the past lesson, to have an ordinal factor properly ordered you need to specify
+    the order of the levels. If characters are transformed to factors automatically by data frames, how
+    come they know the order? They don't. They simply convert it to a factor and take every unique character
+    and specify it as a level. So if we had "Males","Females" and "Hello!" as the unique values in the vector,
+    it will code them as levels. Whenever you're reading data, remember to check your factors!
+  
+- Class: text
+  Output: Vectors that will be binded to a data frame must have the SAME number of rows.
+    Otherwise the vector will repeat itself until it has the same number of rows as the
+    data frame. Remember to check your lenghts!
+
