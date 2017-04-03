@@ -37,12 +37,11 @@
   
 - Class: text
   Output: 'The data frame function works like this:
-    data.frame(column1 = contents, column2 = contents,columN = contents). Before the
-    = sign we write the name of the column and after it the contents.'
+    data.frame(column1 = contents, column2 = contents, columN = contents). Preceding the
+    `=` sign we write the name of the column and after it its contents.'
   
 - Class: text
-  Output: 'Without getting too scared,
-    I want you to try and understand this data frame based on the past example:
+  Output: 'Without getting too scared, have a look at this data frame:
     states <- data.frame(code = c("CA", "NY", "NE", "AZ"), 
                      population = c(38.8, 19.7, 2.1, 6.8), 
                      region     = c("West", "Northeast", "Midwest", "West"), 
@@ -124,10 +123,10 @@
     bind it to the data frame in the same expression'
   
 - Class: cmd_question
-  Output: Create a vector named zipcode which has the numeric values 1,0,1 and 0
-  CorrectAnswer: zipcode <- c(1,0,1,0)
-  AnswerTests: omnitest(correctExpr= 'zipcode <- c(1,0,1,0)')
-  Hint: 'Type zipcode <- c(1,0,1,0)'
+  Output: Create a vector named zipcode which has the numeric values 1, 0, 1 and 0
+  CorrectAnswer: zipcode <- c(1, 0, 1 ,0)
+  AnswerTests: omnitest(correctExpr= 'zipcode <- c(1, 0, 1, 0)')
+  Hint: 'Type zipcode <- c(1 ,0, 1, 0)'
   
 - Class: cmd_question
   Output: Now try to add the zipcode variable to the states data frame. Give it the same name inside
@@ -138,6 +137,29 @@
     zipcode variable to that. So the correct expression would be something like
     states$newvariable <- newvariable'
 
+- Class: mult_question
+  Output: Each column in a data frame needs to have the same length -- obviously. Does typing
+    something like this work without errors? states$gay_marriage <- c("Y", "N", "N").
+  AnswerChoices: It wont work; It works seamlessly; It works but throws a warning
+  CorrectAnswer: It wont work
+  AnswerTests: omnitest(correctVal= 'It wont work')
+  Hint: R will recycle only vectors that are multiples of the number of rows. So a vector
+    of length 2 will be recycled in a data frame with 4, 6, 8, ..., rows.
+  
+- Class: text
+  Output: Whenever we add a vector of a shorter length than the data frame, the contents of the vector
+    will be repeated until it reaches the length of the data frame. For example, the vector c("Y", "N")
+    will be repeated to be c("Y", "N", "Y", "N"). However, c(1, 2, 3) is not a multiple of the
+    number of rows of states, so an error will be thrown. R can turn c(1, 2) into c(1, 2, 1, 2)
+    but not c(1, 2, 3) into c(1, 2, 3, 1).
+
+- Class: cmd_question
+  Output: Using the $ sign, add a variable called gay_marriage to the states data frame that
+    contains two FALSES.
+  CorrectAnswer: states$gay_marriage <- c(F, F)
+  AnswerTests: omnitest(correctExpr= 'states$gay_marriage <- c(F, F)')
+  Hint: 'Type something along the lines of states$new_vector <- the TWO FALSES'
+  
 - Class: text
   Output: 'We can edit values putting together a few things that we have seen so far:
     states$population[states$code == "NE"] <- 1.8'
@@ -185,7 +207,7 @@
     assign a TRUE.
 
 - Class: text
-  Output: 'The same approach can be used for subsetting a dataset = states[states$population > 10, ]
+  Output: 'The same approach can be used for subsetting a dataset; states[states$population > 10, ]
     Note: Notice the comma!'
   
 - Class: mult_question
@@ -199,22 +221,3 @@
     
 - Class: text
   Output: Now that you know your data chops, go ahead an delve into your own analysis!
-  
-- Class: text
-  Output: Each data frame has an unlimited number of columns. Lets imagine youre reading a
-      dataset from Excel. R includes numeric vectors, logicals and factors as they are. That is,
-      data frames accept them without discrimination. On the other hand, character vectors are
-      automatically transformed into factors
-
-- Class: text
-  Output: As we saw in the past lesson, to have an ordinal factor properly ordered you need to specify
-    the order of the levels. If characters are transformed to factors automatically by data frames, how
-    come they know the order? They don't. They simply convert it to a factor and take every unique character
-    and specify it as a level. So if we had "Males","Females" and "Hello!" as the unique values in the vector,
-    it will code them as levels. Whenever you're reading data, remember to check your factors!
-  
-- Class: text
-  Output: Vectors that will be binded to a data frame must have the SAME number of rows.
-    Otherwise the vector will repeat itself until it has the same number of rows as the
-    data frame. Remember to check your lenghts!
-
