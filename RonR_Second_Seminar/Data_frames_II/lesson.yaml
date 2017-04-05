@@ -14,26 +14,35 @@
 - Class: text
   Output: In a nutshell, a data frame is the typical data set
     you deal with in programs like SAS, SPSS, Excel and Stata.
-    It has rows and columns and each column might be of a different
-    nature(numeric, categorical, character). Matrices are different
+    It has rows and columns where each column might be of a different
+    nature (numeric, categorical, character). Matrices are different
     because all columns NECESSARILY have to be of the same
-    category(numeric, categorical or character).
-    
+    category (numeric, categorical or character).
+
 - Class: mult_question
-  Output: Apart from that, everything you've learned about matrices
-    can be applied to data frames. Each column in a data.frame can
-    be subsetted with the $ sign just as in matrices. If we had a data frame
-    named ESS and within that data frame we had a column named gender,
-    how would we select that variable?
+  Output: There is however, another difference. Columns in data frames can be subsetted
+    with the $ sign, whereas that's not possible for matrices. Which type of object in R
+    can be subsetted using the $ operator?
+  AnswerChoices: list; numeric; factor; matrix
+  CorrectAnswer: list
+  AnswerTests: omnitest(correctVal= 'list')
+  Hint: Remember that the $ sign can be used when subsetting objects within a list!
+  
+- Class: mult_question
+  Output: Based on your previous answer, then what would be the most appropriate definition
+    of a data frame?
+  AnswerChoices: A data frame is used for storing variables; A data frame has list-columns for storing equal length vectors; A data frame is an R object that necessarily contains various vectors; A data frame is very similar to matrices
+  CorrectAnswer: A data frame has list-columns for storing equal length vectors
+  AnswerTests: omnitest(correctVal= 'A data frame has list-columns for storing equal length vectors')
+  Hint: Remember that the $ sign can be used when subsetting objects within a list!
+  
+- Class: mult_question
+  Output: If we had a data frame named ESS and within that data frame we had a
+    column named gender, of all of these options, which one would not return an error?
   AnswerChoices: ESS[, gender]; ESS$gender; Gender
   CorrectAnswer: ESS$gender
   AnswerTests: omnitest(correctVal= 'ESS$gender')
   Hint: Remember that to subset a column using it's name you have to use the $ sign.
-  
-- Class: text
-  Output: Writing ESS$gender is easy, but sometimes we want to use a lot
-    of variable and writing ESS$ for each variable is nonsense. For that,
-    we have the attach(), detach() and with() functions.
 
 - Class: text
   Output: Let's see an example with the mtcars data frame. Suppose
@@ -51,26 +60,27 @@
     Inside that function you specify the desired variable.
     
 - Class: cmd_question
-  Output: Now calculate the mean of the mpg variable in the data frame
+  Output: Now calculate the mean of the hp variable in the data frame
     mtcars
-  CorrectAnswer: mean(mtcars$mpg)
-  AnswerTests: omnitest(correctExpr='mean(mtcars$mpg)')
+  CorrectAnswer: mean(mtcars$hp)
+  AnswerTests: omnitest(correctExpr='mean(mtcars$hp)')
   Hint: To calculate the mean of a variable you need to use the mean() function.
     Inside that function you specify the desired variable.
   
 - Class: text
   Output: To calculate the mean of two variables then we would just repeat
     the function with another variable. For example, mean(mtcars$mpg) and
-    mean(mtcars$hp). This is quite easy, but if we want to calculate several
-    means then it would be tiring.
+    mean(mtcars$hp). This is quite easy, but it would be a bit tiring repeating
+    the name mtcars that many times. For that, we have the attach(), detach()
+    and with() functions.
     
 - Class: text
   Output: With the attach() and detach() functions you add the data frame
-    to the R search path. This means that When a variable name is
-    encountered, data frames in the search path are checked for the variable in order.
+    as the momentary search path. This means that when a variable name is
+    encountered, R will automatically search for it in the search path.
 
 - Class: cmd_question
-  Output: First let's attach the data frame by typing attach(mtcars)
+  Output: First let's attach the data frame by typing attach(mtcars).
   CorrectAnswer: attach(mtcars)
   AnswerTests: omnitest(correctExpr='attach(mtcars)')
   Hint: Type attach(mtcars)
@@ -106,22 +116,22 @@
     
 - Class: text
   Output: 'What many R users recommend is using the with() function instead.
-    The with function does exactly the same as the attach and detach
-    functions, however it has a different syntax. To reproduce what we did with
-    the attach function, this is the equivalent with the with() function:
-    with(mtcars, c( mean(mpg), mean(disp))  )'
+    The with() function does exactly the same as the attach and detach
+    functions but in a different way. By writing with(mtcars, expression),
+    instead of setting the data frame as a global search path, R will search for everything
+    inside the expression in the mtcars data.
     
+- Class: text
+  Output: To reproduce what we did with the attach function, one alternative is to use the
+    with() function like this: with(mtcars, c(mean(mpg), mean(disp)))'
+        
 - Class: text
   Output: How would you read the expression? Take the mtcars and calculate
     the mean of mpg and disp. You might ask yourself why did you have to wrap
-    the two means with a c(). Basically, the with function accepts an expression
+    the two means with a c(). Basically, the with() function accepts an expression
     after the data, however, here we're actually calculating TWO
-    expressions(two means) so we simply concatenate the two expressions together.
+    expressions (two means) so we simply concatenate the two expressions into one expression.
   
-- Class: text
-  Output: If you didn't understand it, the syntax is this':' with(yourdata, expression).
-    We used it for calculating means but you can use it for literally everything.'
-
 - Class: cmd_question
   Output: 'Calculate the median of mpg using the with function. Hint:
     the median function is simply median().'
@@ -132,7 +142,7 @@
     calculate the median of mpg)'
   
 - Class: cmd_question
-  Output: Now also calculate the MEAN of hp IN THE SAME expression.
+  Output: Now also calculate the mean of hp in the same expression.
   CorrectAnswer: with(mtcars, c(median(mpg), mean(hp)))
   AnswerTests: omnitest(correctExpr='with(mtcars, c(median(mpg), mean(hp)))')
   Hint: Type with(mtcars, c(median(mpg), mean(hp)))
