@@ -20,7 +20,8 @@
     category (numeric, categorical or character).
 
 - Class: mult_question
-  Output: There is however, another difference. Columns in data frames can be subsetted
+  Output: Pretty much everything you've learned about matrices can be applied to data frame.
+    There is however, another difference. Columns in data frames can be subsetted
     with the $ sign, whereas that's not possible for matrices. Which type of object in R
     can be subsetted using the $ operator?
   AnswerChoices: list; numeric; factor; matrix
@@ -31,10 +32,14 @@
 - Class: mult_question
   Output: Based on your previous answer, then what would be the most appropriate definition
     of a data frame?
-  AnswerChoices: A data frame is used for storing variables; A data frame has list-columns for storing equal length vectors; A data frame is an R object that necessarily contains various vectors; A data frame is very similar to matrices
-  CorrectAnswer: A data frame has list-columns for storing equal length vectors
-  AnswerTests: omnitest(correctVal= 'A data frame has list-columns for storing equal length vectors')
-  Hint: Remember that the $ sign can be used when subsetting objects within a list!
+  AnswerChoices: 
+    A data frame is used for storing variables of different classes;
+    A data frame has list-columns for storing different class but equal length vectors;
+    A data frame is an R object that necessarily contains various vectors and has the same properties as matrices;
+    A data frame is has columns which should be of different classes and same length
+  CorrectAnswer: A data frame has list-columns for storing different class but equal length vectors
+  AnswerTests: omnitest(correctVal= 'A data frame has list-columns for storing different class but equal length vectors')
+  Hint: The most complete definition specifies the list nature of the data frame and the class of its contents
   
 - Class: mult_question
   Output: If we had a data frame named ESS and within that data frame we had a
@@ -42,13 +47,14 @@
   AnswerChoices: ESS[, gender]; ESS$gender; Gender
   CorrectAnswer: ESS$gender
   AnswerTests: omnitest(correctVal= 'ESS$gender')
-  Hint: Remember that to subset a column using it's name you have to use the $ sign.
+  Hint: Remember that to subset a column using it's name you have to use the $ sign or use the [] and
+    a character("") name inside it.
 
 - Class: text
   Output: Let's see an example with the mtcars data frame. Suppose
     we're interested in calculating the mean of several columns.
     mtcars has several variables, but let's concentrate
-    on the variables mpg, disp and ht.
+    on the variables mpg and disp.
   
 - Class: mult_question
   Output: What would be the correct expression that will calculate the
@@ -66,13 +72,25 @@
   AnswerTests: omnitest(correctExpr='mean(mtcars$hp)')
   Hint: To calculate the mean of a variable you need to use the mean() function.
     Inside that function you specify the desired variable.
-  
+
+- Class: mult_question
+  Output: If we typed mtcars$hp, what class would the result be?
+  AnswerChoices: list; data frame; numeric vector; matrix
+  CorrectAnswer: numeric vector
+  AnswerTests: omnitest(correctVal= 'numeric vector')
+  Hint: Think about it differently, we calculated the mean of mtcars$hp. Of all of these classes,
+    which ones can you calculate the mean from?
+    
 - Class: text
-  Output: To calculate the mean of two variables then we would just repeat
-    the function with another variable. For example, mean(mtcars$mpg) and
-    mean(mtcars$hp). This is quite easy, but it would be a bit tiring repeating
-    the name mtcars that many times. For that, we have the attach(), detach()
-    and with() functions.
+  Output: You can't calculate the mean of a list/data frame/matrix! You can calculate the mean
+    of a numeric vector, which happens to be inside a data frame.
+
+- Class: text
+  Output: To continue, in order to calculate the mean of two variables then
+    we would just repeat the function with another variable. For example,
+    mean(mtcars$mpg) and mean(mtcars$hp). This is quite easy, but it would
+    be a bit tiring repeating the name mtcars that many times. For that,
+    we have the attach(), detach() and with() functions.
     
 - Class: text
   Output: With the attach() and detach() functions you add the data frame
@@ -109,8 +127,8 @@
   
 - Class: text
   Output: The attach() and detach() functions are not entirely efficient
-    when you're handling several datasets in R. If you're interested 'in
-    the explanation there's a debate going on here 
+    when you're handling several datasets in R (something quite common).
+    If you're interested 'in the explanation there's a debate going on here 
     http://stackoverflow.com/questions/10067680/why-is-it-not-advisable
     -to-use-attach-in-r-and-what-should-i-use-instead
     
@@ -119,18 +137,18 @@
     The with() function does exactly the same as the attach and detach
     functions but in a different way. By writing with(mtcars, expression),
     instead of setting the data frame as a global search path, R will search for everything
-    inside the expression in the mtcars data.
-    
+    inside the expression in the mtcars data.'
+
 - Class: text
-  Output: To reproduce what we did with the attach function, one alternative is to use the
+  Output: 'To reproduce what we did with the attach function, one alternative is to use the
     with() function like this: with(mtcars, c(mean(mpg), mean(disp)))'
         
 - Class: text
-  Output: How would you read the expression? Take the mtcars and calculate
+  Output: How would you read the expression? Take mtcars and calculate
     the mean of mpg and disp. You might ask yourself why did you have to wrap
     the two means with a c(). Basically, the with() function accepts an expression
     after the data, however, here we're actually calculating TWO
-    expressions (two means) so we simply concatenate the two expressions into one expression.
+    expressions (two means) so we simply concatenate the two expressions into one.
   
 - Class: cmd_question
   Output: 'Calculate the median of mpg using the with function. Hint:
@@ -147,14 +165,29 @@
   AnswerTests: omnitest(correctExpr='with(mtcars, c(median(mpg), mean(hp)))')
   Hint: Type with(mtcars, c(median(mpg), mean(hp)))
   
+- Class: cmd_question
+  Output: Please calculate the mean of the variable disp and save it as mean_disp
+    inside the mtcars data (assign the new name like $newname)
+  CorrectAnswer: mtcars$mean_disp <- with(mtcars, mean(disp))
+  AnswerTests: omnitest(correctExpr='mtcars$mean_disp <- with(mtcars, mean(disp))')
+  Hint: The structure should be something in the lines of; mydata$new_variable <-
+    assignment of value
+    
+- Class: cmd_question
+  Output: Check the insides of mtcars with head(mtcars)
+  CorrectAnswer: head(mtcars)
+  AnswerTests: omnitest(correctExpr='head(mtcars)')
+  Hint: Type head(mtcars).
+  
 - Class: text
-  Output: I think you might have a good idea how
-    attach(), detach() and with() work. Let's move on to merging data frames.
+  Output: See your mean_disp variable as the last column? Neat! 
+    I think you might have a good idea how attach(), detach() and
+    with() work. Let's move on to merging data frames.
   
 - Class: text
   Output: Let's start with the merge command. If you have two different
-    datasets with a common identification variable(unique ID, countries,
-    school ID, etc..), then you merge them like this merge(dataframe, 
+    datasets with a common identification variable(something like unique ID,
+    countries or school ID, etc..), then you merge them like this merge(dataframe1, 
     dataframe2, by="ID variable")
   
 - Class: cmd_question
@@ -173,11 +206,11 @@
 - Class: cmd_question
   Output: If you noticed, both data frames have a similar unique variable named 'first'.
     We could match them easily with the merge command. Using this example, adapt it to
-    merge dataset1 and dataset2':' merge(dataframe, dataframe2, by="ID variable")
-  CorrectAnswer: merge(dataset1, dataset2, by="first")
-  AnswerTests: omnitest(correctExpr='merge(dataset1, dataset2, by="first")')
-  Hint: Substitute our two datasets instead of the two "dataframe" arguments and specify the
-    common ID variable in the by option.
+    merge dataset1 and dataset2, by using the common variable.
+  CorrectAnswer: merge(dataset1, dataset2, by = "first")
+  AnswerTests: omnitest(correctExpr='merge(dataset1, dataset2, by = "first")')
+  Hint: Using the merge function, place both out datasets in the merge function and
+    specify their common variable in the `by` option as a character string.
   
 - Class: text
   Output: 'That was easy! What if you wanted to merge according to TWO common ID variables?
@@ -186,14 +219,16 @@
     
 - Class: mult_question
   Output: It's just as simple. You only have to CONCATENATE both variables.
-    What would be the correct answer?
-  AnswerChoices: merge(dataframe, dataframe2, by="schools" & "students");
-    merge(dataframe, dataframe2, by="schools & students");
-    merge(dataframe, dataframe2, by=c("schools") & c("students"));
-    merge(dataframe, dataframe2, by=c("schools, students"))
-  CorrectAnswer: merge(dataframe, dataframe2, by=c("schools, students"))
-  AnswerTests: omnitest(correctVal= 'merge(dataframe, dataframe2, by=c("schools, students"))')
-  Hint: In order to have two variables together we need to use the c() function.
+    Theoretically, what would be the correct answer?
+  AnswerChoices: 
+    merge(dataframe1, dataframe2, by="schools" & "students");
+    merge(dataframe1, dataframe2, by="schools & students");
+    merge(dataframe1, dataframe2, by=c("schools") & c("students"));
+    merge(dataframe1, dataframe2, by=c("schools", "students"))
+  CorrectAnswer: merge(dataframe1, dataframe2, by=c("schools", "students"))
+  AnswerTests: omnitest(correctVal= 'merge(dataframe1, dataframe2, by=c("schools", "students"))')
+  Hint: In order to have two variables together we need to use the c() function and place
+    two character strings.
   
 - Class: text
   Output: A similar scenario would be if you wanted to append rows
@@ -216,5 +251,4 @@
     
 - Class: text
   Output: Alright, so now you know how to manage your data frames.
-    Go show of your new skills with a dataset of your own! This is the end of
-    the second RonR! seminar.
+    Go show of your new skills with a dataset of your own!
