@@ -7,9 +7,9 @@
   Version: 2.2.21
  
 - Class: text
-  Output: Hello! Welcome to the 1st lesson of the third RonR! seminar. On this lesson we will talk about how
-          to open text files, different Excel files, SPSS, Stata and SAS files. Finally, we will
-          talk about some data exploration commands normally used in R.
+  Output: Hello! Welcome to the 1st lesson of the third RonR! seminar. On this lesson we will
+    talk about how to open text files, Excel files, SPSS, Stata and SAS files.
+    Finally, we will talk about some data exploration commands normally used in R.
      
 - Class: text
   Output: 'Note: You will need to have access to an internet connection to complete this session.'
@@ -25,8 +25,8 @@
 - Class: text
   Output: Although we won't go into it, you can change this directory with the setwd() function.
     An example line would be setwd("your new path"). Although this is easy, be sure to read
-    more about setwd() because Windows often uses the '\' character while Mac uses the '/' character.
-    Frustrating problems can arise from simple things like this.
+    more about setwd() because Windows often uses the '\' character while Mac uses the '/' character
+    when defining paths. Frustrating problems can arise from simple things like this.
     
 - Class: text
   Output: When you installed the course we took the liberty of downloading some data files to your
