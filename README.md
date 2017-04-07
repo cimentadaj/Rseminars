@@ -83,7 +83,7 @@ Instructor: [Daniel Ciganda](dciganda@gmail.com)
 
 This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Fourth_Seminar)
 
-Instructor: [John Palmer] (http://johnrbpalmer.com/)
+Instructor: [John Palmer](http://johnrbpalmer.com/)
 
 * Thinking through the visual display of quantitative information:
   + Numbers for the mind’s eye
@@ -110,7 +110,7 @@ Instructor: [John Palmer] (http://johnrbpalmer.com/)
 
 **This seminar does not have exercises yet**
 
-Instructor: Instructor: [Bruno Arpino] (https://sites.google.com/site/brunoarpino/)
+Instructor: Instructor: [Bruno Arpino](https://sites.google.com/site/brunoarpino/)
 * Basic programming:
 * Conditional execution.
 * Repetitive execution.
