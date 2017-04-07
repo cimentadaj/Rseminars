@@ -49,8 +49,8 @@ link <- "https://raw.githubusercontent.com/cimentadaj/Rseminars/master/RonR_Seco
 
 source_url(link, paste(sha_url(link)))
 
-### If you're using Mac replace the libcurl with "curl"
-install_everything("libcurl")
+## This function installs the swirl course.
+install_everything()
 ```
 
 If everything was correct, then the last two sentences in the console should be:
