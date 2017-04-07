@@ -1,22 +1,22 @@
 
-<center> <h1> ![](https://lh3.googleusercontent.com/-UkfJ6Cj7fNc/AAAAAAAAAAI/AAAAAAAAAIE/RJmK4VaMytw/s100-c-k-no/photo.jpg)</h1> </center>
-<center> <h1> RonR! seminars</h1> </center>
+![](https://lh3.googleusercontent.com/-UkfJ6Cj7fNc/AAAAAAAAAAI/AAAAAAAAAIE/RJmK4VaMytw/s100-c-k-no/photo.jpg)
+## RonR! seminars
 
-###Introduction
+### Introduction
 As part of the RonR! seminars organized by the RECSM, we have developed a guide on how to install R, Rstudio and the interactive lessons that will get you up and running with R.
 
-###Installing R:
+### Installing R:
 
 Go to this [website](https://cran.r-project.org/) and click on Download R for your respective operating system.
 
 **For Windows:** click on base and then on Download R 3.2.5 for Windows. It could be that by the time you're downloading this the version has changed, so do not worry about this. If you're running into some problems, browse this website as there is plenty of documentation that can help.
 
-**For Mac:** click on the first file below the **File:** section. As of the 21 of April, 2016, this version is R-3.2.4.pkg.   
+**For Mac:** click on the first file below the __**File:**__ section. As of the 21 of April, 2016, this version is R-3.2.4.pkg.   
 
 **For Ubuntu:** I would suggest to follow this [guide](https://www.digitalocean.com/community/tutorials/how-to-set-up-r-on-ubuntu-14-04)
 
 
-###Installing Rstudio
+### Installing Rstudio
 
 RStudio is a powerful and productive user interface for R. It’s free and open source, and works great on Windows, Mac, and Linux.
 
@@ -30,7 +30,7 @@ RStudio is a powerful and productive user interface for R. It’s free and open 
 
 > **After downloading both programs be sure to install R and then Rstudio. The installation process should be straightforward, simply follow the instructions when opening the installation. Note: Remember to save the access icon to your desktop after the Rstudio installation.**
 
-###Installing swirl courses
+### Installing swirl courses
 
 Please open Rstudio. 
 
@@ -77,4 +77,4 @@ If you run into any issues throughout the process, feel free to email jorge.cime
 
 Happy coding!  
 
-####The organizers of the RECSM RonR! seminars.
+### The organizers of the RECSM RonR! seminars.
