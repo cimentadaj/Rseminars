@@ -11,7 +11,7 @@ Go to this [website](https://cran.r-project.org/) and click on Download R for yo
 
 **For Windows:** click on base and then on Download R 3.2.5 for Windows. It could be that by the time you're downloading this the version has changed, so do not worry about this. If you're running into some problems, browse this website as there is plenty of documentation that can help.
 
-**For Mac:** click on the first file below the __**File:**__ section. As of the 21 of April, 2016, this version is R-3.2.4.pkg.   
+**For Mac:** click on the first file below the __**File**__ section. As of the 21 of April, 2016, this version is R-3.2.4.pkg.   
 
 **For Ubuntu:** I would suggest to follow this [guide](https://www.digitalocean.com/community/tutorials/how-to-set-up-r-on-ubuntu-14-04)
 

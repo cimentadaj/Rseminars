@@ -1,25 +1,14 @@
-## This function installs the swirl course. It only has one argument for the method of the download.file call.
-## According to different operating systems the method might change.
+## This function installs the swirl course.
 
-install_everything <- function(method) {
+install_everything <- function() {
+packages <- "swirl"
+packages_to_install <- setdiff(packages, installed.packages())
 
-packages <- c("downloader", "swirl")
+if (length(packages_to_install) > 0) install.packages(packages_to_install)
+require(swirl)
 
-if (length(setdiff(packages, installed.packages())) > 0) {
-    install.packages(setdiff(packages, installed.packages()))
-}
-
-library(downloader)
-library(swirl)
-## Download the file
-download.file("https://github.com/cimentadaj/Rseminars/archive/master.zip",
-              paste0(getwd(),"/Rseminars-master.zip"), method=method)
-
-## unzip and install
-install_course_zip(paste0(getwd(),"/Rseminars-master.zip"),
-                   multi=T, which_course = "RonR_Second_Seminar")
+install_course_github("cimentadaj", "Rseminars", multi = T)
 
 ## Now you can see the course if you type swirl()
 message("Type swirl() to access the course")
-
 }
