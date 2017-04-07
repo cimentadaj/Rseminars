@@ -1,16 +1,16 @@
-<center> <h1> ![](https://lh3.googleusercontent.com/-UkfJ6Cj7fNc/AAAAAAAAAAI/AAAAAAAAAIE/RJmK4VaMytw/s100-c-k-no/photo.jpg)</h1> </center>
+![](https://lh3.googleusercontent.com/-UkfJ6Cj7fNc/AAAAAAAAAAI/AAAAAAAAAIE/RJmK4VaMytw/s100-c-k-no/photo.jpg)
 
 ## RonR! First Seminar Series
 
 The RonR! Seminar Series are a series of seminars that were taught at Pompeu Fabra University in April-May 2016. This repository contains all the R scripts, presentations and exercises used for each separate session. Anyone interested in using these exercises can download the swirl exercises from the session links.
 
-## **Seminar 1. An overview of the strengths of R**
+**Seminar 1. An overview of the strengths of R**
 
 *Note: This introduction does not contain exercises, only an [RMarkdown presentation](https://github.com/cimentadaj/Rseminars/blob/master/RonR_First_Seminar/First-seminar-presentation.rmd)*
 
 Instructor: [Jorge Cimentada](http://www.jorgecimentada.com)
 
-Brief intro to R
+Brief introduction to R
 
 * First steps using R
   + The webpage of the R project
@@ -61,7 +61,7 @@ Instructors: [Basilio Moreno](https://www.linkedin.com/in/basiliomp) and [Jorge 
 
 This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Third_Seminar)
 
-Instructor: Daniel Ciganda(dciganda@gmail.com)
+Instructor: [Daniel Ciganda](dciganda@gmail.com)
 
 * Importing data from SPSS, EXCEL and STATA
 * Basic data manipulation:
@@ -138,7 +138,4 @@ Instructor: [Albert Julià](https://www.upf.edu/survey/members/albertjulix.html)
   + Saving data (cluster variable)
   + Regressions models with trajectory clusters
 
-
-##### The organizers of the RonR! working group Jorge Cimentada (jorge.cimentada@upf.edu) and Bruno Arpino (bruno.arpino@upf.edu) 
-
-##### Research and Expertise Centre on Survey Methodology (RECSM) Universitat Pompeu Fabra
+### The organizers of the RECSM RonR! seminars.
