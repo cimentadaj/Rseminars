@@ -18,8 +18,8 @@
     
 - Class: text
   Output: 'You can often think of vectors as variables. Yes, exactly like
-    those you have in Excel, SPSS, Stata and SAS datasets. However, in R you the possibility
-    of creating these variables outside a dataset. Let’s see an example.'
+    those you have in Excel, SPSS, Stata and SAS datasets. However, in R, you often
+    create these variables outside a dataset. Let’s see an example.'
     
 - Class: text
   Output: 'To set up a vector named income consisting of five numbers, 100, 500, 35, 60 and 2100,
@@ -136,10 +136,10 @@
 - Class: cmd_question
   Output: A simpler and more elegant way would be to
     concatenate the vector myname and your last name together. Remember, myname is not a character
-    object but a character VECTOR, so you don't have to wrap it around with the " ".
-    Try it out yourself.
-  CorrectAnswer: val_has_length(2)
-  AnswerTests: val_has_length(2)
+    element but a character VECTOR, so you don't have to wrap it around with the " ".
+    Assign your result to myname again.
+  CorrectAnswer: var_is_a('character', 'myname')
+  AnswerTests: var_is_a('character', 'myname')
   Hint: 'Start off by the vector name: myname <- and now open the c() and include, first the
     myname vector, and then your last name wrapped in " ".'
     
@@ -210,7 +210,7 @@
   Output: Notice the levels attribute. This option is telling you that this factor variable has two categories,
     namely Type1 and Type2. So far it doesn't say anything about the factors being ordered.
     Remember that we didn't assign any specific hierarchical order so the factor
-    function ASSUMES that this is a categorical variable.
+    function ASSUMES that this is a categorical variable with no order.
   
 - Class: cmd_question
   Output: 'We could do it in a similar way, but adding more options: status2 <- factor(status, order = TRUE,
@@ -265,9 +265,8 @@
     If it makes sense, then you should know that the sequence seq(2, 10) is the same as 2:10.
   
 - Class: text
-  Output: 'Arguments to seq() can also be given in named form, in which case the order in which they
-    appear is irrelevant. The first two arguments may be named to = value and to = value; thus seq(1, 30),
-    seq(from = 1, to = 30) and seq(to = 30, from = 1) are all the same as 1:30'
+  Output: 'Arguments to seq() can also be given in named form. Thus 
+      seq(from = 1, to = 30) and seq(to = 30, from = 1) are all the same as 1:30'
   
 - Class: cmd_question
   Output: The next argument to seq() is named 'by = value' and it specifies the jumps in the sequence.
@@ -301,21 +300,21 @@
   Hint: 'Type rep(c(10, 5, 3, 6, 21), each = 2)'
   
 - Class: text
-  Output: Pretty neat, eh? Instead of repeating the whole vector, it repeats 'each' object within the vector.
+  Output: Pretty neat, eh? Instead of repeating the whole vector, it repeats 'each' element within the vector.
       Remember that all these functions can be used with any vector (numeric,character, logical) and all of these
       expressions can be saved to a name. We could've saved any of the rep() or seq() expressions to a vector and,
       for example, they could be used as columns in a datataset.
 
 - Class: text
-  Output: Before concluding, let's go over arithmetic operations with vectors. When perform any arithmetic
+  Output: Before concluding, let's go over arithmetic operations with vectors. When performing arithmetic
     operation with vectors, the default for R is to carry the operation for the same position in the two different
     vectors. For example, c(1, 2) + c(3, 4) would equal c(4, 6). So R compares the 1st object in the 1st vector
     to the 1st object in the 2nd vector, and so on..
     
 - Class: cmd_question
   Output: Try it yourself. Add the sequences 1:5 + 6:10 together.
-  CorrectAnswer: omnitest(correctExpr="1:5 + 6:10")
-  AnswerTests: omnitest(correctExpr="1:5 + 6:10)")
+  CorrectAnswer: 1:5 + 6:10
+  AnswerTests: omnitest(correctExpr="1:5 + 6:10")
   Hint: 'Type 1:5 + 6:10'
   
 - Class: text
@@ -330,19 +329,22 @@
   Hint: Enter 1:4 + c(0, 10) in the console to see how R adds two vectors of different length. Don't assign the result to a variable.
 
 - Class: text
-  Output: If the length of the shorter vector does not divide evenly into the length
-    of the longer vector, R will apply the 'recycling' principle, but will throw
-    a warning to let you know something fishy might be going on.
-
-- Class: text
-  Output: The recycling method simply repeats the shorter vector until it evens up with the longer vector.
+  Output: R will repeat the shorter vector until we reach the total length of the long vector.
+      So, 1:4 + c(0, 10) will be c(1, 2, 3, 4) + c(0, 10, 0, 10). The shorter object gets 'recycled'
+      until meets the length of the longer object.
 
 - Class: cmd_question
   Output: Try c(1, 2, 3, 4) + c(0, 10, 100) for another example.
   CorrectAnswer: c(1, 2, 3, 4) + c(0, 10, 100)
   AnswerTests: omnitest(correctExpr='c(1, 2, 3, 4) + c(0, 10, 100)')
-  Hint: Type c(1, 2, 3, 4) + c(0, 10, 100) to see how R handles adding two vectors, when the shorter vector's length does not divide evenly into the longer vector's length. Don't worry about assigning the result to a variable.
-    
+  Hint: Type c(1, 2, 3, 4) + c(0, 10, 100) to see how R handles adding two vectors,
+      when the shorter vector's length does not divide evenly into the longer vector's length.
+      Don't worry about assigning the result to a variable.
+
+- Class: text
+  Output: These type of operations are very common. For example, when adding columns, or creating
+      new variables that are products of other variables.
+      
 - Class: text
   Output: 'This is the end of lesson 2. This was some great work, keep going!'
   

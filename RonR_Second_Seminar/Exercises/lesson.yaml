@@ -1,0 +1,34 @@
+- Class: meta
+  Course: RonR Second Seminar
+  Lesson: Exercises
+  Author: Jorge Cimentada
+  Type: Standard
+  Organization: RECSM
+  Version: 2.4.3
+
+packages
+using the ? to look at documentation
+
+cocatenate, numeric vector
+assign() function
+length()
+factors and characters
+class
+seq and `:`
+rep()
+vectorized operations
+addition and subtraction
+matrices and lists
+data frames
+merge command
+
+Provide with data set containing students scores in math and science for different grades
+with the names.
+Create new column containing the sum of the two scores to see which is the best student
+
+Create logical stating if the student passed the exam or not. Another logical for students
+that passed both exams or failed both exams.
+
+question asking the classes of all columns
+
+create a sequence of unique identifier for each student
