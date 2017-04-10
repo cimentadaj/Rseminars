@@ -1,0 +1,12 @@
+Overall:
+- Find a solution for first lesson because it’s getting install with the swirl course
+- Deleted course installation for every single course. Install every course
+in the second seminar. Write an explanation for each course that it was installed
+previously and redirect to installation
+
+Second seminar:
+- Create separate lesson for factors
+- Create challenge as final lesson
+
+Third seminar:
+- Create challange as last lesson
