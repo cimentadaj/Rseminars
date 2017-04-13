@@ -143,6 +143,14 @@ literacy_tests <- with(literacy_tests, literacy_tests[order(as.numeric(as.charac
 head(cbind(all_tests, literacy_tests))
 
 # Awesome! But we have have redundantly added a new id column to the data sets -_-. We could've
-# just used merge! merge them together.
+# just used merge! now merge them together.
 
-merge(all_tests, literacy_tests)
+all_tests <- merge(all_tests, literacy_tests)
+
+# Awesome, now you can look at the differences with a plot. Try:
+barplot(all_tests$joint_score, names.arg = all_tests$name, las = 2)
+
+# And
+
+with(all_tests, plot(math_score, literacy_scores))
+with(all_tests, abline(coef(line(math_score, literacy_scores)), col = "blue"))
