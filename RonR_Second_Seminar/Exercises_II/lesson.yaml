@@ -1,0 +1,19 @@
+- Class: meta
+  Course: RonR_Second_Seminar
+  Lesson: Exercises_II
+  Author: your name goes here
+  Type: Standard
+  Organization: your organization's name goes here
+  Version: 2.4.3
+
+- Class: text
+  Output: Welcome to the last exercise lesson! This lesson builds heavily on the previous
+    exercise so if you haven't completed it, go back and do so, because
+    otherwise you won't understand much of what we do.
+    
+- Class: cmd_question
+  Output: We left off with the all_tests data. Can you have a look at the data using the head()
+     function?
+  CorrectAnswer: head(all_tests)
+  AnswerTests: omnitest(correctExpr='head(all_tests)')
+  Hint: Type head(all_tests)
