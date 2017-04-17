@@ -1,0 +1,193 @@
+- Class: meta
+  Course: RonR Second Seminar
+  Lesson: Exercises
+  Author: Jorge Cimentada
+  Type: Standard
+  Organization: RECSM
+  Version: 2.4.3
+
+- Class: text
+  Output: Hello and welcome to the exercise section of the second seminar!
+  
+- Class: text
+  Output: This exercise builds heavily on the previous lessons, so if think you're a beginner
+     and haven't done the introductory lessons, please go back!
+
+- Class: text
+  Output: In these exercises I won't be explaining much.. you'll be doing most of the work
+    by analyzing some data on children and their school peformance. Let's begin!
+    
+- Class: cmd_question
+  Output: We have some data on 9nth graders who took a test in mathematics. Using head(),
+    take a look at the contents of 'math_tests'.
+  CorrectAnswer: head(math_tests)
+  AnswerTests: omnitest(correctExpr='head(math_tests)')
+  Hint: Using head() and tail() allows you to take a look at the 'head' and 'tail' of the data.
+    Include the data as the first argument.
+
+- Class: text
+  Output: Ok, so we have an ID, a child's name and their mathematics test score. What can we with that?
+
+- Class: cmd_question
+  Output: Oh! I've just heard from the principal that they forgot to add the type_grade variable.
+    This variable states whether the child belongs to group 'A' or group 'B'. It looks like the first
+    50 chidren belong to 'A' and the remaining 50 to 'B'. First, using the length() function and
+    the variable 'name', can you tell me how many names do we have?
+  CorrectAnswer: length(math_tests$name)
+  AnswerTests: omnitest(correctExpr='length(math_tests$name)')
+  Hint: Using the $ sign, subset the variable 'name' from math_tests and then wrap that in length.
+    Remember, that variable is now a vector, and that vector has a length!
+
+- Class: text
+  Output: Great, we do have the 100 children. Let's create that variable.
+
+- Class: mult_question
+  Output: We need to repeat the letter 'A' and 'B' each 50 times. Which function would do that?
+  AnswerChoices: rep(); repeat(); sample(); replicate()
+  CorrectAnswer: rep()
+  AnswerTests: omnitest(correctVal= 'rep()')
+  Hint: We used it in our previous lessons!
+
+- Class: cmd_question
+  Output: Awesome, now you do the work. I'll explain in detail. Using the rep() function, place
+    a vector containing "A" and "B" as the first argument. Then check ?rep to identify how to
+    repeat each letter instead of the whole vector. Make sure that each letter is repeated 50 times
+    and not the vector as a whole.
+  CorrectAnswer: rep(c("A", "B"), each = 50)
+  AnswerTests: omnitest(correctExpr='rep(c("A", "B"), each = 50)')
+  Hint: The result should be something along the lines of rep(vector_contain_AB, argument_for_each = 50)
+
+- Class: cmd_question
+  Output: Great. Now we only have to assign that as a variable called type_grade inside 'math_tests'.
+     Do it yourself!
+  CorrectAnswer: math_tests$type_grade <- rep(c("A", "B"), each = 50)
+  AnswerTests: omnitest(correctExpr='math_tests$type_grade <- rep(c("A", "B"), each = 50)')
+  Hint: Repeat your previous response, but assign the results to math_tests$type_grade.
+
+- Class: mult_question
+  Output: We can calculate the mean of each type of grade with classical subsetting. For example,
+    which of these expressions subsets the 'A' grade?
+  AnswerChoices: 
+    math_tests[math_tests$type_grade == "A", ];
+    math_tests[type_grade == "A", ];
+    math_tests[math_tests$type_grade == "A"];
+    math_tests[type_grade == "A"]
+  CorrectAnswer: math_tests[math_tests$type_grade == 'A', ]
+  AnswerTests: omnitest(correctVal= 'math_tests[math_tests$type_grade == "A", ]')
+  Hint: Before the comma R accepts tests for which rows to keep and after the comma column names.
+    Additionally, we have to specify where the variable is coming from.
+
+- Class: cmd_question
+  Output: Now you finish it off. Using with(), include the data frame as the first argument. 
+    In the second argument, place the expression you used before, but remember that you don't
+    have to specify the data to search for the variables, with() already takes care of that! Finally,
+    specify the 'math_score' column after the coma.
+  CorrectAnswer: with(math_tests, math_tests[type_grade == "A", "math_score"])
+  AnswerTests: omnitest(correctExpr='with(math_tests, math_tests[type_grade == "A", "math_score"])')
+  Hint: Something like this should do it with(data, data[variable == "A", "column_name"])
+
+- Class: cmd_question
+  Output: Great, but that gave us the vector! Now, copy the previous code and wrap that in the mean()
+    function.
+  CorrectAnswer: mean(with(math_tests, math_tests[type_grade == "A", "math_score"]))
+  AnswerTests: omnitest(correctExpr='mean(with(math_tests, math_tests[type_grade == "A", "math_score"]))')
+  Hint: Just copy the previous with(data, data[variable == "A", "column_name"]) and place that inside mean()
+
+- Class: cmd_question
+  Output: Ok, now repeat the same thing for type_grade == "B".
+  CorrectAnswer: mean(with(math_tests, math_tests[type_grade == "B", "math_score"]))
+  AnswerTests: omnitest(correctExpr='mean(with(math_tests, math_tests[type_grade == "B", "math_score"]))')
+  Hint: Just copy the previous with(data, data[variable == "B", "column_name"]) and place that inside mean()
+
+- Class: text
+  Output: Which grade has the highest test score?
+
+- Class: text
+  Output: Alright, we want to know how many children passed/failed the math test. How can we do that?
+  
+- Class: mult_question
+  Output: Well, we can write a logical statement that checks which children scored above/below 70.
+    Which statement resembles more what we want?
+  AnswerChoices: 
+    math_score >= 70;
+    math_score >= 70 & math_score <= 70;
+    math_score >= 70 & <= 70
+  CorrectAnswer: math_score >= 70
+  AnswerTests: omnitest(correctVal= 'math_score >= 70')
+  Hint: For each row, if the statement is correct, it will assign a TRUE, if not a FALSE. So only
+     one statement is needed!
+
+- Class: cmd_question
+  Output: Now you complete it.. take math_score and create a logical statement like the one above.
+    Remember to save the results to a variable called passed, inside 'math_tests'.
+  CorrectAnswer: math_tests$passed <- math_tests$math_score >= 70
+  AnswerTests: omnitest(correctExpr='math_tests$passed <- math_tests$math_score >= 70')
+  Hint: Someting along the lines of data$new_var <- data$old_var >= 70 should do it.
+
+- Class: cmd_question
+  Output: Awesome! We've recently received an update from the school principal that contains scores
+    for these children's science class. Have a look by typing head(sciente_tests).
+  CorrectAnswer: head(science_tests)
+  AnswerTests: omnitest(correctExpr='head(science_tests)')
+  Hint: Proceed by including science_tests as the first argument of head().
+
+- Class: text
+  Output: Great, we have the child's name, ID and science_score. We should really
+    keep things together and merge both data sets. For merging, we can use the merge() function
+    which takes three main arguments:x, y and by.
+
+- Class: mult_question
+  Output: x and y corresponds to both data sets that will be merged while the by argument is where
+    you specify the key variables from which you will merge. In our case, which variables
+    will be used for merging?
+  AnswerChoices: id and name; id; type_grade; math_score; science_score; name and math_score
+  CorrectAnswer: id and name
+  AnswerTests: omnitest(correctVal= 'id and name')
+  Hint: I'll make it easier, which variables are present in both data sets?
+
+- Class: cmd_question
+  Output: You're half way now. Using the merge function, include both datasets as the first
+    two argument, the specify both the id and name variables in the by argument as a character
+    vector. Finally, save that result with the name all_tests.
+  CorrectAnswer: all_tests <- merge(math_tests, science_tests, by = c("id", "name"))
+  AnswerTests: omnitest(correctExpr="all_tests <- merge(math_tests, science_tests, by = c('id', 'name'))")
+  Hint: Merge both datasets with merge() and by = c("id", "name") and name that 'all_tests'.
+
+- Class: cmd_question
+  Output: Now have a look at the data with head()
+  CorrectAnswer: head(all_tests)
+  AnswerTests: omnitest(correctExpr='head(all_tests)')
+  Hint: Type head(all_tests)
+
+- Class: text
+  Output: Great! Now you have a new column called science_score. Now we can perform some comparisons
+    between math and science scores.
+
+- Class: cmd_question
+  Output: I'm curious about how many students passed math but failed science (using the 70 threshold).
+    Can you help me out? Create a logical vector that states TRUE when the student passed math but
+    failed science (for this particular example, use the with() function to only write the dataset
+    once).
+  CorrectAnswer: with(all_tests, math_score > 70 & science_score < 70)
+  AnswerTests: omnitest(correctExpr='with(all_tests, math_score > 70 & science_score < 70)')
+  Hint: Using with() you should write something like with(our_data, var1 > 70 & var2 < 70),
+    using the correct names.
+
+- Class: cmd_question
+  Output: Now save that expression as the variable 'passmath_failscience' in the all_tests data sets.
+  CorrectAnswer: all_tests$passmath_failscience <- with(all_tests, math_score > 70 & science_score < 70)
+  AnswerTests: omnitest(correctExpr='all_tests$passmath_failscience <- with(all_tests, math_score > 70 & science_score < 70)')
+  Hint: Copy the previous expressions and assign its name like this our_data$newvar <- expression.
+
+- Class: cmd_question
+  Output: To finish off, use with() and table() to take a look at the frequency of the passmath_failscience
+    variable.
+  CorrectAnswer: with(all_tests, table(passmath_failscience))
+  AnswerTests: omnitest(correctExpr='with(all_tests, table(passmath_failscience))')
+  Hint: 'Remember that if you use with() you only specify the data set once, and then write
+    any expression after that. In this case it would be something along the lines of:
+    with(our_data, table(our_variable)).'
+
+- Class: text
+  Output: Awesome! you've carried out some real analysis today. Up next we'll continue with
+    this same exercise but dive a little deeper in the data.
