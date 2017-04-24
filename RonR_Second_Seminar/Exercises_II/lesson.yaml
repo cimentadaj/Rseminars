@@ -76,7 +76,7 @@
   Output: Out of the top 50 students (based on id_best), what's the frequency of passing math
     and failing science? Use this structure and WRAP it in the table function;
     with(data, data[var > 50, your_var_in_quotes]).
-  CorrectAnswer: table(with(all_tests, all_tests[id_best > 50, "passmath_failscience"])).
+  CorrectAnswer: table(with(all_tests, all_tests[id_best > 50, "passmath_failscience"]))
   AnswerTests: omnitest(correctExpr='table(with(all_tests, all_tests[id_best > 50, "passmath_failscience"]))')
   Hint: table(with(data, data[var > value, your_var_in_quotes])), that was a hard one!
 
@@ -118,3 +118,127 @@
   CorrectAnswer: nrow(all_tests)
   AnswerTests: omnitest(correctExpr='nrow(all_tests)')
   Hint: Numer of rows ... nrow...
+
+- Class: text
+  Output: Awesome, so both datasets have the same number of rows. Now we have to
+    order both id columns from both datasets in order to merge them.
+    
+- Class: text
+  Output: I'll explain how to do it for one dataset and you'll perform the other one.
+    First, we use with() and include our datasets literacy_tests. If we type order(c(3, 5, 2))
+    order() returns the index of the vector in the ascending order. So for our example,
+    order(c(3, 5, 2)) will return 3, 1, 2 because the third number is the smallest, the first
+    is the second and the second is the third.
+
+- Class: cmd_question
+  Output: The cool thing about order() is that we can include it as the rows subsetting and we'll
+    subset the rows in the correct order. For example, in our data literacy tests, we could
+    order the entire dataset based on id with an expression similar to this
+    with(literacy_tests, literacy_tests[order(id), ]). Please give me the output
+    of order(id), without using with(), that is, using the $ sign for subsetting
+  CorrectAnswer: order(literacy_tests$id)
+  AnswerTests: omnitest(correctExpr='order(literacy_tests$id)')
+  Hint: Something along the lines of order(some_data$var_to_order).
+
+- Class: text
+  Output: That is the order in which the rows should appear, in order for ID to be ordered.
+
+- Class: cmd_question
+  Output: So, for literacy_tests, order the id column using with() and resave that new data
+    to literacy_tests
+  CorrectAnswer: literacy_tests <- with(literacy_tests, literacy_tests[order(id), ])
+  AnswerTests: omnitest(correctExpr='literacy_tests <- with(literacy_tests, literacy_tests[order(id), ])')
+  Hint: Simply take the literacy_tests expression from above and assign the results to literacy_tests.
+
+- Class: cmd_question
+  Output: Repeat the exact previous command for all_tests
+  CorrectAnswer: all_tests <- with(all_tests, all_tests[order(id), ])
+  AnswerTests: omnitest(correctExpr='all_tests <- with(all_tests, all_tests[order(id), ])')
+  Hint: data <- with(data, data[order(new_var), ]) is exactly what I'm looking for. Order a dataset
+    and then saving the datased again.
+
+- Class: cmd_question
+  Output: Let's check whether they're ordered quickly by using head(). Do it for literacy_tests.
+  CorrectAnswer: head(literacy_tests)
+  AnswerTests: omnitest(correctExpr='head(literacy_tests)')
+  Hint: Include all_tests as the first argument of head().
+
+- Class: text
+  Output: What?! the order should be 1, 2, 3... not 1, 10, 100. Something went wrong.
+
+- Class: cmd_question
+  Output: Check all_tests with head() to confirm if the problem is also presen there.
+  CorrectAnswer: head(all_tests)
+  AnswerTests: omnitest(correctExpr='head(all_tests)')
+  Hint: Include all_tests as the first argument of head().
+
+- Class: mult_question
+  Output: Nop, it's only literacy_tests. What do you think the problem could be?
+  AnswerChoices: The class of the variable cannot be ordered; order() is unreliable; The order is actually correct
+  CorrectAnswer: The class of the variable cannot be ordered
+  AnswerTests: omnitest(correctVal= 'The class of the variable cannot be ordered')
+  Hint: Can we order every class in R? Or is it that order() is just not working properly?
+
+- Class: cmd_question
+  Output: That's a very likely explanation. Can you confirm that id from literacy_tests is
+    a class() numeric?
+  CorrectAnswer: class(literacy_tests$id)
+  AnswerTests: omnitest(correctExpr='class(literacy_tests$id)')
+  Hint: Check the class() of id without using with() but the $ sign.
+
+- Class: text
+  Output: Aha! A factor! Remember that factors are 'ordered character vectors' such as bad, medium
+    and good. It might by that 1, 10 and 100 have that specific order set by the factor.
+    We need to reorder id but turn it into a numeric on the fly.
+
+- Class: mult_question
+  Output: Which function will help us achieve that?
+  AnswerChoices: as.numeric(); as.integer(); as.double(); as.logical()
+  CorrectAnswer: as.numeric()
+  AnswerTests: omnitest(correctVal= 'as.numeric()')
+  Hint: Well, I don't think a hint is needed :P. We want a numeric!
+
+- Class: cmd_question
+  Output: Using the expression we used to order id, inside order(), include
+    as.character() and as.numeric() with id as the first argument of as.character().
+    Remember to save everything to literacy_tests.
+  CorrectAnswer: literacy_tests <- with(literacy_tests, literacy_tests[order(as.numeric(as.character(id))), ])
+  AnswerTests: omnitest(correctExpr='literacy_tests <- with(literacy_tests, literacy_tests[order(as.numeric(as.character(id))), ])')
+  Hint: Follow this skeleton data <- with(data, data[order(as.numeric(as.character(id))), ])
+  
+- Class: text
+  Output: That's something we won't talk about in detail, but to turn factors into numerics
+    you first have to turn them into characters and then into numerics, just as we did!
+
+- Class: cmd_question
+  Output: Check that we ordered literacy_tests correctly with head()
+  CorrectAnswer: head(literacy_tests)
+  AnswerTests: omnitest(correctExpr='head(literacy_tests)')
+  Hint: Use literacy_tests as the first argument of head().
+  
+- Class: cmd_question
+  Output: Great! Now we simply have to combine both datasets. Here I'll introduce you to
+    the cbind() function which stands for 'column bind'. For example, include all_tests
+    and literacy_tests inside cbind() and wrap everything in the head() function.
+  CorrectAnswer: head(cbind(all_tests, literacy_tests))
+  AnswerTests: omnitest(correctExpr='head(cbind(all_tests, literacy_tests))')
+  Hint: cbind works like this cbind(dataset1, dataset2, datasetN) where N stands for as many
+    datasets as you want.
+
+- Class: cmd_question
+  Output: Very nice! but note that id is now repeated. That's the cool thing about the merge()
+     function. Merge does exactly the same but because id is the common key between both datasets,
+     it only leaves one of the columns. Use merge to merge both datasets. Don't include any key
+     variables, because merge already searches for common variables. Name the new merged dataset
+     all_tests
+  CorrectAnswer: all_tests <- merge(all_tests, literacy_tests)
+  AnswerTests: omnitest(correctExpr='all_tests <- merge(all_tests, literacy_tests)')
+  Hint: all_tests <- merge(all_tests, literacy_tests) should do the trick!
+
+- Class: cmd_question
+  Output: Congrats for passing these exercises! You conducted some cool data management.
+    If you want to explore the dataset further, type play() and swirl will ignore what you do.
+    Use nxt() to come back to the exercises. If you want to finnish the exercises, type "Im done".
+  CorrectAnswer: "Im done"
+  AnswerTests: omnitest(correctExpr='"Im done"')
+  Hint: 
