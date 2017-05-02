@@ -1,0 +1,286 @@
+- Class: meta
+  Course: RonR! third
+  Lesson: Reading and exploring data frames
+  Author: Jorge Cimentada from Daniel Ciganda's materials.
+  Type: Standard
+  Organization: RECSM, UPF
+  Version: 2.2.21
+ 
+- Class: text
+  Output: Hello! Welcome to the 1st lesson of the third RonR! seminar. On this lesson we will
+    talk about how to open text files, Excel files, SPSS, Stata and SAS files.
+
+- Class: cmd_question
+  Output: Okay, Let's start. First of all you need to know how to access your working directory
+    and how to set it. The working directory is simply the place where R will look for stuff
+    when you run any command. Please type getwd() to see your working directory.
+  CorrectAnswer: getwd()
+  AnswerTests: omnitest(correctExpr='getwd()')
+  Hint: Type getwd()
+
+- Class: text
+  Output: wd stands for working directory and 'get'..well..it's get your working directory.
+  
+- Class: text
+  Output: The working directory is the place where R will look for or save your stuff by default.
+    For example, if we use the save() function to save a data frame, it will, by default, save
+    the data frame to the current working directory. Alternatively, if we read a data set
+    using the read.csv() function, it will search in the working directory by default.
+  
+- Class: text
+  Output: You can change this directory with the setwd() function.
+    An example line would be setwd("your/new/path").
+    
+- Class: text
+  Output: Although this is easy, be sure to read more about setwd() because Windows
+    uses the '\' character while Mac uses the '/' character when defining paths. Frustrating
+    problems can arise from simple things like this one.
+    
+- Class: text
+  Output: This swirl lesson has a directory which contains all the files used to make
+    the lesson available. I created a vector called my_wd that contains this path.
+
+- Class: cmd_question
+  Output: Type my_wd to check the path if the course.
+  CorrectAnswer: my_wd
+  AnswerTests: omnitest(correctExpr='my_wd')
+  Hint: Type my_wd
+  
+- Class: cmd_question
+  Output: Awesome! Assigning the working directory is very easy. Simply use the setwd()
+    function and include my_wd as the first and only argument.
+  CorrectAnswer: setwd(my_wd)
+  AnswerTests: omnitest(correctExpr='setwd(my_wd)')
+  Hint: setwd() accepts only one argument, please specify your path as the first argument.
+
+- Class: cmd_question
+  Output: Now type getwd()
+  CorrectAnswer: getwd()
+  AnswerTests: omnitest(correctExpr='getwd()')
+  Hint: Type getwd().
+
+- Class: text
+  Output: When you installed the course we took the liberty of downloading a zip file.
+    This zip contains all datasets we'll use today so let's start by unziping that file
+    and then reading some datasets. The zip file is called data.zip so we first
+    have to find it.
+
+- Class: mult_question
+  Output: In R there's a function that returns all the files in a given directory. Which
+    one do you think it is?
+  AnswerChoices: file.create(); file.exists(); list.files()
+  CorrectAnswer: list.files()
+  AnswerTests: omnitest(correctVal= 'list.files()')
+  Hint: file.create and file.exists create and check for a file respectively.
+  
+- Class: cmd_question
+  Output: Try it out yourself! Include the course directory inside list.files()
+  CorrectAnswer: list.files(my_wd)
+  AnswerTests: omnitest(correctExpr='list.files(my_wd)')
+  Hint: If my_wd has the path and list.files() shows the files inside the path then..
+
+- Class: mult_question
+  Output: Can you spot the data.zip file? Where is it?
+  AnswerChoices: Its here; Its not here; Its probably in another folder
+  CorrectAnswer: Its probably in another folder
+  AnswerTests: omnitest(correctVal= 'Its probably in another folder')
+  Hint: Where is it??
+
+- Class: cmd_question
+  Output: So, it's probably in the datasets folder, right? We can check by using
+    a combination of functions. First, use file.path(my_wd, "datasets") to create
+    a file path to the new directory and wrap that in list.files().
+  CorrectAnswer: list.files(file.path(my_wd, "datasets"))
+  AnswerTests: omnitest(correctExpr='list.files(file.path(my_wd, "datasets"))')
+  Hint: Something along the lines of list.files(file.path(old_path, new_folder)) should do it.
+  
+- Class: cmd_question
+  Output: There it is! Before we continue, let's save this new path to my_wd. You should know
+    how to do it by now.
+  CorrectAnswer: my_wd <- file.path(my_wd, "datasets")
+  AnswerTests: omnitest(correctExpr='my_wd <- file.path(my_wd, "datasets")')
+  Hint: Remember file.path()? Use it with my_wd and "datasets" to create the new path and save it.
+  
+- Class: cmd_question
+  Output: Great, so let's unzip the file with the unzip() function. YES! You can actually
+    unzip files from R.. how cool, eh? So, first, set my_wd as the working directory. You
+    should know how to do it by now.
+  CorrectAnswer: setwd(my_wd)
+  AnswerTests: omnitest(correctExpr='setwd(my_wd)')
+  Hint: setwd() is the function that sets the working directory.
+  
+- Class: cmd_question
+  Output: Now, what's the name of the zip file? data.zip. Using the unzip()
+    function, include data.zip as a string in the first argument of unzip().
+  CorrectAnswer: unzip("data.zip")
+  AnswerTests: omnitest(correctExpr='unzip("data.zip")')
+  Hint: unzip() will unzip the files into your working directory by default,
+    so simply type "data.zip" inside unzip()
+  
+- Class: cmd_question
+  Output: Well, let's check if it worked. Type list.files() (list.files() checks the working
+    directory by default.)
+  CorrectAnswer: list.files()
+  AnswerTests: omnitest(correctExpr='list.files()')
+  Hint: Type list.files()
+  
+- Class: text
+  Output: Awesome! We can see there are .csv, .txt, .xlsx, .sav and .dta files! Those are some of
+    the datasets we'll use today.
+    
+- Class: text
+  Output: Let's being with the .txt files. Text files are simple files that contain text.
+    If you would open the folder of our working directory, you'd see that there's a file
+    called gripstrength.txt that we unzipped. Opening it, it shows a data-like structure
+    with every cell separated by a comma. Go ahead and look at it!
+
+- Class: text
+  Output: The read.table() function is our friend whenever we want to read these type of files.
+    This, and other related functions have many arguments we can specify in order to customize
+    how the dataset is read. I strongly encourage you to look at the documentation of ?read.table()
+    in detail when you have some time. For our purposes and in about 50%-60% of the time, you'll
+    use the first three arguments.
+
+- Class: cmd_question
+  Output: Very briefly, read through ?read.table to see what you can understand.
+  CorrectAnswer: ?read.table
+  AnswerTests: omnitest(correctExpr='?read.table')
+  Hint: Type ?read.table
+
+    
+- Class: mult_question
+  Output: Which are the first three arguments?
+  AnswerChoices: header, sep, file; header, file, row.names; header, col.names, row.names; header, file, sep
+  CorrectAnswer: header, file, sep
+  AnswerTests: omnitest(correctVal= 'header, file, sep')
+  Hint: Check out ?read.table
+  
+- Class: text
+  Output: The file argument will have the path to the .txt file (including the file name).
+    The header argument, if set to TRUE, will assume the first row of the file are the column names.
+    And finally, sep is the separator of each cell. Reading this data is easy because we know
+    all of these things. But first..
+    
+- Class: mult_question
+  Output: Is the first row of the .txt file the columns names?
+  AnswerChoices: Yes; No
+  CorrectAnswer: Yes
+  AnswerTests: omnitest(correctVal= 'Yes')
+  Hint: Check out the .txt file from our working directory (getwd() to see the path).
+
+- Class: cmd_question
+  Output: Ok, then read the dataset. First, create a character vector with the whole path
+    including the file name (use file.path() to create paths) and name it our_path. In case
+    you forgot, the file name is "gripstrength.txt".
+  CorrectAnswer: our_path <- file.path(getwd(), "gripstrength.txt")
+  AnswerTests: omnitest(correctExpr='our_path <- file.path(getwd(), "gripstrength.txt")')
+  Hint: Use file.path(), getwd() and "gripstrength.txt" to create a character vector named our_path.
+
+- Class: cmd_question
+  Output: I believe you can read the data on your own now. Using read.table(), read the
+    "gripstrength.txt" file. (Don't assign it any name yet)
+  CorrectAnswer: read.table(our_path, header = T, sep = ",")
+  AnswerTests: omnitest(correctExpr='read.table(our_path, header = T, sep = ",")')
+  Hint: You only have to fill in the first three arguments, first the path, then
+    header equal to TRUE or FALSE, depending on whether the first row are column names,
+    and then the separator of each cell, which if you remember was a ",".
+    
+- Class: text
+  Output: There you go! The nice thing about this is that once you understand read.table(),
+    the other read.*() functions are very similar to this one. For example, ?read.csv() is
+    used to read comma-separated data, a typical data structure from Excel. But behind the scenes
+    read.csv() calls read.table() with the sep argument set to "," by default and header = TRUE!
+    
+- Class: cmd_question
+  Output: If that's the case, inside the read.csv() function, create the file path to the 
+    "asfr752012ine1.csv" data and read it using read.csv().
+  CorrectAnswer: read.csv(file.path(getwd(), "asfr752012ine1.csv"))
+  AnswerTests: omnitest(correctExpr='read.csv(file.path(getwd(), "asfr752012ine1.csv"))')
+  Hint: Remember to create the file path to "asfr752012ine1.csv" using file.path() on the fly.
+    That is, without assigning it a name, but only as the first argument.
+    
+- Class: cmd_question
+  Output: If we knew that "asfr752012ine1.csv" was comma separated and the first row was
+    contained column names.. can you read it using the read.table() function instead?
+  CorrectAnswer: read.table(file.path(getwd(), "asfr752012ine1.csv"), header = T, sep = ",")
+  AnswerTests: omnitest(correctExpr='read.table(file.path(getwd(), "asfr752012ine1.csv"), header = T, sep = ",")')
+  Hint: Remember to create the file path to "asfr752012ine1.csv" using file.path() on the fly.
+    Then using read.table(), set header = T and sep = ",".
+    
+- Class: text
+  Output: Okay, I think you've really understood how this works. We haven't assigned a name
+    to any of these datasets but you could've saved each one to our R session.
+
+- Class: text
+  Output: In the same folder from where we've opened the .txt and .csv files, theres an .xls file.
+    This is the typical Excel file you save when your using a data set. The read.*() all belong to 
+    base R, that is, they're opened by default everytime you use R. For other data structures we need
+    to use other packages. For opening the .xls files we will use the readxl package.
+    
+- Class: cmd_question
+  Output: I took the liberty of installing the package. Why don't you load it with the
+    library() function?
+  CorrectAnswer: library(readxl)
+  AnswerTests: omnitest(correctExpr='library(readxl)')
+  Hint: library(readxl) should do it.
+
+- Class: cmd_question
+  Output: The main function from readxl is read_excel. It has similar arguments as the read.*()
+    functions so I think you'll be able to use it on your own. In short, use read_excel to read
+    the "INE_fempopJul1975.xlsx" dataset. Skip the first 9 rows (because they're useless text;
+    check the "INE_fempopJul1975.xlsx" file if you want to confirm this.). BUT THIS TIME..
+    save the data to the name fem_pop. If you get lost, checkout ?read_excel()
+  CorrectAnswer: fem_pop <- read_excel(file.path(getwd(), "INE_fempopJul1975.xlsx"), skip = 9)
+  AnswerTests: omnitest(correctExpr='fem_pop <- read_excel(file.path(getwd(), "INE_fempopJul1975.xlsx"), skip = 9)')
+  Hint: Remember to use file.path()! Something along these lines should do it new_data <- read_excel(file_to_path, skip = 9)
+
+# You left off here! You read the fem_pop data but you have to read it until row 51 because
+# then you get useless text in the data.
+
+- Class: text
+  Output: Let's make sense of the command = read the csv file "INE_fempopJul1975.csv", specify that it is comma
+    separated, skip the first 9 lines(because there's useless text there), read UP until row 51(because there's useless text after that)
+    and treat the first row as the column names
+    
+- Class: cmd_question
+  Output: Type View(femPop75)
+  CorrectAnswer: View(femPop75)
+  AnswerTests: omnitest(correctExpr='View(femPop75)')
+  Hint: Type View(femPop75)
+  
+- Class: text
+  Output: To read Stata, SPSS and SAS files you can use the Haven package. I took the liberty of installing
+    it and loading it for you. The three main functions are read_dta, read_spss, and read_sas, for Stata,
+    SPSS and SAS respectively.
+    
+- Class: text
+  Output: You have a dataset for each program in your working directory, let's read them.
+  
+- Class: cmd_question
+  Output: For the Stata file, we use the read_dta function. The correct expression would be read_dta("Egypt.dta").
+        Go ahead and try it yourself. 	http://www.stata-press.com/data/r8/auto.dta for reading from online
+  CorrectAnswer: read_dta("Egypt.dta")
+  AnswerTests: omnitest(correctExpr='read_dta("Egypt.dta")')
+  Hint: Type read_dta("Egypt.dta")
+  
+- Class: cmd_question
+  Output: For SPSS the logic is exactly the same, read_spss("Anxiety.sav") would read the Anxiety dataset from
+        the working directory. Go ahead and type it. https://cehd.gmu.edu/assets/dimitrovbook/Anxiety%202.sav
+  CorrectAnswer: read_spss("Anxiety.sav")
+  AnswerTests: omnitest(correctExpr='read_spss("Anxiety.sav")')
+  Hint: Type read_spss("Anxiety.sav")
+  
+- Class: cmd_question
+  Output: Following the same logic, try it for the SAS dataset. The dataset name is "airline.sas7bdat" and the 
+        function to use is read_sas. http://www.principlesofeconometrics.com/sas/airline.sas7bdat
+  CorrectAnswer: read_sas("airline.sas7bdat")
+  AnswerTests: omnitest(correctExpr='read_sas("airline.sas7bdat")')
+  Hint: 'You have to read the dataset using the read_sas function like this: read_sas("airline.sas7bdat")'
+ 
+- Class: text
+  Output: Reading datasets can be a complex topic and this is just the tip of the iceberg. For extra information
+    on each specific function you can type any of the functions presented here with a preceding ? in front.
+    For example, ?read.table or ?read_dta
+
+- Class: text
+  Output: put your text output here
