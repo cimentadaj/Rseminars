@@ -19,3 +19,9 @@ library(readxl)
 }
 
 my_wd <- .get_course_path()
+
+url_list <- list(
+  stata = "http://www.stata-press.com/data/r8/auto.dta",
+  spss = "https://cehd.gmu.edu/assets/dimitrovbook/Anxiety%202.sav",
+  sas = "http://www.principlesofeconometrics.com/sas/airline.sas7bdat"
+)

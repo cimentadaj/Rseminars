@@ -9,6 +9,9 @@
 - Class: text
   Output: Hello! Welcome to the 1st lesson of the third RonR! seminar. On this lesson we will
     talk about how to open text files, Excel files, SPSS, Stata and SAS files.
+    
+- Class: text
+  Output: 'Note: you will need an internet connection to complete this lesson!'
 
 - Class: cmd_question
   Output: Okay, Let's start. First of all you need to know how to access your working directory
@@ -223,64 +226,125 @@
   CorrectAnswer: library(readxl)
   AnswerTests: omnitest(correctExpr='library(readxl)')
   Hint: library(readxl) should do it.
-
+  
 - Class: cmd_question
   Output: The main function from readxl is read_excel. It has similar arguments as the read.*()
-    functions so I think you'll be able to use it on your own. In short, use read_excel to read
-    the "INE_fempopJul1975.xlsx" dataset. Skip the first 9 rows (because they're useless text;
-    check the "INE_fempopJul1975.xlsx" file if you want to confirm this.). BUT THIS TIME..
-    save the data to the name fem_pop. If you get lost, checkout ?read_excel()
-  CorrectAnswer: fem_pop <- read_excel(file.path(getwd(), "INE_fempopJul1975.xlsx"), skip = 9)
-  AnswerTests: omnitest(correctExpr='fem_pop <- read_excel(file.path(getwd(), "INE_fempopJul1975.xlsx"), skip = 9)')
-  Hint: Remember to use file.path()! Something along these lines should do it new_data <- read_excel(file_to_path, skip = 9)
+    functions so I think you'll be able to use it on your own. But first check the examples in
+    ?read_excel to get a quick understanding of how it works.
+  CorrectAnswer: ?read_excel
+  AnswerTests: omnitest(correctExpr='?read_excel')
+  Hint: Check out ?read_excel
 
-# You left off here! You read the fem_pop data but you have to read it until row 51 because
-# then you get useless text in the data.
-
-- Class: text
-  Output: Let's make sense of the command = read the csv file "INE_fempopJul1975.csv", specify that it is comma
-    separated, skip the first 9 lines(because there's useless text there), read UP until row 51(because there's useless text after that)
-    and treat the first row as the column names
-    
 - Class: cmd_question
-  Output: Type View(femPop75)
-  CorrectAnswer: View(femPop75)
-  AnswerTests: omnitest(correctExpr='View(femPop75)')
-  Hint: Type View(femPop75)
+  Output: Now, use read_excel to read the "INE_fempopJul1975.xlsx" dataset.
+    Read only from rows 10 to 61 (because they're useless text; check the
+    "INE_fempopJul1975.xlsx" file if you want to confirm this.). BUT THIS TIME..
+    save the data to the name fem_pop. I suggest you check out the second-last example
+    in ?read_excel for reading specific rows.
+  CorrectAnswer: fem_pop <- read_excel(file.path(getwd(), "INE_fempopJul1975.xlsx"), range = cell_rows(10:61))
+  AnswerTests: omnitest(correctExpr='fem_pop <- read_excel(file.path(getwd(), "INE_fempopJul1975.xlsx"), range = cell_rows(10:61))')
+  Hint: Remember to use file.path()! Something along these lines should do it
+    new_data <- read_excel(file_to_path, range = cell_rows(10:61))
+
+- Class: cmd_question
+  Output: Check it out by typing View(fem_pop)
+  CorrectAnswer: View(fem_pop)
+  AnswerTests: omnitest(correctExpr='View(fem_pop)')
+  Hint: Type View(fem_pop)
   
 - Class: text
-  Output: To read Stata, SPSS and SAS files you can use the Haven package. I took the liberty of installing
-    it and loading it for you. The three main functions are read_dta, read_spss, and read_sas, for Stata,
+  Output: Great, eh?? People have made reading excel files very easy in R with these packages.
+    Well, it looks like we've covered reading Excel files pretty well today. With these few
+    functions you can ready anything that is 'something'-delimited (such as "," or ";"),
+    text files or .xls and .xlsx.
+
+- Class: text
+  Output: Before we finish, let's talk about reading Stata, SPSS and SAS files, statistical
+    softwares very common in the social and health sciences.
+  
+- Class: text
+  Output: To read Stata, SPSS and SAS files you can use the haven package. I took the liberty of installing
+    it for you with install.packages(). The three main functions are read_dta, read_spss, and read_sas, for Stata,
     SPSS and SAS respectively.
+
+- Class: cmd_question
+  Output: Load the package with library()
+  CorrectAnswer: library(haven)
+  AnswerTests: omnitest(correctExpr='library(haven)')
+  Hint: Type library(haven)
     
 - Class: text
-  Output: You have a dataset for each program in your working directory, let's read them.
+  Output: I forgot to download the datasets so we're gonna have to read them over the internet.
   
 - Class: cmd_question
-  Output: For the Stata file, we use the read_dta function. The correct expression would be read_dta("Egypt.dta").
-        Go ahead and try it yourself. 	http://www.stata-press.com/data/r8/auto.dta for reading from online
-  CorrectAnswer: read_dta("Egypt.dta")
-  AnswerTests: omnitest(correctExpr='read_dta("Egypt.dta")')
-  Hint: Type read_dta("Egypt.dta")
+  Output: I've created an object which contains the links to each dataset. Type ls() to see all
+    objects that you have at your disposal.
+  CorrectAnswer: ls()
+  AnswerTests: omnitest(correctExpr='ls()')
+  Hint: Type ls()
+  
+- Class: mult_question
+  Output: What's the name of the object we're looking for?
+  AnswerChoices: my_wd; packages; our_path; url_list; pkgs_to_install; anxiety; my_wd
+  CorrectAnswer: url_list
+  AnswerTests: omnitest(correctVal= 'url_list')
+  Hint: url..link...are they the same thing?
   
 - Class: cmd_question
-  Output: For SPSS the logic is exactly the same, read_spss("Anxiety.sav") would read the Anxiety dataset from
-        the working directory. Go ahead and type it. https://cehd.gmu.edu/assets/dimitrovbook/Anxiety%202.sav
-  CorrectAnswer: read_spss("Anxiety.sav")
-  AnswerTests: omnitest(correctExpr='read_spss("Anxiety.sav")')
-  Hint: Type read_spss("Anxiety.sav")
+  Output: We don't know what this object is.. it could be a massive data frame, or a very long list.
+    If we typed its name we would get a veeeeery long output and R could even possibly crash. For
+    that reason, we can use str() to check the structure of the object. Include the name of the
+    object inside the str() function.
+  CorrectAnswer: str(url_list)
+  AnswerTests: omnitest(correctExpr='str(url_list)')
+  Hint: Type str(url_list)
+  
+- Class: text
+  Output: Oh, we were wrong. This is a very short object. We have a named list (because each object
+    has a name preceded by the $ sign, ring a bell?) with each link as a separate object. If you
+    remember well, we can subset lists just as we can subset data frames, either by using the
+    $ sign and the name or the double brackets ([[ ]]) with the desired index inside.
   
 - Class: cmd_question
-  Output: Following the same logic, try it for the SAS dataset. The dataset name is "airline.sas7bdat" and the 
-        function to use is read_sas. http://www.principlesofeconometrics.com/sas/airline.sas7bdat
-  CorrectAnswer: read_sas("airline.sas7bdat")
-  AnswerTests: omnitest(correctExpr='read_sas("airline.sas7bdat")')
-  Hint: 'You have to read the dataset using the read_sas function like this: read_sas("airline.sas7bdat")'
+  Output: Let's read some data! For the Stata file, we can use the read_dta function.
+    Using this function and url_list, read the stata url using the $ operator. Don't save it to a name.
+  CorrectAnswer: read_dta(url_list$stata)
+  AnswerTests: omnitest(correctExpr='read_dta(url_list$stata)')
+  Hint: Type read_dta(url_list$stata)
+  
+- Class: cmd_question
+  Output: For SPSS the logic is exactly the same, but with read_spss. Assign it the name anxiety.
+  CorrectAnswer: anxiety <- read_spss(url_list$spss)
+  AnswerTests: omnitest(correctExpr='anxiety <- read_spss(url_list$spss)')
+  Hint: Type anxiety <- read_spss(url_list$spss)
+  
+- Class: cmd_question
+  Output: Following the same logic, try it for the SAS dataset. No name needed.
+  CorrectAnswer: read_sas(url_list$sas)
+  AnswerTests: omnitest(correctExpr='read_sas(url_list$sas)')
+  Hint: 'You have to read the dataset using the read_sas function like this
+    read_sas(url_list$sas)'
+ 
+- Class: text
+  Output: The haven package also has write_*() functions. When you have some time, check out
+    ?read_spss, ?read_stata and ?read_sas. You can easily read or write these files. Let's try
+    it out before we finish.
+    
+- Class: cmd_question
+  Output: For example, write_sav() will save your dataset to the .sav format (SPSS format). It takes only
+    two arguments, data and path. As you might've figure out, the first one accepts the dataset
+    you want to save and path wants to know the path and name of the new file in one single string.
+    Using this function and everything you've learned, save the anxiety data to our working directory
+    with the name anxiety.
+  CorrectAnswer: write_sav(anxiety, file.path(getwd(), "anxiety.sav"))
+  AnswerTests: omnitest(correctExpr='write_sav(anxiety, file.path(getwd(), "anxiety.sav"))')
+  Hint: Which ingredients do you need? write_sav(), file.path(), getwd() and "anxiety.sav". Yes,
+    you need to assign the name with the file extension!
  
 - Class: text
   Output: Reading datasets can be a complex topic and this is just the tip of the iceberg. For extra information
     on each specific function you can type any of the functions presented here with a preceding ? in front.
-    For example, ?read.table or ?read_dta
+    For example, ?read.table or ?read_dta to find more information.
 
 - Class: text
-  Output: put your text output here
+  Output: Great work!
