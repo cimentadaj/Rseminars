@@ -7,73 +7,176 @@
   Version: 2.2.21
  
 - Class: text
-  Output: Hello and welcome to the second lesson of the 3rd RonR! Seminar. In this lesson we're gonna cover
-        some basic data manipulation like creating, renaming and recoding variables. In addition,
-        we will cover how to subset and filter a data set.
+  Output: Hello and welcome to the second lesson of the 3rd seminar. In this lesson we're gonna cover
+    some basic data manipulation like creating, renaming and recoding variables. In addition,
+    we will cover how to subset and filter a data set.
         
 - Class: text
-  Output: We're gonna use two datasets that have been already loaded into your working directory. asfr7512
-        was the data frame we used in the past lesson and asfr1314 are two additional years of the asfr7512
-        data frame.
-        
-- Class: text
-  Output: Both these datasets contain fertility rates for ages between 15 to 50. asfr7512 contains data from 1975
-        to 2012 whereas asfr1314 contains data from years 2013 and 2014.
+  Output: We're gonna be using two of the datasets we opened in the previous lesson. Both
+    datasets contain fertility rates for ages between 15 to 50. asfr7512 contains data from 1975
+    to 2012 whereas asfr1314 contains data from years 2013 and 2014.
         
 - Class: cmd_question
-  Output: Type head(asfr7512) to have a quick look at what we're working with.
+  Output: Take a look at the head of asfr7512.
   CorrectAnswer: head(asfr7512)
   AnswerTests: omnitest(correctExpr='head(asfr7512)')
-  Hint: Type head(asfr7512)
+  Hint: Use the head() function to take a look at the first few rows.
   
 - Class: cmd_question
-  Output: Type head(asfr1314) to see the other dataset
+  Output: Do the same for asfr1314
   CorrectAnswer: head(asfr1314)
   AnswerTests: omnitest(correctExpr='head(asfr1314)')
-  Hint: Type head(asfr1314)
+  Hint: Use the head() function to take a look at the first few rows.
+  
+- Class: cmd_question
+  Output: Check whether both datasets have the same number of rows. Do not use dim() but
+    directly the nrow() function. Start with asfr7512.
+  CorrectAnswer: nrow(asfr7512)
+  AnswerTests: omnitest(correctExpr='nrow(asfr7512)')
+  Hint: asfr7512 should be the only argument of nrow()
+  
+- Class: cmd_question
+  Output: Repeat for asfr1314.
+  CorrectAnswer: nrow(asfr1314)
+  AnswerTests: omnitest(correctExpr='nrow(asfr1314)')
+  Hint: asfr1314 should be the only argument of nrow()
   
 - Class: text
-  Output: We have two datasets which have THE SAME number of rows and we would like to merge them together.
+  Output: We have two datasets which have THE SAME number of rows and we would like
+    to merge them together (because they complement each other, one has two extra years).
   
 - Class: text
-  Output: 'We can use the cbind() function which stands for column bind. Its arguments are straightforward:
-    cbind(object1,object2,.....objectN). As long as the objects have the same number of rows, cbind()
-    will combine everything into one data frame.'
+  Output: 'We can use the cbind() function which stands for column bind. Its arguments are
+    straightforward: cbind(object1, object2,..... objectN). As long as the objects have the
+    same number of rows, cbind() will combine everything into one data frame.'
 
 - Class: cmd_question
   Output: 'You should be able to combine both datasets without my help. Try it using these pointers:
         using cbind, include the datasets asfr7512 and asfr1314 as arguments.'
-  CorrectAnswer: cbind(asfr7512,asfr1314)
-  AnswerTests: omnitest(correctExpr='cbind(asfr7512,asfr1314)')
-  Hint: We have two datasets which have to be used as the arguments of cbind. The correct expression would be cbind(asfr7512,asfr1314)
+  CorrectAnswer: cbind(asfr7512, asfr1314)
+  AnswerTests: omnitest(correctExpr='cbind(asfr7512, asfr1314)')
+  Hint: We have two datasets which have to be used as the arguments of cbind.
+    The correct expression would be cbind(asfr7512, asfr1314).
   
 - Class: mult_question
-  Output: Perfect! R binded both datasets. But, there seems to be two problems we need to consider. Have a look
-        at the last three columns. Which seem to be the problems?
-  AnswerChoices: I don't see any problem;The three last columns are not in the correct order;Year 2013 is repated twice;Year 2013 is repeated twice and the order of 2014 and 2013 needs to be reversed
-  CorrectAnswer: Year 2013 is repeated twice and the order of 2014 and 2013 needs to be reversed
-  AnswerTests: omnitest(correctVal= 'Year 2013 is repeated twice and the order of 2014 and 2013 needs to be reversed')
+  Output: Perfect! R binded both datasets without an error. But, there seems to be two
+    problems we need to consider. Have a look at the last three columns. Which seems to
+    be the problems?
+  AnswerChoices: I don't see any problem; The three last columns are not in the correct order; Year 2013 is empty and Year 2014 is a character; Year 2013 is repeated twice and the order of cols is wrong; Column orders are wrong;
+  CorrectAnswer: Year 2013 is repeated twice and the order of cols is wrong
+  AnswerTests: omnitest(correctVal= 'Year 2013 is repeated twice and the order of cols is wrong')
   
 - Class: text
   Output: Let's divide the problem into two parts. First, the last column of the asfr7512 is empty,
-        we need to delete it. Second, the order of the column in asfr1314 is incorrect and
-        we need to reverse it. These two problems can be easily solved separetly and THEN
+        we need to delete it. Second, the order of the columns in asfr1314 is incorrect and
+        we need to reverse it. These two problems can be easily solved separately and THEN
         column bind the datasets.
 
 - Class: text
-  Output: Since you are already an R expert, we're gonna write it all in one expression
+  Output: Let's begin with the first problem.
   
 - Class: cmd_question
-  Output: The expression would read like this = bind asfr7512 without its last column with
-        asfr1314 but reversing its order. The correct expression would be like this
-        asfr <- cbind(asfr7512[, -ncol(asfr7512)], rev(asfr1314)). Type it yourself.
-  CorrectAnswer: asfr <- cbind(asfr7512[, -ncol(asfr7512)], rev(asfr1314))
-  AnswerTests: omnitest(correctExpr='asfr <- cbind(asfr7512[, -ncol(asfr7512)], rev(asfr1314))')
-  Hint: Type asfr <- cbind(asfr7512[, -ncol(asfr7512)], rev(asfr1314))
+  Output: Deleting columns in R is very easy. You can, for example, simply exclude the column.
+    We can do that by subsetting all columns except the one you're interested in deleting. If
+    there's 40 columns in asfr7512 and we want to exclude the last one, how would you do it?
+    Don't save your results yet.
+  CorrectAnswer: asfr7512[, 1:39]
+  AnswerTests: omnitest(correctExpr='asfr7512[, 1:39]')
+  Hint: We need to subset from column 1 to column 39 (excluding column 40). We do that with this
+    skeleton data[, index of columns].
+    
+- Class: cmd_question
+  Output: Another solution would be to only exclude the 40th column. We could do that very similarly
+    to the previous answer but instead of choosing 1:39, we directly delete the 40th column.
+    How do you think we could do that?
+  CorrectAnswer: asfr7512[, -40]
+  AnswerTests: omnitest(correctExpr='asfr7512[, -40]')
+  Hint: The minus (-) sign is key here. Use the minus sign to remove only the 40th column.
+    
+- Class: cmd_question
+  Output: That makes sense.. but in both examples we didn't really "delete" the column, we actually
+    excluded it. There are many other ways how to properly deleted a column. One is to assign
+    the column to NULL. Take asfr7512 and assign the 40th column to NULL. No need to save anything.
+  CorrectAnswer: asfr7512[, 40] <- NULL
+  AnswerTests: omnitest(correctExpr='asfr7512[, 40] <- NULL')
+  Hint: Take the data[, 40], which subsets the 40th column and assign it a NULL.
+  
+- Class: cmd_question
+  Output: To me, that's the most concise approach because we don't have to save anything. Don't
+    believe me? Check the first few rows of asfr7512.
+  CorrectAnswer: head(asfr7512)
+  AnswerTests: omnitest(correctExpr='head(asfr7512)')
+  Hint: Type head(asfr7512)
   
 - Class: text
-  Output: Take a moment to go over the code and understand what we did
+  Output: Without resaving the data frame, we set the column to NULL and now the data frame doesn't
+    have the column.. cool, eh!? There are other ways of deleting columns but these approaches
+    should have you ready for your own analysis.
+    
+- Class: text
+  Output: One problem fixed! Now we have to go to asfr1314 and reverse the column order, right?
+
+- Class: cmd_question
+  Output: Visualize the first few rows of asfr1314.
+  CorrectAnswer: head(asfr1314)
+  AnswerTests: omnitest(correctExpr='head(asfr1314)')
+  Hint: Type head(asfr1314)
+
+- Class: cmd_question
+  Output: Alright so column two needs to be in the first position and column one in the second
+    position. Following this approach, the most logical thing to do is to subset c(2, 1) in
+    the column index of the data frame, no? Try it.
+  CorrectAnswer: asfr1314[, c(2, 1)]
+  AnswerTests: omnitest(correctExpr='asfr1314[, c(2, 1)]')
+  Hint: Include the vector c(2, 1) inside the column subsetting in the brackets.
   
+- Class: cmd_question
+  Output: Thats a very clean way of doing it. But usually we don't have such small datasets.
+    Sometimes we have 250 columns or more. We usually want to subset by column names, instead
+    of by indexes (+ imagine that the columns are not next to each other! so something like
+    c(235, 43)). Following the same approach but using the column names in a character vector,
+    subset the columns.
+  CorrectAnswer: asfr1314[, c("X2013", "X2014")]
+  AnswerTests: omnitest(correctExpr='asfr1314[, c("X2013", "X2014")]')
+  Hint: Use the vector c("X2013", "X2014") as the subsetter.
+  
+- Class: text
+  Output: Let's go back to the core rules. After the comma, inside the brackets, you subset columns.
+    Before the comma you subset rows. After the comma you can use either the column index (such as
+    c(1, 2, 7, 8) or 1:10 to get the first 10 columns) or you can subset columns by their names.
+    Subsetting columns by their names is usually better because we don't have to worry about
+    where the columns are, which is very tedious. However, if the names are very tricky, like the
+    ones here, it's difficult to write.
+
+- Class: cmd_question
+  Output: Oh I forgot. We didn't save our dataset when we subsetted the previous columns!
+    Copy the previous answer and assign it the same name asfr1314.
+  CorrectAnswer: asfr1314 <- asfr1314[, c("X2013", "X2014")]
+  AnswerTests: omnitest(correctExpr='asfr1314 <- asfr1314[, c("X2013", "X2014")]')
+  Hint: Something like this data <- data[previous answer]
+
+- Class: cmd_question
+  Output: Great! Now cbind() those two badboys together and call the new dataset fertility_years.
+  CorrectAnswer: fertility_years <- cbind(asfr7512, asfr1314)
+  AnswerTests: omnitest(correctExpr='fertility_years <- cbind(asfr7512, asfr1314)')
+  Hint: Something like this new_name <- cbind(data1, data2)
+
+- Class: cmd_question
+  Output: Check everything is correct by using head()
+  CorrectAnswer: head(fertility_years)
+  AnswerTests: omnitest(correctExpr='head(fertility_years)')
+  Hint: head(fertility_years) gives you the first few rows.
+  
+- Class: text
+  Output: Good job!
+  
+# You cbinded the columns together to have a nice df. Next thing is to change column names
+# Do it manually, and then using the names function to do it very quickly.
+
+# Create a dummy for above/below some years.
+
+# Do some row subsetting.
+
 - Class: text
   Output: The only thing you shouldn't be familiar here is the rev() function. But don't worry about it,
     it simply takes anything, a vector, data frame and reverses the order of its contents.
