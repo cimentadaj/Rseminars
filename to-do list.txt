@@ -6,7 +6,7 @@ previously and redirect to installation
 
 Second seminar:
 - Create separate lesson for factors
-- Create challenge as final lesson
 
 Third seminar:
 - Create challange as last lesson
+- Updated README that includes installation and links to second seminar README.
