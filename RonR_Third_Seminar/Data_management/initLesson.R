@@ -3,7 +3,14 @@
 # the user's working directory and thus be accessible to them
 # throughout the lesson.
 
-asfr7512 <- read.table("./data/asfr752012ine1.csv", sep=",", header = TRUE)
-asfr1314 <- read.table("./data/asfr1314ine.txt", sep="", header= TRUE)
+.get_course_path <- function(){
+  tryCatch(swirl::swirl_courses_dir(),
+           error = function(c) {
+             file.path(find.package("swirl"), "Courses", "RonR_Third_Seminar", "Data_management", "data")
+           }
+  )
+}
 
-even <- seq(2,40,2)
+data_dir <- .get_course_path()
+
+even <- seq(2, 40, 2)

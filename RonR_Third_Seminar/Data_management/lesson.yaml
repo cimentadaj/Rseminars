@@ -15,6 +15,25 @@
   Output: We're gonna be using two of the datasets we opened in the previous lesson. Both
     datasets contain fertility rates for ages between 15 to 50. asfr7512 contains data from 1975
     to 2012 whereas asfr1314 contains data from years 2013 and 2014.
+    
+- Class: cmd_question
+  Output: Let's start by reading the datasets. I created the path to where the data is in the
+    data_dir vector. Using file.path(), data_dir and "asfr752012ine1.csv", read.csv() the file
+    and assign it the name asfr7512.
+  CorrectAnswer: asfr7512 <- read.csv(file.path(data_dir, "asfr752012ine1.csv"))
+  AnswerTests: omnitest(correctExpr='asfr7512 <- read.csv(file.path(data_dir, "asfr752012ine1.csv"))')
+  Hint: Your code should be something like new_name <- read.csv(complete_path.csv). Remember
+    to use file.path() and the path and filename.csv to create the complete path.
+    
+- Class: cmd_question
+  Output: Awesome. Now we have to read the asfr1314ine.txt file. This text file, however,
+    has no-space delimited ("") rather than comma-delimited. Remember last lesson? Which function
+    should we use instead of read.csv()? Following the same path and with this new name, do it
+    yourself. Assign it the name asfr1314.
+  CorrectAnswer: asfr1314 <- read.table(file.path(data_dir, "asfr1314ine.txt"), sep = "")
+  AnswerTests: omnitest(correctExpr='asfr1314 <- read.table(file.path(data_dir, "asfr1314ine.txt"), sep = "")')
+  Hint: The answer is the same as the previous one but swaping read.csv() for read.table(),
+    the file names and specifying the 'sep' argument to be equal to "".
         
 - Class: cmd_question
   Output: Take a look at the head of asfr7512.
@@ -170,11 +189,99 @@
 - Class: text
   Output: Good job!
   
-# You cbinded the columns together to have a nice df. Next thing is to change column names
-# Do it manually, and then using the names function to do it very quickly.
+- Class: text
+  Output: I don't know about you but to me the columns names are a bit ugly. What is it
+    about the X000 format? We could do something much more easy to write, like the year alone.
 
+- Class: cmd_question
+  Output: Let's start small. We could change the variable name by creating a new variable
+    with a different name, no? Follow these guidelines; assign fertility_years$X2014 to
+    fertility_years$last_year
+  CorrectAnswer: fertility_years$last_year <- fertility_years$X2014
+  AnswerTests: omnitest(correctExpr='fertility_years$last_year <- fertility_years$X2014')
+  Hint: data$new_var_name <- data$old_var_name
+    
+- Class: cmd_question
+  Output: Check the output with head()
+  CorrectAnswer: head(fertility_years)
+  AnswerTests: omnitest(correctExpr='head(fertility_years)')
+  Hint: head(fertility_years) should do it!
+  
+- Class: text
+  Output: Check the last column. Same variable but with a different name! We could complement this
+    by setting X2014 to NULL to delete the old column for good. This approach is useful sometimes,
+    but not for when you want to change, let's say, all column names!
+    
+- Class: text
+  Output: For that we have to use another strategy, like the names() function. I think an example
+    will be much more informative.
+    
+- Class: cmd_question
+  Output: Type names(fertility_years)
+  CorrectAnswer: names(fertility_years)
+  AnswerTests: omnitest(correctExpr='names(fertility_years)')
+  Hint: Type names(fertility_years).
+
+- Class: cmd_question
+  Output: You get all column names. The interesting thing is that we can change specific names
+    by assigning a string to specific names. Follow me on this one; write names(fertility_years)
+    and next to it subset only the first string with the `[]` brackets. Next to this assign (<-)
+    the name "age" in lowercase.
+  CorrectAnswer: names(fertility_years)[1] <- "age"
+  AnswerTests: omnitest(correctExpr='names(fertility_years)[1] <- "age"')
+  Hint: This should be the approach names(data)[index_to_change] <- "new_name"
+  
+- Class: cmd_question
+  Output: If you remembered correctly, "Age" was written with a capital "A". Check if that's
+    the case now with head(fertility_years)
+  CorrectAnswer: head(fertility_years)
+  AnswerTests: omnitest(correctExpr='head(fertility_years)')
+  Hint: Type head(fertility_years).
+  
+- Class: cmd_question
+  Output: Good job! Let's take it every further. Let's change all column names. Let's start by
+    creating the names vector. Create a vector with "AGE" as the first string, and then, inside
+    the vector, also create a seq() from 1975 to 2014. Wrap the whole seq() expression with as.character()
+    because we can't have 'numeric' names! Assign it the name new_name.
+  CorrectAnswer: new_name <- c("AGE", as.character(seq(1975, 2014)))
+  AnswerTests: omnitest(correctExpr='new_name <- c("AGE", as.character(seq(1975, 2014)))')
+  Hint: The structure should be similar to this one; vector <- c("var_name", as.character(sequence))
+  
+- Class: cmd_question
+  Output: Awesome! Now let's simply assign this vector to names(fertility_years)
+  CorrectAnswer: names(fertility_years) <- new_name
+  AnswerTests: omnitest(correctExpr='names(fertility_years) <- new_name')
+  Hint: Take names(fertility_years) and <- the new_name vector.
+  
+- Class: cmd_question
+  Output: Check all names are correct with head(fertility_years)
+  CorrectAnswer: head(fertility_years)
+  AnswerTests: omnitest(correctExpr='head(fertility_years)')
+  Hint: Use head(fertility_years)
+  
+- Class: cmd_question
+  Output: Surprise quiz! Using names() and fertility_years, can you change the
+    LAST column name to "extra_variable"? Remember the `[]` to subset the last column.
+    Use PLAIN numbers, not functions like ncol() (don't worry if you don't know what
+    I'm talking about.)
+  CorrectAnswer: names(fertility_years)[42] <- "extra_variable"
+  AnswerTests: omnitest(correctExpr='names(fertility_years)[42] <- "extra_variable"')
+  Hint: Okay, I'll give you a hint! It's the 42nd column. names(data)[42] <- "new_var"
+    should do it.
+    
+- Class: cmd_question
+  Output: Another surprise quiz! Can you now change the second and eleventh
+    names to "cold_war" and "orwell"?
+  CorrectAnswer: names(fertility_years)[c(2, 11)] <- c("cold_war", "orwell")
+  AnswerTests: omnitest(correctExpr='names(fertility_years)[c(2, 11)] <- c("cold_war", "orwell")')
+  Hint: C'mon! It's the same answer as before but instead using c(2, 11) and assigning two
+    names inside a vector!
+    
+- Class: text
+  Output: Very good job! You're getting good at this.
+  
 # Create a dummy for above/below some years.
-
+# Do some recoding
 # Do some row subsetting.
 
 - Class: text
