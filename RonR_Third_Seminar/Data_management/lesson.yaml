@@ -280,181 +280,136 @@
 - Class: text
   Output: Very good job! You're getting good at this.
   
-# Create a dummy for above/below some years.
-# Do some recoding
-# Do some row subsetting.
-
 - Class: text
-  Output: The only thing you shouldn't be familiar here is the rev() function. But don't worry about it,
-    it simply takes anything, a vector, data frame and reverses the order of its contents.
-    
-- Class: cmd_question
-  Output: Let's see the result! Type asfr
-  CorrectAnswer: asfr
-  AnswerTests: omnitest(correctExpr='asfr')
-  Hint: Type asfr
-  
-- Class: text
-  Output: The data is complete now. Before moving into recoding, let's do a final test on indexing columns.
+  Output: The data is complete now. Before moving into recoding, let's do a final test on
+    indexing columns.
 
 - Class: mult_question
   Output: All of our columns are years except the first one, which is age. Suppose
         we want to divide all columns except the first one by 1000 and ASSIGN our changes to our
         dataset. What would be the correct expression?
-  AnswerChoices: asfr[,2:ncol(asfr)] <- asfr[,2:ncol(asfr)]/1000;asfr[2:ncol(asfr)] <- asfr[2:ncol(asfr)]/1000;asfr[,2:ncol(asfr)]/1000
-  CorrectAnswer: asfr[,2:ncol(asfr)] <- asfr[,2:ncol(asfr)]/1000
-  AnswerTests: omnitest(correctVal='asfr[,2:ncol(asfr)] <- asfr[,2:ncol(asfr)]/1000')
+  AnswerChoices: fertility_years[,2:ncol(fertility_years)] <- fertility_years[,2:ncol(fertility_years)]/1000;fertility_years[2:ncol(fertility_years)] <- fertility_years[2:ncol(fertility_years)]/1000;fertility_years[,2:ncol(fertility_years)]/1000
+  CorrectAnswer: fertility_years[,2:ncol(fertility_years)] <- fertility_years[,2:ncol(fertility_years)]/1000
+  AnswerTests: omnitest(correctVal='fertility_years[,2:ncol(fertility_years)] <- fertility_years[,2:ncol(fertility_years)]/1000')
   
-- Class: text
-  Output: You might not have noticed but the there were TWO correct answers. I'll let you discover
-        which ones they were on your own ;)
-        
 - Class: text
   Output: Let's move on to recoding variables. Remember that our first variable in the dataset is
     Age from 15 to 50. Suppose we want to create a new variable that will give the value
     1 people between age 15 and 20, a value of 2 for people between 20 and 25, and so on.. until age 50.
     
 - Class: text
-  Output: Let's start by creating our new variable. To call any variable form a data frame we use the $ sing.
-    Example = asfr$variablename. In order to create a variable we do the same but with a new name.
-    We want to create a new variable named ageG that contains NA (missing values). 
+  Output: Let's start by creating our new 'recoded' variable.
     
 - Class: cmd_question
-  Output: We could do that by typing asfr$ageG <- NA. Do it yourself.
-  CorrectAnswer: asfr$ageG <- NA
-  AnswerTests: omnitest(correctExpr='asfr$ageG <- NA')
-  Hint: Type asfr$ageG <- NA
+  Output: Create a new column in fertility_years called 'ageG' which only contains NA.
+  CorrectAnswer: fertility_years$ageG <- NA
+  AnswerTests: omnitest(correctExpr='fertility_years$ageG <- NA')
+  Hint: Type fertility_years$ageG <- NA
   
 - Class: mult_question
-  Output: Our desired expression will read like this = take asfr$ageG(which is full of missing values) and where
-        asfr$Age is bigger or equal to 15 and asfr$Age is less than 20, assign ageG to group 1.
-        Following this exact sentence, what is the correct expression?
-  AnswerChoices: asfr$ageG[asfr$Age >= 15 & asfr$Age < 20] <- 1;asfr$ageG[ ,asfr$Age >= 15 & asfr$Age < 20] <- 1;asfr$ageG  <- asfr$Age >= 15 & asfr$Age < 20 <- 1;asfr$ageG[asfr$Age >= 15 & < 20] <- 1
-  CorrectAnswer: asfr$ageG[asfr$Age >= 15 & asfr$Age < 20] <- 1
-  AnswerTests: omnitest(correctVal= 'asfr$ageG[asfr$Age >= 15 & asfr$Age < 20] <- 1')
+  Output: For recoding, our desired expression will read like this.. take fertility_years$ageG
+    (which is full of missing values) and where fertility_years$AGE is bigger or equal to 15 and
+    fertility_years$AGE is also less than 20, assign ageG to group 1. Following this exact sentence,
+    what is the correct expression?
+  AnswerChoices: fertility_years$ageG[fertility_years$AGE >= 15 & fertility_years$AGE < 20] <- 1;fertility_years$ageG[ ,fertility_years$AGE >= 15 & fertility_years$AGE < 20] <- 1;fertility_years$ageG  <- fertility_years$AGE >= 15 & fertility_years$AGE < 20 <- 1;fertility_years$ageG[fertility_years$AGE >= 15 & < 20] <- 1
+  CorrectAnswer: fertility_years$ageG[fertility_years$AGE >= 15 & fertility_years$AGE < 20] <- 1
+  AnswerTests: omnitest(correctVal= 'fertility_years$ageG[fertility_years$AGE >= 15 & fertility_years$AGE < 20] <- 1')
   
 - Class: cmd_question
   Output: Higher or equal to 15 and smaller than 20 is the first age group. The second age group
-        would be higher or equal to 20 and smaller than 25. Type asfr$ageG[asfr$Age>=20 & asfr$Age<25] <- 2
-        to get the correct result.
-  CorrectAnswer: asfr$ageG[asfr$Age>=20 & asfr$Age<25] <- 2
-  AnswerTests: omnitest(correctExpr='asfr$ageG[asfr$Age>=20 & asfr$Age<25] <- 2')
-  Hint: Type asfr$ageG[asfr$Age>=20 & asfr$Age<25] <- 2
+        would be higher or equal to 20 and smaller than 25. Following the previous answer,
+        repeat the same as before but for 20 and 25.
+  CorrectAnswer: fertility_years$ageG[fertility_years$AGE>=20 & fertility_years$AGE<25] <- 2
+  AnswerTests: omnitest(correctExpr='fertility_years$ageG[fertility_years$AGE>=20 & fertility_years$AGE<25] <- 2')
+  Hint: Type something like data$recoded_var[data$var_to_recode>=20 & data$var_to_recode<25] <- 2
   
 - Class: text
   Output: We won't do it for all age groups but the SAME sequence would go up to the 7th age group,
         which would be between 45 and 50 years.
         
 - Class: text
-  Output: There are much more efficient ways of doing this using loops and packages(such as
+  Output: There are much more easy and efficient ways of doing this using loops and packages(such as
         car) but those are more advanced topics that you will learn in future lessons.
 
-- Class: cmd_question
-  Output: I don't know if you noticed but our variable names are incorrect. Type names(asfr) or colnames(asfr)
-        to see the names of the columns.
-  CorrectAnswer: any_of_exprs("names(asfr)", "colnames(asfr)")
-  AnswerTests: any_of_exprs("names(asfr)", "colnames(asfr)")
-  Hint: Type names(asfr) or colnames(asfr)
-  
-- Class: text
-  Output: Let's change all column year names to exclude the X in front. Thinking it through,
-        we could just take the vector of column names, exclude the first(Age) and last(ageG) column and
-        replace the years with the correct year numbers.
-        
-- Class: cmd_question
-  Output: Let's start by getting the vector without the first and last column. You can do so by typing
-        colnames(asfr)[2:(ncol(asfr)-1)]. Try it.
-  CorrectAnswer: colnames(asfr)[2:(ncol(asfr)-1)]
-  AnswerTests: omnitest(correctExpr='colnames(asfr)[2:(ncol(asfr)-1)]')
-  Hint: Type colnames(asfr)[2:(ncol(asfr)-1)]
-  
-- Class: text
-  Output: Go over this line of code again. We take colnames(asfr) and we subset its contents from
-        the second position UNTIL the last column, minus 1. ncol(asfr)-1 in this case would equal 41 because
-        the dataframe has 42 columns minus 1.
-
-- Class: cmd_question
-  Output: That expression gives us the correct vector. Now we need to replace the column names with
-        the correct ones. We need years from 1975 to 2014. Using the seq() function this is really simple.
-        Try seq(1975,2014,1).
-  CorrectAnswer: seq(1975,2014,1)
-  AnswerTests: omnitest(correctExpr='seq(1975,2014,1)')
-  Hint: Type seq(1975,2014,1)
-  
-- Class: cmd_question
-  Output: Now put everything together, colnames(asfr)[2:(ncol(asfr)-1)] <- seq(1975, 2014,1). Type it!
-  CorrectAnswer: colnames(asfr)[2:(ncol(asfr)-1)] <- seq(1975, 2014,1)
-  AnswerTests: omnitest(correctExpr='colnames(asfr)[2:(ncol(asfr)-1)] <- seq(1975, 2014,1)')
-  Hint: Put everything together by typing colnames(asfr)[2:(ncol(asfr)-1)] <- seq(1975, 2014,1)
-  
-- Class: text
-  Output: We could've deleted the ageG column to exclude the -1 from the expression. We could have done it
-        easily by assigning the desired column to NULL; asfr$ageG <- NULL would be the equivalent
-        
 - Class: mult_question
-  Output: Surpise quiz! Suppose I have a vector named 'even' which has the sequence c(2,4,6,8..) up until the 
-        number of columns of the dataset. If I wanted to work only with the even years of the dataset,
-        which expression would do the trick? Remember that the first column is Age and the last column
-        is ageG, so you have to delete them.
-  AnswerChoices: asfr[, -c(1,ncol(asfr)][,even];asfr[, even];asfr[ -c(1,ncol(asfr)) , even];asfr[even]
-  CorrectAnswer: asfr[, -c(1,ncol(asfr)][,even]
-  AnswerTests: omnitest(correctVal= 'asfr[, -c(1,ncol(asfr)][,even]')
+  Output: Surpise quiz! Suppose I have a vector named 'even' which has the sequence
+    c(1 ,3 ,5 , 7...N) up until the  number of columns of the dataset. If I wanted to work
+    only with the uneven years of the dataset, which expression would do the trick? Remember
+    that the first column is AGE and the last column is ageG, so you have to delete them.
+  AnswerChoices: fertility_years[, -c(1,ncol(fertility_years)][,even];fertility_years[, even];fertility_years[ -c(1,ncol(fertility_years)) , even];fertility_years[even]
+  CorrectAnswer: fertility_years[, -c(1,ncol(fertility_years)][,even]
+  AnswerTests: omnitest(correctVal= 'fertility_years[, -c(1,ncol(fertility_years)][,even]')
 
 - Class: text
-  Output: Before we finish let's introduce a command that can be handy = subset()
+  Output: Do you remember how to subset specific rows? Of course you do. We construct a logical
+    statement and place it before the comma in the `[]` of a data frame. The rows that meet this
+    logical statemente will be selected and the others don't. For example, mtcars[mtcars$mpg < 21, ].
+    Here, only rows where the variable mpg is below 21 will be picked.
+
+- Class: text
+  Output: Before we finish let's introduce a function that can be handy.. subset()
+
   
 - Class: text
-  Output: subset() takes a data frame as its first argument and subsets any condition for the rows and columns.
-        I think two examples will suffice to make you understand.
+  Output: subset() takes a data frame as its first argument and the accepts N number of logical statements.
+        I think an example will suffice to make you understand.
         
 - Class: text
-  Output: We want to subset only people below 20 years. subset(asfr, Age<20) will do the trick.
+  Output: We want to subset only people below 20 years. subset(fertility_years, AGE < 20) will do the trick.
   
 - Class: cmd_question
   Output: If we add a comma to that expression then we can specify which columns we want. By default
-        R chooses all columns. I want you to subset the asfr dataframe for observations below Age 20 and
-        only for the second and third column. Don't assign it to any object. Hint = remember to concatenate
+        R chooses all columns. I want you to subset the fertility_years dataframe for observations below Age 20 and
+        only for the second and third column. Don't assign it any name. Hint; remember to concatenate
         both column numbers.
-  CorrectAnswer: subset(asfr, Age<20, c(2,3))
-  AnswerTests: omnitest(correctExpr='subset(asfr, Age<20, c(2,3))')
-  Hint: Type subset(asfr, Age<20, c(2,3))
-  
-- Class: text
-  Output: Great! Let's finish by creating a dummy variable. Dummy variables always contain either a 1
-        or a 0. Suppose you have a gender variable which has 1 for males and 0 for females, then
-        that's a dummy variable.
-        
-- Class: text
-  Output: There are several ways of creating a dummy variable(for example with the which function). 
-        I'm gonna try to show you a familiar way of doing it.
-        
-- Class: cmd_question
-  Output: Let's suppose we want to create a new variable named low14 which has a 1 when the fertility
-        rate in 2014 was SMALLER then 0.005 and 0 when it has higher. Let's create a variable
-        with only zeros first. Type asfr$low14 <- 0
-  CorrectAnswer: asfr$low14 <- 0
-  AnswerTests: omnitest(correctExpr='asfr$low14 <- 0')
-  Hint: Type asfr$low14 <- 0
+  CorrectAnswer: subset(fertility_years, AGE < 20, c(2, 3))
+  AnswerTests: omnitest(correctExpr='subset(fertility_years, AGE < 20, c(2, 3))')
+  Hint: Type subset(fertility_years, AGE < 20, c(2, 3))
 
-- Class: text
-  Output: Since R recycles numbers, it automatically repeates the 0 as many times as the data frame has rows.
-    With that done, we only have to replace the 0 with a 1 where observations had a fertility
-    rate lower than 0.005 in 2014.
-    
 - Class: cmd_question
-  Output: 'We could do that the same way we recoded variables for the age groups: asfr$low14[asfr[,"2014"] < 0.05] <- 1. Type it!'
-  CorrectAnswer: asfr$low14[asfr[,"2014"] < 0.05] <- 1
-  AnswerTests: omnitest(correctExpr='asfr$low14[asfr[,"2014"] < 0.05] <- 1')
-  Hint: Type asfr$low14[asfr[,"2014"] < 0.05] <- 1
+  Output: Okay, let's put it all together in one example. First, create a new variable that
+    has TRUE whenever AGE is below (and including) 25 and FALSE when is above 25. Assign it
+    the name 'cohort'.
+  CorrectAnswer: fertility_years$cohort <- fertility_years$AGE <= 25
+  AnswerTests: omnitest(correctExpr='fertility_years$cohort <- fertility_years$AGE <= 25')
+  Hint: data$new_var <- data$old_var >= 10 is an incorrect example of what we want.
   
-- Class: text
-  Output: Read it again and understand what we did before continuing.
-        
 - Class: cmd_question
-  Output: Let's see if everything was correct type head(asfr,50) and confirm at least for some cases when asfr$low14 has a 1, column 2014 is below 0.05
-  CorrectAnswer: head(asfr,50)
-  AnswerTests: omnitest(correctExpr='head(asfr,50)')
-  Hint: Type head(asfr,50)
+  Output: In this example first create a new variable called cohort_recoded which is full of NA's.
+  CorrectAnswer: fertility_years$cohort_recoded <- NA
+  AnswerTests: omnitest(correctExpr='fertility_years$cohort_recoded <- NA')
+  Hint: data$var_recoded <- new value is very similar to what we want.
+
+- Class: cmd_question
+  Output: Recode cohort_recoded so when cohort is equal to TRUE is the cohort_recoded is
+    equal to "young cohort" and when cohort is equal to FALSE cohort_recoded is equal to
+    "old cohort". Start with TRUE.
+  CorrectAnswer: fertility_years$cohort_recode[fertility_years$cohort == TRUE] <- "young cohort"
+  AnswerTests: omnitest(correctExpr='fertility_years$cohort_recode[fertility_years$cohort == TRUE] <- "young cohort"')
+  Hint: data$var_recoded[data$var_to_recode == "something"] <- new value is very similar to what we want.
   
+- Class: cmd_question
+  Output: Repeat the previous exercise so that FALSE is now equal to 'old cohort'
+  CorrectAnswer: fertility_years$cohort_recode[fertility_years$cohort == FALSE] <- "old cohort"
+  AnswerTests: omnitest(correctExpr='fertility_years$cohort_recode[fertility_years$cohort == FALSE] <- "old cohort"')
+  Hint: data$var_recoded[data$var_to_recode == FALSE] <- new value is very similar to what we want.
+
+- Class: cmd_question
+  Output: Take a look at the data with head()
+  CorrectAnswer: head(fertility_years)
+  AnswerTests: omnitest(correctExpr='head(fertility_years)')
+  Hint: head() fertility_years to look at the df (data frame).
+
+- Class: cmd_question
+  Output: Change the name of cohort_recode to cohort_character using the names() function
+    and the [] after it. That is, subset the cohort_recode index from names and assign
+    the new name as a string.
+  CorrectAnswer: names(fertility_years)[46] <- "cohort_character"
+  AnswerTests: omnitest(correctExpr='names(fertility_years)[46] <- "cohort_character"')
+  Hint: Okay, I'll give you a hint! It's the 46th column.
+
+# You left off you were gonna use subset with cohort_character to subset young and old cohort
+# and calculate the mean level of fertility and then end the lesson.
+
 - Class: text
   Output: You're all set. We covered a lot of material today, congrats!
