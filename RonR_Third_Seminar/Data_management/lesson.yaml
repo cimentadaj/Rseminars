@@ -406,10 +406,42 @@
     the new name as a string.
   CorrectAnswer: names(fertility_years)[46] <- "cohort_character"
   AnswerTests: omnitest(correctExpr='names(fertility_years)[46] <- "cohort_character"')
-  Hint: Okay, I'll give you a hint! It's the 46th column.
+  Hint: Okay, I'll give you a hint! It's the index is 46th.
+  
+- Class: cmd_question
+  Output: Finally, using with() and the `[]` brackets, subset fertility_years when cohort_character
+    is equal to "young cohort". Save that new data frame as young.
+  CorrectAnswer: young <- with(fertility_years, fertility_years[cohort_character == "young cohort", ])
+  AnswerTests: omnitest(correctExpr='young <- with(fertility_years, fertility_years[cohort_character == "young cohort", ])')
+  Hint: Okay, that's a hard one. You can try something like
+    new_df <- with(data, data[something == "something", ])
 
-# You left off you were gonna use subset with cohort_character to subset young and old cohort
-# and calculate the mean level of fertility and then end the lesson.
+- Class: cmd_question
+  Output: But now you know subset()! Repeat the above for when cohort_character is equal to
+    "old cohort" using subset. Save that data frame as 'old'.
+  CorrectAnswer: old <- subset(fertility_years, cohort_character == 'old cohort')
+  AnswerTests: omnitest(correctExpr='old <- subset(fertility_years, cohort_character == "old cohort")')
+  Hint: That's much easier! new_df <- subset(df, something == "something")
+  
+- Class: cmd_question
+  Output: To finish off, for the 'young' data frame, calculate the mean for the year 1976
+    and 2014 and concatenate them into one vector. Something like this;
+    c(mean(df$`year1`), mean(df$`year2`)). You'll find this out later, but numbers are not actual
+    characters, so you have to wrap the numbers with two tickmarks ` `. For example, 
+    young$`1976`.
+  CorrectAnswer: c(mean(young$`1976`), mean(young$`2014`))
+  AnswerTests: omnitest(correctExpr='c(mean(young$`1976`), mean(young$`2014`))')
+  Hint: Basically, you're calculating two separate means and just putting them together in a vector.
+    The structure is just as the one in the question.
+    
+- Class: cmd_question
+  Output: Repeat the above for the 'old' data set.
+  CorrectAnswer: c(mean(old$`1976`), mean(old$`2014`))
+  AnswerTests: omnitest(correctExpr='c(mean(old$`1976`), mean(old$`2014`))')
+  Hint: Basically, you're calculating two separate means and just putting them together in a vector.
+    The structure is just as the one in the previous answer.
 
 - Class: text
-  Output: You're all set. We covered a lot of material today, congrats!
+  Output: Oh wow! It looks like fertility decreased sharply for old people across the years. But
+    for the young people it actually increased! Interesting finding. You're all set. We covered
+    a lot of material today, congrats!
