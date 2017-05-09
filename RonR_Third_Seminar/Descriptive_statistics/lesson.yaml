@@ -7,23 +7,29 @@
   Version: 2.2.21
 
 - Class: text
-  Output: Hello and welcome to the third lessons of the 3rd RonR! seminar. On this lesson
-        we will cover the basics of descriptive statistics, frequency tables and correlation.
+  Output: Hello and welcome to the third lesson of the 3rd RonR! seminar. On this lesson
+        we will cover the basics of descriptive statistics, frequency tables and correlation,
+        the main functions for Exploratory Data Analysis (EDA).
         
 - Class: text
-  Output: This lesson is not about statistics nor it will explain what each command does. The purpose
-        is to show you that R has these standard functions available and that you can use them whenever
-        you want. In case you already know what they mean, then they will prove handy.
+  Output: This lesson is not about statistics nor it will explain what each function does in detail.
+    The purpose is to show you that R has these standard functions available and that you can use
+    them whenever you want. In case you already know what they mean, then they will prove handy.
 
 - Class: cmd_question
-  Output: I took the liberty of downloading a text file to your working directory. Let's read it
-        with this command dati <- read.table("gripstrength.txt",header=TRUE, sep=",")
-  CorrectAnswer: dati <- read.table("gripstrength.txt",header=TRUE, sep=",")
-  AnswerTests: omnitest(correctExpr='dati <- read.table("gripstrength.txt",header=TRUE, sep=",")')
-  Hint: Type dati <- read.table("gripstrength.txt",header=TRUE, sep=",")
+  Output: First, let's read the data. There's a string vector called txt_file in your workspace
+    that has the link to a .txt dataset. Read it and give it the name dati. Do whatever you have
+    to do to read it, even if it means inspecting the data directly by going to the link. Hint;
+    while reading the data, change the three column names to c('age', 'X2014', 'X2013').
+  CorrectAnswer: dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013"), sep = " ")
+  AnswerTests: omnitest(correctExpr=('dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013"), sep = " ")')
+  Hint: Okay, so there are two difficulties. If you looked at the table, there's three columns
+    but only two column names. You have to specify (in read.table) that the first row is the
+    column names and provide new names. Use ?read.table to find the arguments and remember
+    to specify the 'sep' argument!
   
 - Class: cmd_question
-  Output: Do you remember how we can have a look at the 'head' of the dataset? Try it
+  Output: Have a look at the first few rows of dati.
   CorrectAnswer: head(dati)
   AnswerTests: omnitest(correctExpr='head(dati)')
   Hint: Type head(dati)
@@ -33,6 +39,24 @@
   CorrectAnswer: tail(dati)
   AnswerTests: omnitest(correctExpr='tail(dati)')
   Hint: Type tail(dati)
+  
+- Class: cmd_question
+  Output: Use dim() with dati.
+  CorrectAnswer: dim(dati)
+  AnswerTests: omnitest(correctExpr='dim(dati)')
+  Hint: Type dim(dati)
+
+- Class: mult_question
+  Output: What's the oldest age in the dataset?
+  AnswerChoices: 33; 35; 42; 44; 40; we don't have that information
+  CorrectAnswer: 35
+  AnswerTests: omnitest(correctVal= '35')
+
+# YOu left here trying out the mult_question only with the numbers, to see if it worked
+# but you found out that the reading the data question is not working properly. In fact,
+# its too long, try and shorten it or cut it in different questions.
+
+# Teach the cut() function.
   
 - Class: text
   Output: It's always a good habit to inspect your dataset, specially when you're reading a csv, text
