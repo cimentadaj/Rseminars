@@ -15,16 +15,19 @@
   Output: This lesson is not about statistics nor it will explain what each function does in detail.
     The purpose is to show you that R has these standard functions available and that you can use
     them whenever you want. In case you already know what they mean, then they will prove handy.
+    
+- Class: video
+  Output: First, let's read the data. Please, inspect the data.
+  VideoLink: https://raw.githubusercontent.com/cimentadaj/Rseminars/master/RonR_Third_Seminar/Descriptive_statistics/data/asfr1314ine.txt
 
 - Class: cmd_question
-  Output: First, let's read the data. There's a string vector called txt_file in your workspace
-    that has the link to a .txt dataset. Read it and give it the name dati. Do whatever you have
-    to do to read it, even if it means inspecting the data directly by going to the link. Hint;
-    while reading the data, change the three column names to c('age', 'X2014', 'X2013').
-  CorrectAnswer: dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013"), sep = " ")
-  AnswerTests: omnitest(correctExpr=('dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013"), sep = " ")')
-  Hint: Okay, so there are two difficulties. If you looked at the table, there's three columns
-    but only two column names. You have to specify (in read.table) that the first row is the
+  Output: I stored the url in a string vector called txt_file in your workspace. Read it and
+    give it the name dati. Hint; while reading the data, change the three column names to
+    c('age', 'X2014', 'X2013', "year_equal", "age_groups").
+  CorrectAnswer: dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups", "year_equal", "age_groups"), sep = " ")
+  AnswerTests: omnitest(correctExpr=('dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups"), sep = " ")'))
+  Hint: Okay, so there are two difficulties. If you looked at the table, there's 4 columns
+    but only three column names. You have to specify (in read.table) that the first row is the
     column names and provide new names. Use ?read.table to find the arguments and remember
     to specify the 'sep' argument!
   
@@ -48,73 +51,118 @@
 
 - Class: mult_question
   Output: What's the oldest age in the dataset?
-  AnswerChoices: 33; 35; 42; 44; 40; we don't have that information
-  CorrectAnswer: 35
-  AnswerTests: omnitest(correctVal= '35')
+  AnswerChoices: 33; 35; 42; 44; 40; We don't have that information
+  CorrectAnswer: We don't have that information
+  AnswerTests: omnitest(correctVal= 'We don't have that information')
 
-# YOu left here trying out the mult_question only with the numbers, to see if it worked
-# but you found out that the reading the data question is not working properly. In fact,
-# its too long, try and shorten it or cut it in different questions.
-
-# Teach the cut() function.
+- Class: text
+  Output: Gotcha there! The age variable is a mistake! It's actually the index variable
+    which got confused as the age variable. How could you tell? Well the first age is age 1.
+    Which child at age 1 has a rate of 2.43 and 2.55 children per year. We have to create
+    the new age variable.
+    
+- Class: cmd_question
+  Output: Create a new variable called age which is a seq() from 15 to 49.
+  CorrectAnswer: dati$age <- seq(15, 49)
+  AnswerTests: omnitest(correctExpr='dati$age <- seq(15, 49)')
+  Hint: Type dati$age <- seq(15, 49)
   
 - Class: text
-  Output: It's always a good habit to inspect your dataset, specially when you're reading a csv, text
-        or other format file. Just to make sure that it was read without any problems.
+  Output: It's always a good habit to inspect your dataset, specially after reading it
+    just to check that it was read correctly it doesn't have any errors.
         
 - Class: text
   Output: R has some standard functions to calculate descriptive statistics. To name a few, mean is
         mean(), the standard deviation is sd(), the variance is var() and the median is median().
 
 - Class: mult_question
-  Output: Let's calculate the mean of the variable maxgrip. If I typed mean(dati), what 
-        would I get?
-  AnswerChoices: The mean of dati; The mean of maxgrip; An error;
+  Output: Let's calculate some means! If I typed mean(dati), what would I get?
+  AnswerChoices: The mean of dati; The mean of X2014 and X2013; An error;
   CorrectAnswer: An error
   AnswerTests: omnitest(correctVal= 'An error')
   
 - Class: cmd_question
   Output: Alright, that was a trick question. Remember that dati is a data frame! It contains several columns
-        and many rows. How would you calculate the mean of a data frame? The correct expression
-        would be to calculate the mean of maxgrip using the $ operator from the dataframe dati. Try it
+        and many rows. Can you calculate the mean of a data frame? The correct expression
+        would be to calculate the mean of, for example, X2014 using the $ operator from the data frame dati. Try it
         yourself.
-  CorrectAnswer: mean(dati$maxgrip)
-  AnswerTests: omnitest(correctExpr='mean(dati$maxgrip)')
-  Hint: dati$maxgrip is the variable maxgrip, so simply type mean(dati$maxgrip)
-  
-- Class: cmd_question
-  Output: Using the sd() function calculate the standard deviation of maxgrip
-  CorrectAnswer: sd(dati$maxgrip)
-  AnswerTests: omnitest(correctExpr='sd(dati$maxgrip)')
-  Hint: Type sd(dati$maxgrip)
-  
-- Class: cmd_question
-  Output: Do exactly the same with var() function to calculate the variance of maxgrip.
-  CorrectAnswer: var(dati$maxgrip)
-  AnswerTests: omnitest(correctExpr='var(dati$maxgrip)')
-  Hint: Type var(dati$maxgrip)
-  
-- Class: cmd_question
-  Output: Suppose we want to compare the result of the mean() function with the median() function. Calculate
-        the median() of maxgrip.
-  CorrectAnswer: median(dati$maxgrip)
-  AnswerTests: omnitest(correctExpr='median(dati$maxgrip)')
-  Hint: Type median(dati$maxgrip)
-  
-- Class: cmd_question
-  Output: What about quantiles? They're pretty easy to get with the quantile function. Without me explaining it,
-        try to use the quantile() function on our maxgrip variable.
-  CorrectAnswer: quantile(dati$maxgrip)
-  AnswerTests: omnitest(correctExpr='quantile(dati$maxgrip)')
-  Hint: Type quantile(dati$maxgrip)
+  CorrectAnswer: mean(dati$X2014)
+  AnswerTests: omnitest(correctExpr='mean(dati$X2014)')
+  Hint: dati$X2014 is the variable maxgrip, so simply type mean(dati$maxgrip)
   
 - Class: text
-  Output: That's nice! But what if we wanted a specific quantile? Then we specify it as a second argument
-        like here quantile(dati$maxgrip, 0.65). That would give us the value of the 65th quantile.
-        
+  Output: Almost all of these summary functions have the argument 'na.rm'. By default, it it set
+    to FALSE. That means that if your variable has NA's, mean() or any other function will return
+    an NA.
+    
 - Class: cmd_question
-  Output: As for frequency tables, R has the table() function. It has as many arguments as you want to
-        specify. Let's imagine we want to see the number of people within a country. Type table(dati$country)
+  Output: For example, mean(c(1, 5, 7, 3, NA)) will return an NA. Rewrite the same expression
+    so that the output doesn't return an NA.
+  CorrectAnswer: mean(c(1, 5, 7, 3, NA), na.rm = T)
+  AnswerTests: omnitest(correctExpr='mean(c(1, 5, 7, 3, NA), na.rm = T)')
+  Hint: Leave the vector as it is, simply add the na.rm = T argument to the mean() function.
+
+
+- Class: cmd_question
+  Output: Using the sd() function calculate the standard deviation of X2013
+  CorrectAnswer: sd(dati$X2013)
+  AnswerTests: omnitest(correctExpr='sd(dati$X2013)')
+  Hint: Include the variable dati$X2013 inside sd().
+  
+- Class: cmd_question
+  Output: Do exactly the same with var() function to calculate the variance of X2013.
+  CorrectAnswer: var(dati$X2013)
+  AnswerTests: omnitest(correctExpr='var(dati$X2013)')
+  Hint: Include the variable dati$X2013 inside var().
+  
+- Class: cmd_question
+  Output: Suppose we want to compare the result of the mean() function with the median() function.
+    Calculate the median() of X2013.
+  CorrectAnswer: median(dati$X2013)
+  AnswerTests: omnitest(correctExpr='median(dati$X2013)')
+  Hint: Type median(dati$X2013)
+  
+- Class: cmd_question
+  Output: What about quantiles? They're pretty easy to get with the quantile() function.
+    Without me explaining it, try to use the quantile() function on our X2013 variable.
+  CorrectAnswer: quantile(dati$X2013)
+  AnswerTests: omnitest(correctExpr='quantile(dati$X2013)')
+  Hint: Type quantile(dati$X2013)
+  
+- Class: text
+  Output: That's nice! But what if we wanted a specific quantile? Then we specify it as a
+    second argument like here quantile(dati$X2013, 0.65). That would give us the value
+    of the 65th quantile.
+
+- Class: text
+  Output: Okay, all those summary statistics are great, but we need to explore the power of R.
+    Your task is to create a named vector that contains a space for the mean, median and sd.
+    
+- Class: cmd_question
+  Output: For the dati$X2014 variable, create a named vector that contains the mean, median
+    and sd. Because we will repeat the 'dati' name several times, use with() at the beginning.
+  CorrectAnswer: with(dati, c(mean = mean(X2014), median = median(X2014), sd = sd(X2014)))
+  AnswerTests: omnitest(correctExpr='with(dati, c(mean = mean(X2014), median = median(X2014), sd = sd(X2014)))')
+  Hint: Create a named vector like this one..with(dati, c(mean = mean(X2014)...))
+  
+- Class: cmd_question
+  Output: You could add as many summary statistics as you'd like and your own customized
+    summary. However, smart people already though of that. Use the summary()
+    function on the X2014 variable.
+  CorrectAnswer: summary(dati$X2014)
+  AnswerTests: omnitest(correctExpr='summary(dati$X2014)')
+  Hint: Include dati$X2014 inside summary.
+
+- Class: text
+  Output: Great work! Let's move into tables.
+
+# You left off here. Now you have categorical variables to play with.
+# Replay the lesson. Reading the data is not working. Remember to update everything
+# So that there are now 5 variables instead of three.
+
+- Class: cmd_question
+  Output: R has the table() function. It has as many arguments as you want to specify.
+    Let's imagine we want to see the number of people within a country. Type table(dati$country)
   CorrectAnswer: table(dati$country)
   AnswerTests: omnitest(correctExpr='table(dati$country)')
   Hint: Type table(dati$country)
