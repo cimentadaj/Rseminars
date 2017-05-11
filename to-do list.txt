@@ -10,3 +10,4 @@ Second seminar:
 Third seminar:
 - Create challange as last lesson
 - Updated README that includes installation and links to second seminar README.
+- Play the descriptive statistics lesson to check for errors.

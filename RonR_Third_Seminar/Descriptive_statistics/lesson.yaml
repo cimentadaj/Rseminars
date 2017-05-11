@@ -22,14 +22,14 @@
 
 - Class: cmd_question
   Output: I stored the url in a string vector called txt_file in your workspace. Read it and
-    give it the name dati. Hint; while reading the data, change the three column names to
+    give it the name dati. Hint; while reading the data, change the four column names to
     c('age', 'X2014', 'X2013', "year_equal", "age_groups").
-  CorrectAnswer: dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups", "year_equal", "age_groups"), sep = " ")
+  CorrectAnswer: dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups"), sep = " ")
   AnswerTests: omnitest(correctExpr=('dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups"), sep = " ")'))
-  Hint: Okay, so there are two difficulties. If you looked at the table, there's 4 columns
-    but only three column names. You have to specify (in read.table) that the first row is the
-    column names and provide new names. Use ?read.table to find the arguments and remember
-    to specify the 'sep' argument!
+  Hint: If you looked at the table, there are 5 columns but only four column names (first column
+    is actually the row.names, that's why you think there are 6). You have to
+    specify (in read.table) that the first row is the column names (header) and provide new names(col.names).
+    Use ?read.table to find the arguments and remember to specify the 'sep' argument!
   
 - Class: cmd_question
   Output: Have a look at the first few rows of dati.
@@ -58,8 +58,8 @@
 - Class: text
   Output: Gotcha there! The age variable is a mistake! It's actually the index variable
     which got confused as the age variable. How could you tell? Well the first age is age 1.
-    Which child at age 1 has a rate of 2.43 and 2.55 children per year. We have to create
-    the new age variable.
+    Which child at age 1 has a fertility rate of 2 and 3 children per year. We have to create
+    a new age variable.
     
 - Class: cmd_question
   Output: Create a new variable called age which is a seq() from 15 to 49.
@@ -68,7 +68,7 @@
   Hint: Type dati$age <- seq(15, 49)
   
 - Class: text
-  Output: It's always a good habit to inspect your dataset, specially after reading it
+  Output: You see why it's always a good habit to inspect your dataset, specially after reading it
     just to check that it was read correctly it doesn't have any errors.
         
 - Class: text
@@ -156,96 +156,102 @@
 - Class: text
   Output: Great work! Let's move into tables.
 
-# You left off here. Now you have categorical variables to play with.
-# Replay the lesson. Reading the data is not working. Remember to update everything
-# So that there are now 5 variables instead of three.
-
 - Class: cmd_question
   Output: R has the table() function. It has as many arguments as you want to specify.
-    Let's imagine we want to see the number of people within a country. Type table(dati$country)
-  CorrectAnswer: table(dati$country)
-  AnswerTests: omnitest(correctExpr='table(dati$country)')
-  Hint: Type table(dati$country)
+    Let's imagine we want to see the frequency of people in different age_groups.
+    Using table(), do that for age_groups.
+  CorrectAnswer: table(dati$age_groups)
+  AnswerTests: omnitest(correctExpr='table(dati$age_groups)')
+  Hint: Type table(dati$age_groups)
   
 - Class: cmd_question
-  Output: Let's look at the number of males and females within each country. Take the last table
-        add a comma and add the sex variable from the dati dataframe. This time
-        save the table to an object named ourtable using the <- operator.
-  CorrectAnswer: ourtable <- table(dati$country, dati$sex)
-  AnswerTests: omnitest(correctExpr='ourtable <- table(dati$country, dati$sex)')
-  Hint: Type ourtable <- table(dati$country, dati$sex). This will give you a two way table.
+  Output: Let's look at whether fertility in 2013 is the same in 2014 for different age groups.
+    Take the last table, add a comma, and add the year_equal variable. This time
+    save the table to an object named ourtable using the <- operator and wrap everything in
+    parenthesis like this (expression).
+  CorrectAnswer: (ourtable <- table(dati$age_groups, dati$year_equal))
+  AnswerTests: omnitest(correctExpr='ourtable <- table(dati$age_groups, dati$year_equal)')
+  Hint: Type (ourtable <- table(dati$age_groups, dati$year_equal)).
+    This will give you a two way table.
+    
+- Class: text
+  Output: It looks like younger and older ages had the same fertility levels
+    but those between 26 and 40 indeed had fertility changes!
 
 - Class: text
-  Output: We can add as many other variables as you want by simply putting a comma and adding another
-        variable. You could create 3, 4, 5 way tables if you want.
-        
+  Output: When we assign (<-) an object, R doesn't print the contents be default. However,
+    if we wrap the expression in (), then it prints it.
+    
+- Class: text
+  Output: Using table(), we can add as many other variables
+    as you want by simply putting a comma and adding another variable. You could create
+    3, 4, 5 way tables if you want.
+
 - Class: cmd_question
-  Output: However what many people are after when computing frequencies is not the number of people in
-    these tables but the proportion or percentage. We can use the prop.table() function, with our
-    table object and specify the margin argumen to 1 to get the percentages by row. Try it with this
-    expression prop.table(x=ourtable,margin=1)
+  Output: We can use the prop.table() function to get percentages instead of numbers. Using
+    prop.table(), include ourtable as the first argument, and set the margin argument to 1.
+    The margin argument controls whether we want percentages to sum to 100% row-wise(= 1) or
+    column-wise(= 2).
   CorrectAnswer: prop.table(x=ourtable,margin=1)
   AnswerTests: omnitest(correctExpr='prop.table(x=ourtable,margin=1)')
-  Hint: Type prop.table(x=ourtable,margin=1)
+  Hint: Inside prop.table(), x should equal ourtable and margin should equal 1
   
 - Class: text
   Output: You could get the column percentages by changing the 1 for a 2 in the margin argument.
-  
+
 - Class: text
-  Output: You can also get the relative frequencies dividing the table by the total amount of observations.
-    A smart way of doing this would be to write ourtable / sum(ourtable). You can read it as
-    each number in our table divided by the sum of all the numbers of our table -- the total number
-    of observations.
-    
-- Class: text
-  Output: A cool thing you can do with R is divide a continuous variable into groups
-    for exploratory purposes. The cut() function cuts a continuous variable into a desired number
-    groups.
+  Output: You will often want to create categorical variables from continuous measures. 
+    The cut() function cuts a continuous variable into a desired number groups.
     
 - Class: cmd_question
-  Output: Let's see an example. We have our maxgrip variable which is a continuous variable. Type
-        table(dati$maxgrip) to see the outcome.
-  CorrectAnswer: table(dati$maxgrip)
-  AnswerTests: omnitest(correctExpr='table(dati$maxgrip)')
-  Hint: Type table(dati$maxgrip)
+  Output: Let's see an example. We have our age variable which is a continuous variable. What's
+    the range() of this variable?
+  CorrectAnswer: range(dati$age)
+  AnswerTests: omnitest(correctExpr='range(dati$age)')
+  Hint: Include dati$age inside range()
+  
+- Class: cmd_question
+  Output: Check the frequency of the age variable.
+  CorrectAnswer: table(dati$age)
+  AnswerTests: omnitest(correctExpr='table(dati$age)')
+  Hint: Include dati$age inside table()
   
 - Class: text
   Output: That's neither a nice output nor an informative table. Let's make it better with
-    the cut function. maxgrip goes from 0 to 42, so let's cut it in groups of 5. So the amount of
-    people between 0-5, 5-10, and so on...
+    the cut function. age ranges from 15 to 40, so let's cut it in groups of 2. So the amount of
+    people between 15-17, 17-19, and so on...
 
 - Class: text
-  Output: Let's read the expression before seeing it. I want R to cut dati$maxgrip from 0
-    to 45 into chunks of 5. As an additional argument, we want R to include 0, which is the LOWEST
+  Output: Let's read the expression before seeing it. I want R to cut dati$age from 15
+    to 40 into groups of 2. As an additional argument, we want R to include 15, which is the LOWEST
     number in our numeric variable.
     
 - Class: cmd_question
-  Output: The corresponding expression would be this cut.maxgrip <- cut(dati$maxgrip, breaks=seq(0, 45, by= 5),
-        include.lowest=TRUE) . Before typing it down, read it carefully and try to understand it.
-  CorrectAnswer: cut.maxgrip <- cut(dati$maxgrip, breaks=seq(0, 45, by= 5),include.lowest=TRUE)
-  AnswerTests: omnitest(correctExpr='cut.maxgrip <- cut(dati$maxgrip, breaks=seq(0, 45, by= 5),include.lowest=TRUE)')
-  Hint: Type cut.maxgrip <- cut(dati$maxgrip, breaks=seq(0, 45, by= 5),include.lowest=TRUE)
+  Output: Include age as the first argument of cut(). The breaks argument sets the places where
+    cut() will cut the group. We can then include seq(15, 40, 2) as the argument of breaks and
+    finally, set the include.lowest argument to TRUE. Before finishing, add this expression
+    as a variable to dati with the name agegroups_two.
+  CorrectAnswer: dati$agegroups_two <- cut(dati$age, breaks=seq(15, 40, by= 2),include.lowest=TRUE)
+  AnswerTests: omnitest(correctExpr='dati$agegroups_two <- cut(dati$age, breaks=seq(15, 40, by= 2),include.lowest=TRUE)')
+  Hint: Ok, that might've been hard. Follow this skeleton and try to make sense of it. dati$new_var
+    <- cut(dati$old_var, breaks = sequence of cuts, include.lowest = TRUE). If you don't understand it,
+    checkout ?cut, reread the previous question and experiment by yourself with play().
   
 - Class: cmd_question
-  Output: The remaining part is easy, write down table() with the cut.maxgrip object inside.
-  CorrectAnswer: table(cut.maxgrip)
-  AnswerTests: omnitest(correctExpr='table(cut.maxgrip)')
-  Hint: Type table(cut.maxgrip)
+  Output: The remaining part is easy, write down table() and include our new variable.
+  CorrectAnswer: table(dati$agegroups_two)
+  AnswerTests: omnitest(correctExpr='table(dati$agegroups_two)')
+  Hint: Type table(dati$agegroups_two)
         
 - Class: cmd_question
   Output: Cool, eh? Finally, for those of you which use correlation, the function is cor(). Want to
-    calculate the correlation between dati$height and dati$weight? cor(dati$height,dati$weight)
+    calculate the correlation between dati$X2013 and dati$X2014? cor(dati$X2013, dati$X2014)
     will do the job. Write it down.
-  CorrectAnswer: cor(dati$height, dati$weight)
-  AnswerTests: omnitest(correctExpr='cor(dati$height, dati$weight)')
-  Hint: Type cor(dati$height, dati$weight)
-  
-- Class: cmd_question
-  Output: Ah! Of course! If the correlation has missing values, then you can't calculate the correlation. Take the same expression
-      and add the argument use = "complete.obs" to your function. It is simply saying = use only complete observations
-  CorrectAnswer: cor(dati$height, dati$weight, use = "complete.obs")
-  AnswerTests: omnitest(correctExpr='cor(dati$height, dati$weight, use = "complete.obs")')
-  Hint: Type cor(dati$height, dati$weight, use = "complete.obs")
-  
+  CorrectAnswer: cor(dati$X2013, dati$X2014)
+  AnswerTests: omnitest(correctExpr='cor(dati$X2013, dati$X2014)')
+  Hint: Type cor(dati$X2013, dati$X2014)
+
 - Class: text
-  Output: I hope all of this was useful! It certainly is to me.
+  Output: These are some very basic functions in R. Don't try to memorize them, instead,
+    open a dataset of interest and start playing around with these functions, even if you ahve to
+    look them up! Good job.
