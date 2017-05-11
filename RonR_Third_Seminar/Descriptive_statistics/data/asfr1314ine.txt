@@ -1,4 +1,4 @@
-"age" "X2014" "X2013" "year_equal" "age_groups"
+"row_names" "age" "X2014" "X2013" "year_equal" "age_groups"
 "1" 1 2 3 FALSE "15_20"
 "2" 2 4 4 TRUE "15_20"
 "3" 3 7 8 FALSE "15_20"
