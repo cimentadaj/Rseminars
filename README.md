@@ -26,7 +26,7 @@ Brief introduction to R
   + Summary statistics output(stargazer package)
   + Regression output(stargazer package)
 * R for reports and teaching
-  + Making reports, PDF’s and powerpoints through R (RMarkdown package)
+  + Making reports, PDF's and powerpoints through R (RMarkdown package)
   + Programming exercises and exams in R (swirl and exam package)
 
 ## **Seminar 2. Getting familiar with R objects**

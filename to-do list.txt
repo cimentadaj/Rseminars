@@ -1,8 +1,14 @@
+First presentation:
+
+Delete? If not, update all links to be within the repo and also the scripts for installing packages.
+
 Overall:
 - Find a solution for first lesson because it’s getting install with the swirl course
 - Deleted course installation for every single course. Install every course
 in the second seminar. Write an explanation for each course that it was installed
 previously and redirect to installation
+
+- RECHECK the above but I think it’s fixed!
 
 Second seminar:
 - Create separate lesson for factors
