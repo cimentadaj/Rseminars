@@ -1,5 +1,5 @@
 
-![](https://lh3.googleusercontent.com/-UkfJ6Cj7fNc/AAAAAAAAAAI/AAAAAAAAAIE/RJmK4VaMytw/s100-c-k-no/photo.jpg)
+![](../recsm_logo.jpeg)
 ## RonR! seminars
 
 ### Introduction

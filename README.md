@@ -2,7 +2,7 @@
 
 ## RonR! First Seminar Series
 
-The RonR! Seminar Series are a series of seminars that were taught at Pompeu Fabra University in April-May 2016. This repository contains all the R scripts, presentations and exercises used for each separate session. Anyone interested in using these exercises can download the swirl exercises from the session links.
+The RonR! Seminar Series is an interactive R course aimed at students who want to learn R. They were first created as a set of exercises for a series of lectures given in April-May 2016 in Pompeu Fabra University. These exercises have evolved to stand on their own and can now be accessed by following the tutorial [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Second_Seminar).
 
 **Seminar 1. An overview of the strengths of R**
 
@@ -86,7 +86,7 @@ This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/t
 Instructor: [John Palmer](http://johnrbpalmer.com/)
 
 * Thinking through the visual display of quantitative information:
-  + Numbers for the mindâ€™s eye
+  + Numbers for the mind€™'s eye
   + Clarity and honesty
 * Aesthetics
   + Taking control of Râ€™s base graphics:
@@ -117,25 +117,5 @@ Instructor: Instructor: [Bruno Arpino](https://sites.google.com/site/brunoarpino
 * Apply(), sapply() and lapply() functions.
 * Writing your own functions.
 * Monte Carlo simulations.
-
-## **Seminar 6. An introduction to sequence analysis**
-
-**This seminar does not have exercises yet**
-
-Instructor: [Albert JuliÃ ](https://www.upf.edu/survey/members/albertjulix.html)
-* Presentation of sequence analysis and TraMineR software
-  + Basic concepts
-  + Methodology
-* Illustrate the main features using an example
-  + Selecting data
-  + Main functions
-  + Main outputs and graphs
-
-* Creating a typology of trajectories
-  + Computing dissimilarity between sequences. Optimal Matching Analysis
-  + Regrouping similar sequences. Cluster Analysis
-  + Visualizing results
-  + Saving data (cluster variable)
-  + Regressions models with trajectory clusters
 
 ### The organizers of the RECSM RonR! seminars.
