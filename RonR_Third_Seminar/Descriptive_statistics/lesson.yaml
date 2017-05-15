@@ -16,20 +16,23 @@
     The purpose is to show you that R has these standard functions available and that you can use
     them whenever you want. In case you already know what they mean, then they will prove handy.
     
+- Class: text
+  Output: 'Note: You will need an internet connection for this lesson to work properly.'
+
 - Class: video
   Output: First, let's read the data. Please, inspect the data.
   VideoLink: https://raw.githubusercontent.com/cimentadaj/Rseminars/master/RonR_Third_Seminar/Descriptive_statistics/data/asfr1314ine.txt
 
 - Class: cmd_question
-  Output: I stored the url in a string vector called txt_file in your workspace. Read it and
-    give it the name dati. Hint; while reading the data, change the four column names to
-    c('age', 'X2014', 'X2013', "year_equal", "age_groups").
+  Output: I stored the dataset's url in a string vector called txt_file in your workspace.
+    Read it and give it the name dati. Hint; while reading the data, change the four column
+    names to c('age', 'X2014', 'X2013', "year_equal", "age_groups").
   CorrectAnswer: dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups"), sep = " ")
-  AnswerTests: omnitest(correctExpr=('dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups"), sep = " ")'))
+  AnswerTests: omnitest(correctExpr=('dati <- read.table(txt_file, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups"), sep = " ")'))
   Hint: If you looked at the table, there are 5 columns but only four column names (first column
     is actually the row.names, that's why you think there are 6). You have to
-    specify (in read.table) that the first row is the column names (header) and provide new names(col.names).
-    Use ?read.table to find the arguments and remember to specify the 'sep' argument!
+    provide (in read.table) new column names(col.names). Use ?read.table to find the arguments
+    and remember to specify the 'sep' argument!
   
 - Class: cmd_question
   Output: Have a look at the first few rows of dati.
@@ -53,7 +56,7 @@
   Output: What's the oldest age in the dataset?
   AnswerChoices: 33; 35; 42; 44; 40; We don't have that information
   CorrectAnswer: We don't have that information
-  AnswerTests: omnitest(correctVal= 'We don't have that information')
+  AnswerTests: omnitest(correctVal= "We don't have that information")
 
 - Class: text
   Output: Gotcha there! The age variable is a mistake! It's actually the index variable
@@ -68,8 +71,8 @@
   Hint: Type dati$age <- seq(15, 49)
   
 - Class: text
-  Output: You see why it's always a good habit to inspect your dataset, specially after reading it
-    just to check that it was read correctly it doesn't have any errors.
+  Output: It's always a good habit to inspect your dataset. You should do this specially
+    after reading it just to check that it was read correctly!
         
 - Class: text
   Output: R has some standard functions to calculate descriptive statistics. To name a few, mean is
@@ -135,15 +138,16 @@
     of the 65th quantile.
 
 - Class: text
-  Output: Okay, all those summary statistics are great, but we need to explore the power of R.
-    Your task is to create a named vector that contains a space for the mean, median and sd.
+  Output: Okay, all those summary statistics are great, but we need to take advantage of the
+    power of R. Your task is to create a named vector that contains the mean,
+    median and sd.
     
 - Class: cmd_question
   Output: For the dati$X2014 variable, create a named vector that contains the mean, median
     and sd. Because we will repeat the 'dati' name several times, use with() at the beginning.
   CorrectAnswer: with(dati, c(mean = mean(X2014), median = median(X2014), sd = sd(X2014)))
   AnswerTests: omnitest(correctExpr='with(dati, c(mean = mean(X2014), median = median(X2014), sd = sd(X2014)))')
-  Hint: Create a named vector like this one..with(dati, c(mean = mean(X2014)...))
+  Hint: Create a named vector like this one ... with(dati, c(mean = mean(X2014)...))
   
 - Class: cmd_question
   Output: You could add as many summary statistics as you'd like and your own customized
@@ -151,7 +155,7 @@
     function on the X2014 variable.
   CorrectAnswer: summary(dati$X2014)
   AnswerTests: omnitest(correctExpr='summary(dati$X2014)')
-  Hint: Include dati$X2014 inside summary.
+  Hint: Include dati$X2014 inside summary().
 
 - Class: text
   Output: Great work! Let's move into tables.
@@ -168,11 +172,11 @@
   Output: Let's look at whether fertility in 2013 is the same in 2014 for different age groups.
     Take the last table, add a comma, and add the year_equal variable. This time
     save the table to an object named ourtable using the <- operator and wrap everything in
-    parenthesis like this (expression).
+    parenthesis like this.
   CorrectAnswer: (ourtable <- table(dati$age_groups, dati$year_equal))
-  AnswerTests: omnitest(correctExpr='ourtable <- table(dati$age_groups, dati$year_equal)')
-  Hint: Type (ourtable <- table(dati$age_groups, dati$year_equal)).
-    This will give you a two way table.
+  AnswerTests: omnitest(correctExpr='(ourtable <- table(dati$age_groups, dati$year_equal))')
+  Hint: Type (name <- table(var1, var2, ...)). This will give you a two
+    way table.
     
 - Class: text
   Output: It looks like younger and older ages had the same fertility levels
@@ -222,15 +226,15 @@
     people between 15-17, 17-19, and so on...
 
 - Class: text
-  Output: Let's read the expression before seeing it. I want R to cut dati$age from 15
+  Output: Let's read the expression before seeing it. we want R to cut dati$age from 15
     to 40 into groups of 2. As an additional argument, we want R to include 15, which is the LOWEST
     number in our numeric variable.
     
 - Class: cmd_question
   Output: Include age as the first argument of cut(). The breaks argument sets the places where
-    cut() will cut the group. We can then include seq(15, 40, 2) as the argument of breaks and
-    finally, set the include.lowest argument to TRUE. Before finishing, add this expression
-    as a variable to dati with the name agegroups_two.
+    cut() will cut the group. We can then include seq(15, 40, 2) as the argument of breaks. Have
+    a look at ?cut to see how the 'include.lowest' argument works and specify it. Before finishing,
+    add this expression as a variable to 'dati' with the name 'agegroups_two'.
   CorrectAnswer: dati$agegroups_two <- cut(dati$age, breaks=seq(15, 40, by= 2),include.lowest=TRUE)
   AnswerTests: omnitest(correctExpr='dati$agegroups_two <- cut(dati$age, breaks=seq(15, 40, by= 2),include.lowest=TRUE)')
   Hint: Ok, that might've been hard. Follow this skeleton and try to make sense of it. dati$new_var
@@ -245,13 +249,13 @@
         
 - Class: cmd_question
   Output: Cool, eh? Finally, for those of you which use correlation, the function is cor(). Want to
-    calculate the correlation between dati$X2013 and dati$X2014? cor(dati$X2013, dati$X2014)
-    will do the job. Write it down.
-  CorrectAnswer: cor(dati$X2013, dati$X2014)
-  AnswerTests: omnitest(correctExpr='cor(dati$X2013, dati$X2014)')
-  Hint: Type cor(dati$X2013, dati$X2014)
+    calculate the correlation between dati$X2013 and dati$X2014? Use with() and cor() to calculate
+    the correlation betwen X2013 and X2014
+  CorrectAnswer: with(dati, cor(X2013, X2014))
+  AnswerTests: omnitest(correctExpr='with(dati, cor(X2013, X2014))')
+  Hint: Type with(a_dataset, cor(var1, var2))
 
 - Class: text
   Output: These are some very basic functions in R. Don't try to memorize them, instead,
-    open a dataset of interest and start playing around with these functions, even if you ahve to
+    open a dataset of interest and start playing around with these functions, even if you have to
     look them up! Good job.
