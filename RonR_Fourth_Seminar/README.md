@@ -1,4 +1,4 @@
-![](../recsm_logo.png)
+![](../recsm_logo.jpeg)
 ## RonR! Seminar Series
 
 ### Installation
@@ -7,6 +7,6 @@ the course by typing
 ```{r eval=F}
 library(swirl)
 swirl()
-}
+```
 
 If you haven't started the second seminar, follow [this](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Second_Seminar) tutorial to install R, Rstudio and the interactive exercises.
