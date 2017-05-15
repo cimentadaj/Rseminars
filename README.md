@@ -1,4 +1,4 @@
-![](./recsm_logo.png)
+![](./recsm_logo.jpeg)
 
 ## RonR! First Seminar Series
 
