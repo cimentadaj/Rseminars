@@ -11,7 +11,7 @@ previously and redirect to installation
 - RECHECK the above but I think it’s fixed!
 
 Second seminar:
-- Create separate lesson for factors
+- Finish the factors lesson
 
 Third seminar:
 - Create challange as last lesson

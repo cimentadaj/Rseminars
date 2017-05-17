@@ -1,0 +1,127 @@
+- Class: meta
+  Course: RonR! Second seminar
+  Lesson: Factors
+  Author: Jorge Cimentada
+  Type: Standard
+  Organization: RECSM, UPF
+  Version: 2.2.21
+
+- Class: text
+  Output: Hi there and welcome to the lesson on factors! Today we'll be talking about factors, a class
+    in R used to deal with strings that have a particular order.
+    
+- Class: text
+  Output: Factors are R's way of dealing with character strings that have a distinct number of
+    values. You could use factors when dealing with "Yes" or "No" questions or you could also
+    use them when the categories have a particular order, such as "Bad", "Medium" or "Good".
+    
+- Class: cmd_question
+  Output: The vector 'letters' contains all the letters from the English alphabet. Using `[` and letters,
+    choose only the first 3 letters. Save that as 'my_letters'.
+  CorrectAnswer: my_letters <- letters[1:3]
+  AnswerTests: omnitest(correctExpr='my_letters <- letters[1:3]')
+  Hint: Print letters. Those are all the letters. Subset only the first three with [1:3]. Finally,
+    save that with the name my_letters.
+    
+- Class: cmd_question
+  Output: my_letters is a string vector, we know that for sure. To turn strings into into
+    factors we use the 'factor()' function. Transform 'my_letters' to a factor by using the appropriate
+    function and save that new vector as 'my_factor_letters'
+  CorrectAnswer: my_factor_letters <- factor(my_letters)
+  AnswerTests: omnitest(correctExpr='my_factor_letters <- factor(my_letters)')
+  Hint: factor(you_old_variable) and save that as my_factor_letters.
+
+- Class: cmd_question
+  Output: Inspect the contents of my_factor_letters by writing its name.
+  CorrectAnswer: my_factor_letters
+  AnswerTests: omnitest(correctExpr='my_factor_letters')
+  Hint: Type my_factor_letters
+
+- Class: text
+  Output: There seems to be two main differences. First, letters are not wrapped in quote (" "),
+    as they usually are in strings. Secondly, you get a levels message below, showing you the 'levels'
+    of the values.
+
+- Class: cmd_question
+  Output: You can access the 'levels' of a factor with the levels() function to both inspect and change
+    the values of the levels. Type levels(my_factor_letters).
+  CorrectAnswer: levels(my_factor_letters)
+  AnswerTests: omnitest(correctExpr='levels(my_factor_letters)')
+  Hint: Type levels(my_factor_letters)
+  
+- Class: cmd_question
+  Output: Change the levels of my_factor_letters to c("c", "a", "b")
+  CorrectAnswer: levels(my_factor_letters) <- c("c", "a", "b")
+  AnswerTests: omnitest(correctExpr='levels(my_factor_letters) <- c("c", "a", "b")')
+  Hint: Wrap my_factor_letters within levels() and to that expression assign the new levels.
+    For example, levels(vec) <- values.
+    
+- Class: cmd_question
+  Output: Type my_factor_letters to check its contents.
+  CorrectAnswer: my_factor_letters
+  AnswerTests: omnitest(correctExpr='my_factor_letters')
+  Hint: Type my_factor_letters
+  
+- Class: text
+  Output: Note that not only the levels changed but the actual values of the vector! Changing
+    levels actually 'recodes' the values. You can use levels when you want to change the name of
+    categories.
+
+- Class: text
+  Output: Also, you remember when we converted my_letters to a factor? By default factor() always
+    sorts the levels of alphabetical order. If we want to change the order, we can use the levels()
+    function or set it directly with factor().
+    
+- Class: cmd_question
+  Output: There's a vector called gender in your working directory. Check it's contents.
+  CorrectAnswer: gender
+  AnswerTests: omnitest(correctExpr='gender')
+  Hint: Type gender
+  
+- Class: cmd_question
+  Output: Turn gender into a factor and call it factor_gender. Wrap the whole expression
+    with parenthesis so that we print the result.
+  CorrectAnswer: (factor_gender <- factor(gender))
+  AnswerTests: omnitest(correctExpr='(factor_gender <- factor(gender))')
+  Hint: Wrap gender with factor and call that factor_gender. Wrap the while expression
+    with parenthesis like this (expression).
+
+- Class: cmd_question
+  Output: By default, factor() sets the levels to be 0 and 1, because that's the logical order.
+     We could change that so that the order is 1 and 0 for Males and Females. Using factor(), again,
+     turn gender into a factor, but set the new order with the 'levels' argument for factor. Save that
+     again with the name factor_gender.
+  CorrectAnswer: factor_gender <- factor(gender, levels = c(1, 0))
+  AnswerTests: omnitest(correctExpr='factor_gender <- factor(gender, levels = c(1, 0))')
+  Hint: Wrap gender with factor(), change its levels to be c(1, 0) and call that factor_gender.
+
+- Class: cmd_question
+  Output: Check the contents of factor_gender
+  CorrectAnswer: factor_gender
+  AnswerTests: omnitest(correctExpr='factor_gender')
+  Hint: Type factor_gender
+
+- Class: mult_question
+  Output: What is the main difference between using levels() and setting levels inside the factor()
+    function?
+  AnswerChoices: The levels changed but the order didn't; The levels changed but the order did; The values changed but the order didn't; The values didn't change but the order did
+  CorrectAnswer: The levels changed but the order didn't
+  AnswerTests: omnitest(correctVal= 'The levels changed but the order didn't')
+  Hint: In the levels() assignment, we recoded the values when we changed the levels. Did that happen now?
+
+- Class: text
+  Output: That's a major difference! If we set the levels in the factor() function, we only
+    change the 'order' of the levels but no recoding is performed. Keep that in mind.
+
+
+# You need to show more clearly the difference between setting levels and setting
+# labels
+
+# You left off by change the labels of factor_gender to be 'Males' and 'Females' but what
+# if you wanted to just set the labels without dealing with the levels in the first place?
+# It looks the same to me. What's the difference between the two?
+
+
+# Show how to write different labels in the labels
+# Show how excluding a level can turn a value into NA.
+# Show how to order a factor and how it matters for doing some type of analysis.
