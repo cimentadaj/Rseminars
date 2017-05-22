@@ -7,7 +7,7 @@
   Version: 2.2.21
 
 - Class: text
-  Output: Hi there and welcome to the lesson on factors! Today we'll be talking about factors, a class
+  Output: Hi and welcome to the lesson on factors! Today we'll be talking about factors, a class
     in R used to deal with strings that have a particular order.
     
 - Class: text
@@ -20,7 +20,7 @@
     choose only the first 3 letters. Save that as 'my_letters'.
   CorrectAnswer: my_letters <- letters[1:3]
   AnswerTests: omnitest(correctExpr='my_letters <- letters[1:3]')
-  Hint: Print letters. Those are all the letters. Subset only the first three with [1:3]. Finally,
+  Hint: Using the vector letters subset only the first three with [1:3]. Finally,
     save that with the name my_letters.
     
 - Class: cmd_question
@@ -40,7 +40,7 @@
 - Class: text
   Output: There seems to be two main differences. First, letters are not wrapped in quote (" "),
     as they usually are in strings. Secondly, you get a levels message below, showing you the 'levels'
-    of the values.
+    of the vector.
 
 - Class: cmd_question
   Output: You can access the 'levels' of a factor with the levels() function to both inspect and change
@@ -65,11 +65,11 @@
 - Class: text
   Output: Note that not only the levels changed but the actual values of the vector! Changing
     levels actually 'recodes' the values. You can use levels when you want to change the name of
-    categories.
+    categories but beware that you'll change the level order as well.
 
 - Class: text
   Output: Also, you remember when we converted my_letters to a factor? By default factor() always
-    sorts the levels of alphabetical order. If we want to change the order, we can use the levels()
+    sorts the levels in alphabetical order. If we want to change the order, we can use the levels()
     function or set it directly with factor().
     
 - Class: cmd_question
@@ -83,12 +83,12 @@
     with parenthesis so that we print the result.
   CorrectAnswer: (factor_gender <- factor(gender))
   AnswerTests: omnitest(correctExpr='(factor_gender <- factor(gender))')
-  Hint: Wrap gender with factor and call that factor_gender. Wrap the while expression
+  Hint: Wrap gender with factor and call that factor_gender. Wrap the whole expression
     with parenthesis like this (expression).
 
 - Class: cmd_question
   Output: By default, factor() sets the levels to be 0 and 1, because that's the logical order.
-     We could change that so that the order is 1 and 0 for Males and Females. Using factor(), again,
+     We could change that so that the order is 1 and 0. Using factor(), again,
      turn gender into a factor, but set the new order with the 'levels' argument for factor. Save that
      again with the name factor_gender.
   CorrectAnswer: factor_gender <- factor(gender, levels = c(1, 0))
@@ -104,24 +104,94 @@
 - Class: mult_question
   Output: What is the main difference between using levels() and setting levels inside the factor()
     function?
-  AnswerChoices: The levels changed but the order didn't; The levels changed but the order did; The values changed but the order didn't; The values didn't change but the order did
-  CorrectAnswer: The levels changed but the order didn't
-  AnswerTests: omnitest(correctVal= 'The levels changed but the order didn't')
+  AnswerChoices: The levels changed but the order didnt; The levels changed and the order did; The values changed and the order didnt; The values didnt change but the order did
+  CorrectAnswer: The levels changed but the order didnt
+  AnswerTests: omnitest(correctVal= 'The levels changed but the order didnt')
   Hint: In the levels() assignment, we recoded the values when we changed the levels. Did that happen now?
 
 - Class: text
   Output: That's a major difference! If we set the levels in the factor() function, we only
     change the 'order' of the levels but no recoding is performed. Keep that in mind.
 
+- Class: cmd_question
+  Output: Now, we can also just change the labels of the factor. For example, turn gender
+    to a factor using factor() and set the labels to be "Male" and "Female". Save it as
+    labels_factor.
+  CorrectAnswer: labels_factor <- factor(gender, labels = c("Male", "Female"))
+  AnswerTests: omnitest(correctExpr='labels_factor <- factor(gender, labels = c("Male", "Female"))')
+  Hint: Type something along the lines of new_name <- factor(variable, labels = labels).
 
-# You need to show more clearly the difference between setting levels and setting
-# labels
+- Class: cmd_question
+  Output: So here we changed the labels but everything works as if we set the levels argument
+    changed the levels! For example, use the attributes function to check the contents of
+    labels_factor.
+  CorrectAnswer: attributes(labels_factor)
+  AnswerTests: omnitest(correctExpr='attributes(labels_factor)')
+  Hint: Include labels_factor inside the attributes function.
+  
+- Class: text
+  Output: You have to be very careful when using levels or labels! You might think they do the same
+    thing.
+    
+- Class: cmd_question
+  Output: Without naming it, transform gender to be a factor and change the *levels* of gender
+    to be "Male" and "Female".
+  CorrectAnswer: factor(gender, levels = c("Male", "Female"))
+  AnswerTests: omnitest(correctExpr='factor(gender, levels = c("Male", "Female"))')
+  Hint: Using factor() turn gender into a factor and change the levels using the levels argument.
 
-# You left off by change the labels of factor_gender to be 'Males' and 'Females' but what
-# if you wanted to just set the labels without dealing with the levels in the first place?
-# It looks the same to me. What's the difference between the two?
+- Class: text
+  Output: The logic is simple. Are there any levels called "Male" or "Female"? No, the
+    levels are actually "1" and "0". We could reorder those levels with the levels argument
+    but not CHANGE their names. We could even add NEW levels apart from "1" and "0". So what
+    the labels argument does is change the names of "1" and "0" not add/remove levels.
+    Since all levels are "1" and "0" and no "Male" or "Female" levels are found,
+    they get set to NA's!
 
+- Class: cmd_question
+  Output: Another important thing is ordered factors. Ordered factors are exactly
+    the same as the previous factors, except that we set the 'ordered' argument to be
+    TRUE. This means that the order of the levels is interpreted as ordered. Transform
+    gender into a factor and set ordered to TRUE. Save that to ord_gender.
+  CorrectAnswer: ord_gender <- factor(gender, ordered = TRUE)
+  AnswerTests: omnitest(correctExpr='ord_gender <- factor(gender, ordered = TRUE)')
+  Hint: new_name <- factor(old_var, ordered = TRUE) should do it.
 
-# Show how to write different labels in the labels
-# Show how excluding a level can turn a value into NA.
-# Show how to order a factor and how it matters for doing some type of analysis.
+- Class: cmd_question
+  Output: Type ord_gender.
+  CorrectAnswer: ord_gender
+  AnswerTests: omnitest(correctExpr='ord_gender')
+  Hint: Type ord_gender.
+  
+- Class: text
+  Output: Do you see how the levels printout changed? In short, the levels are now set to be
+    in an order. All R operations will understand the levels to be ordered. If, for example,
+    we ran a regression, the lower level (regardless of whether it's 5 or 100) will be set as
+    the referency category (intercept). Or if we do something as simple as a table, the levels
+    will appear in that order.
+    
+- Class: cmd_question
+  Output: A common frustration is that the order of a categories in a barplot is set to be the order
+    of the levels. Try putting table(ord_gender) inside the barplot() function.
+  CorrectAnswer: barplot(table(ord_gender))
+  AnswerTests: omnitest(correctExpr='barplot(table(ord_gender))')
+  Hint: barplot(table(the_variable)) should be enough!
+  
+- Class: text
+  Output: See what I told you? If we would've changed th levels to be "Male" and "Female" and
+    set the ordered = TRUE, then the first factor would be "Male"!
+    
+- Class: cmd_question
+  Output: Rerun the previous barplot but change ord_gender for labels_factor to see
+    the difference.
+  CorrectAnswer: barplot(table(labels_factor))
+  AnswerTests: omnitest(correctExpr='barplot(table(labels_factor))')
+  Hint: barplot(table(the_variable)) should be enough!
+  
+- Class: text
+  Output: Usually, when reading csv files, string variables are set to be factors be default.
+    Although this might be what we wanted, it is often not. To control for that, you can
+    change stringsAsFactors to be equal to FALSE!
+
+- Class: text
+  Output: Good job!
