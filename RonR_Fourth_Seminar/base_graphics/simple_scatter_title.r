@@ -1,1 +1,0 @@
-plot(y~x, AQ[[1]], main='Abscombe 1')

@@ -1,1 +1,0 @@
-plot(y~x, AQ[[1]], main='Anscombe 1', xlab='Weight (g)', ylab='Height (m)', bty="u")
