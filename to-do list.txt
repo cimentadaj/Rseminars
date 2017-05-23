@@ -13,8 +13,5 @@ previously and redirect to installation
 Third seminar:
 - Create challange as last lesson
 
-Fourth seminar:
-- Pretty much rewrite everything
-
 Fifth seminar:
 - Should you teach this lesson? Hmm it’s a bit difficult to teach if statements and loops in this interactive fashion. Perhaps with the ‘script’ type of question by showing excuting from the script rather than from console.

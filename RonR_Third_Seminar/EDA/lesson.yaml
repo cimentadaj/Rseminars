@@ -1,0 +1,17 @@
+- Class: meta
+  Course: RonR_Third_Seminar
+  Lesson: EDA
+  Author: your name goes here
+  Type: Standard
+  Organization: your organization's name goes here
+  Version: 2.4.3
+
+# remove two column names for when reading
+# Change USA to United States
+# Recode age to age groups
+# Recode religion to yes or no
+# Turn poverty into an ordered factor
+
+# Two ways of reading the data
+m <- read.table("./data/wvs")
+p <- read.csv2("./data/wvs_semi_colon")
