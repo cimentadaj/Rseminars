@@ -6,7 +6,7 @@
   Organization: RECSM
   Version: 2.4.3
 
-# remove two column names for when reading
+# Remove two column names for when reading
 # Change USA to United States
 # Recode age to age groups
 # Recode religion to yes or no
@@ -192,11 +192,70 @@
     
 - Class: text
   Output: Okay, it looks like 77% of the population of all these countries combined
-    belong to a particular religion. Does this differ by gender and education? Let's explore it.
+    belong to a particular religion. Does this differ by education? Let's explore it.
+
+- Class: cmd_question
+  Output: Calculate the frequency table not only for 'relig' but include the 'degree' variable.
+    Save it as our_table2 and wrap the whole expression in parenthesis ().
+  CorrectAnswer: (our_table2 <- table(wvs_full$relig, wvs_full$degree))
+  AnswerTests: omnitest(correctExpr='(our_table2 <- table(wvs_full$relig, wvs_full$degree))')
+  Hint: 'This skeleton should help you out: (new_name <- table(wvs_full$var_1, wvs_full$var_2))'
+    
+- Class: text
+  Output: So, people who don't have a degree are disproportionately more likely to be religious.
+    This obviously depeneds on a lot of things. One of it is that this relationship changes with
+    your age, and obviously by country. People in Sweden might be generally less religious than
+    in the United States.
+    
+- Class: cmd_question
+  Output: Let's turn the age variable into equal age groups. We do that with cut().
+    Create the variable age_group within wvs_full and cut() wvs_full$age into 
+    6 age groups with the argument 'breaks' and set the dig.lab to 2.
+  CorrectAnswer: wvs_full$age_group <- cut(wvs_full$age, breaks = 6, dig.lab = 2)
+  AnswerTests: omnitest(correctExpr='wvs_full$age_group <- cut(wvs_full$age, breaks = 6, dig.lab = 2)')
+  Hint: 'This skeleton should help you out: data$new_name <- cut(data$old_name, breaks = 6, dig.lab = 2)'
+  
+- Class: cmd_question
+  Output: Check the frequency of each group with table().
+  CorrectAnswer: table(wvs_full$age_group)
+  AnswerTests: omnitest(correctExpr='table(wvs_full$age_group)')
+  Hint: 'Include wvs_full$age_group inside table()'
+
+- Class: text
+  Output: We could calculate the share of each group by manually subsetting the groups manually.
+    For example, with(wvs_full[wvs_full$age_group == "(18,30]", ], table(relig, degree)). Try to
+    understand this code by yourself...
+    
+- Class: cmd_question
+  Output: Can you repeat the previous here?
+  CorrectAnswer: with(wvs_full[wvs_full$age_group == "(18,30]", ], table(relig, degree))
+  AnswerTests: omnitest(correctExpr='with(wvs_full[wvs_full$age_group == "(18,30]", ], table(relig, degree))')
+  Hint: Copy the previous code.
+
+- Class: cmd_question
+  Output: Repeat the previous but for the "55,67" group.
+  CorrectAnswer: with(wvs_full[wvs_full$age_group == "(55,67]", ], table(relig, degree))
+  AnswerTests: omnitest(correctExpr='with(wvs_full[wvs_full$age_group == "(55,67]", ], table(relig, degree))')
+  Hint: Copy the previous code and update with new age group.
+  
+- Class: cmd_question
+  Output: Repeat the previous but for the "67,80" group.
+  CorrectAnswer: with(wvs_full[wvs_full$age_group == "(67,80]", ], table(relig, degree))
+  AnswerTests: omnitest(correctExpr='with(wvs_full[wvs_full$age_group == "(67,80]", ], table(relig, degree))')
+  Hint: Copy the previous code and update with new age group.
+
+- Class: text
+  Output: Notice the trend? These number don't help a lot, but if we looked at the percentages
+    it looks like religion for non-degree holders increases with age. Interesting.
+    
+- Class: text
+  Output: But that was a bit of a hassle, you know.. having to change groups to check each one!
+    We could've done something much easier with functions like by() or split() and lapply() but
+    these are more advanced functions. If you feel curious, feel free to check them out!
+
     
 # Calculate percentages of relig by countries
 # Also by gender
-# Check whether high educated are more religious by age (create categories of age)
 
 # Check frequency of pov variable and recode values
 # Check relationship through table() between pov and age by country
