@@ -6,7 +6,6 @@
   Organization: RECSM
   Version: 2.4.3
 
-# Remove two column names for when reading
 # Change USA to United States
 # Recode age to age groups
 # Recode religion to yes or no
@@ -251,11 +250,87 @@
 - Class: text
   Output: But that was a bit of a hassle, you know.. having to change groups to check each one!
     We could've done something much easier with functions like by() or split() and lapply() but
-    these are more advanced functions. If you feel curious, feel free to check them out!
-
+    these are more advanced. If you feel curious, feel free to check them out!
     
-# Calculate percentages of relig by countries
-# Also by gender
+- Class: cmd_question
+  Output: Check the frequency of the country variable
+  CorrectAnswer: table(wvs_full$country)
+  AnswerTests: omnitest(correctExpr='table(wvs_full$country)')
+  Hint: Include wvs_full$country inside table()
+  
+- Class: mult_question
+  Output: "Let's recode 'USA' to 'United States'. How would we do that? In words, we need
+    to take wvs_full$country and subset where wvs_full$country == 'USA' and set that to be
+    'United States'"
+  AnswerChoices: wvs_full$country[country == "USA"] <- "United States"; wvs_full$country[wvs_full$country == "USA"] <- "United States"; wvs_full$country == 'USA' <- "United States"; wvs_full$country == 'USA' <- "United States"
+  CorrectAnswer: wvs_full$country[wvs_full$country == "USA"] <- "United States"
+  AnswerTests: omnitest(correctVal= 'wvs_full$country[wvs_full$country == "USA"] <- "United States"')
+  Hint: Take country, then subset the positions where country equals 'USA' and assign "United States"
 
-# Check frequency of pov variable and recode values
-# Check relationship through table() between pov and age by country
+- Class: cmd_question
+  Output: Okay, let's go step by step! First, type the logical statement to whether wvs_full$country
+    equals "USA". Save as 'lgl' and wrap everything in parenthesis ().
+  CorrectAnswer: (lgl <- wvs_full$country == "USA")
+  AnswerTests: omnitest(correctExpr='(lgl <- wvs_full$country == "USA")')
+  Hint: Type something like (new_name <- data$variable == 'string')
+  
+- Class: text
+  Output: So each TRUE is actually one position where the logical statement is TRUE. So position 961
+    contains the string 'USA' in the country variable. From here it's easy! What would be the result
+    of wvs_full$country[lgl]?
+    
+- Class: cmd_question
+  Output: Try it yourself
+  CorrectAnswer: wvs_full$country[lgl]
+  AnswerTests: omnitest(correctExpr='wvs_full$country[lgl]')
+  Hint: Copy the code from the last question!
+  
+- Class: text
+  Output: How can you tell whether this variable is a factor or a string?
+
+- Class: cmd_question
+  Output: This a problem! This is a factor, and we already looked at how to recode
+    factors with the 'labels' argument. We want treat this as a character. Turn it
+    into a character and save it again.
+  CorrectAnswer: wvs_full$country <- as.character(wvs_full$country) 
+  AnswerTests: omnitest(correctExpr='wvs_full$country <- as.character(wvs_full$country)')
+  Hint: Use as.character() with wvs_full$country and assign the same name.
+    
+- Class: cmd_question
+  Output: Ok, back to the recode. We literally only took the position where wvs_full$country is
+    equal to "USA". To reassign it we add '<- "United States"' to the subset from the previous code.
+    Do it!
+  CorrectAnswer: wvs_full$country[lgl] <- "United States"
+  AnswerTests: omnitest(correctExpr='wvs_full$country[lgl] <- "United States"')
+  Hint: Add '<- "United States"' to wvs_full$country[lgl].
+
+- Class: cmd_question
+  Output: Check the frequency of the country variable now.
+  CorrectAnswer: table(wvs_full$country)
+  AnswerTests: omnitest(correctExpr='table(wvs_full$country)')
+  Hint: Check the frequency of wvs_full$country with table()
+  
+- Class: cmd_question
+  Output: Using with(), 'wvs_full' and the subsetting rules we used before,
+    can you produce the frequency table of only "Sweden"? Think something like with(subsetted_data,
+    prop.table(table(relig, degree)))
+  CorrectAnswer: with(wvs_full[wvs_full$country == "Sweden", ], prop.table(table(relig, degree)))
+  AnswerTests: omnitest(correctExpr='with(wvs_full[wvs_full$country == "Sweden", ], prop.table(table(relig, degree)))')
+  Hint: This is a hard one! But think hard. data[data$subset_var == "string", ] will give you a data set for only
+    when subset_var equals "string". Extrapolate the example to "Sweden" and the rest is the same!
+    
+- Class: cmd_question
+  Output: Copy the previous to "United States" so we can compare!
+  CorrectAnswer: with(wvs_full[wvs_full$country == "United States", ], prop.table(table(relig, degree)))
+  AnswerTests: omnitest(correctExpr='with(wvs_full[wvs_full$country == "United States", ], prop.table(table(relig, degree)))')
+  Hint: This is a hard one! But think hard. data[data$subset_var == "string", ] will give you a data set for only
+    when subset_var equals "string". Extrapolate the example to "United States" and the rest is the same!
+
+- Class: text
+  Output: It looks like in the US there's about 15% which are not religious and don't have a university
+    degree. Moreover, it looks like less degree-holders are religious in the US than in Sweden.
+    
+- Class: text
+  Output: This was a good job! We did real data analysis today. We got a messy dataset and we made
+    it suitable for analysis. I think you're well versed in basic R to start your own analysis.
+    This can be frustrating, but don't give up, it's very rewarding!
