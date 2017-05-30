@@ -6,7 +6,7 @@
 .get_course_path <- function(){
   tryCatch(swirl::swirl_courses_dir(),
            error = function(c) {
-             file.path(find.package("swirl"), "Courses", "RonR_Third_Seminar", "Data_management", "data")
+             file.path(find.package("swirl"), "Courses", "Lesson_2", "Data_management", "data")
            }
   )
 }

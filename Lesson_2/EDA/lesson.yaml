@@ -6,15 +6,6 @@
   Organization: RECSM
   Version: 2.4.3
 
-# Change USA to United States
-# Recode age to age groups
-# Recode religion to yes or no
-# Turn poverty into an ordered factor
-
-# Two ways of reading the data
-# m <- read.table("./data/wvs")
-# p <- read.csv2("./data/wvs_semi_colon")
-
 - Class: text
   Output: Hi and welcome to the final swirl lesson! This will be a challenge lesson where we attempt
     do some Exploratory Data Analysis using the concepts we've touched upon until now.

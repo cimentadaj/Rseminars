@@ -3,4 +3,4 @@
 # the user's working directory and thus be accessible to them
 # throughout the lesson.
 
-txt_file <- "https://raw.githubusercontent.com/cimentadaj/Rseminars/master/RonR_Third_Seminar/Descriptive_statistics/data/asfr1314ine.txt"
+txt_file <- "https://raw.githubusercontent.com/cimentadaj/Rseminars/active_development/Lesson_2/Descriptive_statistics/data/asfr1314ine.txt"
