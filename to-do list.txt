@@ -10,8 +10,4 @@ previously and redirect to installation
 
 - RECHECK the above but I think it’s fixed!
 
-Third seminar:
-- Create challange as last lesson
 
-Fifth seminar:
-- Should you teach this lesson? Hmm it’s a bit difficult to teach if statements and loops in this interactive fashion. Perhaps with the ‘script’ type of question by showing excuting from the script rather than from console.
