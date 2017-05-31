@@ -11,13 +11,13 @@ packages <- c("haven", "readxl")
 pkgs_to_install <- setdiff(packages, row.names(installed.packages()))
 if (length(pkgs_to_install) != 0) suppress_everything(install.packages(pkgs_to_install))
 
-require(haven)
-require(readxl)
+require(haven, quietly = T)
+require(readxl, quietly = T)
 
 .get_course_path <- function(){
   tryCatch(swirl::swirl_courses_dir(),
            error = function(c) {
-             file.path(find.package("swirl"), "Courses", "RonR_Third_Seminar", "Reading_data")
+             file.path(find.package("swirl"), "Courses", "Lesson_2", "Reading_data")
     }
   )
 }

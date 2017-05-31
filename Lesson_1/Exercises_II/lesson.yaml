@@ -235,10 +235,7 @@
   AnswerTests: omnitest(correctExpr='all_tests <- merge(all_tests, literacy_tests)')
   Hint: all_tests <- merge(all_tests, literacy_tests) should do the trick!
 
-- Class: cmd_question
+- Class: text
   Output: Congrats for passing these exercises! You conducted some cool data management.
     If you want to explore the dataset further, type play() and swirl will ignore what you do.
-    Use nxt() to come back to the exercises. If you want to finnish the exercises, type "Im done".
-  CorrectAnswer: "Im done"
-  AnswerTests: omnitest(correctExpr='"Im done"')
-  Hint: 
+    Use nxt() to come back to the exercises.

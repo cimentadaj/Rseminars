@@ -21,14 +21,14 @@
 
 - Class: video
   Output: First, let's read the data. Please, inspect the data.
-  VideoLink: https://raw.githubusercontent.com/cimentadaj/Rseminars/master/RonR_Third_Seminar/Descriptive_statistics/data/asfr1314ine.txt
+  VideoLink: https://raw.githubusercontent.com/cimentadaj/Rseminars/master/Lesson_2/Descriptive_statistics/data/asfr1314ine.txt
 
 - Class: cmd_question
   Output: I stored the dataset's url in a string vector called txt_file in your workspace.
     Read it and give it the name dati. Hint; while reading the data, change the four column
     names to c('age', 'X2014', 'X2013', "year_equal", "age_groups").
   CorrectAnswer: dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups"), sep = " ")
-  AnswerTests: omnitest(correctExpr=('dati <- read.table(txt_file, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups"), sep = " ")'))
+  AnswerTests: omnitest(correctExpr=('dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups"), sep = " ")'))
   Hint: If you looked at the table, there are 5 columns but only four column names (first column
     is actually the row.names, that's why you think there are 6). You have to
     provide (in read.table) new column names(col.names). Use ?read.table to find the arguments
