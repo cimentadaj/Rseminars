@@ -7,7 +7,7 @@ install_everything <- function() {
   if (length(packages_to_install) > 0) install.packages(packages_to_install)
   suppressWarnings(suppressPackageStartupMessages(require(swirl)))
   
-  suppressWarnings(install_course_github("cimentadaj", "Rseminars", multi = T))
+  suppressWarnings(install_course_github("cimentadaj", "Rseminars", branch = "active_development", multi = T))
   
   ## Now you can see the course if you type swirl()
   message("Type swirl() to access the course")

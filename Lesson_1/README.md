@@ -45,7 +45,7 @@ To install the interactive lessons copy and paste this code in the bottom left w
 install.packages("downloader")
 library(downloader)
 
-link <- "https://raw.githubusercontent.com/cimentadaj/Rseminars/master/RonR_Second_Seminar/Course_download.R"
+link <- "https://raw.githubusercontent.com/cimentadaj/Rseminars/active_development/Lesson_1/Course_download.R"
 
 source_url(link, paste(sha_url(link)))
 
