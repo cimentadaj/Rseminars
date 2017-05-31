@@ -47,7 +47,7 @@
 
 - Class: cmd_question
   Output: Create a numeric vector named gender which contains the number 1, 0, 1.
-  CorrectAnswer: omnitest(correctExpr="gender <- c(1, 0, 1)")
+  CorrectAnswer: gender <- c(1, 0, 1)
   AnswerTests: omnitest(correctExpr="gender <- c(1, 0, 1)")
   Hint: 'Assign the numbers 1, 0, 1 to the a vector named gender. You could do that like this: gender <- c(1, 0, 1)'
 
@@ -58,13 +58,13 @@
 - Class: cmd_question
   Output: If an expression is written but not assigned a name, then the expression will not be saved.
     Type income, for example, to see what it contains. 
-  CorrectAnswer: omnitest(correctExpr="income")
+  CorrectAnswer: income
   AnswerTests: omnitest(correctExpr="income")
   Hint: 'Type income'
   
 - Class: cmd_question
   Output: Now, type c(100, 500, 35, 60, 2100)
-  CorrectAnswer: omnitest(correctExpr="c(100, 500, 35, 60, 2100)")
+  CorrectAnswer: c(100, 500, 35, 60, 2100)
   AnswerTests: omnitest(correctExpr="c(100, 500, 35, 60, 2100)")
   Hint: 'Type c(100, 500, 35, 60, 2100)'
 
@@ -76,7 +76,7 @@
 - Class: cmd_question
   Output: 'Now, a really important function is length(). I think the name is pretty explanatory.
     Try it out yourself, type: length(income)'
-  CorrectAnswer: omnitest(correctExpr="length(income)")
+  CorrectAnswer: length(income)
   AnswerTests: omnitest(correctExpr="length(income)")
   Hint: 'Type length(income)'
 
@@ -120,8 +120,7 @@
 
 - Class: cmd_question
   Output: Let's give it a try. Create a vector named myname and include your FIRST name inside it.
-  CorrectAnswer: var_is_a('character', 'myname')
-  AnswerTests: var_is_a('character', 'myname')
+  AnswerTests: chr_created()
   Hint: 'Start off by the vector name: myname <- and now type your first name wrapped in " "'
   
 - Class: text
@@ -138,14 +137,13 @@
     concatenate the vector myname and your last name together. Remember, myname is not a character
     element but a character VECTOR, so you don't have to wrap it around with the " ".
     Assign your result to myname again.
-  CorrectAnswer: var_is_a('character', 'myname')
-  AnswerTests: var_is_a('character', 'myname')
+  AnswerTests: chr_created()
   Hint: 'Start off by the vector name: myname <- and now open the c() and include, first the
     myname vector, and then your last name wrapped in " ".'
     
 - Class: cmd_question
   Output: Type myname to see the contents of myname.
-  CorrectAnswer: omnitest(correctExpr="myname")
+  CorrectAnswer: myname
   AnswerTests: omnitest(correctExpr="myname")
   Hint: 'Type myname'
 
@@ -196,13 +194,13 @@
   Output: Let's make an example. I already typed diabetes <- c("Type1", "Type2", "Type1", "Type1"), which creates
     a character vector of length 4. Now you type diabetes <- factor(diabetes). 
     The expression can be read as; take the vector diabetes, convert it into factor and save it with the same name.
-  CorrectAnswer: omnitest(correctExpr="diabetes <- factor(diabetes)")
+  CorrectAnswer: diabetes <- factor(diabetes)
   AnswerTests: omnitest(correctExpr="diabetes <- factor(diabetes)")
   Hint: 'Type diabetes <- factor(diabetes)'
   
 - Class: cmd_question
   Output: 'Type diabetes to see its content'
-  CorrectAnswer: omnitest(correctExpr="diabetes")
+  CorrectAnswer: diabetes
   AnswerTests: omnitest(correctExpr="diabetes")
   Hint: 'Type diabetes'
   
@@ -215,7 +213,7 @@
 - Class: cmd_question
   Output: 'We could do it in a similar way, but adding more options: status2 <- factor(status, order = TRUE,
     levels=c(“Bad”, “Middle”, “Good”)). I went ahead and ran it myself. Type status2 to see the results'
-  CorrectAnswer: omnitest(correctExpr="status2")
+  CorrectAnswer: status2
   AnswerTests: omnitest(correctExpr="status2")
   Hint: 'Type status2'
   
@@ -234,7 +232,7 @@
   Output: 'The next thing to talk about is how do we know, FOR SURE, what type a vector is?
       We can check what type of vector we are working with by calling the function class(x) which takes
       as an argument the name of the vector we want to analyse. Try class(status2)'
-  CorrectAnswer: omnitest(correctExpr="class(status2)")
+  CorrectAnswer: class(status2)
   AnswerTests: omnitest(correctExpr="class(status2)")
   Hint: 'Type class(status2)'
   
@@ -246,7 +244,7 @@
   
 - Class: text
   Output: 'R has a number of functions for generating commonly used sequences of numbers.
-    For example 1:30 is the vector c(1, 2, …, 29, 30). The construction 30:1 may be used
+    For example 1:30 is the vector c(1, 2, ..., 29, 30). The construction 30:1 may be used
     to generate a sequence backwards.'
 
 - Class: text
@@ -255,7 +253,7 @@
   
 - Class: cmd_question
   Output: 'Create a numeric vector called oursequence containing a sequence from 1 to 9 using the semicolon (:)'
-  CorrectAnswer: omnitest(correctExpr="oursequence <- 1:9")
+  CorrectAnswer: oursequence <- 1:9
   AnswerTests: omnitest(correctExpr="oursequence <- 1:9")
   Hint: 'Assign the sequence 1:9 the oursequence name.'
   
@@ -271,7 +269,7 @@
 - Class: cmd_question
   Output: The next argument to seq() is named 'by = value' and it specifies the jumps in the sequence.
       For example, type seq(1, 10, by = 2)'
-  CorrectAnswer: omnitest(correctExpr="seq(1, 10, by = 2)")
+  CorrectAnswer: seq(1, 10, by = 2)
   AnswerTests: omnitest(correctExpr="seq(1, 10, by = 2)")
   Hint: 'Type seq(1, 10, by = 2)'
   
@@ -295,7 +293,7 @@
 - Class: cmd_question
   Output: 'That function is pretty straight forward but it has additional functionalities.
       One of them is that you can specify the each argument. Type rep(c(10, 5, 3, 6, 21), each = 2)'
-  CorrectAnswer: omnitest(correctExpr="rep(c(10, 5, 3, 6, 21), each = 2)")
+  CorrectAnswer: rep(c(10, 5, 3, 6, 21), each = 2)
   AnswerTests: omnitest(correctExpr="rep(c(10, 5, 3, 6, 21), each = 2)")
   Hint: 'Type rep(c(10, 5, 3, 6, 21), each = 2)'
   
