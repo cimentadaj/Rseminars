@@ -8,6 +8,8 @@ The RonR! Seminar Series is an interactive R course aimed at students who want t
 
 *Note: This introduction does not contain exercises, only an [RMarkdown presentation](https://github.com/cimentadaj/Rseminars/blob/master/RonR_First_Seminar/First-seminar-presentation.rmd)*
 
+Instructor: [Jorge Cimentada](http://www.jorgecimentada.com)
+
 Brief introduction to R
 
 * First steps using R
@@ -31,25 +33,25 @@ Brief introduction to R
 
 This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Second_Seminar).
 
-* Vectors
+Instructors: [Basilio Moreno](https://www.linkedin.com/in/basiliomp) and [Jorge Cimentada](https://cimentadaj.github.io/)
+
+* Basic objects: Vectors
   + Numerical, logical and character vectors
   + Generation of regular sequences
   + Vector arithmetic
-  + Factos
   + Matrices and lists
-  
 
-* Matrices and lists
+* Basic objects: Matrices and lists
   + Creation and modification of matrices
   + Creation and modification of lists
   + Subsetting matrices and lists
 
-* Data frames (I)
+* Basic objects: Data frames (I)
   + Creation of data frames
   + Adding new variables
   + Subsetting data frames
 
-* Data frames (II)
+* Basic objects: Data frames (II)
   + Working with data frames: Functions attach and with
   + Merging data frames
   + Labelling variables
@@ -58,6 +60,8 @@ This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/t
 ## **Seminar 3. Manipulating and processing data**
 
 This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Third_Seminar)
+
+Instructor: [Daniel Ciganda](dciganda@gmail.com)
 
 * Importing data from SPSS, EXCEL and STATA
 * Basic data manipulation:
@@ -74,5 +78,44 @@ This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/t
   + Frequency tables for categorical variables
   + Correlations of two numerical variables
   + Contingency tables for two categorical variables
+
+## **Seminar 4. Beautiful, clear, and informative graphs: Using R to visualize quantitative information**
+
+This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Fourth_Seminar)
+
+Instructor: [John Palmer](http://johnrbpalmer.com/)
+
+* Thinking through the visual display of quantitative information:
+  + Numbers for the mind€™'s eye
+  + Clarity and honesty
+* Aesthetics
+  + Taking control of Râ€™s base graphics:
+  + Titles and annotations
+  + Axes
+  + Margins
+  + Borders and backgrounds
+  + Plot types and styles
+* Special cases:
+  + Big data
+  + Raster data
+  + Maps
+  + 3D plots
+  + Animation
+* Production quality output:
+  + Articles
+  + Slides
+  + Websites
+
+## **Seminar 5. An introduction to R programming**
+
+**This seminar does not have exercises yet**
+
+Instructor: Instructor: [Bruno Arpino](https://sites.google.com/site/brunoarpino/)
+* Basic programming:
+* Conditional execution.
+* Repetitive execution.
+* Apply(), sapply() and lapply() functions.
+* Writing your own functions.
+* Monte Carlo simulations.
 
 ### The organizers of the RECSM RonR! seminars.

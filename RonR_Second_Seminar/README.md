@@ -60,7 +60,7 @@ If everything was correct, then the last two sentences in the console should be:
 Type swirl() to access the course
 ```
 
-Now type ```swirl() ``` and the interactive lesson should ask you for your name. After that, the interactive lesson will give you some instructions on how the program works and finally it should give the list of courses that you have installed. Enter the number of your desired course and choose which ever lesson you want to start.
+Now type ```swirl() ``` and the interactive lesson should ask you for your name. After that, the interactive lesson will give you some instructions on how the program works and finally it should give the list of courses that you have installed. Enter the number of your desired course and choose whichever lesson you want to start.
 
 Whenever you are inside a lesson you have the option to use any of these functions, so keep them in mind!
 ```
