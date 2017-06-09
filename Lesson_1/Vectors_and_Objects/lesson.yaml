@@ -9,11 +9,11 @@
 - Class: text
   Output: 'Welcome to the second lesson of the course!
     On this session we will introduce the basic building block
-    of the R language: vectors'
+    of the R language: vectors.'
 
 - Class: text
-  Output: 'R operates using different data structures. The simplest such
-    structure is the numeric vector, which is a single entity consisting
+  Output: 'R operates using different data structures. The simplest of such
+    structures is the numeric vector, which is a single entity consisting
     of an ordered collection of numbers'
     
 - Class: text
@@ -27,9 +27,9 @@
     the monthly salary of 5 people.'
   
 - Class: text
-  Output: "If you would’ve wanted only to include one person then you would’ve written
+  Output: "If you only wanted to include one person then you could’ve written
     income <- 10. Whenever you want to put together more than one number you use the c()
-    function which stands for concatenation. In the previous example we concatenated
+    function, which stands for concatenation. In the previous example we concatenated
     5 numbers together"
   
 - Class: text
@@ -98,7 +98,7 @@
 
 
 - Class: mult_question
-  Output: Let's make you think even more. What would the contents of a vector c(income, 0, income)? 
+  Output: Let's make you think even more. What would the contents of a vector c(income, 0, income) be? 
       Think about the contents of income.
   AnswerChoices: c(100, 5210, 322, 620); c(100, 500, 35, 60, 2100, 0, 2100, 60, 35, 500, 100); c(2100, 60, 35, 500, 100, 0, 2100, 60, 35, 500, 100); c(100, 500, 35, 60, 2100, 0, 100, 500, 35, 60, 2100)
   CorrectAnswer: c(100, 500, 35, 60, 2100, 0, 100, 500, 35, 60, 2100)
@@ -133,10 +133,9 @@
     you wouldn't want to rewrite them all. What would you do in that case?
 
 - Class: cmd_question
-  Output: A simpler and more elegant way would be to
-    concatenate the vector myname and your last name together. Remember, myname is not a character
-    element but a character VECTOR, so you don't have to wrap it around with the " ".
-    Assign your result to myname again.
+  Output: A simpler and more elegant way would be to concatenate the vector myname and your
+    last name together. That is, create a vector called myname where you concatenate myname
+    and your last name.
   AnswerTests: chr_created()
   Hint: 'Start off by the vector name: myname <- and now open the c() and include, first the
     myname vector, and then your last name wrapped in " ".'
@@ -149,7 +148,7 @@
 
 - Class: text
   Output: There you have it! concatenating is an easy concept. As a reminder, some functions
-      only work with certain types of vectors, for example, numeric vectors. It's very important
+      only work with certain types of vectors. It's very important
       for you to distinguish between types of vectors. You can do that visually by noting the quotes or
       by using the class() function, which we'll touch upon in a few minutes.
 
@@ -166,7 +165,7 @@
 
 - Class: mult_question
   Output: Now let's talk about logical vectors. I think logical vectors are quite intuitive.
-    Remember that our income variable has the numbers 100, 500, 35, 60 and 2100 in its contents.
+    Remember that our income variable has the numbers 100, 500, 35, 60 and 2100?.
     If I would type income > 300, what do you think will be the correct equivalence?'
   AnswerChoices: TRUE, TRUE, TRUE ,TRUE, TRUE; FALSE, TRUE, TRUE, TRUE, FALSE; TRUE, FALSE, FALSE, FALSE, TRUE; FALSE,  TRUE, FALSE, FALSE,  TRUE
   CorrectAnswer: FALSE,  TRUE, FALSE, FALSE,  TRUE
@@ -176,7 +175,7 @@
 - Class: text
   Output: Logical vectors can only contain either TRUE or FALSE. Moreover, ALWAYS, I repeat ALWAYS,
     TRUE represents a 1 and FALSE represents a 0. Unless it's written as "TRUE" or "FALSE", which means
-    it's a character vector. Just keep that in mind
+    it's a character vector.
 
 - Class: text
   Output: To give you a brief example on how to use logical vectors, imagine that we assigned income > 300
@@ -185,7 +184,7 @@
     income below 300. For those familiar with some statistical jargon, it's simply a dummy variable
     
 - Class: text
-  Output: 'The last R object we need to talk about are factors. Factors are the variables on which you can
+  Output: 'The last R object we need to talk about are factors. Factors are the variables in which you can
     store categorical and ordinal values. A categorical variable is when you have categories which have no
     particular order (like Married, Divorced, Single, etc). An ordinal variable are categories which do have
     a hierarchical order (like bad, middle, good)'
@@ -205,7 +204,7 @@
   Hint: 'Type diabetes'
   
 - Class: text
-  Output: Notice the levels attribute. This option is telling you that this factor variable has two categories,
+  Output: Notice the levels option below the vector? This option is telling you that this factor variable has two categories,
     namely Type1 and Type2. So far it doesn't say anything about the factors being ordered.
     Remember that we didn't assign any specific hierarchical order so the factor
     function ASSUMES that this is a categorical variable with no order.
@@ -218,15 +217,15 @@
   Hint: 'Type status2'
   
 - Class: text
-  Output: The only difference is that now the levels attribute actually specifies that bad is less than middle,
-      and so on. Note that our initial vector had "Bad", "Middle" and "Good" in our desired order.
-      If the order would've been "Bad","Good" and "Middle", how would have we specified the correct order?
+  Output: The only difference is that now the levels message actually specifies that 'Poor' is less
+      than 'Improved', and so on. Note that our initial vector had "Poor", "Improved" and "Excelent" in our
+      desired order. If the order would've been "Poor","Excelent" and "Improved", how would have we
+      specified the correct order?
 
 - Class: text
   Output: That's easy, with the levels option. Check out the expression factor(status, order = TRUE,
-      levels=c("Poor","Excellent", "Improved")).  The levels option we use it to specify the correct order
-      of our character vector. This is just a brief introduction the factors, but in fact there's a lot more to talk
-      about. We'll dedicate a separate chapter for those in the future.
+      levels=c("Poor","Excellent", "Improved")). We use the levels option to specify the correct order
+      of our character vector. We're done for now but we'll dedicate a separate chapter for factors.
 
 - Class: cmd_question
   Output: 'The next thing to talk about is how do we know, FOR SURE, what type a vector is?
@@ -247,10 +246,6 @@
     For example 1:30 is the vector c(1, 2, ..., 29, 30). The construction 30:1 may be used
     to generate a sequence backwards.'
 
-- Class: text
-  Output: The semi colon (:) only works with elements of type numbers. Once you have some time, play around
-      with the semi colon and character vectors.
-  
 - Class: cmd_question
   Output: 'Create a numeric vector called oursequence containing a sequence from 1 to 9 using the semicolon (:)'
   CorrectAnswer: oursequence <- 1:9
@@ -259,7 +254,7 @@
   
 - Class: text
   Output: The function seq() is even more flexible at generating sequences. The first two
-    arguments are called from and to and they specify the beginning and end of the sequence.
+    arguments are called 'from' and 'to' and they specify the beginning and end of the sequence.
     If it makes sense, then you should know that the sequence seq(2, 10) is the same as 2:10.
   
 - Class: text
@@ -279,14 +274,13 @@
     
 - Class: text
   Output: 'A related function is rep() which can be used for repeting an object in various ways.
-    The simplest form is rep(x, times = x) where x is either a number, a character, a logical or a vector
-    of any of those forms'
+    The simplest form is rep(x, times = x) where x is any of the vectors we've explained'.
   
 - Class: mult_question
-  Output: 'Remember that our income vector has the numbers c(10, 5, 3, 6, 21) inside.
-    If we typed rep(income, 2) what do you think would be the result?'
-  AnswerChoices: 10, 5, 3, 6, 21,10, 5, 3, 6, 21; 21, 6, 3, 5, 10, 10, 5, 3, 6, 21; 10, 5, 3, 6, 21, 21, 6, 3, 5, 10
-  CorrectAnswer: 10, 5, 3, 6, 21,10, 5, 3, 6, 21
+  Output: 'Suppose we have a new vector ages <- c(10, 5, 3, 6, 21). If we typed rep(ages, 2) what
+      do you think would be the result?'
+  AnswerChoices: 10, 5, 3, 6, 21, 10, 5, 3, 6, 21; 21, 6, 3, 5, 10, 10, 5, 3, 6, 21; 10, 5, 3, 6, 21, 21, 6, 3, 5, 10
+  CorrectAnswer: 10, 5, 3, 6, 21, 10, 5, 3, 6, 21
   AnswerTests: omnitest(correctVal= '10, 5, 3, 6, 21,10, 5, 3, 6, 21')
   Hint: 'The result would be the contents of the vector repeated twice'
   
@@ -298,8 +292,8 @@
   Hint: 'Type rep(c(10, 5, 3, 6, 21), each = 2)'
   
 - Class: text
-  Output: Pretty neat, eh? Instead of repeating the whole vector, it repeats 'each' element within the vector.
-      Remember that all these functions can be used with any vector (numeric,character, logical) and all of these
+  Output: Pretty neat, eh? Instead of repeating the whole vector, it repeats 'each' element inside the vector.
+      Remember that all these functions can be used with any vector (numeric, character, logical) and all of these
       expressions can be saved to a name. We could've saved any of the rep() or seq() expressions to a vector and,
       for example, they could be used as columns in a datataset.
 
@@ -316,8 +310,8 @@
   Hint: 'Type 1:5 + 6:10'
   
 - Class: text
-  Output: The same principle applies to subtraction ( - sign in R), multiplication (* sign in R) and
-      division( / sign in R). It's pretty simple.
+  Output: The same principle applies to subtraction ( '-' sign in R), multiplication ( '*' sign in R) and
+      division ( '/' sign in R). It's pretty simple.
   
 - Class: cmd_question
   Output: But what would happen if both vectors had different lengths? Try it yourself by adding
@@ -329,7 +323,7 @@
 - Class: text
   Output: R will repeat the shorter vector until we reach the total length of the long vector.
       So, 1:4 + c(0, 10) will be c(1, 2, 3, 4) + c(0, 10, 0, 10). The shorter object gets 'recycled'
-      until meets the length of the longer object.
+      until it meets the length of the longer object.
 
 - Class: cmd_question
   Output: Try c(1, 2, 3, 4) + c(0, 10, 100) for another example.
@@ -347,6 +341,6 @@
   Output: 'This is the end of lesson 2. This was some great work, keep going!'
   
 - Class: text
-  Output: Resources used in this course = R in Action by Robert I. Kabacoff and Nick Cacherdi's lesson on
-    Basic Building Blocks from the swirl built-in lessons. These can be accessed at
+  Output: This lesson was created from 'R in Action' by Robert I. Kabacoff and Nick Cacherdi's
+    lesson on 'Basic Building Blocks' from the swirl built-in lessons. The latter can be accessed at
     https://github.com/swirldev/swirl_courses/tree/master/R_Programming
