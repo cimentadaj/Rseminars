@@ -11,11 +11,11 @@
 
 - Class: text
   Output: Welcome to the first session of learning R! Please note that in order
-    for you to run this session successfully you'll need to be connected to the internet and be
+    for you to run this session successfully you'll need to be connected to the internet and
     using Rstudio (https://www.rstudio.com/)
 
 - Class: text
-  Output: Throughout this lesson you'll learn what are packages and how to install them and
+  Output: Throughout this lesson you'll learn what are packages, how to install them and
     how Rstudio works. If you're ready, let's begin!
 
 - Class: text
@@ -41,13 +41,13 @@
     additional functions that are at your disposal.
 
 - Class: text
-  Output: At this point (22/January/2017), R has over 6000 contributed packages. But don't
+  Output: At this point (22 / Jan / 2017), R has over 6000 contributed packages. Don't
       get overwhelmed, we will only use a handful.
 
 - Class: cmd_question
   Output: Let's install and load a package. You install packages with the built-in function
-    install.packages(). As you might've imaginged, the function installs the package
-    specified within the parenthesis. Write down install.packages("car")
+    install.packages(). As you might've imagined, the function installs the package
+    specified inside the parenthesis. Write down install.packages("car")
   CorrectAnswer: install.packages("car")
   AnswerTests: omnitest(correctExpr='install.packages("car")')
   Hint: Type install.packages("car")
@@ -62,9 +62,9 @@
 - Class: text
   Output: You now have a loaded package at your disposal. This means that you can use
     any function that comes with the package. If you downloaded the package but didn't load it
-    you wouldn't be able to access it's functions. If you want to see the description of a package
-    or any of its functions you can search on Google and you'll find it easily(for example; car
-    package) 
+    you would not be able to access its' functions. If you want to see the description of a package
+    or any of its functions you can search on Google and you'll find it easily (for example;
+    car package R) 
 
 - Class: text
   Output: Aside from functions, a package can contain datasets as well. These datasets are often
@@ -80,8 +80,8 @@
   Hint: Type Freedman
   
 - Class: cmd_question
-  Output: You can see the data physically in the console. If you to read the description of a
-    function or dataset, simply type ?function_name or ?dataset. Type ?Freedman
+  Output: You can see the data physically in the console. If you want to read the description of a
+    function or a dataset, simply type ?function_name or ?dataset. Type ?Freedman
   CorrectAnswer: ?Freedman
   AnswerTests: omnitest(correctExpr='?Freedman')
   Hint: Type ?Freedman
@@ -91,7 +91,7 @@
 
 - Class: text
   Output: Let's move to another topic. You're probably a bit familiar with
-    Rstudio now but let's explain its environment in more detail.
+    Rstudio now but let's explain its' environment in more detail.
 
 - Class: cmd_question
   Output: The window where you have been typing commands is called the console.
@@ -115,7 +115,7 @@
     you experiment with functions in your console and when you find
     interesting results you write down the code in the code editor.
     This is very handy because you can save that code into a file and
-    reproduce what you did.
+    reproduce what you did later on.
  
 - Class: cmd_question
   Output: You can also run code from the code editor. Type Freedman in the code
