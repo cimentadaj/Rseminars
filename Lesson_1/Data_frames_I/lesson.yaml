@@ -157,7 +157,7 @@
   Output: Using the $ sign, add a variable called gay_marriage to the states data frame that
     contains two FALSES.
   CorrectAnswer: states$gay_marriage <- c(F, F)
-  AnswerTests: omnitest(correctExpr= 'states$gay_marriage <- c(F, F)')
+  AnswerTests: any_of_exprs('states$gay_marriage <- c(F, F)', 'states$gay_marriage <- c(FALSE, FALSE)')
   Hint: 'Type something along the lines of states$new_vector <- the TWO FALSES'
   
 - Class: text
@@ -173,10 +173,10 @@
   Hint: Using the $ sign, take the states variable and subset ($) the population column.
   
 - Class: text
-  Output: The next part is [states$code == "NE"]. Remember that if we have vector with the
+  Output: "The next part is [states$code == 'NE']. Remember that if we have vector with the
     [ ] after it, we're subsetting something from that vector. So in this case we can read the
-    entire expression as; take the population column, and where the CODE column equals "NE"
-    replace the population column with 1.8.
+    entire expression as: take the population column, and where the CODE column equals 'NE'
+    replace the population column with 1.8."
 
 - Class: cmd_question
   Output: Type states
@@ -188,18 +188,18 @@
   Output: Let's go over it manually. First column is code and the second is population
   
 - Class: text
-  Output: 'Have a look at the 1st row of the population column, does it have the NE on the
+  Output: "Have a look at the 1st row of the population column, does it have the 'NE' on the
     code column? No. Does the second row of population have the NE on the code column? No.
     Does the 3rd row of population have the NE on the code column? Yes. So the expression
-    replaces the population value 2.1 with 1.8 when that condition is met'
+    replaces the population value 2.1 with 1.8 when that condition is met"
 
 - Class: text
   Output: 'I hope that was clearer'
 
 - Class: cmd_question
-  Output: Now you do it for me. Where the population column is higher (>) than 20, replace 
-    the landlock column with a TRUE. The code should read something like; landlock, where population
-     > 20, will be TRUE.
+  Output: "Now you do it for me. Where the population column is higher (>) than 20, replace 
+    the landlock column with a TRUE. The code should read something like: landlock, where population
+     > 20, will be TRUE."
   CorrectAnswer: states$landlock[states$population > 20] <- TRUE
   AnswerTests: omnitest(correctExpr= 'states$landlock[states$population > 20] <- TRUE')
   Hint: states$landlock gives the landlock vector. Placing the [] after it and including
@@ -207,7 +207,7 @@
     assign a TRUE.
 
 - Class: text
-  Output: 'The same approach can be used for subsetting a dataset; states[states$population > 10, ]
+  Output: 'The same approach can be used for subsetting a dataset: states[states$population > 10, ]
     Note: Notice the comma!'
   
 - Class: mult_question
