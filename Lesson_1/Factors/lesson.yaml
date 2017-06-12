@@ -53,7 +53,7 @@
   Output: Change the levels of my_factor_letters to c("c", "a", "b")
   CorrectAnswer: levels(my_factor_letters) <- c("c", "a", "b")
   AnswerTests: omnitest(correctExpr='levels(my_factor_letters) <- c("c", "a", "b")')
-  Hint: Wrap my_factor_letters within levels() and to that expression assign the new levels.
+  Hint: Wrap my_factor_letters with levels() and to that expression assign the new levels.
     For example, levels(vec) <- values.
     
 - Class: cmd_question
@@ -122,19 +122,18 @@
   Hint: Type something along the lines of new_name <- factor(variable, labels = labels).
 
 - Class: cmd_question
-  Output: So here we changed the labels but everything works as if we set the levels argument
-    changed the levels! For example, use the attributes function to check the contents of
-    labels_factor.
+  Output: So here we changed the labels of the levels! For example,
+    use the attributes function to check the contents of labels_factor.
   CorrectAnswer: attributes(labels_factor)
   AnswerTests: omnitest(correctExpr='attributes(labels_factor)')
   Hint: Include labels_factor inside the attributes function.
   
 - Class: text
-  Output: You have to be very careful when using levels or labels! You might think they do the same
-    thing.
+  Output: Oh no, but we also changed the levels by default! You have to be very
+    careful when using levels or labels! You might think they do the same thing.
     
 - Class: cmd_question
-  Output: Without naming it, transform gender to be a factor and change the *levels* of gender
+  Output: Without assigning a name, transform gender to be a factor and change the *levels* of gender
     to be "Male" and "Female".
   CorrectAnswer: factor(gender, levels = c("Male", "Female"))
   AnswerTests: omnitest(correctExpr='factor(gender, levels = c("Male", "Female"))')
@@ -189,9 +188,9 @@
   Hint: barplot(table(the_variable)) should be enough!
   
 - Class: text
-  Output: Usually, when reading csv files, string variables are set to be factors be default.
-    Although this might be what we wanted, it is often not. To control for that, you can
-    change stringsAsFactors to be equal to FALSE!
+  Output: Final thought. When reading csv files, string variables are set to be factors be default.
+    Although this might be what we wanted, it is often not. Just be aware that this might happen.
+    To control for that, you can change the stringsAsFactors to be equal to FALSE in read.csv()!
 
 - Class: text
   Output: Good job!
