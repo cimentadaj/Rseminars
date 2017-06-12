@@ -9,11 +9,11 @@
 - Class: text
   Output: Hello! Welcome to our lesson on matrices and lists. Matrices are widely used in mathematics and
     algebra and are really useful in computer science. In this lesson we'll learn how to use matrices
-    in R and how characteristics they have.
+    in R.
     
 - Class: text
   Output: First off, what is a matrix? A matrix is simply a rectangular shaped data set usually
-    filled with numbers. So, if you've used Excel or any other spreadsheet program you are in fact
+    filled with numbers. So, if you've used Excel or any other spreadsheet program, you are in fact
     dealing with matrix-like objects, although you don't name them like that.
   
 - Class: cmd_question
@@ -35,7 +35,7 @@
   Output: C'mon, have a look! :)
   
 - Class: text
-  Output: 'Here is how it works: matrix(data,nrow,ncol). The matrix you saw earlier was created with
+  Output: 'Here is how it works: matrix(data, nrow, ncol). The matrix you saw earlier was created with
     this expression: matrix(1:9, nrow = 3, ncol = 3). In this case, the first argument means from the number
     1 to the number 9, distributed in 3 rows and 3 columns (since you’ve already seen generating sequences
     you should have an idea about this).'
@@ -141,9 +141,9 @@
   Output: Great! It's a matrix.
 
 - Class: cmd_question
-  Output: One very important thing of matrices is that they can only accept one type of vector.
+  Output: "One very important thing of matrices is that they can only accept one type of vector.
     A matrix can only be all numeric, all characters, all logicals or all factors. Think about
-    what this code will return and then run it matrix(c('character', 1), 2, 2).
+    what this code will return and then run it: matrix(c('character', 1), 2, 2)."
   CorrectAnswer: matrix(c('character', 1), 2, 2)
   AnswerTests: omnitest(correctExpr="matrix(c('character', 1), 2, 2)")
   Hint: Type matrix(c('character', 1), 2, 2).
@@ -178,7 +178,7 @@
   
 - Class: text
   Output: Now that you have a good idea about matrices, let's talk about lists. A List is a common
-    concept in many programming languages. I'll explain with a practical example. Let's
+    concept in many programming languages. I'll explain with a funny example. Let's
     think of Santa Claus. If you've been raised in a Western society you should have a good idea of who
     Santa Claus is. If you weren't, then the example is still pretty straight forward.
 
@@ -199,9 +199,9 @@
     and data frames (a new data structure we will discuss in the next lesson).
 
 - Class: text
-  Output: The list function works this way; list(object1, object2, object N). The N means that you can
-    input as many elements as you want. Let's have a look at this list and try to understand it;
-    list(myfirst = 1:10, mysecond = c(TRUE, FALSE), mythird = c("books", "toy car")).
+  Output: "The list function works this way: list(object1, object2, object N). The N means that you can
+    input as many elements as you want. Let's have a look at this list and try to understand it:
+    list(myfirst = 1:10, mysecond = c(TRUE, FALSE), mythird = c('books', 'toy car'))."
     
 - Class: text
   Output: This list contains THREE elements separeted by three commas. What is the name of the first
@@ -212,8 +212,8 @@
   Output: Let's dig in on how to access objects within a list. Let's run the same
     list function as before but let's assign it to the the name ourlist. Assign list(myfirst = 1:10,
     mysecond = c(TRUE,FALSE), mythird = c('books','toy car')) to the name ourlist.
-  CorrectAnswer: ourlist <- list(list(myfirst = 1:10, mysecond = c(TRUE,FALSE), mythird = c('books','toy car')))
-  AnswerTests: omnitest(correctExpr="ourlist <- list(list(myfirst = 1:10, mysecond = c(TRUE,FALSE), mythird = c('books','toy car')))")
+  CorrectAnswer: ourlist <- list(myfirst = 1:10, mysecond = c(TRUE,FALSE), mythird = c('books','toy car'))
+  AnswerTests: omnitest(correctExpr="ourlist <- list(myfirst = 1:10, mysecond = c(TRUE,FALSE), mythird = c('books','toy car'))")
   Hint: Assigning something simply means putting a name followed by the <- sign, so ourlist <-
   
 - Class: cmd_question
@@ -243,66 +243,67 @@
   Output: The first object is called $myfirst, the second $mysecond and the third $mythird.
     Note that the $ sign is NOT part of the name, but it is actually a way of SUBSETTING
     the object. Type ourlist$myfirst.
-  CorrectAnswer: ourlist[[1]]$myfirst
-  AnswerTests: omnitest(correctExpr="ourlist[[1]]$myfirst")
-  Hint: Type ourlist[[1]]$myfirst
+  CorrectAnswer: ourlist$myfirst
+  AnswerTests: omnitest(correctExpr="ourlist$myfirst")
+  Hint: Type ourlist$myfirst
   
 - Class: cmd_question
-  Output: And now type class(ourlist[[1]]$myfirst)
-  CorrectAnswer: class(ourlist[[1]]$myfirst)
-  AnswerTests: omnitest(correctExpr="class(ourlist[[1]]$myfirst)")
-  Hint: Type class(ourlist[[1]]$myfirst)
+  Output: And now type class(ourlist$myfirst)
+  CorrectAnswer: class(ourlist$myfirst)
+  AnswerTests: omnitest(correctExpr="class(ourlist$myfirst)")
+  Hint: Type class(ourlist$myfirst)
 
 - Class: text
-  Output: Why was ourlist[[1]]$myfirst a numeric vector rather than a list?
+  Output: Why was ourlist$myfirst a numeric vector rather than a list?
 
 - Class: text
-  Output: ourlist[[1]]$myfirst is NOT a list object but a NUMERIC vector. When you use the
+  Output: "ourlist$myfirst is NOT a list object but a NUMERIC vector. When you use the
     $ sign you are already accessing the object inside the list. So you can actually treat
-    ourlist[[1]]$myfirst as a simple numeric vector. For example, if you wanted to subset the
-    third position of a numeric vector you would do it like this; fakevector[3].
+    ourlist$myfirst as a simple numeric vector. For example, if you wanted to subset the
+    third position of a numeric vector you would do it like this: fakevector[3]."
     
 - Class: cmd_question
-  Output: How would you subset the third element of ourlist[[1]]$myfirst? Think hard.
-  CorrectAnswer: ourlist[[1]]$myfirst[3]
-  AnswerTests: omnitest(correctExpr="ourlist[[1]]$myfirst[3]")
-  Hint: Once we've written ourlist[[1]]$myfirst we're not dealing with a list but with a numeric vector!
-    The answer is the same; ourlist[[1]]$myfirst[3]
+  Output: How would you subset the third element of ourlist$myfirst? Think hard.
+  CorrectAnswer: ourlist$myfirst[3]
+  AnswerTests: omnitest(correctExpr="ourlist$myfirst[3]")
+  Hint: "Once we've written ourlist$myfirst we're not dealing with a list but with a numeric vector!
+    The answer is the same: ourlist$myfirst[3]."
 
 - Class: text
-  Output: Another way of subsetting a list is to use brackets. If we wanted to access the second object
-    in the list you could also do it like this; ourlist[[1]][2].
+  Output: "Another way of subsetting a list is to use brackets. If we wanted to access the second object
+    in the list you could also do it like this: ourlist[2]."
 
 - Class: cmd_question
-  Output: What is the class of ourlist[[1]][2]?
-  CorrectAnswer: class(ourlist[[1]][2])
-  AnswerTests: omnitest(correctExpr="class(ourlist[[1]][2])")
-  Hint: Type class(ourlist[[1]][2])
+  Output: What is the class of ourlist[2]?
+  CorrectAnswer: class(ourlist[2])
+  AnswerTests: omnitest(correctExpr="class(ourlist[2])")
+  Hint: Type class(ourlist[2])
   
 - Class: text
   Output: If you thought it was a logical vector, that's a common mistake. When a list object is
     followed by one set of brackets, you're subsetting the object but it is still a LIST. If you go
-    back to the expression ourlist[[1]][2] you'll see that the output had $mysecond on top. Remember,
+    back to the expression ourlist[2] you'll see that the output had $mysecond on top. Remember,
     everytime you see the $ sign, it means that it's still inside a list.
     
 - Class: cmd_question
   Output: If you wanted to access the specific vector then you need to wrap the number in two sets
-    of brackets. ourlist[[1]][[2]] should give you what you’re looking for. Check it yourself with the
+    of brackets. ourlist[[2]] should give you what you’re looking for. Check it yourself with the
     class() function.
-  CorrectAnswer: class(ourlist[[1]][[2]])
-  AnswerTests: omnitest(correctExpr="class(ourlist[[1]][[2]])")
-  Hint: Type class(ourlist[[1]][[2]])
+  CorrectAnswer: class(ourlist[[2]])
+  AnswerTests: omnitest(correctExpr="class(ourlist[[2]])")
+  Hint: Type class(ourlist[[2]])
   
 - Class: text
-  Output: Let's do a quick recap. ourlist is a list that has three elements. If we typed
-    ourlist[1], we would still get a list with three elements. In the case of ourlist, ourlist[[1]]
-    would give us a list with the three elements. If we wanted to access the content of the numeric
-    vector, we use double brackets like this; ourlist[[1]][[1]]. In this example we're subsetting by
-    position, so we double bracket the first element of ourlist and the subset the first element of that.
+  Output: "Let's do a quick recap. ourlist is a list that has three elements. If we typed
+    ourlist[1], we would get a list that has the first element of the list. In the case of ourlist,
+    ourlist[1] would give us a list with a numeric of length 3. If we wanted to access the contents
+    of the numeric vector, we use double brackets like this: ourlist[[1]]. In this example we're
+    subsetting by position, so we double bracket the first element of ourlist and we get the numeric
+    vector from the first position of the list."
     
 - Class: text
-  Output: In short, ourlist[[1]]$myfirst and ourlist[[1]][[1]] are equivalent. Whereas ourlist[1]
-    returns a list rather than the contents of the first element.
+  Output: In short, ourlist$myfirst and ourlist[[1]] are equivalent. Whereas ourlist[1]
+    returns a list rather than the contents of the first element alone.
     
 - Class: cmd_question
   Output: Surpise quiz! First, type the str()ucture of ourlist.
@@ -313,23 +314,23 @@
 - Class: mult_question
   Output: Which of these expressions subsets the FALSE? 
   AnswerChoices: ourlist[[1]][[2]]; ourlist[[2]][2]; ourlist$2[[2]]; ourlist$mysecond[2]; ourlist[[1]]$mysecond[2]
-  CorrectAnswer: ourlist[[1]]$mysecond[2]
-  AnswerTests: omnitest(correctVal= 'ourlist[[1]]$mysecond[2]')
+  CorrectAnswer: ourlist$mysecond[2]
+  AnswerTests: omnitest(correctVal= 'ourlist$mysecond[2]')
   Hint: The $ operator can only subset by names and not by position (i.e. numbers)
   
 - Class: mult_question
-  Output: Can you give me the third element as a list?
-  AnswerChoices: ourlist[[1]][3]; ourlist$mythird; ourlist[[3]]
-  CorrectAnswer: ourlist[[1]][3]
-  AnswerTests: omnitest(correctVal= 'ourlist[[1]][3]')
+  Output: Can you give me the third object as a list?
+  AnswerChoices: ourlist[3]; ourlist$mythird; ourlist[[3]]
+  CorrectAnswer: ourlist[3]
+  AnswerTests: omnitest(correctVal= 'ourlist[3]')
   Hint: Remember, one set of brackets is the only operator that returns a list while the $ sign
     or the double brackets will return the inner object of the list.
     
 - Class: mult_question
   Output: Please subset from numbers 5 to 10 from the first element.
   AnswerChoices: ourlist[[1]][5:10]; ourlist[1][[5:10]]; ourlist[[1]][[5:10]]; ourlist[[1]][[1]][5:10]
-  CorrectAnswer: ourlist[[1]][[1]][5:10]
-  AnswerTests: omnitest(correctVal= 'ourlist[[1]][[1]][5:10]')
+  CorrectAnswer: ourlist[[1]][5:10]
+  AnswerTests: omnitest(correctVal= 'ourlist[[1]][5:10]')
   Hint: Remember, one set of brackets is the only operator that returns a list while the $ sign
     or the double brackets will return the inner object of the list.
   
