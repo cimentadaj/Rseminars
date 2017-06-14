@@ -21,7 +21,7 @@
 
 - Class: mult_question
   Output: Pretty much everything you've learned about matrices can be applied to data frame.
-    There is however, another difference. Columns in data frames can be subsetted
+    There is,however , another difference. Columns in data frames can be subsetted
     with the $ sign, whereas that's not possible for matrices. Which type of object in R
     can be subsetted using the $ operator?
   AnswerChoices: list; numeric; factor; matrix
@@ -34,9 +34,9 @@
     of a data frame?
   AnswerChoices: 
     A data frame is used for storing variables of different classes;
-    A data frame has list-columns for storing different class but equal length vectors;
+    A data frame has list-columns for storing different classes but equal length vectors;
     A data frame is an R object that necessarily contains various vectors and has the same properties as matrices;
-    A data frame is has columns which should be of different classes and same length
+    A data frame has columns which should be of different classes and of same length
   CorrectAnswer: A data frame has list-columns for storing different class but equal length vectors
   AnswerTests: omnitest(correctVal= 'A data frame has list-columns for storing different class but equal length vectors')
   Hint: The most complete definition specifies the list nature of the data frame and the class of its contents
@@ -126,11 +126,11 @@
   Hint: Type detach(mtcars)
   
 - Class: text
-  Output: The attach() and detach() functions are not entirely efficient
+  Output: 'The attach() and detach() functions are not entirely efficient
     when you're handling several datasets in R (something quite common).
-    If you're interested 'in the explanation there's a debate going on here 
+    If you're interested in the explanation there's a debate going on here 
     http://stackoverflow.com/questions/10067680/why-is-it-not-advisable
-    -to-use-attach-in-r-and-what-should-i-use-instead
+    -to-use-attach-in-r-and-what-should-i-use-instead'
     
 - Class: text
   Output: 'What many R users recommend is using the with() function instead.
@@ -151,11 +151,11 @@
     expressions (two means) so we simply concatenate the two expressions into one.
   
 - Class: cmd_question
-  Output: 'Calculate the median of mpg using the with function. Hint:
+  Output: 'Calculate the median of mpg using the with() function. Hint:
     the median function is simply median().'
   CorrectAnswer: with(mtcars, median(mpg))
   AnswerTests: omnitest(correctExpr='with(mtcars, median(mpg))')
-  Hint: 'The with functions takes the data frame as its first argument,
+  Hint: 'The with() functions takes the data frame as its first argument,
     and your expression as your second argument. So try with(mtcars,
     calculate the median of mpg)'
   
@@ -186,7 +186,7 @@
   
 - Class: text
   Output: Let's start with the merge command. If you have two different
-    datasets with a common identification variable(something like unique ID,
+    datasets with a common identification variable (something like unique ID,
     countries or school ID, etc..), then you merge them like this merge(dataframe1, 
     dataframe2, by="ID variable")
   
@@ -221,12 +221,12 @@
   Output: It's just as simple. You only have to CONCATENATE both variables.
     Theoretically, what would be the correct answer?
   AnswerChoices: 
-    merge(dataframe1, dataframe2, by="schools" & "students");
-    merge(dataframe1, dataframe2, by="schools & students");
-    merge(dataframe1, dataframe2, by=c("schools") & c("students"));
-    merge(dataframe1, dataframe2, by=c("schools", "students"))
-  CorrectAnswer: merge(dataframe1, dataframe2, by=c("schools", "students"))
-  AnswerTests: omnitest(correctVal= 'merge(dataframe1, dataframe2, by=c("schools", "students"))')
+    merge(dataframe1, dataframe2, by = "schools" & "students");
+    merge(dataframe1, dataframe2, by = "schools & students");
+    merge(dataframe1, dataframe2, by = c("schools") & c("students"));
+    merge(dataframe1, dataframe2, by = c("schools", "students"))
+  CorrectAnswer: merge(dataframe1, dataframe2, by = c("schools", "students"))
+  AnswerTests: omnitest(correctVal= 'merge(dataframe1, dataframe2, by = c("schools", "students"))')
   Hint: In order to have two variables together we need to use the c() function and place
     two character strings.
   
@@ -244,7 +244,7 @@
   Hint: Type rbind(dataset3, dataset4)
   
 - Class: text
-  Output: Note that the two data frames must have the same amount of variables,
+  Output: Note that the two data frames must have the same number of columns,
     but they don't have to be in the same order; rbind takes care of
     matching each column. If one of the data frames has an additional
     variable, it won't work.
