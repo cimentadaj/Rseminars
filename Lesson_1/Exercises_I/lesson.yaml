@@ -7,18 +7,18 @@
   Version: 2.4.3
 
 - Class: text
-  Output: Hello and welcome to the exercise section of the second seminar!
+  Output: Hello and welcome to the exercise section!
   
 - Class: text
-  Output: This exercise builds heavily on the previous lessons, so if think you're a beginner
-     and haven't done the introductory lessons, please go back!
+  Output: This exercise builds heavily on the previous lessons, so if you haven't done the
+      introductory lessons, you won't understand these!
 
 - Class: text
   Output: In these exercises I won't be explaining much.. you'll be doing most of the work
     by analyzing some data on children and their school peformance. Let's begin!
     
 - Class: cmd_question
-  Output: We have some data on 9nth graders who took a test in mathematics. Using head(),
+  Output: We have some data on 9th graders who took a test in mathematics. Using head(),
     take a look at the contents of 'math_tests'.
   CorrectAnswer: head(math_tests)
   AnswerTests: omnitest(correctExpr='head(math_tests)')
@@ -39,7 +39,7 @@
     Remember, that variable is now a vector, and that vector has a length!
 
 - Class: text
-  Output: Great, we do have the 100 children. Let's create that variable.
+  Output: Great, we do have the 100 children so let's create that variable.
 
 - Class: mult_question
   Output: We need to repeat the letter 'A' and 'B' each 50 times. Which function would do that?
@@ -49,7 +49,7 @@
   Hint: We used it in our previous lessons!
 
 - Class: cmd_question
-  Output: Awesome, now you do the work. I'll explain in detail. Using the rep() function, place
+  Output: Awesome, now you do the work. Using the rep() function, place
     a vector containing "A" and "B" as the first argument. Then check ?rep to identify how to
     repeat each letter instead of the whole vector. Make sure that each letter is repeated 50 times
     and not the vector as a whole.
@@ -87,7 +87,7 @@
   Hint: Something like this should do it with(data, data[variable == "A", "column_name"])
 
 - Class: cmd_question
-  Output: Great, but that gave us the vector! Now, copy the previous code and wrap that in the mean()
+  Output: Great, but that gave us the vector! Copy the previous code and wrap that in the mean()
     function.
   CorrectAnswer: mean(with(math_tests, math_tests[type_grade == "A", "math_score"]))
   AnswerTests: omnitest(correctExpr='mean(with(math_tests, math_tests[type_grade == "A", "math_score"]))')
@@ -118,8 +118,9 @@
      one statement is needed!
 
 - Class: cmd_question
-  Output: Now you complete it.. take math_score and create a logical statement like the one above.
-    Remember to save the results to a variable called passed, inside 'math_tests'.
+  Output: Now you complete it.. take math_tests$math_score and create a logical statement like the one above.
+    Remember to save the results to a variable called 'passed', inside 'math_tests'. Do not use with()
+    this time.
   CorrectAnswer: math_tests$passed <- math_tests$math_score >= 70
   AnswerTests: omnitest(correctExpr='math_tests$passed <- math_tests$math_score >= 70')
   Hint: Someting along the lines of data$new_var <- data$old_var >= 70 should do it.
@@ -133,22 +134,21 @@
 
 - Class: text
   Output: Great, we have the child's name, ID and science_score. We should really
-    keep things together and merge both data sets. For merging, we can use the merge() function
-    which takes three main arguments:x, y and by.
+    keep things together and merge both data sets.
 
 - Class: mult_question
-  Output: x and y corresponds to both data sets that will be merged while the by argument is where
-    you specify the key variables from which you will merge. In our case, which variables
-    will be used for merging?
+  Output: "If you remember, merge has three arguments: 'x', 'y' and 'by'. 'x' and 'y' correspond
+    to both data sets that will be merged while the 'by' argument is where you specify the key
+    variables from which you will merge. In our case, which variables will be used for merging?""
   AnswerChoices: id and name; id; type_grade; math_score; science_score; name and math_score
   CorrectAnswer: id and name
   AnswerTests: omnitest(correctVal= 'id and name')
   Hint: I'll make it easier, which variables are present in both data sets?
 
 - Class: cmd_question
-  Output: You're half way now. Using the merge function, include both datasets as the first
-    two argument, the specify both the id and name variables in the by argument as a character
-    vector. Finally, save that result with the name all_tests.
+  Output: You're half way now. Using the merge function, include math_* and science_* datasets as the
+    first two argument, then specify both the id and name variables in the by argument
+    as a character vector. Finally, save that result with the name all_tests.
   CorrectAnswer: all_tests <- merge(math_tests, science_tests, by = c("id", "name"))
   AnswerTests: omnitest(correctExpr="all_tests <- merge(math_tests, science_tests, by = c('id', 'name'))")
   Hint: Merge both datasets with merge() and by = c("id", "name") and name that 'all_tests'.
@@ -165,18 +165,18 @@
 
 - Class: cmd_question
   Output: I'm curious about how many students passed math but failed science (using the 70 threshold).
-    Can you help me out? Create a logical vector that states TRUE when the student passed math but
-    failed science (for this particular example, use the with() function to only write the dataset
-    once).
-  CorrectAnswer: with(all_tests, math_score > 70 & science_score < 70)
-  AnswerTests: omnitest(correctExpr='with(all_tests, math_score > 70 & science_score < 70)')
-  Hint: Using with() you should write something like with(our_data, var1 > 70 & var2 < 70),
+    Can you help me out? Create a logical vector that states TRUE when the student score 70 or more in
+    math but scored below 70 in science (for this particular example, use the with() function to only write the
+    dataset once).
+  CorrectAnswer: with(all_tests, math_score >= 70 & science_score < 70)
+  AnswerTests: omnitest(correctExpr='with(all_tests, math_score >= 70 & science_score < 70)')
+  Hint: Using with() you should write something like with(our_data, var1 >= 70 & var2 < 70),
     using the correct names.
 
 - Class: cmd_question
   Output: Now save that expression as the variable 'passmath_failscience' in the all_tests data sets.
-  CorrectAnswer: all_tests$passmath_failscience <- with(all_tests, math_score > 70 & science_score < 70)
-  AnswerTests: omnitest(correctExpr='all_tests$passmath_failscience <- with(all_tests, math_score > 70 & science_score < 70)')
+  CorrectAnswer: all_tests$passmath_failscience <- with(all_tests, math_score >= 70 & science_score < 70)
+  AnswerTests: omnitest(correctExpr='all_tests$passmath_failscience <- with(all_tests, math_score >= 70 & science_score < 70)')
   Hint: Copy the previous expressions and assign its name like this our_data$newvar <- expression.
 
 - Class: cmd_question
