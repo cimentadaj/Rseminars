@@ -46,14 +46,14 @@
 
 - Class: cmd_question
   Output: 'Following that idea, if you include the results of order in the row subsetting
-    of all_tests, you subset the ordered rows of the data set. Using with() please type
+    of all_tests, you subset the ordered rows of the data set. Using with() type
     all_tests as the dataset and then subset the new order of joint_score similar to this: 
     with(data, data[order(our_var), ]). Remember to assign that expression to all_tests to save
     the results.'
   CorrectAnswer: all_tests <- with(all_tests, all_tests[order(joint_score), ])
   AnswerTests: omnitest(correctExpr='all_tests <- with(all_tests, all_tests[order(joint_score), ])')
-  Hint: with(data, data[order(your_variable), ]), replace your data and variable names and save
-    that to you data again.
+  Hint: with(data, data[order(your_variable), ]) should do it. Replace your data and variable
+    names and save that to you data again.
 
 - Class: cmd_question
   Output: Type all_tests. What's the name of the top scorer?
@@ -64,18 +64,18 @@
 - Class: cmd_question
   Output: Now that we have our ordered data set, I want you to create an ID variable
     that assigns an ID to each student. Do that by making a sequence from 1 to nrow(all_tests).
-    Save that variable to all_tests with the name id_best.
+    Save that variable to all_tests with the name 'id_best'.
   CorrectAnswer: all_tests$id_best <- 1:nrow(all_tests)
   AnswerTests: omnitest(correctExpr='all_tests$id_best <- 1:nrow(all_tests)')
-  Hint: A sequence can be created like 1:nrow(mtcars). Assign that the name id_best in all_tests.
+  Hint: A sequence can be created like 1:nrow(mtcars). Assign that the name 'id_best' in all_tests.
   
 - Class: text
   Output: Remember that id 100 is the the best student and id 1 is the worst student!
 
 - Class: cmd_question
-  Output: Out of the top 50 students (based on id_best), what's the frequency of passing math
-    and failing science? Use this structure and WRAP it in the table function;
-    with(data, data[var > 50, your_var_in_quotes]).
+  Output: "Out of the top 50 students (based on id_best), what's the frequency of passing math
+    and failing science? Use this structure and WRAP it in the table function:
+    with(data, data[var > 50, your_var_in_quotes])."
   CorrectAnswer: table(with(all_tests, all_tests[id_best > 50, "passmath_failscience"]))
   AnswerTests: omnitest(correctExpr='table(with(all_tests, all_tests[id_best > 50, "passmath_failscience"]))')
   Hint: table(with(data, data[var > value, your_var_in_quotes])), that was a hard one!
@@ -95,7 +95,7 @@
   Hint: Type literacy_scores
   
 - Class: text
-  Output: Great so the id is set as the name (id, not id_best) and the score as the contents.
+  Output: Great so the id is set as the name and the score as the content.
     You can access the names using the names() function.
 
 - Class: cmd_question
@@ -111,13 +111,13 @@
   Output: How many rows does literacy_tests have?
   CorrectAnswer: nrow(literacy_tests)
   AnswerTests: omnitest(correctExpr='nrow(literacy_tests)')
-  Hint: Numer of rows ... nrow...
+  Hint: Numer of rows ... nrow()...
 
 - Class: cmd_question
   Output: How many rows does all_tests have?
   CorrectAnswer: nrow(all_tests)
   AnswerTests: omnitest(correctExpr='nrow(all_tests)')
-  Hint: Numer of rows ... nrow...
+  Hint: Numer of rows ... nrow()...
 
 - Class: text
   Output: Awesome, so both datasets have the same number of rows. Now we have to
@@ -126,9 +126,9 @@
 - Class: text
   Output: I'll explain how to do it for one dataset and you'll perform the other one.
     First, we use with() and include our datasets literacy_tests. If we type order(c(3, 5, 2))
-    order() returns the index of the vector in the ascending order. So for our example,
-    order(c(3, 5, 2)) will return 3, 1, 2 because the third number is the smallest, the first
-    is the second and the second is the third.
+    order() returns the index of the vector in the correct order. So for our example,
+    order(c(3, 5, 2)) will return 3, 1, 2 because the third number (2) is the smallest, the first (1)
+    is the second and the second (5) is the biggest.
 
 - Class: cmd_question
   Output: The cool thing about order() is that we can include it as the rows subsetting and we'll
@@ -237,5 +237,3 @@
 
 - Class: text
   Output: Congrats for passing these exercises! You conducted some cool data management.
-    If you want to explore the dataset further, type play() and swirl will ignore what you do.
-    Use nxt() to come back to the exercises.
