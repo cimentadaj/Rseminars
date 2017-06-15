@@ -7,7 +7,7 @@
   Version: 2.2.21
  
 - Class: text
-  Output: Hello! Welcome to the 1st lesson of the third RonR! seminar. On this lesson we will
+  Output: Hello! Welcome to the 1st lesson of the second set of courses! On this lesson we will
     talk about how to open text files, Excel files, SPSS, Stata and SAS files.
     
 - Class: text
@@ -128,7 +128,7 @@
   Hint: Type list.files()
   
 - Class: text
-  Output: Awesome! We can see there are .csv, .txt, .xlsx, .sav and .dta files! Those are some of
+  Output: Awesome! We can see there are .csv, .txt, and .xlsx files! Those are some of
     the datasets we'll use today.
     
 - Class: text
@@ -183,7 +183,7 @@
   Output: I believe you can read the data on your own now. Using read.table(), read the
     "gripstrength.txt" file. (Don't assign it any name yet)
   CorrectAnswer: read.table(our_path, header = T, sep = ",")
-  AnswerTests: omnitest(correctExpr='read.table(our_path, header = T, sep = ",")')
+  AnswerTests: any_of_exprs('read.table(our_path, header = T, sep = ",")', 'read.table(our_path, header = TRUE, sep = ",")')
   Hint: You only have to fill in the first three arguments, first the path, then
     header equal to TRUE or FALSE, depending on whether the first row are column names,
     and then the separator of each cell, which if you remember was a ",".
@@ -206,7 +206,7 @@
   Output: If we knew that "asfr752012ine1.csv" was comma separated and the first row was
     contained column names.. can you read it using the read.table() function instead?
   CorrectAnswer: read.table(file.path(getwd(), "asfr752012ine1.csv"), header = T, sep = ",")
-  AnswerTests: omnitest(correctExpr='read.table(file.path(getwd(), "asfr752012ine1.csv"), header = T, sep = ",")')
+  AnswerTests: any_of_exprs('read.table(file.path(getwd(), "asfr752012ine1.csv"), header = T, sep = ",")', 'read.table(file.path(getwd(), "asfr752012ine1.csv"), header = TRUE, sep = ",")')
   Hint: Remember to create the file path to "asfr752012ine1.csv" using file.path() on the fly.
     Then using read.table(), set header = T and sep = ",".
     
