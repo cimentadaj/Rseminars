@@ -7,7 +7,7 @@
   Version: 2.2.21
  
 - Class: text
-  Output: Hello and welcome to the second lesson of the 3rd seminar. In this lesson we're gonna cover
+  Output: Hello and welcome to the second lesson! In this lesson we're gonna cover
     some basic data manipulation like creating, renaming and recoding variables. In addition,
     we will cover how to subset and filter a data set.
         
@@ -27,7 +27,7 @@
     
 - Class: cmd_question
   Output: Awesome. Now we have to read the asfr1314ine.txt file. This text file, however,
-    has no-space delimited ("") rather than comma-delimited. Remember last lesson? Which function
+    is no-space delimited ("") rather than comma-delimited. Remember last lesson? Which function
     should we use instead of read.csv()? Following the same path and with this new name, do it
     yourself. Assign it the name asfr1314.
   CorrectAnswer: asfr1314 <- read.table(file.path(data_dir, "asfr1314ine.txt"), sep = "")
@@ -175,7 +175,7 @@
   Hint: Something like this data <- data[previous answer]
 
 - Class: cmd_question
-  Output: Great! Now cbind() those two badboys together and call the new dataset fertility_years.
+  Output: Great! Now cbind() those two datasets together and call the new dataset fertility_years.
   CorrectAnswer: fertility_years <- cbind(asfr7512, asfr1314)
   AnswerTests: omnitest(correctExpr='fertility_years <- cbind(asfr7512, asfr1314)')
   Hint: Something like this new_name <- cbind(data1, data2)
@@ -191,12 +191,12 @@
   
 - Class: text
   Output: I don't know about you but to me the columns names are a bit ugly. What is it
-    about the X000 format? We could do something much more easy to write, like the year alone.
+    about the X0000 format? We could do something much more easy to write, like the year alone.
 
 - Class: cmd_question
-  Output: Let's start small. We could change the variable name by creating a new variable
-    with a different name, no? Follow these guidelines; assign fertility_years$X2014 to
-    fertility_years$last_year
+  Output: "Let's start small. We could change the variable name by creating a new variable
+    with a different name, no? Follow these guidelines: assign fertility_years$X2014 to
+    fertility_years$last_year"
   CorrectAnswer: fertility_years$last_year <- fertility_years$X2014
   AnswerTests: omnitest(correctExpr='fertility_years$last_year <- fertility_years$X2014')
   Hint: data$new_var_name <- data$old_var_name
@@ -223,10 +223,10 @@
   Hint: Type names(fertility_years).
 
 - Class: cmd_question
-  Output: You get all column names. The interesting thing is that we can change specific names
-    by assigning a string to specific names. Follow me on this one; write names(fertility_years)
+  Output: "You get all column names. The interesting thing is that we can change specific names
+    by assigning a string to specific names. Follow me on this one: write names(fertility_years)
     and next to it subset only the first string with the `[]` brackets. Next to this assign (<-)
-    the name "age" in lowercase.
+    the name 'age' in lowercase."
   CorrectAnswer: names(fertility_years)[1] <- "age"
   AnswerTests: omnitest(correctExpr='names(fertility_years)[1] <- "age"')
   Hint: This should be the approach names(data)[index_to_change] <- "new_name"
@@ -318,7 +318,7 @@
 - Class: cmd_question
   Output: Higher or equal to 15 and smaller than 20 is the first age group. The second age group
         would be higher or equal to 20 and smaller than 25. Following the previous answer,
-        repeat the same as before but for 20 and 25.
+        repeat the same as before but for 20 and 25 and change the recoding to the number 2.
   CorrectAnswer: fertility_years$ageG[fertility_years$AGE>=20 & fertility_years$AGE<25] <- 2
   AnswerTests: omnitest(correctExpr='fertility_years$ageG[fertility_years$AGE>=20 & fertility_years$AGE<25] <- 2')
   Hint: Type something like data$recoded_var[data$var_to_recode>=20 & data$var_to_recode<25] <- 2
@@ -358,10 +358,10 @@
   Output: We want to subset only people below 20 years. subset(fertility_years, AGE < 20) will do the trick.
   
 - Class: cmd_question
-  Output: If we add a comma to that expression then we can specify which columns we want. By default
-        R chooses all columns. I want you to subset the fertility_years dataframe for observations below Age 20 and
-        only for the second and third column. Don't assign it any name. Hint; remember to concatenate
-        both column numbers.
+  Output: "If we add a comma to that expression then we can specify which columns we want. By default
+        R chooses all columns. I want you to subset the fertility_years dataframe for observations
+        below AGE 20 and only for the second and third column. Don't assign it any name.
+        Hint: remember to concatenate both column numbers."
   CorrectAnswer: subset(fertility_years, AGE < 20, c(2, 3))
   AnswerTests: omnitest(correctExpr='subset(fertility_years, AGE < 20, c(2, 3))')
   Hint: Type subset(fertility_years, AGE < 20, c(2, 3))
@@ -369,7 +369,7 @@
 - Class: cmd_question
   Output: Okay, let's put it all together in one example. First, create a new variable that
     has TRUE whenever AGE is below (and including) 25 and FALSE when is above 25. Assign it
-    the name 'cohort'.
+    the name 'cohort' inside the fertility_years data.
   CorrectAnswer: fertility_years$cohort <- fertility_years$AGE <= 25
   AnswerTests: omnitest(correctExpr='fertility_years$cohort <- fertility_years$AGE <= 25')
   Hint: data$new_var <- data$old_var >= 10 is an incorrect example of what we want.
@@ -381,17 +381,17 @@
   Hint: data$var_recoded <- new value is very similar to what we want.
 
 - Class: cmd_question
-  Output: Recode cohort_recoded so when cohort is equal to TRUE is the cohort_recoded is
-    equal to "young cohort" and when cohort is equal to FALSE cohort_recoded is equal to
+  Output: Recode cohort_recoded so when cohort is equal to TRUE, cohort_recoded is
+    equal to "young cohort" and when cohort is equal to FALSE cohort_recoded is will be
     "old cohort". Start with TRUE.
   CorrectAnswer: fertility_years$cohort_recode[fertility_years$cohort == TRUE] <- "young cohort"
-  AnswerTests: omnitest(correctExpr='fertility_years$cohort_recode[fertility_years$cohort == TRUE] <- "young cohort"')
+  AnswerTests: omnitest(correctExpr='fertility_years$cohort_recoded[fertility_years$cohort == TRUE] <- "young cohort"')
   Hint: data$var_recoded[data$var_to_recode == "something"] <- new value is very similar to what we want.
   
 - Class: cmd_question
   Output: Repeat the previous exercise so that FALSE is now equal to 'old cohort'
   CorrectAnswer: fertility_years$cohort_recode[fertility_years$cohort == FALSE] <- "old cohort"
-  AnswerTests: omnitest(correctExpr='fertility_years$cohort_recode[fertility_years$cohort == FALSE] <- "old cohort"')
+  AnswerTests: omnitest(correctExpr='fertility_years$cohort_recoded[fertility_years$cohort == FALSE] <- "old cohort"')
   Hint: data$var_recoded[data$var_to_recode == FALSE] <- new value is very similar to what we want.
 
 - Class: cmd_question
@@ -406,7 +406,7 @@
     the new name as a string.
   CorrectAnswer: names(fertility_years)[46] <- "cohort_character"
   AnswerTests: omnitest(correctExpr='names(fertility_years)[46] <- "cohort_character"')
-  Hint: Okay, I'll give you a hint! It's the index is 46th.
+  Hint: Okay, I'll give you a hint! It's the index 46th.
   
 - Class: cmd_question
   Output: Finally, using with() and the `[]` brackets, subset fertility_years when cohort_character
@@ -424,11 +424,11 @@
   Hint: That's much easier! new_df <- subset(df, something == "something")
   
 - Class: cmd_question
-  Output: To finish off, for the 'young' data frame, calculate the mean for the year 1976
-    and 2014 and concatenate them into one vector. Something like this;
+  Output: "To finish off, for the 'young' data frame, calculate the mean for the year 1976
+    and 2014 and concatenate them into one vector. Something like this:
     c(mean(df$`year1`), mean(df$`year2`)). You'll find this out later, but numbers are not actual
     characters, so you have to wrap the numbers with two tickmarks ` `. For example, 
-    young$`1976`.
+    young$`1976`."
   CorrectAnswer: c(mean(young$`1976`), mean(young$`2014`))
   AnswerTests: omnitest(correctExpr='c(mean(young$`1976`), mean(young$`2014`))')
   Hint: Basically, you're calculating two separate means and just putting them together in a vector.
@@ -442,6 +442,4 @@
     The structure is just as the one in the previous answer.
 
 - Class: text
-  Output: Oh wow! It looks like fertility decreased sharply for old people across the years. But
-    for the young people it actually increased! Interesting finding. You're all set. We covered
-    a lot of material today, congrats!
+  Output: You're all set. We covered a lot of material today, congrats!
