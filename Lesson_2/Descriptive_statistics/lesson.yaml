@@ -7,7 +7,7 @@
   Version: 2.2.21
 
 - Class: text
-  Output: Hello and welcome to the third lesson of the 3rd RonR! seminar. On this lesson
+  Output: Hello and welcome to the third lesson! On this lesson
         we will cover the basics of descriptive statistics, frequency tables and correlation,
         the main functions for Exploratory Data Analysis (EDA).
         
@@ -24,15 +24,16 @@
   VideoLink: https://raw.githubusercontent.com/cimentadaj/Rseminars/master/Lesson_2/Descriptive_statistics/data/asfr1314ine.txt
 
 - Class: cmd_question
-  Output: I stored the dataset's url in a string vector called txt_file in your workspace.
-    Read it and give it the name dati. Hint; while reading the data, change the four column
-    names to c('age', 'X2014', 'X2013', "year_equal", "age_groups").
+  Output: "I stored the dataset's url in a string vector called txt_file in your workspace.
+    Read it and give it the name dati. Hint: while reading the data, change the four column
+    names to c('age', 'X2014', 'X2013', 'year_equal', 'age_groups'), set header to TRUE and specify
+    the 'sep' argument. All of these in this same order."
   CorrectAnswer: dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups"), sep = " ")
-  AnswerTests: omnitest(correctExpr=('dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups"), sep = " ")'))
+  AnswerTests: omnitest(correctExpr=('dati <- read.table(txt_file, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups"), header = TRUE, sep = " ")'))
   Hint: If you looked at the table, there are 5 columns but only four column names (first column
     is actually the row.names, that's why you think there are 6). You have to
-    provide (in read.table) new column names(col.names). Use ?read.table to find the arguments
-    and remember to specify the 'sep' argument!
+    provide (in read.table()) new column names (col.names), set header = TRUE and sep = " ".
+    Use ?read.table to find the argument descriptions!
   
 - Class: cmd_question
   Output: Have a look at the first few rows of dati.
@@ -102,8 +103,8 @@
   Output: For example, mean(c(1, 5, 7, 3, NA)) will return an NA. Rewrite the same expression
     so that the output doesn't return an NA.
   CorrectAnswer: mean(c(1, 5, 7, 3, NA), na.rm = T)
-  AnswerTests: omnitest(correctExpr='mean(c(1, 5, 7, 3, NA), na.rm = T)')
-  Hint: Leave the vector as it is, simply add the na.rm = T argument to the mean() function.
+  AnswerTests: any_of_expr('mean(c(1, 5, 7, 3, NA), na.rm = T)', 'mean(c(1, 5, 7, 3, NA), na.rm = TRUE)')
+  Hint: Leave the vector as it is, simply add the na.rm = TRUE argument to the mean() function.
 
 
 - Class: cmd_question
@@ -147,7 +148,7 @@
     and sd. Because we will repeat the 'dati' name several times, use with() at the beginning.
   CorrectAnswer: with(dati, c(mean = mean(X2014), median = median(X2014), sd = sd(X2014)))
   AnswerTests: omnitest(correctExpr='with(dati, c(mean = mean(X2014), median = median(X2014), sd = sd(X2014)))')
-  Hint: Create a named vector like this one ... with(dati, c(mean = mean(X2014)...))
+  Hint: Create a named vector like this one ... with(dati, c(mean = mean(X2014), median = median...))
   
 - Class: cmd_question
   Output: You could add as many summary statistics as you'd like and your own customized
@@ -172,10 +173,10 @@
   Output: Let's look at whether fertility in 2013 is the same in 2014 for different age groups.
     Take the last table, add a comma, and add the year_equal variable. This time
     save the table to an object named ourtable using the <- operator and wrap everything in
-    parenthesis like this.
+    parenthesis.
   CorrectAnswer: (ourtable <- table(dati$age_groups, dati$year_equal))
   AnswerTests: omnitest(correctExpr='(ourtable <- table(dati$age_groups, dati$year_equal))')
-  Hint: Type (name <- table(var1, var2, ...)). This will give you a two
+  Hint: Type (name <- table(var1, var2)). This will give you a two
     way table.
     
 - Class: text
@@ -222,21 +223,21 @@
   
 - Class: text
   Output: That's neither a nice output nor an informative table. Let's make it better with
-    the cut function. age ranges from 15 to 40, so let's cut it in groups of 2. So the amount of
+    the cut function. age ranges from 15 to 49, so let's cut it in groups of 2. So the amount of
     people between 15-17, 17-19, and so on...
 
 - Class: text
   Output: Let's read the expression before seeing it. we want R to cut dati$age from 15
-    to 40 into groups of 2. As an additional argument, we want R to include 15, which is the LOWEST
+    to 49 into groups of 2. As an additional argument, we want R to include 15, which is the LOWEST
     number in our numeric variable.
     
 - Class: cmd_question
   Output: Include age as the first argument of cut(). The breaks argument sets the places where
-    cut() will cut the group. We can then include seq(15, 40, 2) as the argument of breaks. Have
+    cut() will cut the group. We can then include seq(15, 49, 2) as the argument of breaks. Have
     a look at ?cut to see how the 'include.lowest' argument works and specify it. Before finishing,
     add this expression as a variable to 'dati' with the name 'agegroups_two'.
-  CorrectAnswer: dati$agegroups_two <- cut(dati$age, breaks=seq(15, 40, by= 2),include.lowest=TRUE)
-  AnswerTests: omnitest(correctExpr='dati$agegroups_two <- cut(dati$age, breaks=seq(15, 40, by= 2),include.lowest=TRUE)')
+  CorrectAnswer: dati$agegroups_two <- cut(dati$age, breaks=seq(15, 49, by= 2),include.lowest=TRUE)
+  AnswerTests: any_of_expr('dati$agegroups_two <- cut(dati$age, breaks=seq(15, 49, by= 2),include.lowest = TRUE)', 'dati$agegroups_two <- cut(dati$age, breaks=seq(15, 49, by= 2),include.lowest = T)')
   Hint: Ok, that might've been hard. Follow this skeleton and try to make sense of it. dati$new_var
     <- cut(dati$old_var, breaks = sequence of cuts, include.lowest = TRUE). If you don't understand it,
     checkout ?cut, reread the previous question and experiment by yourself with play().
