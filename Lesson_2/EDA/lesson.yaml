@@ -8,19 +8,19 @@
 
 - Class: text
   Output: Hi and welcome to the final swirl lesson! This will be a challenge lesson where we attempt
-    do some Exploratory Data Analysis using the concepts we've touched upon until now.
+    do some exploratory data analysis using the concepts we've touched upon until now.
     
 - Class: text
   Output: Note that you'll need internet to complete this exercise!
 
 - Class: text
   Output: Let's begin with the data. I've grabbed some data from the World Value Survey (WVS) where we will
-    explore whether the population in countries like Norway, Sweden, Australia and US is very religious religion,
+    explore whether the population in countries like Norway, Sweden, Australia and US is very religious,
     and how does that differ by gender, education and age.
   
 - Class: text
   Output: First thing's first. We have to open the data and look how to read it. If you have internet, 
-    follow this link to check both datasets https://github.com/cimentadaj/Rseminars/tree/master/RonR_Third_Seminar/EDA/data
+    follow this link to check both datasets https://github.com/cimentadaj/Rseminars/tree/active_development/Lesson_2/EDA/data
 
 - Class: cmd_question
   Output: If you don't have internet, the data should be in the folder in the data_paths vector. Type it.
@@ -52,8 +52,8 @@
     data using read.table(). Remember to specify the first row as header and assign the data
     the name 'wvs'.
   CorrectAnswer: wvs <- read.table(wvs_url, header = T)
-  AnswerTests: omnitest(correctExpr='wvs <- read.table(wvs_url, header = T)')
-  Hint: Ok, two hints. The structure should be something along the lines of new_name <- function(url, arguments).
+  AnswerTests: any_of_exprs('wvs <- read.table(wvs_url, header = T)', 'wvs <- read.table(wvs_url, header = TRUE)')
+  Hint: Ok, two hints. The structure should be something along the lines of new_name <- read_function(url, arguments).
     If you don't remember which arguments to use, type ?read.table().
     
 - Class: cmd_question
@@ -68,8 +68,8 @@
     So repeat the expression we used to read the data and add the 'col.names' argument. For this argument
     specify all column names, plus a new name 'wdk' as a character vector.
   CorrectAnswer: wvs <- read.table(wvs_url, header = T, col.names = c("pov", "which_relig", "wdk"))
-  AnswerTests: omnitest(correctExpr='wvs <- read.table(wvs_url, header = T, col.names = c("pov", "which_relig", "wdk"))')
-  Hint: The structure should be something along the lines of new_name <- function(url, arguments).
+  AnswerTests: any_of_exprs('wvs <- read.table(wvs_url, header = T, col.names = c("pov", "which_relig", "wdk"))', 'wvs <- read.table(wvs_url, header = TRUE, col.names = c("pov", "which_relig", "wdk"))')
+  Hint: The structure should be something along the lines of new_name <- read_function(url, arguments).
     Finally, the column names should be c(col1_name, ..., "wdk") replacing the
     corresponding variable names!
     
@@ -84,14 +84,14 @@
 
 - Class: cmd_question
   Output: But this one you'll do it on your own! I'll give you some hints. To begin, first column
-    is the row names, so ignore that! There's only 5 columns. Name the last two columns
-    'wdk' and 'index'. Everything should be very similar to the last expression but with
-    read.csv2(). Use the wvs2_url for the link and name it wvs_two.
+    is the row names, so ignore that! There's only 5 columns. The vector of names is
+    c("degree", "country", "age", "wdk", "index"). Everything should be very similar to the last
+    expression but with read.csv2(). Use the wvs2_url for the link and name it wvs_two.
   CorrectAnswer: wvs_two <- read.csv2(wvs2_url, header = T, col.names = c("degree", "country", "age", "wdk", "index"))
   AnswerTests: calculates_same_value('wvs_two <- read.csv2(wvs2_url, header = T, col.names = c("degree", "country", "age", "wdk", "index"))')
   Hint: Using read.csv2(), what's important here are the header argument and the col.names argument.
-    The col.names argument should be have a character vector with all column names in the original data (
-    go back to the url) plus the two names 'wdk' and 'index' for the last two columns (which don't have a name).
+    The col.names argument should be a character vector with all column names in the original data +
+    "wdk" and "index".
 
 - Class: cmd_question
   Output: Don't worry if you get a lot of warning messages! Let's check if the data makes sense
@@ -113,9 +113,10 @@
 
 - Class: cmd_question
   Output: Awesome, index is the key variable here. Well, now that you've got it, using the merge()
-    function, merge both datasets by the 'index' and 'wdk' variables and call that 'wvs_full'.
+    function, merge both datasets by the 'index' and 'wdk' variables and call that 'wvs_full'. Note
+    that they are the same variables but named differently. Check ?merge for 'by.x' and 'by.y' argumnets.
   CorrectAnswer: wvs_full <- merge(wvs, wvs_two, by.x = "wdk", by.y = "index")
-  AnswerTests: omnitest(correctExpr='wvs_full <- merge(wvs, wvs_two, by.x = "wdk", by.y = "index")')
+  AnswerTests: omnitest(correctExpr = 'wvs_full <- merge(wvs, wvs_two, by.x = "wdk", by.y = "index")')
   Hint: You'll need to use additional argument and pay attention to the order of the arguments. For example,
     new_name <- merge(wvs, wvs_two, by.x = "wdk", by.y = "index"). But check that 'wdk' is the variable in 'x'
     and so on and so forth.
@@ -186,10 +187,11 @@
 
 - Class: cmd_question
   Output: Calculate the frequency table not only for 'relig' but include the 'degree' variable.
-    Save it as our_table2 and wrap the whole expression in parenthesis ().
-  CorrectAnswer: (our_table2 <- table(wvs_full$relig, wvs_full$degree))
-  AnswerTests: omnitest(correctExpr='(our_table2 <- table(wvs_full$relig, wvs_full$degree))')
-  Hint: 'This skeleton should help you out: (new_name <- table(wvs_full$var_1, wvs_full$var_2))'
+    Remember to set 'useNA' to 'always'. Save it as our_table2 and wrap the whole expression in
+    parenthesis ().
+  CorrectAnswer: (our_table2 <- table(wvs_full$relig, wvs_full$degree, useNA = 'always'))
+  AnswerTests: omnitest(correctExpr="(our_table2 <- table(wvs_full$relig, wvs_full$degree, useNA = 'always'))")
+  Hint: "This skeleton should help you out: (new_name <- table(wvs_full$var_1, wvs_full$var_2, useNA = 'always'))"
     
 - Class: text
   Output: So, people who don't have a degree are disproportionately more likely to be religious.
