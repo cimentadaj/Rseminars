@@ -273,9 +273,9 @@
     By default the 'by' option has a 1 assigned, which is why seq(1, 10) will yield c(1, 2, ..., 10).
     
 - Class: text
-  Output: 'A related function is rep() which can be used for repeting an object in various ways.
-    The simplest form is rep(x, times = x) where x is any of the vectors we've explained'.
-  
+  Output: "A related function is rep() which can be used for repeting an object in various ways.
+      The simplest form is rep(x, times = x) where x is any of the vectors we've explained."
+
 - Class: mult_question
   Output: 'Suppose we have a new vector ages <- c(10, 5, 3, 6, 21). If we typed rep(ages, 2) what
       do you think would be the result?'
