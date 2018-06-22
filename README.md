@@ -2,11 +2,11 @@
 
 ## RonR! First Seminar Series
 
-The RonR! Seminar Series is an interactive R course aimed at students who want to learn R. They were first created as a set of exercises for a series of lectures given in April-May 2016 in Pompeu Fabra University. These exercises have evolved to stand on their own and can now be accessed by following the tutorial [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Second_Seminar).
+The RonR! Seminar Series is an interactive R course aimed at students who want to learn R. They were first created as a set of exercises for a series of lectures given in April-May 2016 in Pompeu Fabra University. These exercises have evolved to stand on their own and can now be accessed by following the tutorial [here](https://github.com/cimentadaj/Rseminars/tree/master/Lesson_1).
 
 **Seminar 1. An overview of the strengths of R**
 
-*Note: This introduction does not contain exercises, only an [RMarkdown presentation](https://github.com/cimentadaj/Rseminars/blob/master/RonR_First_Seminar/First-seminar-presentation.rmd)*
+*Note: This introduction does not contain exercises, only an [RMarkdown presentation](https://github.com/cimentadaj/Rseminars/blob/master/Presentation/First-seminar-presentation.rmd)*
 
 Brief introduction to R
 
@@ -29,7 +29,7 @@ Brief introduction to R
 
 ## **Seminar 2. Getting familiar with R objects**
 
-This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Second_Seminar).
+This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/Lesson_1).
 
 * Vectors
   + Numerical, logical and character vectors
@@ -57,7 +57,7 @@ This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/t
 
 ## **Seminar 3. Manipulating and processing data**
 
-This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/RonR_Third_Seminar)
+This seminar contains exercises [here](https://github.com/cimentadaj/Rseminars/tree/master/Lesson_2)
 
 * Importing data from SPSS, EXCEL and STATA
 * Basic data manipulation:
