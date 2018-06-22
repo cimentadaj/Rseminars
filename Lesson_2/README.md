@@ -1,6 +1,6 @@
 
 ![](../recsm_logo.jpeg)
-## RonR! Seminar Series
+## Lesson 2
 
 ### Installation
 These exercises can be accessed directly through R. If you already started with the second seminar then everything should be installed and you should be able to access
