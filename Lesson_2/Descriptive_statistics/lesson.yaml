@@ -7,7 +7,7 @@
   Version: 2.2.21
 
 - Class: text
-  Output: Hello and welcome to the third lesson of the 3rd RonR! seminar. On this lesson
+  Output: Hello and welcome to the third lesson of Lesson 2. On this lesson
         we will cover the basics of descriptive statistics, frequency tables and correlation,
         the main functions for Exploratory Data Analysis (EDA).
         
