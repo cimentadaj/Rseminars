@@ -136,7 +136,8 @@
 - Class: cmd_question
   Output: A simpler and more elegant way would be to
     concatenate the vector myname and your last name together. Remember, myname is not a character
-    element but a character VECTOR, so you don't have to wrap it around with the " ".
+    element but a character VECTOR, so you don't have to wrap it around with the " ". However,
+    your last name is going to be a character vector, so you need to wrap it in " ".
     Assign your result to myname again.
   CorrectAnswer: var_is_a('character', 'myname')
   AnswerTests: var_is_a('character', 'myname')
@@ -285,11 +286,11 @@
     of any of those forms'
   
 - Class: mult_question
-  Output: 'Remember that our income vector has the numbers c(10, 5, 3, 6, 21) inside.
+  Output: 'Remember that our income vector has the numbers c(100, 500, 35, 60, 2100) inside.
     If we typed rep(income, 2) what do you think would be the result?'
-  AnswerChoices: 10, 5, 3, 6, 21,10, 5, 3, 6, 21; 21, 6, 3, 5, 10, 10, 5, 3, 6, 21; 10, 5, 3, 6, 21, 21, 6, 3, 5, 10
-  CorrectAnswer: 10, 5, 3, 6, 21,10, 5, 3, 6, 21
-  AnswerTests: omnitest(correctVal= '10, 5, 3, 6, 21,10, 5, 3, 6, 21')
+  AnswerChoices: 100, 500, 35, 60, 2100, 100, 500, 35, 60, 2100; 2100, 60, 35, 500, 100, 100, 500, 35, 60, 2100; 100, 500, 35, 60, 2100, 2100, 60, 35, 500, 100
+  CorrectAnswer: 100, 500, 35, 60, 2100, 100, 500, 35, 60, 2100
+  AnswerTests: omnitest(correctVal= '100, 500, 35, 60, 2100, 100, 500, 35, 60, 2100')
   Hint: 'The result would be the contents of the vector repeated twice'
   
 - Class: cmd_question
