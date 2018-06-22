@@ -7,7 +7,7 @@
 ## install.packages("downloader") if you don't have it installed.
 library(downloader)
 
-download_link <- "https://raw.githubusercontent.com/cimentadaj/Rseminars/master/RonR_Second_Seminar/Course_download.R"
+download_link <- "https://raw.githubusercontent.com/cimentadaj/Rseminars/master/Lesson_1/Course_download.R"
 source_url(download_link, paste(sha_url(download_link)))
 
 install_everything()
