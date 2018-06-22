@@ -29,7 +29,7 @@
   
 - Class: text
   Output: First thing's first. We have to open the data and look how to read it. If you have internet, 
-    follow this link to check both datasets https://github.com/cimentadaj/Rseminars/tree/master/RonR_Third_Seminar/EDA/data
+    follow this link to check both datasets https://github.com/cimentadaj/Rseminars/tree/master/Lesson_2/Exploratory_Data_Analysis/data
 
 - Class: cmd_question
   Output: If you don't have internet, the data should be in the folder in the data_paths vector. Type it.
