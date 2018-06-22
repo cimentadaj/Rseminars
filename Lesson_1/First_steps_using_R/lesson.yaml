@@ -15,13 +15,13 @@
     using Rstudio (https://www.rstudio.com/)
 
 - Class: text
-  Output: Throughout this lesson you'll learn what are packages and how to install them and
+  Output: Through out this lesson you'll learn what are packages, how to install them and
     how Rstudio works. If you're ready, let's begin!
 
 - Class: text
   Output: R is a programming language and environment that allows you to process data and apply
-    statistical methods. But that is just the tip of the iceberg! As we'll try to show in future
-    exercises, R has potential to do many other things. 
+    statistical methods. But that is just the tip of the iceberg! As we will try to show in future
+    exercises, R has the potential to do many other things. 
 
 - Class: text
   Output: "R is also completely free and is maintained by a non-profit organization and the public
@@ -41,12 +41,12 @@
     additional functions that are at your disposal.
 
 - Class: text
-  Output: At this point (22/January/2017), R has over 6000 contributed packages. But don't
+  Output: At this point (22/June/2018), R has over 12087 contributed packages. But don't
       get overwhelmed, we will only use a handful.
 
 - Class: cmd_question
   Output: Let's install and load a package. You install packages with the built-in function
-    install.packages(). As you might've imaginged, the function installs the package
+    install.packages(). As you might've imagined, the function installs the package
     specified within the parenthesis. Write down install.packages("car")
   CorrectAnswer: install.packages("car")
   AnswerTests: omnitest(correctExpr='install.packages("car")')
@@ -63,7 +63,7 @@
   Output: You now have a loaded package at your disposal. This means that you can use
     any function that comes with the package. If you downloaded the package but didn't load it
     you wouldn't be able to access it's functions. If you want to see the description of a package
-    or any of its functions you can search on Google and you'll find it easily(for example; car
+    or any of its functions you can search on Google and you'll find it easily (for example; car
     package) 
 
 - Class: text
@@ -110,7 +110,7 @@
 - Class: text
   Output: You normally use the console for data exploration
     and experimental analysis. The window above the console
-    is the code editor. Here you can write as much code as you want
+    is the code editor. There you can write as much code as you want
     and save it as you go along. The data analysis workflow is usually like this;
     you experiment with functions in your console and when you find
     interesting results you write down the code in the code editor.
