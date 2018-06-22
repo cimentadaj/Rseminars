@@ -3,7 +3,7 @@
       # the user's working directory and thus be accessible to them
       # throughout the lesson.
 
-data_paths <- file.path(find.package("swirl"), "Courses", "Lesson_2", "EDA", "data")
+data_paths <- file.path(find.package("swirl"), "Courses", "Lesson_2", "Exploratory_Data_Analysis", "data")
 
-wvs_url <- "https://raw.githubusercontent.com/cimentadaj/Rseminars/master/Lesson_2/EDA/data/wvs"
-wvs2_url <- "https://raw.githubusercontent.com/cimentadaj/Rseminars/master/Lesson_2/EDA/data/wvs_semi_colon"
+wvs_url <- "https://raw.githubusercontent.com/cimentadaj/Rseminars/master/Lesson_2/Exploratory_Data_Analysis/data/wvs"
+wvs2_url <- "https://raw.githubusercontent.com/cimentadaj/Rseminars/master/Lesson_2/Exploratory_Data_Analysis/data/wvs_semi_colon"
