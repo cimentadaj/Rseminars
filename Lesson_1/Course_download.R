@@ -9,6 +9,8 @@ install_everything <- function() {
   
   suppressWarnings(install_course_github("cimentadaj", "Rseminars", multi = T))
   
+  suppressMessages(swirl::uninstall_course("Presentation"))
+  
   ## Now you can see the course if you type swirl()
   message("Type swirl() to access the course")
 }
