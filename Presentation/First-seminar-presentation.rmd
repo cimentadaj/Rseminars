@@ -48,7 +48,7 @@ source_url("https://raw.githubusercontent.com/cimentadaj/Rseminars/master/packag
 After running the code, remember to make the three lines as a comment so they don't appear in the presentation.
 
 ========================================================
-# RonR! First seminar  
+# First seminar  
 # Introduction to R and its strengths  
 Jorge Cimentada  
 5th of March of 2016  
