@@ -187,11 +187,6 @@
   CorrectAnswer: barplot(table(labels_factor))
   AnswerTests: omnitest(correctExpr='barplot(table(labels_factor))')
   Hint: barplot(table(the_variable)) should be enough!
-  
-- Class: text
-  Output: Usually, when reading csv files, string variables are set to be factors be default.
-    Although this might be what we wanted, it is often not. To control for that, you can
-    change stringsAsFactors to be equal to FALSE!
 
 - Class: text
   Output: Good job!

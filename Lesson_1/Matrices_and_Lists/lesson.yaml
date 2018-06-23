@@ -9,7 +9,7 @@
 - Class: text
   Output: Hello! Welcome to our lesson on matrices and lists. Matrices are widely used in mathematics and
     algebra and are really useful in computer science. In this lesson we'll learn how to use matrices
-    in R and how characteristics they have.
+    in R and what are their characteristics.
     
 - Class: text
   Output: First off, what is a matrix? A matrix is simply a rectangular shaped data set usually
@@ -154,7 +154,7 @@
 - Class: text
   Output: 'Behind the scenes, R accepts only one class within a matrix. It returned a character
     matrix (notice how the 1 is wrapped in ""). By default, R will transform numerics to characters
-    where only one class is permitted. Keep this in mind, as you will have to deal with these nuances
+    when only one class is permitted. Keep this in mind, as you will have to deal with these nuances
     on a daily basis!'
 
 - Class: text
