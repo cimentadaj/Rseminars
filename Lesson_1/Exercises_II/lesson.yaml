@@ -1,5 +1,5 @@
 - Class: meta
-  Course: Lesson 1
+  Course: Lesson_1
   Lesson: Exercises_II
   Author: your name goes here
   Type: Standard
@@ -78,11 +78,11 @@
     with(data, data[var > 50, your_var_in_quotes]).
   CorrectAnswer: table(with(all_tests, all_tests[id_best > 50, "passmath_failscience"]))
   AnswerTests: omnitest(correctExpr='table(with(all_tests, all_tests[id_best > 50, "passmath_failscience"]))')
-  Hint: table(with(data, data[var > value, your_var_in_quotes])), that was a hard one!
+  Hint: table(with(all_tests, all_tests[id_best > 50, "passmath_failscience"])), that was a hard one!
 
 - Class: text
   Output: That was some real data analysis there! So what are we doing? We take the all_tests
-    data and, we're choosing only the rows where id_best is > 50 but we're using only the
+    data and, we're choosing only the rows where id_best is > 50 but we're choosing only the
     passmath_failscience column. The output is simply the vector of passmath_failscience
     that are above 50. By wrapping all of that in table() we get the frequencies. Good Job!
 
@@ -199,9 +199,9 @@
   Hint: Well, I don't think a hint is needed :P. We want a numeric!
 
 - Class: cmd_question
-  Output: Using the expression we used to order id, inside order(), include
-    as.character() and as.numeric() with id as the first argument of as.character().
-    Remember to save everything to literacy_tests.
+  Output: Using the expression we used to order id, inside order(), wrap id with
+    as.character() and as.numeric() in that order. That will transform a factor into
+    numbers. Remember to save everything to literacy_tests.
   CorrectAnswer: literacy_tests <- with(literacy_tests, literacy_tests[order(as.numeric(as.character(id))), ])
   AnswerTests: omnitest(correctExpr='literacy_tests <- with(literacy_tests, literacy_tests[order(as.numeric(as.character(id))), ])')
   Hint: Follow this skeleton data <- with(data, data[order(as.numeric(as.character(id))), ])
@@ -241,4 +241,4 @@
     Use nxt() to come back to the exercises. If you want to finnish the exercises, type "Im done".
   CorrectAnswer: "Im done"
   AnswerTests: omnitest(correctExpr='"Im done"')
-  Hint: 
+  Hint: Bye!
