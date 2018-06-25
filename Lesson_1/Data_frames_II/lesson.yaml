@@ -171,7 +171,7 @@
   CorrectAnswer: mtcars$mean_disp <- with(mtcars, mean(disp))
   AnswerTests: omnitest(correctExpr='mtcars$mean_disp <- with(mtcars, mean(disp))')
   Hint: The structure should be something in the lines of; mydata$new_variable <-
-    assignment of value
+    with(mtcars, ...)
     
 - Class: cmd_question
   Output: Check the insides of mtcars with head(mtcars)
