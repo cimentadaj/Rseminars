@@ -114,7 +114,7 @@
     
 - Class: cmd_question
   Output: That makes sense.. but in both examples we didn't really "delete" the column, we actually
-    excluded it. There are many other ways how to properly deleted a column. One is to assign
+    excluded it. There are other ways on how to properly delete a column. One is to assign
     the column to NULL. Take asfr7512 and assign the 40th column to NULL. No need to save anything.
   CorrectAnswer: asfr7512[, 40] <- NULL
   AnswerTests: omnitest(correctExpr='asfr7512[, 40] <- NULL')
@@ -175,7 +175,7 @@
   Hint: Something like this data <- data[previous answer]
 
 - Class: cmd_question
-  Output: Great! Now cbind() those two badboys together and call the new dataset fertility_years.
+  Output: Great! Now cbind() those two data frames together and call the new dataset fertility_years.
   CorrectAnswer: fertility_years <- cbind(asfr7512, asfr1314)
   AnswerTests: omnitest(correctExpr='fertility_years <- cbind(asfr7512, asfr1314)')
   Hint: Something like this new_name <- cbind(data1, data2)
@@ -239,7 +239,7 @@
   Hint: Type head(fertility_years).
   
 - Class: cmd_question
-  Output: Good job! Let's take it every further. Let's change all column names. Let's start by
+  Output: Good job! Let's take it even further. Let's change all column names. Let's start by
     creating the names vector. Create a vector with "AGE" as the first string, and then, inside
     the vector, also create a seq() from 1975 to 2014. Wrap the whole seq() expression with as.character()
     because we can't have 'numeric' names! Assign it the name new_name.
@@ -375,17 +375,17 @@
   Hint: data$new_var <- data$old_var >= 10 is an incorrect example of what we want.
   
 - Class: cmd_question
-  Output: In this example first create a new variable called cohort_recoded which is full of NA's.
+  Output: Now follow up by creating a new variable called cohort_recoded which is full of NA's.
   CorrectAnswer: fertility_years$cohort_recoded <- NA
   AnswerTests: omnitest(correctExpr='fertility_years$cohort_recoded <- NA')
-  Hint: data$var_recoded <- new value is very similar to what we want.
+  Hint: data$var_recoded <- new value is very similar to what we want. Remember the new name is cohort_recoded!
 
 - Class: cmd_question
   Output: Recode cohort_recoded so when cohort is equal to TRUE is the cohort_recoded is
     equal to "young cohort" and when cohort is equal to FALSE cohort_recoded is equal to
     "old cohort". Start with TRUE.
-  CorrectAnswer: fertility_years$cohort_recode[fertility_years$cohort == TRUE] <- "young cohort"
-  AnswerTests: omnitest(correctExpr='fertility_years$cohort_recode[fertility_years$cohort == TRUE] <- "young cohort"')
+  CorrectAnswer: fertility_years$cohort_recoded[fertility_years$cohort == TRUE] <- "young cohort"
+  AnswerTests: omnitest(correctExpr='fertility_years$cohort_recoded[fertility_years$cohort == TRUE] <- "young cohort"')
   Hint: data$var_recoded[data$var_to_recode == "something"] <- new value is very similar to what we want.
   
 - Class: cmd_question
@@ -432,7 +432,8 @@
   CorrectAnswer: c(mean(young$`1976`), mean(young$`2014`))
   AnswerTests: omnitest(correctExpr='c(mean(young$`1976`), mean(young$`2014`))')
   Hint: Basically, you're calculating two separate means and just putting them together in a vector.
-    The structure is just as the one in the question.
+    The structure is just as the one in the question. Remember to use the young data frame rather
+    than the old ones
     
 - Class: cmd_question
   Output: Repeat the above for the 'old' data set.
