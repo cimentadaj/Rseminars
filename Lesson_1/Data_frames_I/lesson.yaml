@@ -16,7 +16,7 @@
     column might be of a different class, i.e. numeric, categorical, character or logical.
     
 - Class: cmd_question
-  Output: Type head(iris) to see an example of a data frame. mtcars is the data frame and we're
+  Output: Type head(iris) to see an example of a data frame. iris is the data frame and we're
     only looking at the top rows by using head()
   CorrectAnswer: head(iris)
   AnswerTests: omnitest(correctExpr= 'head(iris)')
@@ -158,7 +158,7 @@
     contains two FALSES.
   CorrectAnswer: states$gay_marriage <- c(F, F)
   AnswerTests: omnitest(correctExpr= 'states$gay_marriage <- c(F, F)')
-  Hint: 'Type something along the lines of states$new_vector <- the TWO FALSES'
+  Hint: 'Type something along the lines of states$new_vector <- c(F, F)'
   
 - Class: text
   Output: 'We can edit values putting together a few things that we have seen so far:

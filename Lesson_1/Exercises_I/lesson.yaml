@@ -18,7 +18,7 @@
     by analyzing some data on children and their school peformance. Let's begin!
     
 - Class: cmd_question
-  Output: We have some data on 9nth graders who took a test in mathematics. Using head(),
+  Output: We have some data on 9th graders who took a test in mathematics. Using head(),
     take a look at the contents of 'math_tests'.
   CorrectAnswer: head(math_tests)
   AnswerTests: omnitest(correctExpr='head(math_tests)')
@@ -26,7 +26,7 @@
     Include the data as the first argument.
 
 - Class: text
-  Output: Ok, so we have an ID, a child's name and their mathematics test score. What can we with that?
+  Output: Ok, so we have an ID, a child's name and their mathematics test score. What can we do with that?
 
 - Class: cmd_question
   Output: Oh! I've just heard from the principal that they forgot to add the type_grade variable.
@@ -50,7 +50,7 @@
 
 - Class: cmd_question
   Output: Awesome, now you do the work. I'll explain in detail. Using the rep() function, place
-    a vector containing "A" and "B" as the first argument. Then check ?rep to identify how to
+    a VECTOR containing "A" and "B" as the first argument. Then check ?rep to identify how to
     repeat each letter instead of the whole vector. Make sure that each letter is repeated 50 times
     and not the vector as a whole.
   CorrectAnswer: rep(c("A", "B"), each = 50)
@@ -119,14 +119,14 @@
 
 - Class: cmd_question
   Output: Now you complete it.. take math_score and create a logical statement like the one above.
-    Remember to save the results to a variable called passed, inside 'math_tests'.
+    Remember to save the results to a variable called passed inside 'math_tests'.
   CorrectAnswer: math_tests$passed <- math_tests$math_score >= 70
   AnswerTests: omnitest(correctExpr='math_tests$passed <- math_tests$math_score >= 70')
   Hint: Someting along the lines of data$new_var <- data$old_var >= 70 should do it.
 
 - Class: cmd_question
-  Output: Awesome! We've recently received an update from the school principal that contains scores
-    for these children's science class. Have a look by typing head(sciente_tests).
+  Output: Awesome! We've recently received an updated dataset from the school principal that contains scores
+    for these children's science class. Have a look by typing head(science_tests).
   CorrectAnswer: head(science_tests)
   AnswerTests: omnitest(correctExpr='head(science_tests)')
   Hint: Proceed by including science_tests as the first argument of head().
