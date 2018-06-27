@@ -21,7 +21,7 @@
 
 - Class: video
   Output: First, let's read the data. Please, inspect the data.
-  VideoLink: https://raw.githubusercontent.com/cimentadaj/Rseminars/master/RonR_Third_Seminar/Descriptive_statistics/data/asfr1314ine.txt
+  VideoLink: https://raw.githubusercontent.com/cimentadaj/Rseminars/master/Lesson_2/Descriptive_statistics/data/asfr1314ine.txt
 
 - Class: cmd_question
   Output: I stored the dataset's url in a string vector called txt_file in your workspace.
@@ -30,9 +30,8 @@
   CorrectAnswer: dati <- read.table(txt_file, header = T, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups"), sep = " ")
   AnswerTests: omnitest(correctExpr=('dati <- read.table(txt_file, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups"), sep = " ")'))
   Hint: If you looked at the table, there are 5 columns but only four column names (first column
-    is actually the row.names, that's why you think there are 6). You have to
-    provide (in read.table) new column names(col.names). Use ?read.table to find the arguments
-    and remember to specify the 'sep' argument!
+    is actually the row.names, that's why you think there are 6). The answear is
+    dati <- read.table(txt_file, col.names = c("age", "X2014", "X2013", "year_equal", "age_groups"), sep = " ")
   
 - Class: cmd_question
   Output: Have a look at the first few rows of dati.
@@ -61,7 +60,7 @@
 - Class: text
   Output: Gotcha there! The age variable is a mistake! It's actually the index variable
     which got confused as the age variable. How could you tell? Well the first age is age 1.
-    Which child at age 1 has a fertility rate of 2 and 3 children per year. We have to create
+    Which child at age 1 has a fertility rate of 2 and 3 children per year? We have to create
     a new age variable.
     
 - Class: cmd_question
@@ -172,7 +171,7 @@
   Output: Let's look at whether fertility in 2013 is the same in 2014 for different age groups.
     Take the last table, add a comma, and add the year_equal variable. This time
     save the table to an object named ourtable using the <- operator and wrap everything in
-    parenthesis like this.
+    parenthesis like this (random_vec <- expression_here)
   CorrectAnswer: (ourtable <- table(dati$age_groups, dati$year_equal))
   AnswerTests: omnitest(correctExpr='(ourtable <- table(dati$age_groups, dati$year_equal))')
   Hint: Type (name <- table(var1, var2, ...)). This will give you a two
