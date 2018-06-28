@@ -24,7 +24,7 @@
 
 - Class: text
   Output: Let's begin with the data. I've grabbed some data from the World Value Survey (WVS) where we will
-    explore whether the population in countries like Norway, Sweden, Australia and US is very religious religion,
+    explore whether the population in countries like Norway, Sweden, Australia and US is very religious,
     and how does that differ by gender, education and age.
   
 - Class: text
@@ -62,8 +62,7 @@
     the name 'wvs'.
   CorrectAnswer: wvs <- read.table(wvs_url, header = T)
   AnswerTests: omnitest(correctExpr='wvs <- read.table(wvs_url, header = T)')
-  Hint: Ok, two hints. The structure should be something along the lines of new_name <- function(url, arguments).
-    If you don't remember which arguments to use, type ?read.table().
+  Hint: Nice try! The answer you were looking for was wvs <- read.table(wvs_url, header = T)
     
 - Class: cmd_question
   Output: Check the first few rows of wvs with head()
@@ -99,8 +98,8 @@
   CorrectAnswer: wvs_two <- read.csv2(wvs2_url, header = T, col.names = c("degree", "country", "age", "wdk", "index"))
   AnswerTests: calculates_same_value('wvs_two <- read.csv2(wvs2_url, header = T, col.names = c("degree", "country", "age", "wdk", "index"))')
   Hint: Using read.csv2(), what's important here are the header argument and the col.names argument.
-    The col.names argument should be have a character vector with all column names in the original data (
-    go back to the url) plus the two names 'wdk' and 'index' for the last two columns (which don't have a name).
+    The col.names argument should have col.names = c("degree", "country", "age", "wdk", "index").
+    Everything else should be the same as the read.table expression.
 
 - Class: cmd_question
   Output: Don't worry if you get a lot of warning messages! Let's check if the data makes sense
@@ -148,8 +147,8 @@
     variables 'wdk' to 'index', 'which_relig' to 'relig' and 'wdk' to 'gender'.
   CorrectAnswer: names(wvs_full)[c(1, 3, 7)] <- c("index", "relig", "gender")
   AnswerTests: omnitest(correctExpr='names(wvs_full)[c(1, 3, 7)] <- c("index", "relig", "gender")')
-  Hint: The position we need to change are 1, 3 and 7. Change names(data)[c(1, 3, 7)] to the
-    variable names outlined above.
+  Hint: The position we need to change are 1, 3 and 7. Change names(data)[c(1, 3, 7)] to 
+    c("index", "relig", "gender")
 
 - Class: cmd_question
   Output: Chech the first few rows of 'wvs_full'.
@@ -202,7 +201,7 @@
     
 - Class: text
   Output: So, people who don't have a degree are disproportionately more likely to be religious.
-    This obviously depeneds on a lot of things. One of it is that this relationship changes with
+    This obviously depends on a lot of things. One of it is that this relationship changes with
     your age, and obviously by country. People in Sweden might be generally less religious than
     in the United States.
     
