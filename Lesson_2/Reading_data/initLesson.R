@@ -13,7 +13,7 @@ library(readxl)
 .get_course_path <- function(){
   tryCatch(swirl::swirl_courses_dir(),
            error = function(c) {
-             file.path(find.package("swirl"), "Courses", "RonR_Third_Seminar", "Reading_data")
+             file.path(find.package("swirl"), "Courses", "Lesson_2", "Reading_data")
     }
   )
 }

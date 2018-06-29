@@ -208,7 +208,7 @@
   CorrectAnswer: read.table(file.path(getwd(), "asfr752012ine1.csv"), header = T, sep = ",")
   AnswerTests: omnitest(correctExpr='read.table(file.path(getwd(), "asfr752012ine1.csv"), header = T, sep = ",")')
   Hint: Remember to create the file path to "asfr752012ine1.csv" using file.path() on the fly.
-    Then using read.table(), set header = T and sep = ",".
+    The answer is this one read.table(file.path(getwd(), "asfr752012ine1.csv"), header = T, sep = ",")
     
 - Class: text
   Output: Okay, I think you've really understood how this works. We haven't assigned a name
@@ -244,7 +244,7 @@
   CorrectAnswer: fem_pop <- read_excel(file.path(getwd(), "INE_fempopJul1975.xlsx"), range = cell_rows(10:61))
   AnswerTests: omnitest(correctExpr='fem_pop <- read_excel(file.path(getwd(), "INE_fempopJul1975.xlsx"), range = cell_rows(10:61))')
   Hint: Remember to use file.path()! Something along these lines should do it
-    new_data <- read_excel(file_to_path, range = cell_rows(10:61))
+    fem_pop <- read_excel(file.path(getwd(), "INE_fempopJul1975.xlsx"), range = cell_rows(10:61))
 
 - Class: cmd_question
   Output: Check it out by typing View(fem_pop)
@@ -338,8 +338,8 @@
     with the name anxiety.
   CorrectAnswer: write_sav(anxiety, file.path(getwd(), "anxiety.sav"))
   AnswerTests: omnitest(correctExpr='write_sav(anxiety, file.path(getwd(), "anxiety.sav"))')
-  Hint: Which ingredients do you need? write_sav(), file.path(), getwd() and "anxiety.sav". Yes,
-    you need to assign the name with the file extension!
+  Hint: Which ingredients do you need? write_sav(), file.path(), getwd() and "anxiety.sav".
+  Write write_sav(anxiety, file.path(getwd(), "anxiety.sav"))
  
 - Class: text
   Output: Reading datasets can be a complex topic and this is just the tip of the iceberg. For extra information
